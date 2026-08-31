@@ -1,6 +1,46 @@
-import { Link } from "react-router-dom";
-import { Compass } from "lucide-react";
+import { Link } from 'react-router-dom';
+import { Compass, BadgeCheck, MapPin } from 'lucide-react';
+import { useLanguage } from '@/lib/LanguageContext';
+
+const CICC_URL = 'https://college-ic.ca/protecting-the-public/find-an-immigration-consultant/';
 
 export default function Footer() {
-  return <footer className="bg-[#08141D] px-5 py-16 text-white lg:px-[8vw]"><div className="mx-auto max-w-[1440px]"><div className="grid gap-12 border-b border-white/10 pb-14 md:grid-cols-3"><div><a href="#top" className="flex items-center gap-3"><Compass className="text-[#C5A059]" /><span className="font-heading text-xl">North Passage</span></a><p className="mt-5 max-w-sm text-sm leading-relaxed text-white/45">Canadian immigration strategy and representation for complex transitions.</p></div><div><p className="text-xs uppercase tracking-[.2em] text-[#C5A059]">Navigate</p><div className="mt-5 grid gap-3 text-sm text-white/60"><a href="#services">Expertise</a><a href="#appeals">Appeals & refusals</a><a href="#approach">Our approach</a></div></div><div><p className="text-xs uppercase tracking-[.2em] text-[#C5A059]">Begin</p><Link to="/strategy-session" className="mt-5 inline-flex border-b border-[#C5A059] pb-2 font-heading text-2xl">Book a strategy session</Link></div></div><div className="flex flex-col gap-3 pt-7 text-xs text-white/35 md:flex-row md:justify-between"><p>© 2026 North Passage Immigration. All rights reserved.</p><p>Information on this website is general and does not constitute legal advice.</p></div></div></footer>;
+  const { t } = useLanguage();
+  return (
+    <footer className="bg-[#07131D] px-5 py-16 text-white lg:px-[8vw]">
+      <div className="mx-auto max-w-[1440px]">
+        <div className="grid gap-12 border-b border-white/10 pb-14 md:grid-cols-3">
+          <div>
+            <a href="#top" className="flex items-center gap-3">
+              <Compass className="text-[#C5A059]" />
+              <span className="font-heading text-xl">Externa<span className="mt-1 block font-body text-[9px] uppercase tracking-[.22em] text-[#D1E3ED]">Immigration Solutions Inc</span></span>
+            </a>
+            <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/45">{t('footer.tagline')}</p>
+            <p className="mt-4 flex items-center gap-2 text-sm text-white/55"><MapPin className="h-4 w-4 text-[#C5A059]" /> {t('truststrip.location')}</p>
+          </div>
+          <div>
+            <p className="text-xs uppercase tracking-[.2em] text-[#C5A059]">{t('footer.navigate')}</p>
+            <div className="mt-5 grid gap-3 text-sm text-white/60">
+              <a href="#services">{t('nav.expertise')}</a>
+              <a href="#appeals">{t('nav.appeals')}</a>
+              <a href="#approach">{t('nav.approach')}</a>
+              <Link to="/fees">{t('nav.fees')}</Link>
+            </div>
+          </div>
+          <div>
+            <p className="text-xs uppercase tracking-[.2em] text-[#C5A059]">{t('footer.begin')}</p>
+            <Link to="/strategy-session" className="mt-5 inline-flex border-b border-[#C5A059] pb-2 font-heading text-2xl">{t('footer.book')}</Link>
+            <a href={CICC_URL} target="_blank" rel="noopener noreferrer" className="mt-6 flex items-center gap-2 text-sm text-white/70 transition hover:text-[#C5A059]">
+              <BadgeCheck className="h-5 w-5 text-[#C5A059]" />
+              {t('footer.license')}
+            </a>
+          </div>
+        </div>
+        <div className="flex flex-col gap-3 pt-7 text-xs text-white/35 md:flex-row md:justify-between">
+          <p>{t('footer.rights')}</p>
+          <p>{t('footer.disclaimer')}</p>
+        </div>
+      </div>
+    </footer>
+  );
 }

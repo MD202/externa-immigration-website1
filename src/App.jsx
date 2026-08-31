@@ -8,6 +8,8 @@ import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
 import Home from '@/pages/Home';
 import StrategySession from '@/pages/StrategySession';
+import Fees from '@/pages/Fees';
+import { LanguageProvider } from '@/lib/LanguageContext';
 // Add page imports here
 
 const AuthenticatedApp = () => {
@@ -38,6 +40,7 @@ const AuthenticatedApp = () => {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/strategy-session" element={<StrategySession />} />
+      <Route path="/fees" element={<Fees />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
@@ -48,13 +51,15 @@ function App() {
 
   return (
     <AuthProvider>
-      <QueryClientProvider client={queryClientInstance}>
-        <Router>
-          <ScrollToTop />
-          <AuthenticatedApp />
-        </Router>
-        <Toaster />
-      </QueryClientProvider>
+      <LanguageProvider>
+        <QueryClientProvider client={queryClientInstance}>
+          <Router>
+            <ScrollToTop />
+            <AuthenticatedApp />
+          </Router>
+          <Toaster />
+        </QueryClientProvider>
+      </LanguageProvider>
     </AuthProvider>
   )
 }

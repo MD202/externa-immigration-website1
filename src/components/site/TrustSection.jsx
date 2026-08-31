@@ -1,6 +1,25 @@
-import { Image } from "@/components/ui/image";
-import { BadgeCheck } from "lucide-react";
+import { Image } from '@/components/ui/image';
+import { BadgeCheck } from 'lucide-react';
+import { useLanguage } from '@/lib/LanguageContext';
 
 export default function TrustSection() {
-  return <section id="about" className="overflow-hidden bg-[#E8EFF3]"><div className="grid lg:grid-cols-2"><div className="flex items-center px-5 py-24 lg:px-[8vw] lg:py-36"><div className="max-w-xl"><p className="eyebrow text-[#7B642F]">Professional responsibility</p><h2 className="section-title">Regulated advocacy. Human counsel.</h2><p className="mt-7 text-lg leading-relaxed text-[#0F2433]/65">Your representative is licensed as an RCIC–IRB and authorized to practise before the Immigration and Refugee Board of Canada. Every engagement is approached with preparation, candour and respect for the stakes involved.</p><div className="mt-9 flex items-start gap-4 border-l-2 border-[#C5A059] pl-5"><BadgeCheck className="h-6 w-6 shrink-0 text-[#0F2433]" /><p className="text-sm leading-relaxed text-[#0F2433]/65">Licensing details and a professional profile can be added here once your consultant name and College number are confirmed.</p></div></div></div><Image src="https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/62ee7416e_generated_78f96e2d.jpg" alt="Family moving toward a Canadian horizon" className="min-h-[480px] w-full" fittingType="fill" /></div></section>;
+  const { t } = useLanguage();
+  return (
+    <section id="about" className="overflow-hidden bg-[#14222E]">
+      <div className="grid lg:grid-cols-2">
+        <div className="flex items-center px-5 py-24 lg:px-[8vw] lg:py-36">
+          <div className="max-w-xl">
+            <p className="eyebrow">{t('trust.eyebrow')}</p>
+            <h2 className="section-title text-white">{t('trust.title')}</h2>
+            <p className="mt-7 text-lg leading-relaxed text-white/60">{t('trust.body')}</p>
+            <div className="mt-9 flex items-start gap-4 border-l-2 border-[#C5A059] pl-5">
+              <BadgeCheck className="h-6 w-6 shrink-0 text-[#C5A059]" />
+              <p className="text-sm leading-relaxed text-white/60">{t('trust.note')}</p>
+            </div>
+          </div>
+        </div>
+        <Image src="https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/62ee7416e_generated_78f96e2d.jpg" alt="Family moving toward a Canadian horizon" className="min-h-[480px] w-full" fittingType="fill" />
+      </div>
+    </section>
+  );
 }
