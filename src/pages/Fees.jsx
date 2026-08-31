@@ -18,30 +18,30 @@ export default function Fees() {
     { title: t('fees.i8t'), fee: t('fees.i8f'), desc: t('fees.i8d') },
   ];
   return (
-    <main className="overflow-hidden bg-[#0B1B27] text-white">
+    <main className="overflow-hidden bg-[#F4F7F9]">
       <NorthStarCursor />
       <Header />
       <section className="px-5 pt-32 pb-20 lg:px-[8vw] lg:pt-40">
         <div className="mx-auto max-w-[1440px]">
-          <Link to="/" className="mb-10 inline-flex items-center gap-2 text-sm text-white/55 transition hover:text-white">
+          <Link to="/" className="mb-10 inline-flex items-center gap-2 text-sm text-[#0F2433]/55 transition hover:text-[#C8102E]">
             <ArrowLeft className="h-4 w-4" /> {t('fees.back')}
           </Link>
           <p className="eyebrow">{t('fees.eyebrow')}</p>
-          <h1 className="section-title text-white">{t('fees.title')}</h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/60">{t('fees.intro')}</p>
-          <div className="mt-12 grid gap-3 md:grid-cols-2">
+          <h1 className="section-title">{t('fees.title')}</h1>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#0F2433]/65">{t('fees.intro')}</p>
+          <div className="mt-12 grid gap-5 md:grid-cols-2">
             {items.map((item) => (
-              <div key={item.title} className="flex flex-col justify-between border border-white/10 bg-[#14222E] p-7 transition hover:border-[#C5A059]/40">
+              <div key={item.title} className="flex flex-col justify-between border border-[#0F2433]/8 bg-white p-7 shadow-sm transition hover:shadow-md">
                 <div className="flex items-start justify-between gap-4">
-                  <h3 className="font-heading text-2xl">{item.title}</h3>
-                  <span className="whitespace-nowrap font-heading text-xl text-[#C5A059]">{item.fee}</span>
+                  <h3 className="font-heading text-2xl text-[#0F2433]">{item.title}</h3>
+                  <span className="whitespace-nowrap font-heading text-xl text-[#C8102E]">{item.fee}</span>
                 </div>
-                <p className="mt-4 text-sm leading-relaxed text-white/55">{item.desc}</p>
+                <p className="mt-4 text-sm leading-relaxed text-[#0F2433]/55">{item.desc}</p>
               </div>
             ))}
           </div>
-          <p className="mt-8 max-w-2xl text-sm leading-relaxed text-white/45">{t('fees.note')}</p>
-          <Link to="/strategy-session" className="mt-8 inline-flex items-center gap-3 bg-[#C5A059] px-6 py-4 font-semibold text-[#0B1B27]">
+          <p className="mt-8 max-w-2xl text-sm leading-relaxed text-[#0F2433]/45">{t('fees.note')}</p>
+          <Link to="/strategy-session" className="mt-8 inline-flex items-center gap-3 bg-[#C8102E] px-6 py-4 font-semibold text-white transition hover:bg-[#A00D24]">
             {t('fees.cta')} <ArrowUpRight />
           </Link>
         </div>

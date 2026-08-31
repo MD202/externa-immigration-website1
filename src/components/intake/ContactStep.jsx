@@ -5,8 +5,8 @@ export default function ContactStep({ data, setData }) {
   const field = (key, value) => setData((current) => ({ ...current, [key]: value }));
   return (
     <div>
-      <h2 className="font-heading text-4xl leading-tight text-white sm:text-5xl">{t('strategy.s3')}</h2>
-      <p className="mt-4 text-white/60">{t('strategy.s3sub')}</p>
+      <h2 className="font-heading text-4xl leading-tight text-[#0F2433] sm:text-5xl">{t('strategy.s3')}</h2>
+      <p className="mt-4 text-[#0F2433]/60">{t('strategy.s3sub')}</p>
       <div className="mt-9 grid gap-5 sm:grid-cols-2">
         <label className="intake-label">{t('strategy.fullName')}
           <input required value={data.full_name} onChange={(e) => field('full_name', e.target.value)} className="intake-input" />

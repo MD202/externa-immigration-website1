@@ -5,16 +5,16 @@ import { useLanguage } from '@/lib/LanguageContext';
 export default function TrustSection() {
   const { t } = useLanguage();
   return (
-    <section id="about" className="overflow-hidden bg-[#14222E]">
+    <section id="about" className="overflow-hidden bg-[#F4F7F9]">
       <div className="grid lg:grid-cols-2">
         <div className="flex items-center px-5 py-24 lg:px-[8vw] lg:py-36">
           <div className="max-w-xl">
             <p className="eyebrow">{t('trust.eyebrow')}</p>
-            <h2 className="section-title text-white">{t('trust.title')}</h2>
-            <p className="mt-7 text-lg leading-relaxed text-white/60">{t('trust.body')}</p>
-            <div className="mt-9 flex items-start gap-4 border-l-2 border-[#C5A059] pl-5">
-              <BadgeCheck className="h-6 w-6 shrink-0 text-[#C5A059]" />
-              <p className="text-sm leading-relaxed text-white/60">{t('trust.note')}</p>
+            <h2 className="section-title">{t('trust.title')}</h2>
+            <p className="mt-7 text-lg leading-relaxed text-[#0F2433]/65">{t('trust.body')}</p>
+            <div className="mt-9 flex items-start gap-4 border-l-2 border-[#C8102E] pl-5">
+              <BadgeCheck className="h-6 w-6 shrink-0 text-[#C8102E]" />
+              <p className="text-sm leading-relaxed text-[#0F2433]/65">{t('trust.note')}</p>
             </div>
           </div>
         </div>

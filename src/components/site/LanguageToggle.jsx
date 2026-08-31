@@ -1,20 +1,21 @@
 import { useLanguage } from '@/lib/LanguageContext';
 
-export default function LanguageToggle() {
+export default function LanguageToggle({ dark = false }) {
   const { lang, setLang } = useLanguage();
   const langs = [
     { code: 'en', label: 'EN' },
     { code: 'ta', label: 'தமிழ்' },
     { code: 'hi', label: 'हिंदी' },
   ];
+  const inactive = dark ? 'text-white/50 hover:text-white/80' : 'text-[#0F2433]/50 hover:text-[#0F2433]';
   return (
     <div className="flex items-center text-xs">
       {langs.map((l, i) => (
         <span key={l.code} className="flex items-center">
-          {i > 0 && <span className="text-white/20">·</span>}
+          {i > 0 && <span className={dark ? 'text-white/20' : 'text-[#0F2433]/20'}>·</span>}
           <button
             onClick={() => setLang(l.code)}
-            className={`px-2 py-1 transition ${lang === l.code ? 'text-[#C5A059]' : 'text-white/50 hover:text-white/80'}`}
+            className={`px-2 py-1 transition ${lang === l.code ? 'text-[#C8102E]' : inactive}`}
           >
             {l.label}
           </button>

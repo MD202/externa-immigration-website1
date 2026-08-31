@@ -11,13 +11,13 @@ import NorthStarCursor from '@/components/site/NorthStarCursor';
 
 export default function Home() {
   return (
-    <main className="overflow-hidden bg-[#0B1B27]">
+    <main className="overflow-hidden bg-white">
       <NorthStarCursor />
       <Header />
       <Hero />
       <TrustStrip />
-      <AppealsSection />
       <ServicesGrid />
+      <AppealsSection />
       <ApproachSection />
       <TrustSection />
       <BusinessFeature />

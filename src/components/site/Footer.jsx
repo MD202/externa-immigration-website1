@@ -7,16 +7,16 @@ const CICC_URL = 'https://college-ic.ca/protecting-the-public/find-an-immigratio
 export default function Footer() {
   const { t } = useLanguage();
   return (
-    <footer className="bg-[#07131D] px-5 py-16 text-white lg:px-[8vw]">
+    <footer className="bg-[#0A1A26] px-5 py-16 text-white lg:px-[8vw]">
       <div className="mx-auto max-w-[1440px]">
         <div className="grid gap-12 border-b border-white/10 pb-14 md:grid-cols-3">
           <div>
             <a href="#top" className="flex items-center gap-3">
-              <Compass className="text-[#C5A059]" />
-              <span className="font-heading text-xl">Externa<span className="mt-1 block font-body text-[9px] uppercase tracking-[.22em] text-[#D1E3ED]">Immigration Solutions Inc</span></span>
+              <Compass className="text-[#C8102E]" />
+              <span className="font-heading text-xl">Externa<span className="mt-1 block font-body text-[9px] uppercase tracking-[.22em] text-white/55">Immigration Solutions Inc</span></span>
             </a>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/45">{t('footer.tagline')}</p>
-            <p className="mt-4 flex items-center gap-2 text-sm text-white/55"><MapPin className="h-4 w-4 text-[#C5A059]" /> {t('truststrip.location')}</p>
+            <p className="mt-4 flex items-center gap-2 text-sm text-white/55"><MapPin className="h-4 w-4 text-[#C8102E]" /> {t('truststrip.location')}</p>
           </div>
           <div>
             <p className="text-xs uppercase tracking-[.2em] text-[#C5A059]">{t('footer.navigate')}</p>
@@ -29,9 +29,9 @@ export default function Footer() {
           </div>
           <div>
             <p className="text-xs uppercase tracking-[.2em] text-[#C5A059]">{t('footer.begin')}</p>
-            <Link to="/strategy-session" className="mt-5 inline-flex border-b border-[#C5A059] pb-2 font-heading text-2xl">{t('footer.book')}</Link>
-            <a href={CICC_URL} target="_blank" rel="noopener noreferrer" className="mt-6 flex items-center gap-2 text-sm text-white/70 transition hover:text-[#C5A059]">
-              <BadgeCheck className="h-5 w-5 text-[#C5A059]" />
+            <Link to="/strategy-session" className="mt-5 inline-flex border-b border-[#C8102E] pb-2 font-heading text-2xl text-white">{t('footer.book')}</Link>
+            <a href={CICC_URL} target="_blank" rel="noopener noreferrer" className="mt-6 flex items-center gap-2 text-sm text-white/70 transition hover:text-[#C8102E]">
+              <BadgeCheck className="h-5 w-5 text-[#C8102E]" />
               {t('footer.license')}
             </a>
           </div>

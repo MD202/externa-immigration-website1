@@ -22,34 +22,34 @@ export default function Header() {
     { label: t('nav.fees'), href: '/fees', external: true },
   ];
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${compact ? 'bg-[#0B1B27] py-3 shadow-xl' : 'bg-[#0B1B27]/80 py-5 backdrop-blur-md'}`}>
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${compact ? 'bg-white py-3 shadow-lg' : 'bg-white/95 py-4 backdrop-blur-md'}`}>
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 lg:px-[8vw]">
-        <a href="#top" className="flex items-center gap-3 text-white">
-          <Compass className="h-8 w-8 text-[#C5A059]" />
-          <span className="font-heading text-lg leading-none">Externa<span className="mt-1 block font-body text-[9px] uppercase tracking-[.22em] text-[#D1E3ED]">Immigration Solutions Inc</span></span>
+        <a href="#top" className="flex items-center gap-3">
+          <Compass className="h-8 w-8 text-[#C8102E]" />
+          <span className="font-heading text-lg leading-tight text-[#0F2433]">Externa<span className="mt-0.5 block font-body text-[9px] uppercase tracking-[.22em] text-[#0F2433]/55">Immigration Solutions Inc</span></span>
         </a>
         <div className="hidden items-center gap-6 lg:flex">
           <nav className="flex items-center gap-6">
             {links.map((link) => link.external ? (
-              <Link key={link.href} to={link.href} className="text-sm text-white/70 transition hover:text-white">{link.label}</Link>
+              <Link key={link.href} to={link.href} className="text-sm text-[#0F2433]/70 transition hover:text-[#C8102E]">{link.label}</Link>
             ) : (
-              <a key={link.href} href={link.href} className="text-sm text-white/70 transition hover:text-white">{link.label}</a>
+              <a key={link.href} href={link.href} className="text-sm text-[#0F2433]/70 transition hover:text-[#C8102E]">{link.label}</a>
             ))}
           </nav>
           <LanguageToggle />
-          <Link to="/strategy-session" className="border border-[#C5A059] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#C5A059] hover:text-[#0B1B27]">{t('nav.book')}</Link>
+          <Link to="/strategy-session" className="bg-[#C8102E] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#A00D24]">{t('nav.book')}</Link>
         </div>
-        <button onClick={() => setOpen(!open)} className="text-white lg:hidden" aria-label="Toggle navigation">{open ? <X /> : <Menu />}</button>
+        <button onClick={() => setOpen(!open)} className="text-[#0F2433] lg:hidden" aria-label="Toggle navigation">{open ? <X /> : <Menu />}</button>
       </div>
       {open && (
-        <nav className="mx-5 mt-4 grid gap-1 border-t border-white/15 bg-[#0B1B27] py-4 lg:hidden">
+        <nav className="mx-5 mt-3 grid gap-1 rounded-lg border border-[#0F2433]/10 bg-white py-4 shadow-xl lg:hidden">
           {links.map((link) => link.external ? (
-            <Link onClick={() => setOpen(false)} key={link.href} to={link.href} className="px-3 py-3 text-white/80">{link.label}</Link>
+            <Link onClick={() => setOpen(false)} key={link.href} to={link.href} className="px-4 py-3 text-[#0F2433]/80">{link.label}</Link>
           ) : (
-            <a onClick={() => setOpen(false)} key={link.href} href={link.href} className="px-3 py-3 text-white/80">{link.label}</a>
+            <a onClick={() => setOpen(false)} key={link.href} href={link.href} className="px-4 py-3 text-[#0F2433]/80">{link.label}</a>
           ))}
-          <div className="px-3 py-3"><LanguageToggle /></div>
-          <Link to="/strategy-session" className="m-3 bg-[#C5A059] px-4 py-3 text-center font-semibold text-[#0B1B27]">{t('nav.book')}</Link>
+          <div className="px-4 py-3"><LanguageToggle /></div>
+          <Link to="/strategy-session" className="m-3 bg-[#C8102E] px-4 py-3 text-center font-semibold text-white">{t('nav.book')}</Link>
         </nav>
       )}
     </header>
