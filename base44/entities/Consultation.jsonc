@@ -1,0 +1,54 @@
+{
+  "name": "Consultation",
+  "type": "object",
+  "properties": {
+    "full_name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "matter": {
+      "type": "string",
+      "enum": [
+        "Appeal or refusal",
+        "Family sponsorship",
+        "Humanitarian and compassionate",
+        "Entrepreneurship",
+        "Permanent residence or PNP",
+        "PR card or citizenship"
+      ]
+    },
+    "urgency": {
+      "type": "string",
+      "enum": [
+        "Deadline within 7 days",
+        "Deadline within 30 days",
+        "No immediate deadline",
+        "Not sure"
+      ]
+    },
+    "summary": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "reviewed",
+        "contacted"
+      ],
+      "default": "new"
+    }
+  },
+  "required": [
+    "full_name",
+    "email",
+    "matter",
+    "urgency"
+  ]
+}

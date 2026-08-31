@@ -1,0 +1,19 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowLeft, ArrowRight, CheckCircle2, Compass } from "lucide-react";
+import { base44 } from "@/api/base44Client";
+import IntakeProgress from "@/components/intake/IntakeProgress";
+import IntakeStep from "@/components/intake/IntakeStep";
+import ContactStep from "@/components/intake/ContactStep";
+
+const matters = ["Appeal or refusal", "Family sponsorship", "Humanitarian and compassionate", "Entrepreneurship", "Permanent residence or PNP", "PR card or citizenship"];
+const urgency = ["Deadline within 7 days", "Deadline within 30 days", "No immediate deadline", "Not sure"];
+export default function StrategySession() {
+  const [step, setStep] = useState(1); const [saving, setSaving] = useState(false); const [sent, setSent] = useState(false);
+  const [data, setData] = useState({ full_name: "", email: "", phone: "", matter: "", urgency: "", summary: "" });
+  const select = (key) => (value) => { setData((current) => ({ ...current, [key]: value })); setTimeout(() => setStep((current) => Math.min(3, current + 1)), 180); };
+  const submit = async (event) => { event.preventDefault(); setSaving(true); await base44.entities.Consultation.create(data); setSent(true); setSaving(false); };
+  if (sent) return <main className="flex min-h-screen items-center justify-center bg-[#0F2433] px-5 text-white"><div className="max-w-xl text-center"><CheckCircle2 className="mx-auto h-12 w-12 text-[#C5A059]" /><h1 className="mt-7 font-heading text-5xl">Your request is received.</h1><p className="mt-5 leading-relaxed text-white/60">Thank you for trusting us with the first details. We’ll review your request and contact you about the next appropriate step.</p><Link to="/" className="mt-8 inline-flex border-b border-[#C5A059] pb-2 text-[#C5A059]">Return to the website</Link></div></main>;
+  const ready = step === 1 ? data.matter : step === 2 ? data.urgency : data.full_name && data.email;
+  return <main className="min-h-screen bg-[#F4F7F9]"><div className="grid min-h-screen lg:grid-cols-[34%_66%]"><aside className="hidden bg-[#0F2433] p-12 text-white lg:flex lg:flex-col lg:justify-between"><Link to="/" className="flex items-center gap-3 font-heading text-xl"><Compass className="text-[#C5A059]" /> North Passage</Link><blockquote className="font-heading text-4xl leading-tight">“The clearest path begins with the right questions.”</blockquote><p className="text-sm leading-relaxed text-white/45">Your information is used only to understand and respond to your consultation request.</p></aside><section className="flex items-center px-5 py-10 sm:px-12 lg:px-[8vw]"><form onSubmit={submit} className="mx-auto w-full max-w-2xl"><Link to="/" className="mb-10 inline-flex items-center gap-2 text-sm text-[#0F2433]/60 lg:hidden"><ArrowLeft className="h-4 w-4" /> Back</Link><IntakeProgress step={step} />{step === 1 && <IntakeStep title="What brings you here today?" options={matters} selected={data.matter} onSelect={select("matter")} />}{step === 2 && <IntakeStep title="Is there a deadline we should know about?" options={urgency} selected={data.urgency} onSelect={select("urgency")} />}{step === 3 && <ContactStep data={data} setData={setData} />}<div className="mt-9 flex items-center justify-between">{step > 1 ? <button type="button" onClick={() => setStep(step - 1)} className="flex items-center gap-2 text-sm text-[#0F2433]/55"><ArrowLeft className="h-4 w-4" /> Back</button> : <span />}{step === 3 && <button disabled={!ready || saving} className="flex items-center gap-3 bg-[#C5A059] px-6 py-4 font-semibold text-[#0F2433] disabled:opacity-40">{saving ? "Sending…" : "Request consultation"}<ArrowRight className="h-4 w-4" /></button>}</div></form></section></div></main>;
+}

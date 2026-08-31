@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,9 +31,9 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
-    --font-heading: ui-sans-serif, system-ui, sans-serif;
-    --font-body: ui-sans-serif, system-ui, sans-serif;
-    --font-display: ui-sans-serif, system-ui, sans-serif;
+    --font-heading: "Fraunces", ui-serif, Georgia, serif;
+    --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "Fraunces", ui-serif, Georgia, serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -86,7 +88,15 @@
     @apply border-border outline-ring/50;
   }
 
-  body {
-    @apply bg-background text-foreground font-body;
-  }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-background text-foreground font-body; }
 }
+
+@layer components {
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-[.24em] text-[#C5A059]; }
+  .section-title { @apply mt-4 font-heading text-4xl leading-[1.08] text-[#0F2433] sm:text-5xl lg:text-6xl; }
+  .intake-label { @apply grid gap-2 text-xs font-semibold uppercase tracking-[.12em] text-[#0F2433]/60; }
+  .intake-input { @apply w-full border-0 border-b border-[#0F2433]/20 bg-transparent px-0 py-3 text-base font-normal normal-case tracking-normal text-[#0F2433] outline-none transition focus:border-[#C5A059] focus:ring-0; }
+}
+
+::selection { background: #C5A059; color: #0F2433; }

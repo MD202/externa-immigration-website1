@@ -1,0 +1,7 @@
+import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
+import { Image } from "@/components/ui/image";
+
+export default function BusinessFeature() {
+  return <section className="relative min-h-[680px] overflow-hidden bg-[#0F2433] text-white"><Image src="https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/ef5356269_generated_e6ef1abd.jpg" alt="Entrepreneur overlooking Toronto business district" className="absolute inset-0 h-full w-full opacity-55" fittingType="fill" /><div className="absolute inset-0 bg-gradient-to-r from-[#0F2433] via-[#0F2433]/80 to-transparent" /><div className="relative mx-auto flex min-h-[680px] max-w-[1440px] items-center px-5 lg:px-[8vw]"><div className="max-w-2xl"><p className="eyebrow">Entrepreneurship pathways</p><h2 className="section-title text-white">Bring more than capital.<br /><em className="text-[#D1E3ED]">Bring a credible plan.</em></h2><p className="mt-7 max-w-xl text-lg leading-relaxed text-white/65">We help founders and operators connect business experience, settlement intent and provincial program criteria into one coherent immigration strategy.</p><Link to="/strategy-session" className="mt-9 inline-flex items-center gap-3 bg-[#C5A059] px-6 py-4 font-semibold text-[#0F2433]">Explore a business pathway <ArrowUpRight /></Link></div></div></section>;
+}
