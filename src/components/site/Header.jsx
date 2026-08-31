@@ -29,7 +29,7 @@ export default function Header() {
           <span className="font-heading text-lg leading-tight text-[#0F2433]">Externa<span className="mt-0.5 block font-body text-[9px] uppercase tracking-[.22em] text-[#0F2433]/55">Immigration Solutions Inc</span></span>
         </a>
         <div className="hidden items-center gap-6 lg:flex">
-          <nav className="flex items-center gap-6">
+          <nav className="flex items-center gap-6" aria-label="Main navigation">
             {links.map((link) => link.external ? (
               <Link key={link.href} to={link.href} className="text-sm text-[#0F2433]/70 transition hover:text-[#C8102E]">{link.label}</Link>
             ) : (
@@ -39,10 +39,10 @@ export default function Header() {
           <LanguageToggle />
           <Link to="/strategy-session" className="bg-[#C8102E] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#A00D24]">{t('nav.book')}</Link>
         </div>
-        <button onClick={() => setOpen(!open)} className="text-[#0F2433] lg:hidden" aria-label="Toggle navigation">{open ? <X /> : <Menu />}</button>
+        <button onClick={() => setOpen(!open)} className="text-[#0F2433] lg:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8102E] focus-visible:ring-offset-2" aria-label="Toggle navigation" aria-expanded={open} aria-controls="mobile-nav">{open ? <X /> : <Menu />}</button>
       </div>
       {open && (
-        <nav className="mx-5 mt-3 grid gap-1 rounded-lg border border-[#0F2433]/10 bg-white py-4 shadow-xl lg:hidden">
+        <nav id="mobile-nav" className="mx-5 mt-3 grid gap-1 rounded-lg border border-[#0F2433]/10 bg-white py-4 shadow-xl lg:hidden" aria-label="Mobile navigation">
           {links.map((link) => link.external ? (
             <Link onClick={() => setOpen(false)} key={link.href} to={link.href} className="px-4 py-3 text-[#0F2433]/80">{link.label}</Link>
           ) : (

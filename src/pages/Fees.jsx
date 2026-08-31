@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, ArrowLeft } from 'lucide-react';
+import { ArrowUpRight, ArrowLeft, Star } from 'lucide-react';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import NorthStarCursor from '@/components/site/NorthStarCursor';
@@ -7,6 +7,11 @@ import { useLanguage } from '@/lib/LanguageContext';
 
 export default function Fees() {
   const { t } = useLanguage();
+  const tiers = [
+    { label: t('booking.tier1Label'), duration: t('booking.tier1Duration'), price: t('booking.tier1Price'), desc: t('booking.tier1Desc'), cta: t('booking.tier1Cta'), badge: null },
+    { label: t('booking.tier2Label'), duration: t('booking.tier2Duration'), price: t('booking.tier2Price'), desc: t('booking.tier2Desc'), cta: t('booking.tier2Cta'), badge: t('booking.tier2Badge') },
+    { label: t('booking.tier3Label'), duration: t('booking.tier3Duration'), price: t('booking.tier3Price'), desc: t('booking.tier3Desc'), cta: t('booking.tier3Cta'), badge: null },
+  ];
   const items = [
     { title: t('fees.i1t'), fee: t('fees.i1f'), desc: t('fees.i1d') },
     { title: t('fees.i2t'), fee: t('fees.i2f'), desc: t('fees.i2d') },
@@ -29,21 +34,47 @@ export default function Fees() {
           <p className="eyebrow">{t('fees.eyebrow')}</p>
           <h1 className="section-title">{t('fees.title')}</h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#0F2433]/65">{t('fees.intro')}</p>
-          <div className="mt-12 grid gap-5 md:grid-cols-2">
-            {items.map((item) => (
-              <div key={item.title} className="flex flex-col justify-between border border-[#0F2433]/8 bg-white p-7 shadow-sm transition hover:shadow-md">
-                <div className="flex items-start justify-between gap-4">
-                  <h3 className="font-heading text-2xl text-[#0F2433]">{item.title}</h3>
-                  <span className="whitespace-nowrap font-heading text-xl text-[#C8102E]">{item.fee}</span>
-                </div>
-                <p className="mt-4 text-sm leading-relaxed text-[#0F2433]/55">{item.desc}</p>
-              </div>
+
+          <div className="mt-14 grid gap-5 md:grid-cols-3">
+            {tiers.map((tier) => (
+              <article key={tier.label} className="relative flex flex-col bg-white p-8 shadow-sm">
+                {tier.badge && (
+                  <span className="absolute -top-3 left-8 bg-[#C5A059] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0F2433]">{tier.badge}</span>
+                )}
+                <h3 className="font-heading text-2xl text-[#0F2433]">{tier.label}</h3>
+                <p className="mt-2 text-sm text-[#0F2433]/50">{tier.duration}</p>
+                <p className="mt-6 font-heading text-4xl text-[#C8102E]">{tier.price}</p>
+                <p className="mt-4 flex-1 text-sm leading-relaxed text-[#0F2433]/60">{tier.desc}</p>
+                <Link to="/strategy-session" className="mt-7 inline-flex items-center gap-2 border-b-2 border-[#C8102E] pb-1 text-sm font-semibold text-[#C8102E]">{tier.cta} <ArrowUpRight className="h-4 w-4" /></Link>
+              </article>
             ))}
           </div>
+
+          <div className="mt-14 flex flex-col items-start justify-between gap-6 border-t border-[#0F2433]/10 pt-10 md:flex-row md:items-center">
+            <div>
+              <h3 className="font-heading text-2xl text-[#0F2433]">{t('booking.fullRepTitle')}</h3>
+              <p className="mt-2 font-heading text-xl text-[#C8102E]">{t('booking.fullRepPrice')}</p>
+            </div>
+            <p className="max-w-md text-sm leading-relaxed text-[#0F2433]/55">{t('booking.fullRepBody')}</p>
+            <Link to="/strategy-session" className="shrink-0 bg-[#0F2433] px-6 py-4 font-semibold text-white transition hover:bg-[#1A3548]">{t('booking.fullRepCta')}</Link>
+          </div>
+
+          <div className="mt-16">
+            <h2 className="font-heading text-3xl text-[#0F2433]">Full representation fees</h2>
+            <div className="mt-8 grid gap-5 md:grid-cols-2">
+              {items.map((item) => (
+                <div key={item.title} className="flex flex-col justify-between border border-[#0F2433]/8 bg-white p-7 shadow-sm transition hover:shadow-md">
+                  <div className="flex items-start justify-between gap-4">
+                    <h3 className="font-heading text-2xl text-[#0F2433]">{item.title}</h3>
+                    <span className="whitespace-nowrap font-heading text-xl text-[#C8102E]">{item.fee}</span>
+                  </div>
+                  <p className="mt-4 text-sm leading-relaxed text-[#0F2433]/55">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
           <p className="mt-8 max-w-2xl text-sm leading-relaxed text-[#0F2433]/45">{t('fees.note')}</p>
-          <Link to="/strategy-session" className="mt-8 inline-flex items-center gap-3 bg-[#C8102E] px-6 py-4 font-semibold text-white transition hover:bg-[#A00D24]">
-            {t('fees.cta')} <ArrowUpRight />
-          </Link>
+          <Link to="/strategy-session" className="mt-8 inline-flex items-center gap-3 bg-[#C8102E] px-6 py-4 font-semibold text-white transition hover:bg-[#A00D24]">{t('fees.cta')} <ArrowUpRight /></Link>
         </div>
       </section>
       <Footer />
