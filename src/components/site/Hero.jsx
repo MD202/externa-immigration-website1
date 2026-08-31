@@ -19,7 +19,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-gradient-to-r from-[#0B1B27] via-[#0B1B27]/90 to-[#0B1B27]/20" />
       <div className="relative mx-auto grid min-h-screen max-w-[1440px] items-center gap-12 px-5 pb-16 pt-32 lg:grid-cols-12 lg:px-[8vw]">
         <div className="lg:col-span-7">
-          <div className="mb-7 flex items-center gap-3 text-xs uppercase tracking-[.24em] text-[#D1E3ED] hidden"><BadgeCheck className="h-5 w-5 text-[#C5A059]" /> {t('hero.eyebrow')}</div>
+          
           <h1 className="max-w-3xl font-heading text-5xl leading-[1.02] sm:text-6xl lg:text-[82px]">{t('hero.title')}</h1>
           <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/70">{t('hero.subtitle')}</p>
           <div className="mt-9 flex flex-wrap gap-4">
