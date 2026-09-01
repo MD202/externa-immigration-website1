@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, ArrowLeft } from 'lucide-react';
+import { ArrowUpRight, ArrowLeft, Compass } from 'lucide-react';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import NorthStarCursor from '@/components/site/NorthStarCursor';
@@ -13,7 +13,6 @@ export default function Fees() {
     { label: t('booking.tier3Label'), duration: t('booking.tier3Duration'), price: t('booking.tier3Price'), desc: t('booking.tier3Desc'), cta: t('booking.tier3Cta'), badge: null },
   ];
   const items = [
-    { title: t('fees.i1t'), fee: t('fees.i1f'), desc: t('fees.i1d') },
     { title: t('fees.i2t'), fee: t('fees.i2f'), desc: t('fees.i2d') },
     { title: t('fees.i3t'), fee: t('fees.i3f'), desc: t('fees.i3d') },
     { title: t('fees.i4t'), fee: t('fees.i4f'), desc: t('fees.i4d') },
@@ -21,6 +20,7 @@ export default function Fees() {
     { title: t('fees.i6t'), fee: t('fees.i6f'), desc: t('fees.i6d') },
     { title: t('fees.i7t'), fee: t('fees.i7f'), desc: t('fees.i7d') },
     { title: t('fees.i8t'), fee: t('fees.i8f'), desc: t('fees.i8d') },
+    { title: t('fees.i9t'), fee: t('fees.i9f'), desc: t('fees.i9d') },
   ];
   return (
     <main className="overflow-hidden bg-[#F4F7F9]">
@@ -30,6 +30,10 @@ export default function Fees() {
         <div className="mx-auto max-w-[1440px]">
           <Link to="/" className="mb-10 inline-flex items-center gap-2 text-sm text-[#0F2433]/55 transition hover:text-[#C8102E]">
             <ArrowLeft className="h-4 w-4" /> {t('fees.back')}
+          </Link>
+          <Link to="/" className="mb-10 flex items-center gap-3 lg:hidden">
+            <Compass className="h-8 w-8 text-[#C8102E]" />
+            <span className="font-heading text-lg leading-tight text-[#0F2433]">Externa<span className="mt-0.5 block font-body text-[9px] uppercase tracking-[.22em] text-[#0F2433]/55">Immigration Solutions Inc</span></span>
           </Link>
           <p className="eyebrow">{t('fees.eyebrow')}</p>
           <h1 className="section-title">{t('fees.title')}</h1>
@@ -69,6 +73,7 @@ export default function Fees() {
             </div>
           </div>
           <p className="mt-8 max-w-2xl text-sm leading-relaxed text-[#0F2433]/45">{t('fees.note')}</p>
+          <p className="mt-3 max-w-2xl text-sm font-semibold leading-relaxed text-[#C8102E]">{t('fees.exclusion')}</p>
           <Link to="/strategy-session" className="mt-8 inline-flex items-center gap-3 bg-[#C8102E] px-6 py-4 font-semibold text-white transition hover:bg-[#A00D24]">{t('fees.cta')} <ArrowUpRight /></Link>
         </div>
       </section>

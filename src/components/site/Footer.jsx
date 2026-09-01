@@ -17,6 +17,7 @@ export default function Footer() {
             </a>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/45">{t('footer.tagline')}</p>
             <p className="mt-4 flex items-center gap-2 text-sm text-white/55"><MapPin className="h-4 w-4 text-[#C8102E]" /> {t('truststrip.location')}</p>
+            <p className="mt-1 text-sm text-white/55">Digital First</p>
           </div>
           <div>
             <p className="text-xs uppercase tracking-[.2em] text-[#C5A059]">{t('footer.navigate')}</p>
