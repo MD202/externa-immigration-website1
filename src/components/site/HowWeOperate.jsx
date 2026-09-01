@@ -25,15 +25,11 @@ export default function HowWeOperate() {
           <h2 className="mt-4 font-heading text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">{t('howWeOperate.title')}</h2>
         </div>
 
-        {/* Horizontal timeline */}
-        <div className="mt-16 overflow-x-auto pb-2 lg:overflow-visible">
-          <div className="relative min-w-[560px] lg:min-w-0">
-            {/* Base line */}
+        {/* Desktop: Horizontal timeline */}
+        <div className="mt-16 hidden lg:block">
+          <div className="relative">
             <div className="absolute top-5 left-5 right-5 h-px bg-white/15" />
-            {/* Progress line */}
             <div className="absolute top-5 left-5 h-px bg-[#C8102E] transition-all duration-500" style={{ width: `calc(${active / (steps.length - 1)} * (100% - 40px))` }} />
-
-            {/* Numbered nodes */}
             <div className="relative flex justify-between">
               {steps.map((step, i) => (
                 <button key={step.n} onClick={() => setActive(i)} className="flex flex-col items-center" aria-label={step.label}>
@@ -50,10 +46,31 @@ export default function HowWeOperate() {
           </div>
         </div>
 
+        {/* Mobile: Vertical step list */}
+        <div className="mt-12 grid gap-3 lg:hidden">
+          {steps.map((step, i) => (
+            <button key={step.n} onClick={() => setActive(i)} className={`flex items-center gap-4 border p-4 text-left transition ${
+              active === i ? 'border-[#C8102E] bg-[#C8102E]/10' : 'border-white/10'
+            }`}>
+              <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 font-mono text-sm font-semibold ${
+                active === i ? 'border-[#C8102E] bg-[#C8102E] text-white' :
+                i < active ? 'border-[#C5A059] bg-[#C5A059]/15 text-[#C5A059]' :
+                'border-white/25 text-white/50'
+              }`}>{step.n}</span>
+              <span className={`font-heading text-base ${active === i ? 'text-white' : 'text-white/60'}`}>{step.label}</span>
+            </button>
+          ))}
+        </div>
+
         {/* Active step content */}
         <div className="mt-12 border-t border-white/10 pt-10">
           <h3 className="font-heading text-2xl text-white lg:text-3xl">{steps[active].label}</h3>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/60">{steps[active].desc}</p>
+        </div>
+
+        {/* Staged fee note */}
+        <div className="mt-8 max-w-2xl border-l-2 border-[#C5A059] px-5 py-4">
+          <p className="text-sm leading-relaxed text-white/50">{t('howWeOperate.stagedNote')}</p>
         </div>
 
         <Link to="/strategy-session" className="mt-12 inline-flex items-center gap-3 bg-[#C8102E] px-6 py-4 font-semibold text-white transition hover:bg-[#A00D24]">

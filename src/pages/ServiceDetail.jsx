@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, CheckCircle2, ChevronDown } from 'lucide-react';
-import { base44 } from '@/api/base44Client';
+import { ArrowLeft, ArrowRight, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
@@ -22,9 +21,6 @@ export default function ServiceDetail() {
   const { id } = useParams();
   const { t } = useLanguage();
   const svc = SERVICE_MAP[id];
-  const [saving, setSaving] = useState(false);
-  const [sent, setSent] = useState(false);
-  const [form, setForm] = useState({ full_name: '', email: '', phone: '', summary: '' });
   const [faqOpen, setFaqOpen] = useState(0);
 
   if (!svc) {
@@ -39,36 +35,10 @@ export default function ServiceDetail() {
   }
 
   const pathwaySteps = t(svc.pathwayKey).split(' · ');
-  const set = (key) => (e) => setForm((c) => ({ ...c, [key]: e.target.value }));
   const faqs = [
     { q: t(`faq.s${id}q1`), a: t(`faq.s${id}a1`) },
     { q: t(`faq.s${id}q2`), a: t(`faq.s${id}a2`) },
   ];
-
-  const submit = async (e) => {
-    e.preventDefault();
-    setSaving(true);
-    await base44.entities.Consultation.create({
-      ...form,
-      matter: svc.matter,
-      urgency: 'Not sure',
-    });
-    setSent(true);
-    setSaving(false);
-  };
-
-  if (sent) {
-    return (
-      <main className="flex min-h-screen items-center justify-center bg-[#F4F7F9] px-5 text-[#0F2433]">
-        <div className="max-w-xl text-center">
-          <CheckCircle2 className="mx-auto h-12 w-12 text-[#C8102E]" />
-          <h1 className="mt-7 font-heading text-5xl">{t('strategy.successTitle')}</h1>
-          <p className="mt-5 leading-relaxed text-[#0F2433]/60">{t('strategy.successBody')}</p>
-          <Link to="/" className="mt-8 inline-flex border-b border-[#C8102E] pb-2 text-[#C8102E]">{t('strategy.successBack')}</Link>
-        </div>
-      </main>
-    );
-  }
 
   return (
     <main className="min-h-screen bg-[#F4F7F9]">
@@ -104,25 +74,16 @@ export default function ServiceDetail() {
             </div>
             {/* Right: contact form */}
             <div className="bg-white p-8 shadow-sm lg:sticky lg:top-32 lg:self-start">
-              <h2 className="font-heading text-2xl text-[#0F2433]">{t('strategy.s3')}</h2>
-              <p className="mt-2 text-sm text-[#0F2433]/55">{t('strategy.s3sub')}</p>
-              <form onSubmit={submit} className="mt-7 grid gap-5">
-                <label className="intake-label">{t('strategy.fullName')}
-                  <input required value={form.full_name} onChange={set('full_name')} className="intake-input" />
-                </label>
-                <label className="intake-label">{t('strategy.email')}
-                  <input required type="email" value={form.email} onChange={set('email')} className="intake-input" />
-                </label>
-                <label className="intake-label">{t('strategy.phoneOpt')}
-                  <input value={form.phone} onChange={set('phone')} className="intake-input" />
-                </label>
-                <label className="intake-label">{t('strategy.summaryOpt')}
-                  <textarea rows="4" value={form.summary} onChange={set('summary')} className="intake-input resize-none" />
-                </label>
-                <button disabled={saving} className="flex items-center justify-center gap-3 bg-[#C8102E] px-6 py-4 font-semibold text-white transition hover:bg-[#A00D24] disabled:opacity-40">
-                  {saving ? t('strategy.sending') : t('strategy.submit')} <ArrowRight className="h-4 w-4" />
-                </button>
-              </form>
+              <h2 className="font-heading text-2xl text-[#0F2433]">{t('bookingFlow.title')}</h2>
+              <p className="mt-2 text-sm leading-relaxed text-[#0F2433]/55">{t('bookingFlow.subtitle')}</p>
+              <div className="mt-6 border border-[#0F2433]/10 bg-[#F4F7F9] p-5">
+                <p className="font-heading text-lg text-[#0F2433]">{t('booking.tier2Label')} <span className="text-sm font-normal text-[#0F2433]/50">({t('booking.tier2Duration')})</span></p>
+                <p className="mt-2 text-sm leading-relaxed text-[#0F2433]/55">{t('booking.tier2Desc')}</p>
+                <p className="mt-3 font-heading text-xl text-[#C8102E]">{t('booking.tier2Price')}</p>
+              </div>
+              <Link to="/strategy-session" className="mt-5 flex items-center justify-center gap-3 bg-[#C8102E] px-6 py-4 font-semibold text-white transition hover:bg-[#A00D24]">
+                {t('booking.tier2Cta')} <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </div>

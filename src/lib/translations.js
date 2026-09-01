@@ -13,7 +13,7 @@ export const translations = {
     word2: { en: 'clarified', ta: 'தெளிவான', hi: 'स्पष्ट' },
     word3: { en: 'defensible', ta: 'பாதுகாக்கக்கூடிய', hi: 'रक्षणीय' },
     word4: { en: 'planned', ta: 'திட்டமிடப்பட்ட', hi: 'योजनाबद्ध' },
-    subtitle: { en: 'We are a licensed immigration practice working with health care employers, the professionals they hire, and people whose application was refused.', ta: 'நாங்கள் ஒரு உரிமம் பெற்ற குடியேற்ற நடைமுறை, சுகாதார தொழிலாளர், அவர்கள் நியமிக்கும் நிபுணர்கள், மற்றும் விண்ணப்பம் நிராகரிக்கப்பட்டவர்களுக்காக பணியாற்றுகிறோம்.', hi: 'हम एक लाइसेंस प्राप्त आव्रजन प्रैक्टिस हैं, स्वास्थ्य सेवा नियोक्ताओं, उनके द्वारा काम पर रखे गए पेशेवरों, और जिनके आवेदन अस्वीकृत हो गए, उनके लिए काम करते हैं।' },
+    subtitle: { en: 'We are a licensed immigration practice working with individuals, families, employers, and people whose application was refused.', ta: 'நாங்கள் ஒரு உரிமம் பெற்ற குடியேற்ற நடைமுறை, தனிநபர்கள், குடும்பங்கள், தொழிலாளர்கள், மற்றும் விண்ணப்பம் நிராகரிக்கப்பட்டவர்களுக்காக பணியாற்றுகிறோம்.', hi: 'हम एक लाइसेंस प्राप्त आव्रजन प्रैक्टिस हैं, व्यक्तियों, परिवारों, नियोक्ताओं, और जिनके आवेदन अस्वीकृत हो गए, उनके लिए काम करते हैं।' },
     cta1: { en: 'Discuss your case', ta: 'உங்கள் வழக்கைப் பற்றி பேசுங்கள்', hi: 'अपना मामला चर्चा करें' },
     cta2: { en: 'Explore pathways', ta: 'பாதைகளை ஆராயுங்கள்', hi: 'मार्गों का अन्वेषण करें' },
     assessmentEyebrow: { en: 'Quick assessment', ta: 'விரைவு மதிப்பீடு', hi: 'त्वरित मूल्यांकन' },
@@ -57,6 +57,7 @@ export const translations = {
     d6: { en: 'You review everything and approve before anything is filed.', ta: 'எதுவும் தாக்கல் செய்வதற்கு முன் நீங்கள் எல்லாவற்றையும் மதிப்பாய்வு செய்து ஒப்புதல் அளிக்கிறீர்கள்.', hi: 'कुछ भी दाखिल करने से पहले आप सब कुछ समीक्षा और अनुमोदित करते हैं।' },
     d7: { en: 'We submit your application to the right authority, on time.', ta: 'உங்கள் விண்ணப்பத்தை சரியான அதிகாரிக்கு, சரியான நேரத்தில் சமர்ப்பிக்கிறோம்.', hi: 'हम आपका आवेदन सही अधिकारी को, समय पर दाखिल करते हैं।' },
     d8: { en: 'You receive your decision. We are with you for whatever comes next.', ta: 'உங்கள் முடிவைப் பெறுகிறீர்கள். அடுத்து எது நடந்தாலும் நாங்கள் உங்களுடன் இருக்கிறோம்.', hi: 'आपको अपना निर्णय मिलता है। आगे जो भी हो, हम आपके साथ हैं।' },
+    stagedNote: { en: 'Fees are collected in stages — never upfront in one lump sum. You pay for the consultation first, and any full representation fee is agreed in writing before further work begins.' },
   },
   appeals: {
     eyebrow: { en: 'The Externa framework', ta: 'எக்ஸ்டெர்னா கட்டமைப்பு', hi: 'एक्सटर्ना ढाँचा' },
@@ -137,7 +138,7 @@ export const translations = {
   },
   trust: {
     eyebrow: { en: 'Professional responsibility', ta: 'தொழில்முறை பொறுப்பு', hi: 'पेशेवर जिम्मेदारी' },
-    title: { en: 'Regulated advocacy. Direct counsel.', ta: 'ஒழுங்குபடுத்தப்பட்ட வாதம். நேரடி ஆலோசனை.', hi: 'विनियमित वकालत। प्रत्यक्ष परामर्श।' },
+    title: { en: 'Regulated advocacy. Honest counsel.', ta: 'ஒழுங்குபடுத்தப்பட்ட வாதம். நேர்மையான ஆலோசனை.', hi: 'विनियमित वकालत। ईमानदार परामर्श।' },
     body: { en: 'We are licensed as RCIC-IRB and authorized to practise before the Immigration and Refugee Board of Canada. Every engagement is approached with preparation, professionalism and respect for the stakes involved.', ta: 'நாங்கள் RCIC-IRB ஆக உரிமம் பெற்றுள்ளோம் மற்றும் கனடாவின் குடியேற்ற மற்றும் அகதி வாரியத்தின் முன் பயிற்சி செய்ய அங்கீகரிக்கப்பட்டுள்ளோம். ஒவ்வொரு ஈடுபாடும் தயாரிப்பு, தொழில்முறை மற்றும் சம்பந்தப்பட்ட பங்குகளுக்கான மரியாதையுடன் அணுகப்படுகிறது.', hi: 'हम RCIC-IRB के रूप में लाइसेंस प्राप्त हैं और कनाडा के आव्रजन और शरणार्थी बोर्ड के सामने अभ्यास करने के लिए अधिकृत हैं। प्रत्येक जुड़ाव तैयारी, पेशेवरता और संबंधित दांव के प्रति सम्मान के साथ किया जाता है।' },
     note: { en: 'Verify our licence on the College of Immigration Consultants public register', ta: 'குடியேற்ற ஆலோசகர்களின் கல்லூரி பொதுப் பதிவேட்டில் எங்கள் உரிமத்தை சரிபார்க்கவும்', hi: 'आव्रजन सलाहकारों के महाविद्यालय सार्वजनिक रजिस्टर में हमारा लाइसेंस सत्यापित करें' },
     cta: { en: 'Verify licence →', ta: 'உரிமம் சரிபார்க்க →', hi: 'लाइसेंस सत्यापित करें →' },
@@ -200,6 +201,7 @@ export const translations = {
     i9f: { en: 'from $950', ta: '$950 இலிருந்து', hi: '$950 से' },
     i9d: { en: 'Procedural fairness letter analysis and response preparation.', ta: 'நடைமுறை நியாயக் கடித பகுப்பாய்வு மற்றும் பதில் தயாரிப்பு.', hi: 'प्रक्रियात्मक निष्पक्षता पत्र विश्लेषण और प्रतिक्रिया तैयारी।' },
     exclusion: { en: 'Fees do not include interpretation, translation, police clearance certificates, medical exams, biometrics, mailing, government filing fees, or third-party disbursements.', ta: 'கட்டணங்களில் பெயர்ப்பாளர் சேவை, மொழிபெயர்ப்பு, காவல்துறை சான்றிதழ்கள், மருத்துவ பரிசோதனைகள், பயோமெட்ரிக்ஸ், அஞ்சல், அரசு தாக்கல் கட்டணங்கள் அல்லது மூன்றாம் தரப்பு செலவுகள் நீங்கலாக அடங்காது.', hi: 'शुल्क में दुभाषिया, अनुवाद, पुलिस क्लीयरेंस प्रमाणपत्र, चिकित्सा परीक्षा, बायोमेट्रिक्स, मेलिंग, सरकारी दाखिला शुल्क, या तृतीय-पक्ष व्यय शामिल नहीं हैं।' },
+    stagedNote: { en: 'Fees are collected in stages. You pay for the consultation first. If you retain us for full representation, that fee is quoted and agreed in writing before any further work begins — never upfront in one lump sum.' },
   },
   strategy: {
     asideQuote: { en: 'The clearest path begins with the right questions.', ta: 'மிகவும் தெளிவான பாதை சரியான கேள்விகளுடன் தொடங்குகிறது.', hi: 'सबसे स्पष्ट मार्ग सही प्रश्नों से शुरू होता है।' },
