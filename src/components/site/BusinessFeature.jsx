@@ -6,15 +6,15 @@ import { useLanguage } from '@/lib/LanguageContext';
 export default function BusinessFeature() {
   const { t } = useLanguage();
   return (
-    <section className="relative min-h-[680px] overflow-hidden bg-[#0E3B3B] text-white">
+    <section className="relative min-h-[680px] overflow-hidden bg-[#123B2C] text-white">
       <Image src="https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/ef5356269_generated_e6ef1abd.jpg" alt="Entrepreneur overlooking Toronto business district" className="absolute inset-0 h-full w-full opacity-50" fittingType="fill" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#0E3B3B] via-[#0E3B3B]/80 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#123B2C] via-[#123B2C]/80 to-transparent" />
       <div className="relative mx-auto flex min-h-[680px] max-w-[1440px] items-center px-5 lg:px-[8vw]">
         <div className="max-w-2xl">
           <p className="eyebrow">{t('business.eyebrow')}</p>
-          <h2 className="section-title text-white">{t('business.title1')}<br /><em className="text-[#B8A468]">{t('business.title2')}</em></h2>
+          <h2 className="section-title text-white">{t('business.title1')}<br /><em className="text-[#C9A227]">{t('business.title2')}</em></h2>
           <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/65">{t('business.body')}</p>
-          <Link to="/strategy-session" className="mt-9 inline-flex items-center gap-3 bg-[#A85638] px-6 py-4 font-semibold text-white transition hover:bg-[#8E4828]">{t('business.cta')} <ArrowUpRight /></Link>
+          <Link to="/strategy-session" className="mt-9 inline-flex items-center gap-3 bg-[#C9A227] px-6 py-4 font-semibold text-[#3D2F06] transition hover:bg-[#A8871A]">{t('business.cta')} <ArrowUpRight /></Link>
         </div>
       </div>
     </section>

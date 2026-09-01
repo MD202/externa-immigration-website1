@@ -10,28 +10,28 @@ export default function BookingOptions() {
     { label: t('booking.tier3Label'), duration: t('booking.tier3Duration'), price: t('booking.tier3Price'), desc: t('booking.tier3Desc'), cta: t('booking.tier3Cta'), badge: null },
   ];
   return (
-    <section aria-label="Booking options" className="bg-[#F5F1E8] px-5 py-28 lg:px-[8vw] lg:py-40">
+    <section aria-label="Booking options" className="bg-[#F4EEE2] px-5 py-28 lg:px-[8vw] lg:py-40">
       <div className="mx-auto max-w-[1440px]">
         <p className="eyebrow">{t('booking.eyebrow')}</p>
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {tiers.map((tier) => (
             <article key={tier.label} className="relative flex flex-col bg-white p-8 shadow-sm transition hover:shadow-lg">
-              {tier.badge && <span className="absolute -top-3 left-8 bg-[#B8A468] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0E3B3B]">{tier.badge}</span>}
-              <h3 className="font-heading text-2xl text-[#0E3B3B]">{tier.label}</h3>
-              <p className="mt-2 text-sm text-[#0E3B3B]/50">{tier.duration}</p>
-              <p className="mt-6 font-heading text-4xl text-[#A85638]">{tier.price}</p>
-              <p className="mt-4 flex-1 text-sm leading-relaxed text-[#0E3B3B]/60">{tier.desc}</p>
-              <Link to="/strategy-session" className="mt-7 inline-flex items-center gap-2 border-b-2 border-[#A85638] pb-1 text-sm font-semibold text-[#A85638]">{tier.cta} <ArrowUpRight className="h-4 w-4" /></Link>
+              {tier.badge && <span className="absolute -top-3 left-8 bg-[#C9A227] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#123B2C]">{tier.badge}</span>}
+              <h3 className="font-heading text-2xl text-[#123B2C]">{tier.label}</h3>
+              <p className="mt-2 text-sm text-[#123B2C]/50">{tier.duration}</p>
+              <p className="mt-6 font-heading text-4xl text-[#C9A227]">{tier.price}</p>
+              <p className="mt-4 flex-1 text-sm leading-relaxed text-[#123B2C]/60">{tier.desc}</p>
+              <Link to="/strategy-session" className="mt-7 inline-flex items-center gap-2 border-b-2 border-[#C9A227] pb-1 text-sm font-semibold text-[#C9A227]">{tier.cta} <ArrowUpRight className="h-4 w-4" /></Link>
             </article>
           ))}
         </div>
-        <div className="mt-10 flex flex-col items-start justify-between gap-6 border-t border-[#0E3B3B]/10 pt-10 md:flex-row md:items-center">
+        <div className="mt-10 flex flex-col items-start justify-between gap-6 border-t border-[#123B2C]/10 pt-10 md:flex-row md:items-center">
           <div>
-            <h3 className="font-heading text-2xl text-[#0E3B3B]">{t('booking.fullRepTitle')}</h3>
-            <p className="mt-2 font-heading text-xl text-[#A85638]">{t('booking.fullRepPrice')}</p>
+            <h3 className="font-heading text-2xl text-[#123B2C]">{t('booking.fullRepTitle')}</h3>
+            <p className="mt-2 font-heading text-xl text-[#C9A227]">{t('booking.fullRepPrice')}</p>
           </div>
-          <p className="max-w-md text-sm leading-relaxed text-[#0E3B3B]/55">{t('booking.fullRepBody')}</p>
-          <Link to="/strategy-session" className="shrink-0 bg-[#0E3B3B] px-6 py-4 font-semibold text-white transition hover:bg-[#155454]">{t('booking.fullRepCta')}</Link>
+          <p className="max-w-md text-sm leading-relaxed text-[#123B2C]/55">{t('booking.fullRepBody')}</p>
+          <Link to="/strategy-session" className="shrink-0 bg-[#123B2C] px-6 py-4 font-semibold text-white transition hover:bg-[#1D5240]">{t('booking.fullRepCta')}</Link>
         </div>
       </div>
     </section>

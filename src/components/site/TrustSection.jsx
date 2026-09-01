@@ -7,14 +7,14 @@ const CICC_URL = 'https://college-ic.ca/protecting-the-public/find-an-immigratio
 export default function TrustSection() {
   const { t } = useLanguage();
   return (
-    <section id="about" className="overflow-hidden bg-[#F5F1E8]">
+    <section id="about" className="overflow-hidden bg-[#F4EEE2]">
       <div className="grid lg:grid-cols-2">
         <div className="flex items-center px-5 py-24 lg:px-[8vw] lg:py-36">
           <div className="max-w-xl">
             <p className="eyebrow">{t('trust.eyebrow')}</p>
             <h2 className="section-title">{t('trust.title')}</h2>
-            <p className="mt-7 text-lg leading-relaxed text-[#0E3B3B]/65">{t('trust.body')}</p>
-            <a href={CICC_URL} target="_blank" rel="noopener noreferrer" className="mt-9 inline-flex items-center gap-3 border-l-2 border-[#A85638] pl-5 text-[#A85638] transition hover:gap-4">
+            <p className="mt-7 text-lg leading-relaxed text-[#123B2C]/65">{t('trust.body')}</p>
+            <a href={CICC_URL} target="_blank" rel="noopener noreferrer" className="mt-9 inline-flex items-center gap-3 border-l-2 border-[#C9A227] pl-5 text-[#C9A227] transition hover:gap-4">
               <BadgeCheck className="h-6 w-6 shrink-0" />
               <span className="font-semibold">{t('trust.cta')}</span>
               <ExternalLink className="h-4 w-4" />

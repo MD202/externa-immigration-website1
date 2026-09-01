@@ -12,14 +12,14 @@ export default function ValueProps() {
   ];
   const items = [...props, ...props, ...props];
   return (
-    <section aria-label="Key value propositions" className="overflow-hidden border-b border-[#0E3B3B]/10 bg-white py-5">
+    <section aria-label="Key value propositions" className="overflow-hidden border-b border-[#123B2C]/10 bg-white py-5">
       <div className="marquee-track gap-12">
         {items.map(({ icon: Icon, title, body, prominent }, i) => (
           <article key={i} className="flex shrink-0 items-center gap-3">
-            <Icon className="h-5 w-5 text-[#A85638]" aria-hidden="true" />
-            <span className="font-heading text-sm font-semibold text-[#0E3B3B]">{title}:</span>
-            <span className={`text-sm text-[#0E3B3B]/55 ${prominent ? 'font-heading text-base font-semibold text-[#A85638]' : ''}`}>{body}</span>
-            <span className="ml-12 text-[#0E3B3B]/15">·</span>
+            <Icon className="h-5 w-5 text-[#C9A227]" aria-hidden="true" />
+            <span className="font-heading text-sm font-semibold text-[#123B2C]">{title}:</span>
+            <span className={`text-sm text-[#123B2C]/55 ${prominent ? 'font-heading text-base font-semibold text-[#C9A227]' : ''}`}>{body}</span>
+            <span className="ml-12 text-[#123B2C]/15">·</span>
           </article>
         ))}
       </div>
