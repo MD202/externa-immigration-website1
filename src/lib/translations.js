@@ -271,6 +271,7 @@ export const translations = {
   faq: {
     eyebrow: { en: 'Questions', ta: 'கேள்விகள்', hi: 'प्रश्न' },
     title: { en: 'Questions', ta: 'கேள்விகள்', hi: 'प्रश्न' },
+    blurb: { en: 'Straight answers to the things people ask us most — about licensing, fees, and what to expect.', ta: 'உரிமம், கட்டணங்கள் மற்றும் என்ன நடக்கும் என்பது பற்றி மக்கள் அடிக்கடி கேட்கும் கேள்விகளுக்கு நேரடியான பதில்கள்.', hi: 'लाइसेंस, शुल्क और क्या उम्मीद करें — इन बारे में लोग अक्सर जो पूछते हैं, उनके सीधे जवाब।' },
     q1: { en: 'Are you licensed?', ta: 'நீங்கள் உரிமம் பெற்றவரா?', hi: 'क्या आप लाइसेंस प्राप्त हैं?' },
     a1: { en: "Yes, by the College of Immigration and Citizenship Consultants, and we hold the RCIC-IRB class, which allows us to represent clients at the Immigration and Refugee Board. You can verify any consultant's licence on the public register before hiring them.", ta: 'ஆம், குடியேற்ற மற்றும் குடியுரிமை ஆலோசகர்களின் கல்லூரியால், மற்றும் நாங்கள் RCIC-IRB வகுப்பை வைத்திருக்கிறோம், இது குடியேற்ற மற்றும் அகதி வாரியத்தில் வாடிக்கையாளர்களுக்கு பிரதிநிதித்துவம் செய்ய அனுமதிக்கிறது. நியமிக்கும் முன் எந்த ஆலோசகரின் உரிமத்தையும் பொதுப் பதிவேட்டில் சரிபார்க்கலாம்.', hi: 'हाँ, आव्रजन और नागरिकता सलाहकारों के महाविद्यालय द्वारा, और हम RCIC-IRB श्रेणी रखते हैं, जो आव्रजन और शरणार्थी बोर्ड में क्लाइंट का प्रतिनिधित्व करने की अनुमति देता है। किराये पर लेने से पहले किसी भी सलाहकार का लाइसेंस सार्वजनिक रजिस्टर में सत्यापित किया जा सकता है।' },
     q2: { en: 'What does a consultation cost?', ta: 'ஆலோசனை எவ்வளவு செலவாகும்?', hi: 'परामर्श का कितना शुल्क है?' },

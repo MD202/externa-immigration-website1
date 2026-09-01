@@ -23,6 +23,7 @@ export default function FAQSection() {
       <div className="mx-auto max-w-[1440px]">
         <p className="eyebrow">{t('faq.eyebrow')}</p>
         <h2 className="section-title">{t('faq.title')}</h2>
+        <p className="mt-5 max-w-xl text-lg leading-relaxed text-[#0F2433]/60">{t('faq.blurb')}</p>
         <div className="mt-12 divide-y divide-[#0F2433]/10 border-y border-[#0F2433]/10">
           {items.map((item, i) => (
             <div key={i}>
