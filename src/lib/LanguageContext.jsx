@@ -2,7 +2,12 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import { translations } from './translations';
 
 const STORAGE_KEY = 'externa-lang';
-const tFallback = (path) => path;
+const tFallback = (path) => {
+  const keys = path.split('.');
+  let val = translations;
+  for (const k of keys) val = val?.[k];
+  return val?.en || path;
+};
 const LanguageContext = createContext({ lang: 'en', setLang: () => {}, t: tFallback });
 
 export function LanguageProvider({ children }) {
