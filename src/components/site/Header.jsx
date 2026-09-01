@@ -59,7 +59,7 @@ export default function Header() {
                 <div className="absolute top-full left-0 pt-2 w-72">
                   <div className="grid gap-0 border border-[#0F2433]/10 bg-white py-2 shadow-xl">
                     {services.map((s) => (
-                      <Link key={s.id} to={`/services/${s.id}`} onClick={() => setOpenMenu(null)} className="px-4 py-2.5 text-sm text-[#0F2433]/70 transition hover:bg-[#F4F7F9] hover:text-[#C8102E]">{s.label}</Link>
+                      <Link key={s.id} to={`/services/${s.id}`} onClick={() => setOpenMenu(null)} className="px-4 py-3 text-sm text-[#0F2433]/70 transition hover:text-[#C8102E]">{s.label}</Link>
                     ))}
                   </div>
                 </div>
@@ -73,12 +73,13 @@ export default function Header() {
                 <div className="absolute top-full left-0 pt-2 w-56">
                   <div className="grid gap-0 border border-[#0F2433]/10 bg-white py-2 shadow-xl">
                     {aboutLinks.map((link) => (
-                      <Link key={link.href} to={link.href} onClick={() => setOpenMenu(null)} className="px-4 py-2.5 text-sm text-[#0F2433]/70 transition hover:bg-[#F4F7F9] hover:text-[#C8102E]">{link.label}</Link>
+                      <Link key={link.href} to={link.href} onClick={() => setOpenMenu(null)} className="px-4 py-3 text-sm text-[#0F2433]/70 transition hover:text-[#C8102E]">{link.label}</Link>
                     ))}
                   </div>
                 </div>
               )}
             </div>
+            <Link to="/eligibility" className="text-sm font-semibold text-[#C8102E] transition hover:text-[#A00D24]">{t('eligibility.nav')}</Link>
           </nav>
           <Link to="/strategy-session" className="bg-[#C8102E] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#A00D24]">{t('nav.book')}</Link>
         </div>
@@ -95,6 +96,7 @@ export default function Header() {
           <Link onClick={() => setMobileOpen(false)} to="/#how-we-operate" className="block px-4 py-3 text-[#0F2433]/80">{t('howWeOperate.eyebrow')}</Link>
           <Link onClick={() => setMobileOpen(false)} to="/#approach" className="block px-4 py-3 text-[#0F2433]/80">{t('nav.approach')}</Link>
           <Link onClick={() => setMobileOpen(false)} to="/fees" className="block px-4 py-3 text-[#0F2433]/80">{t('nav.fees')}</Link>
+          <Link onClick={() => setMobileOpen(false)} to="/eligibility" className="block px-4 py-3 font-semibold text-[#C8102E]">{t('eligibility.nav')}</Link>
           <Link to="/strategy-session" onClick={() => setMobileOpen(false)} className="m-3 bg-[#C8102E] px-4 py-3 text-center font-semibold text-white">{t('nav.book')}</Link>
         </nav>
       )}

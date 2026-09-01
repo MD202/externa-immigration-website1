@@ -1,0 +1,41 @@
+{
+  "name": "Lead",
+  "type": "object",
+  "properties": {
+    "full_name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "situation": {
+      "type": "string"
+    },
+    "stage": {
+      "type": "string"
+    },
+    "urgency": {
+      "type": "string"
+    },
+    "recommended_pathway": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "new",
+        "contacted",
+        "converted"
+      ],
+      "default": "new"
+    }
+  },
+  "required": [
+    "full_name",
+    "email"
+  ]
+}

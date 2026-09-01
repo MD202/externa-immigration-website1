@@ -10,6 +10,7 @@ import Home from '@/pages/Home';
 import StrategySession from '@/pages/StrategySession';
 import Fees from '@/pages/Fees';
 import ServiceDetail from '@/pages/ServiceDetail';
+import Eligibility from '@/pages/Eligibility';
 import { LanguageProvider } from '@/lib/LanguageContext';
 // Add page imports here
 
@@ -43,6 +44,7 @@ const AuthenticatedApp = () => {
       <Route path="/strategy-session" element={<StrategySession />} />
       <Route path="/fees" element={<Fees />} />
       <Route path="/services/:id" element={<ServiceDetail />} />
+      <Route path="/eligibility" element={<Eligibility />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );

@@ -55,7 +55,7 @@ export default function StrategySession() {
       <div className="grid min-h-screen lg:grid-cols-[34%_66%]">
         <aside className="hidden bg-[#0F2433] p-12 text-white lg:flex lg:flex-col lg:justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <Logo className="h-10 w-10" />
+            <Logo variant="light" className="h-10 w-10" />
             <span className="font-heading text-xl">Externa</span>
           </Link>
           <blockquote className="font-heading text-4xl leading-tight">{t('strategy.asideQuote')}</blockquote>
