@@ -137,7 +137,7 @@ export const translations = {
   },
   trust: {
     eyebrow: { en: 'Professional responsibility', ta: 'தொழில்முறை பொறுப்பு', hi: 'पेशेवर जिम्मेदारी' },
-    title: { en: 'Regulated advocacy. Personal representation.', ta: 'ஒழுங்குபடுத்தப்பட்ட வாதம். தனிப்பட்ட பிரதிநிதித்துவம்.', hi: 'विनियमित वकालत। व्यक्तिगत प्रतिनिधित्व।' },
+    title: { en: 'Regulated advocacy. Direct counsel.', ta: 'ஒழுங்குபடுத்தப்பட்ட வாதம். நேரடி ஆலோசனை.', hi: 'विनियमित वकालत। प्रत्यक्ष परामर्श।' },
     body: { en: 'We are licensed as RCIC-IRB and authorized to practise before the Immigration and Refugee Board of Canada. Every engagement is approached with preparation, professionalism and respect for the stakes involved.', ta: 'நாங்கள் RCIC-IRB ஆக உரிமம் பெற்றுள்ளோம் மற்றும் கனடாவின் குடியேற்ற மற்றும் அகதி வாரியத்தின் முன் பயிற்சி செய்ய அங்கீகரிக்கப்பட்டுள்ளோம். ஒவ்வொரு ஈடுபாடும் தயாரிப்பு, தொழில்முறை மற்றும் சம்பந்தப்பட்ட பங்குகளுக்கான மரியாதையுடன் அணுகப்படுகிறது.', hi: 'हम RCIC-IRB के रूप में लाइसेंस प्राप्त हैं और कनाडा के आव्रजन और शरणार्थी बोर्ड के सामने अभ्यास करने के लिए अधिकृत हैं। प्रत्येक जुड़ाव तैयारी, पेशेवरता और संबंधित दांव के प्रति सम्मान के साथ किया जाता है।' },
     note: { en: 'Verify our licence on the College of Immigration Consultants public register', ta: 'குடியேற்ற ஆலோசகர்களின் கல்லூரி பொதுப் பதிவேட்டில் எங்கள் உரிமத்தை சரிபார்க்கவும்', hi: 'आव्रजन सलाहकारों के महाविद्यालय सार्वजनिक रजिस्टर में हमारा लाइसेंस सत्यापित करें' },
     cta: { en: 'Verify licence →', ta: 'உரிமம் சரிபார்க்க →', hi: 'लाइसेंस सत्यापित करें →' },
@@ -199,7 +199,7 @@ export const translations = {
     i9t: { en: 'PFL response', ta: 'PFL பதில்', hi: 'PFL प्रतिक्रिया' },
     i9f: { en: 'from $950', ta: '$950 இலிருந்து', hi: '$950 से' },
     i9d: { en: 'Procedural fairness letter analysis and response preparation.', ta: 'நடைமுறை நியாயக் கடித பகுப்பாய்வு மற்றும் பதில் தயாரிப்பு.', hi: 'प्रक्रियात्मक निष्पक्षता पत्र विश्लेषण और प्रतिक्रिया तैयारी।' },
-    exclusion: { en: 'Fees do not include mailing, translation, medical exams, biometrics, government filing fees, or third-party disbursements.', ta: 'கட்டணங்களில் அஞ்சல், மொழிபெயர்ப்பு, மருத்துவ பரிசோதனைகள், பயோமெட்ரிக்ஸ், அரசு தாக்கல் கட்டணங்கள் அல்லது மூன்றாம் தரப்பு செலவுகள் நீங்கலாக அடங்காது.', hi: 'शुल्क में मेलिंग, अनुवाद, चिकित्सा परीक्षा, बायोमेट्रिक्स, सरकारी दाखिला शुल्क, या तृतीय-पक्ष व्यय शामिल नहीं हैं।' },
+    exclusion: { en: 'Fees do not include interpretation, translation, police clearance certificates, medical exams, biometrics, mailing, government filing fees, or third-party disbursements.', ta: 'கட்டணங்களில் பெயர்ப்பாளர் சேவை, மொழிபெயர்ப்பு, காவல்துறை சான்றிதழ்கள், மருத்துவ பரிசோதனைகள், பயோமெட்ரிக்ஸ், அஞ்சல், அரசு தாக்கல் கட்டணங்கள் அல்லது மூன்றாம் தரப்பு செலவுகள் நீங்கலாக அடங்காது.', hi: 'शुल्क में दुभाषिया, अनुवाद, पुलिस क्लीयरेंस प्रमाणपत्र, चिकित्सा परीक्षा, बायोमेट्रिक्स, मेलिंग, सरकारी दाखिला शुल्क, या तृतीय-पक्ष व्यय शामिल नहीं हैं।' },
   },
   strategy: {
     asideQuote: { en: 'The clearest path begins with the right questions.', ta: 'மிகவும் தெளிவான பாதை சரியான கேள்விகளுடன் தொடங்குகிறது.', hi: 'सबसे स्पष्ट मार्ग सही प्रश्नों से शुरू होता है।' },

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 
 export default function HowWeOperate() {
@@ -25,62 +25,35 @@ export default function HowWeOperate() {
           <h2 className="mt-4 font-heading text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">{t('howWeOperate.title')}</h2>
         </div>
 
-        {/* Step pills */}
-        <div className="mt-14 flex flex-wrap gap-2.5">
-          {steps.map((step, i) => (
-            <button
-              key={step.n}
-              onClick={() => setActive(i)}
-              className={`flex items-center gap-2.5 px-4 py-2.5 text-sm font-semibold transition ${
-                active === i
-                  ? 'bg-[#C8102E] text-white'
-                  : 'border border-white/15 text-white/50 hover:border-white/40 hover:text-white'
-              }`}
-            >
-              <span className="font-mono text-xs">{step.n}</span>
-              <span className="hidden sm:inline">{step.label}</span>
-            </button>
-          ))}
+        {/* Horizontal timeline */}
+        <div className="mt-16 overflow-x-auto pb-2 lg:overflow-visible">
+          <div className="relative min-w-[560px] lg:min-w-0">
+            {/* Base line */}
+            <div className="absolute top-5 left-5 right-5 h-px bg-white/15" />
+            {/* Progress line */}
+            <div className="absolute top-5 left-5 h-px bg-[#C8102E] transition-all duration-500" style={{ width: `calc(${active / (steps.length - 1)} * (100% - 40px))` }} />
+
+            {/* Numbered nodes */}
+            <div className="relative flex justify-between">
+              {steps.map((step, i) => (
+                <button key={step.n} onClick={() => setActive(i)} className="flex flex-col items-center" aria-label={step.label}>
+                  <span className={`flex h-10 w-10 items-center justify-center rounded-full border-2 font-mono text-sm font-semibold transition ${
+                    active === i
+                      ? 'border-[#C8102E] bg-[#C8102E] text-white'
+                      : i < active
+                        ? 'border-[#C5A059] bg-[#C5A059]/15 text-[#C5A059]'
+                        : 'border-white/25 bg-[#0F2433] text-white/50 hover:border-white/50 hover:text-white'
+                  }`}>{step.n}</span>
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Active step content */}
-        <div className="mt-12 grid gap-8 border-t border-white/10 pt-12 lg:grid-cols-12">
-          <div className="lg:col-span-2">
-            <span className="font-heading text-7xl leading-none text-[#C5A059]/40 lg:text-8xl">{steps[active].n}</span>
-          </div>
-          <div className="lg:col-span-7">
-            <h3 className="font-heading text-2xl text-white lg:text-3xl">{steps[active].label}</h3>
-            <p className="mt-4 max-w-xl text-lg leading-relaxed text-white/60">{steps[active].desc}</p>
-          </div>
-          <div className="flex items-end justify-between lg:col-span-3 lg:flex-col lg:items-end lg:justify-end lg:gap-6">
-            <div className="flex gap-3">
-              <button
-                onClick={() => setActive((p) => Math.max(0, p - 1))}
-                disabled={active === 0}
-                className="flex h-11 w-11 items-center justify-center border border-white/20 text-white transition hover:border-[#C8102E] hover:text-[#C8102E] disabled:opacity-20 disabled:hover:border-white/20 disabled:hover:text-white"
-                aria-label="Previous step"
-              >
-                <ArrowLeft className="h-5 w-5" />
-              </button>
-              <button
-                onClick={() => setActive((p) => Math.min(steps.length - 1, p + 1))}
-                disabled={active === steps.length - 1}
-                className="flex h-11 w-11 items-center justify-center border border-white/20 text-white transition hover:border-[#C8102E] hover:text-[#C8102E] disabled:opacity-20 disabled:hover:border-white/20 disabled:hover:text-white"
-                aria-label="Next step"
-              >
-                <ArrowRight className="h-5 w-5" />
-              </button>
-            </div>
-            <p className="font-mono text-sm text-white/40">{String(active + 1).padStart(2, '0')} / 08</p>
-          </div>
-        </div>
-
-        {/* Progress bar */}
-        <div className="mt-10 h-px w-full bg-white/10">
-          <div
-            className="h-px bg-[#C8102E] transition-all duration-500"
-            style={{ width: `${((active + 1) / steps.length) * 100}%` }}
-          />
+        <div className="mt-12 border-t border-white/10 pt-10">
+          <h3 className="font-heading text-2xl text-white lg:text-3xl">{steps[active].label}</h3>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/60">{steps[active].desc}</p>
         </div>
 
         <Link to="/strategy-session" className="mt-12 inline-flex items-center gap-3 bg-[#C8102E] px-6 py-4 font-semibold text-white transition hover:bg-[#A00D24]">
