@@ -9,7 +9,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#0A1A26] px-5 py-16 text-white lg:px-[8vw]">
       <div className="mx-auto max-w-[1440px]">
-        <div className="grid gap-12 border-b border-white/10 pb-14 md:grid-cols-3">
+        <div className="grid gap-12 border-b border-white/10 pb-14 md:grid-cols-4">
           <div>
             <a href="#top" className="flex items-center gap-3">
               <Compass className="text-[#C8102E]" />
@@ -27,11 +27,22 @@ export default function Footer() {
           </div>
           <div>
             <p className="text-xs uppercase tracking-[.2em] text-[#C5A059]">{t('footer.navigate')}</p>
+            <div className="mt-5 grid gap-2.5 text-sm text-white/60">
+              <Link to="/services/1" className="transition hover:text-[#C8102E]">{t('services.t1')}</Link>
+              <Link to="/services/2" className="transition hover:text-[#C8102E]">{t('services.t2')}</Link>
+              <Link to="/services/3" className="transition hover:text-[#C8102E]">{t('services.t3')}</Link>
+              <Link to="/services/4" className="transition hover:text-[#C8102E]">{t('services.t4')}</Link>
+              <Link to="/services/5" className="transition hover:text-[#C8102E]">{t('services.t5')}</Link>
+              <Link to="/services/8" className="transition hover:text-[#C8102E]">{t('services.t8')}</Link>
+              <Link to="/services/9" className="transition hover:text-[#C8102E]">{t('services.t9')}</Link>
+            </div>
+          </div>
+          <div>
+            <p className="text-xs uppercase tracking-[.2em] text-[#C5A059]">{t('nav.about')}</p>
             <div className="mt-5 grid gap-3 text-sm text-white/60">
-              <a href="#services">{t('nav.services')}</a>
-              <a href="#about">{t('nav.aboutUs')}</a>
-              <a href="#approach">{t('nav.approach')}</a>
-              <Link to="/fees">{t('nav.fees')}</Link>
+              <a href="#about" className="transition hover:text-[#C8102E]">{t('nav.aboutUs')}</a>
+              <a href="#approach" className="transition hover:text-[#C8102E]">{t('nav.approach')}</a>
+              <Link to="/fees" className="transition hover:text-[#C8102E]">{t('nav.fees')}</Link>
             </div>
           </div>
           <div>

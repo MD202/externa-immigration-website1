@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, CheckCircle2, Compass } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle2, ChevronDown } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { useLanguage } from '@/lib/LanguageContext';
 import Header from '@/components/site/Header';
@@ -25,6 +25,7 @@ export default function ServiceDetail() {
   const [saving, setSaving] = useState(false);
   const [sent, setSent] = useState(false);
   const [form, setForm] = useState({ full_name: '', email: '', phone: '', summary: '' });
+  const [faqOpen, setFaqOpen] = useState(0);
 
   if (!svc) {
     return (
@@ -39,6 +40,10 @@ export default function ServiceDetail() {
 
   const pathwaySteps = t(svc.pathwayKey).split(' · ');
   const set = (key) => (e) => setForm((c) => ({ ...c, [key]: e.target.value }));
+  const faqs = [
+    { q: t(`faq.s${id}q1`), a: t(`faq.s${id}a1`) },
+    { q: t(`faq.s${id}q2`), a: t(`faq.s${id}a2`) },
+  ];
 
   const submit = async (e) => {
     e.preventDefault();
@@ -119,6 +124,23 @@ export default function ServiceDetail() {
                 </button>
               </form>
             </div>
+          </div>
+        </div>
+      </section>
+      <section aria-label="Frequently asked questions" className="bg-white px-5 py-20 lg:px-[8vw]">
+        <div className="mx-auto max-w-[1440px]">
+          <p className="eyebrow">{t('faq.eyebrow')}</p>
+          <h2 className="section-title">{t('faq.title')}</h2>
+          <div className="mt-12 max-w-3xl divide-y divide-[#0F2433]/10 border-y border-[#0F2433]/10">
+            {faqs.map((item, i) => (
+              <div key={i}>
+                <button aria-expanded={faqOpen === i} onClick={() => setFaqOpen(faqOpen === i ? -1 : i)} className="flex w-full items-center justify-between gap-4 py-6 text-left">
+                  <span className="font-heading text-xl text-[#0F2433]">{item.q}</span>
+                  <ChevronDown className={`h-5 w-5 shrink-0 text-[#C8102E] transition-transform ${faqOpen === i ? 'rotate-180' : ''}`} />
+                </button>
+                {faqOpen === i && <p className="pb-6 pr-8 leading-relaxed text-[#0F2433]/65">{item.a}</p>}
+              </div>
+            ))}
           </div>
         </div>
       </section>

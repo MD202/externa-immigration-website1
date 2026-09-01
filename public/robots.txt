@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://externa-immigration.ca/sitemap.xml

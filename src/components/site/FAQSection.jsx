@@ -10,6 +10,10 @@ export default function FAQSection() {
     { q: t('faq.q2'), a: t('faq.a2') },
     { q: t('faq.q3'), a: t('faq.a3') },
     { q: t('faq.q4'), a: t('faq.a4') },
+    { q: t('faq.q5'), a: t('faq.a5') },
+    { q: t('faq.q6'), a: t('faq.a6') },
+    { q: t('faq.q7'), a: t('faq.a7') },
+    { q: t('faq.q8'), a: t('faq.a8') },
   ];
   return (
     <section aria-label="Frequently asked questions" className="bg-white px-5 py-28 lg:px-[8vw] lg:py-40">
