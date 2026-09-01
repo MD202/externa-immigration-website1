@@ -21,7 +21,9 @@
         "Entrepreneurship",
         "Permanent residence or PNP",
         "PR card or citizenship",
-        "Other (permits & visas)"
+        "Other (permits & visas)",
+        "Refugee claim",
+        "Employer"
       ]
     },
     "urgency": {

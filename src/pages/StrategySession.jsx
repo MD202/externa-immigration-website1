@@ -22,6 +22,8 @@ export default function StrategySession() {
     { value: 'Permanent residence or PNP', label: t('strategy.m5') },
     { value: 'PR card or citizenship', label: t('strategy.m6') },
     { value: 'Other (permits & visas)', label: t('strategy.m7') },
+    { value: 'Refugee claim', label: t('strategy.m8') },
+    { value: 'Employer', label: t('strategy.m9') },
   ];
   const urgency = [
     { value: 'Deadline within 7 days', label: t('strategy.u1') },

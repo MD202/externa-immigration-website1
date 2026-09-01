@@ -9,6 +9,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Home from '@/pages/Home';
 import StrategySession from '@/pages/StrategySession';
 import Fees from '@/pages/Fees';
+import ServiceDetail from '@/pages/ServiceDetail';
 import { LanguageProvider } from '@/lib/LanguageContext';
 // Add page imports here
 
@@ -41,6 +42,7 @@ const AuthenticatedApp = () => {
       <Route path="/" element={<Home />} />
       <Route path="/strategy-session" element={<StrategySession />} />
       <Route path="/fees" element={<Fees />} />
+      <Route path="/services/:id" element={<ServiceDetail />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
