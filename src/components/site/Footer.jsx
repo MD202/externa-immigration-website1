@@ -41,6 +41,7 @@ export default function Footer() {
             <p className="text-xs uppercase tracking-[.2em] text-[#C5A059]">{t('nav.about')}</p>
             <div className="mt-5 grid gap-3 text-sm text-white/60">
               <a href="#about" className="transition hover:text-[#C8102E]">{t('nav.aboutUs')}</a>
+              <a href="#how-we-operate" className="transition hover:text-[#C8102E]">{t('howWeOperate.eyebrow')}</a>
               <a href="#approach" className="transition hover:text-[#C8102E]">{t('nav.approach')}</a>
               <Link to="/fees" className="transition hover:text-[#C8102E]">{t('nav.fees')}</Link>
             </div>

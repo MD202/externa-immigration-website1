@@ -90,6 +90,7 @@
 
   html { scroll-behavior: smooth; }
   body { @apply bg-white text-[#0F2433] font-body; }
+  section[id] { scroll-margin-top: 90px; }
 }
 
 @layer components {

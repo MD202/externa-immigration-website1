@@ -36,6 +36,7 @@ export default function Header() {
   ];
   const aboutLinks = [
     { label: t('nav.aboutUs'), href: '#about' },
+    { label: t('howWeOperate.eyebrow'), href: '#how-we-operate' },
     { label: t('nav.approach'), href: '#approach' },
     { label: t('nav.fees'), href: '/fees', external: true },
   ];
@@ -92,6 +93,7 @@ export default function Header() {
           ))}
           <div className="my-2 border-t border-[#0F2433]/10" />
           <a onClick={() => setMobileOpen(false)} href="#about" className="block px-4 py-3 text-[#0F2433]/80">{t('nav.aboutUs')}</a>
+          <a onClick={() => setMobileOpen(false)} href="#how-we-operate" className="block px-4 py-3 text-[#0F2433]/80">{t('howWeOperate.eyebrow')}</a>
           <a onClick={() => setMobileOpen(false)} href="#approach" className="block px-4 py-3 text-[#0F2433]/80">{t('nav.approach')}</a>
           <Link onClick={() => setMobileOpen(false)} to="/fees" className="block px-4 py-3 text-[#0F2433]/80">{t('nav.fees')}</Link>
           <Link to="/strategy-session" onClick={() => setMobileOpen(false)} className="m-3 bg-[#C8102E] px-4 py-3 text-center font-semibold text-white">{t('nav.book')}</Link>
