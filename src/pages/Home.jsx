@@ -11,6 +11,7 @@ import TrustSection from '@/components/site/TrustSection';
 import BusinessFeature from '@/components/site/BusinessFeature';
 import FAQSection from '@/components/site/FAQSection';
 import Footer from '@/components/site/Footer';
+import WhatsAppWidget from '@/components/site/WhatsAppWidget';
 import NorthStarCursor from '@/components/site/NorthStarCursor';
 
 export default function Home() {
@@ -30,6 +31,7 @@ export default function Home() {
       <BusinessFeature />
       <FAQSection />
       <Footer />
+      <WhatsAppWidget />
     </main>
   );
 }

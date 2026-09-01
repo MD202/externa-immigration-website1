@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { BadgeCheck, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { BadgeCheck, MapPin, Mail, Facebook, Instagram, Linkedin } from 'lucide-react';
 import Logo from '@/components/site/Logo';
 import { useLanguage } from '@/lib/LanguageContext';
 
@@ -26,6 +26,9 @@ export default function Footer() {
             <p className="mt-4 flex items-center gap-2 text-sm text-white/55"><MapPin className="h-4 w-4 text-[#C8102E]" /> {t('truststrip.location')}</p>
             <p className="mt-1 text-sm text-white/55">{t('footer.remoteFirst')}</p>
             <p className="mt-1 text-sm text-white/55">{t('footer.languages')}</p>
+            <a href="mailto:info@externaimmigration.com" className="mt-2 flex items-center gap-2 text-sm text-white/55 transition hover:text-[#C8102E]">
+              <Mail className="h-4 w-4 text-[#C8102E]" /> info@externaimmigration.com
+            </a>
             <div className="mt-5 flex gap-3">
               <a href="#" aria-label="Facebook" className="text-white/40 transition hover:text-[#C8102E]"><Facebook className="h-5 w-5" /></a>
               <a href="#" aria-label="Instagram" className="text-white/40 transition hover:text-[#C8102E]"><Instagram className="h-5 w-5" /></a>

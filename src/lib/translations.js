@@ -168,6 +168,8 @@ export const translations = {
     refund: { en: 'Refund Policy', ta: 'திருப்பிச் செலுத்தல் கொள்கை', hi: 'धन वापसी नीति' },
     remoteFirst: { en: 'Remote First', ta: 'தொலை முதன்மை', hi: 'रिमोट फर्स्ट' },
     languages: { en: 'English | தமிழ் | हिंदी', ta: 'English | தமிழ் | हिंदी', hi: 'English | தமிழ் | हिंदी' },
+    whatsappIntro: { en: 'Have a quick question? Send us a message on WhatsApp and we will get back to you.', ta: 'விரைவு கேள்வி உள்ளதா? WhatsApp-இல் செய்தி அனுப்புங்கள், நாங்கள் திரும்ப தொடர்பு கொள்வோம்.', hi: 'कोई त्वरित प्रश्न है? WhatsApp पर संदेश भेजें और हम आपसे संपर्क करेंगे।' },
+    whatsappCta: { en: 'Start chat', ta: 'அரட்டையைத் தொடங்கு', hi: 'चैट शुरू करें' },
   },
   fees: {
     eyebrow: { en: 'Fees & engagement', ta: 'கட்டணங்கள் & ஈடுபாடு', hi: 'शुल्क और जुड़ाव' },
