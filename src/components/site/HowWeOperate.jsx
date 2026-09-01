@@ -29,13 +29,13 @@ export default function HowWeOperate() {
         <div className="mt-16 hidden lg:block">
           <div className="relative">
             <div className="absolute top-5 left-5 right-5 h-px bg-white/15" />
-            <div className="absolute top-5 left-5 h-px bg-[#6B1E1E] transition-all duration-500" style={{ width: `calc(${active / (steps.length - 1)} * (100% - 40px))` }} />
+            <div className="absolute top-5 left-5 h-px bg-[#A85638] transition-all duration-500" style={{ width: `calc(${active / (steps.length - 1)} * (100% - 40px))` }} />
             <div className="relative flex justify-between">
               {steps.map((step, i) => (
                 <button key={step.n} onClick={() => setActive(i)} className="flex flex-col items-center" aria-label={step.label}>
                   <span className={`flex h-10 w-10 items-center justify-center rounded-full border-2 font-mono text-sm font-semibold transition ${
                     active === i
-                      ? 'border-[#6B1E1E] bg-[#6B1E1E] text-white'
+                      ? 'border-[#A85638] bg-[#A85638] text-white'
                       : i < active
                         ? 'border-[#C5A059] bg-[#C5A059]/15 text-[#C5A059]'
                         : 'border-white/25 bg-[#0E3B3B] text-white/50 hover:border-white/50 hover:text-white'
@@ -50,10 +50,10 @@ export default function HowWeOperate() {
         <div className="mt-12 grid gap-3 lg:hidden">
           {steps.map((step, i) => (
             <button key={step.n} onClick={() => setActive(i)} className={`flex items-center gap-4 border p-4 text-left transition ${
-              active === i ? 'border-[#6B1E1E] bg-[#6B1E1E]/10' : 'border-white/10'
+              active === i ? 'border-[#A85638] bg-[#A85638]/10' : 'border-white/10'
             }`}>
               <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 font-mono text-sm font-semibold ${
-                active === i ? 'border-[#6B1E1E] bg-[#6B1E1E] text-white' :
+                active === i ? 'border-[#A85638] bg-[#A85638] text-white' :
                 i < active ? 'border-[#C5A059] bg-[#C5A059]/15 text-[#C5A059]' :
                 'border-white/25 text-white/50'
               }`}>{step.n}</span>
@@ -73,7 +73,7 @@ export default function HowWeOperate() {
           <p className="text-sm leading-relaxed text-white/50">{t('howWeOperate.stagedNote')}</p>
         </div>
 
-        <Link to="/strategy-session" className="mt-12 inline-flex items-center gap-3 bg-[#6B1E1E] px-6 py-4 font-semibold text-white transition hover:bg-[#561818]">
+        <Link to="/strategy-session" className="mt-12 inline-flex items-center gap-3 bg-[#A85638] px-6 py-4 font-semibold text-white transition hover:bg-[#8E4828]">
           {t('howWeOperate.step2')} <ArrowRight className="h-4 w-4" />
         </Link>
       </div>

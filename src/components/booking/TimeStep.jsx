@@ -38,7 +38,7 @@ export default function TimeStep({ data, setData }) {
             slots.length > 0 ? (
               <div className="mt-3 flex flex-wrap gap-2">
                 {slots.map((time) => (
-                  <button key={time} type="button" onClick={() => setData((d) => ({ ...d, preferred_time: time }))} className={`border px-3 py-2 text-sm transition ${data.preferred_time === time ? 'border-[#6B1E1E] bg-[#6B1E1E] text-white' : 'border-[#0E3B3B]/20 text-[#0E3B3B]/70 hover:border-[#6B1E1E]'}`}>{time}</button>
+                  <button key={time} type="button" onClick={() => setData((d) => ({ ...d, preferred_time: time }))} className={`border px-3 py-2 text-sm transition ${data.preferred_time === time ? 'border-[#A85638] bg-[#A85638] text-white' : 'border-[#0E3B3B]/20 text-[#0E3B3B]/70 hover:border-[#A85638]'}`}>{time}</button>
                 ))}
               </div>
             ) : (

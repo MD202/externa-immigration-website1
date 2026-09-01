@@ -15,7 +15,7 @@ export default function LanguageToggle({ dark = false }) {
           {i > 0 && <span className={dark ? 'text-white/20' : 'text-[#0E3B3B]/20'}>·</span>}
           <button
             onClick={() => setLang(l.code)}
-            className={`px-2 py-1 transition ${lang === l.code ? 'text-[#6B1E1E]' : inactive}`}
+            className={`px-2 py-1 transition ${lang === l.code ? 'text-[#A85638]' : inactive}`}
           >
             {l.label}
           </button>

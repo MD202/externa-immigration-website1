@@ -56,12 +56,12 @@ export default function Eligibility() {
 
   if (sent) {
     return (
-      <main className="flex min-h-screen items-center justify-center bg-[#F4F7F9] px-5 text-[#0E3B3B]">
+      <main className="flex min-h-screen items-center justify-center bg-[#F5F1E8] px-5 text-[#0E3B3B]">
         <div className="max-w-xl text-center">
-          <CheckCircle2 className="mx-auto h-12 w-12 text-[#6B1E1E]" />
+          <CheckCircle2 className="mx-auto h-12 w-12 text-[#A85638]" />
           <h1 className="mt-7 font-heading text-4xl sm:text-5xl">{t('eligibility.successTitle')}</h1>
           <p className="mt-5 leading-relaxed text-[#0E3B3B]/60">{t('eligibility.successBody')}</p>
-          <Link to="/" className="mt-8 inline-flex border-b border-[#6B1E1E] pb-2 text-[#6B1E1E]">{t('eligibility.successBack')}</Link>
+          <Link to="/" className="mt-8 inline-flex border-b border-[#A85638] pb-2 text-[#A85638]">{t('eligibility.successBack')}</Link>
         </div>
       </main>
     );
@@ -72,11 +72,11 @@ export default function Eligibility() {
   const svc = SITUATION_MAP[answers.q1];
 
   return (
-    <main className="min-h-screen bg-[#F4F7F9]">
+    <main className="min-h-screen bg-[#F5F1E8]">
       <Header />
       <section className="px-5 pt-32 pb-20 lg:px-[8vw] lg:pt-40">
         <div className="mx-auto max-w-3xl">
-          <Link to="/" className="mb-10 inline-flex items-center gap-2 text-sm text-[#0E3B3B]/55 transition hover:text-[#6B1E1E]">
+          <Link to="/" className="mb-10 inline-flex items-center gap-2 text-sm text-[#0E3B3B]/55 transition hover:text-[#A85638]">
             <ArrowLeft className="h-4 w-4" /> {t('fees.back')}
           </Link>
           <p className="eyebrow">{t('eligibility.eyebrow')}</p>
@@ -86,7 +86,7 @@ export default function Eligibility() {
           {!isResult ? (
             <div className="mt-12">
               <div className="mb-6 h-1 w-full bg-[#0E3B3B]/10">
-                <div className="h-1 bg-[#6B1E1E] transition-all" style={{ width: `${(step / total) * 100}%` }} />
+                <div className="h-1 bg-[#A85638] transition-all" style={{ width: `${(step / total) * 100}%` }} />
               </div>
               <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#0E3B3B]/50">
                 {t('eligibility.stepOf').replace('{n}', String(step + 1)).replace('{total}', String(total))}
@@ -94,9 +94,9 @@ export default function Eligibility() {
               <h2 className="mt-3 font-heading text-3xl text-[#0E3B3B]">{t(`eligibility.${QUESTIONS[step].key}`)}</h2>
               <div className="mt-8 grid gap-3">
                 {QUESTIONS[step].options.map((opt) => (
-                  <button key={opt} type="button" onClick={() => choose(QUESTIONS[step].key, opt)} className="flex items-center justify-between gap-4 border border-[#0E3B3B]/10 bg-white px-6 py-5 text-left transition hover:border-[#6B1E1E] hover:shadow-md">
+                  <button key={opt} type="button" onClick={() => choose(QUESTIONS[step].key, opt)} className="flex items-center justify-between gap-4 border border-[#0E3B3B]/10 bg-white px-6 py-5 text-left transition hover:border-[#A85638] hover:shadow-md">
                     <span className="text-base text-[#0E3B3B]/80">{t(`eligibility.${opt}`)}</span>
-                    <ArrowRight className="h-5 w-5 shrink-0 text-[#6B1E1E]" />
+                    <ArrowRight className="h-5 w-5 shrink-0 text-[#A85638]" />
                   </button>
                 ))}
               </div>
@@ -113,7 +113,7 @@ export default function Eligibility() {
                 <h2 className="mt-3 font-heading text-3xl text-[#0E3B3B]">{svc ? t(svc.titleKey) : ''}</h2>
                 <p className="mt-4 text-base leading-relaxed text-[#0E3B3B]/65">{svc ? t(svc.descKey) : ''}</p>
                 <p className="mt-6 border-l-2 border-[#C5A059] bg-white px-5 py-4 text-sm italic leading-relaxed text-[#0E3B3B]/60">{t('eligibility.resultNote')}</p>
-                <Link to="/strategy-session" className="mt-6 inline-flex items-center gap-2 border-b-2 border-[#6B1E1E] pb-1 text-sm font-semibold text-[#6B1E1E]">
+                <Link to="/strategy-session" className="mt-6 inline-flex items-center gap-2 border-b-2 border-[#A85638] pb-1 text-sm font-semibold text-[#A85638]">
                   {t('eligibility.bookConsult')} <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -131,7 +131,7 @@ export default function Eligibility() {
                     <input value={contact.phone} onChange={(e) => setContact({ ...contact, phone: e.target.value })} className="intake-input" />
                   </label>
                 </div>
-                <button type="submit" disabled={saving} className="mt-7 flex w-full items-center justify-center gap-2 bg-[#6B1E1E] px-6 py-4 font-semibold text-white transition hover:bg-[#561818] disabled:opacity-50">
+                <button type="submit" disabled={saving} className="mt-7 flex w-full items-center justify-center gap-2 bg-[#A85638] px-6 py-4 font-semibold text-white transition hover:bg-[#8E4828] disabled:opacity-50">
                   {saving ? t('eligibility.sending') : t('eligibility.submit')} <ArrowRight className="h-4 w-4" />
                 </button>
               </form>

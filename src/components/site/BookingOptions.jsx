@@ -10,7 +10,7 @@ export default function BookingOptions() {
     { label: t('booking.tier3Label'), duration: t('booking.tier3Duration'), price: t('booking.tier3Price'), desc: t('booking.tier3Desc'), cta: t('booking.tier3Cta'), badge: null },
   ];
   return (
-    <section aria-label="Booking options" className="bg-[#F4F7F9] px-5 py-28 lg:px-[8vw] lg:py-40">
+    <section aria-label="Booking options" className="bg-[#F5F1E8] px-5 py-28 lg:px-[8vw] lg:py-40">
       <div className="mx-auto max-w-[1440px]">
         <p className="eyebrow">{t('booking.eyebrow')}</p>
         <div className="mt-12 grid gap-5 md:grid-cols-3">
@@ -19,16 +19,16 @@ export default function BookingOptions() {
               {tier.badge && <span className="absolute -top-3 left-8 bg-[#C5A059] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0E3B3B]">{tier.badge}</span>}
               <h3 className="font-heading text-2xl text-[#0E3B3B]">{tier.label}</h3>
               <p className="mt-2 text-sm text-[#0E3B3B]/50">{tier.duration}</p>
-              <p className="mt-6 font-heading text-4xl text-[#6B1E1E]">{tier.price}</p>
+              <p className="mt-6 font-heading text-4xl text-[#A85638]">{tier.price}</p>
               <p className="mt-4 flex-1 text-sm leading-relaxed text-[#0E3B3B]/60">{tier.desc}</p>
-              <Link to="/strategy-session" className="mt-7 inline-flex items-center gap-2 border-b-2 border-[#6B1E1E] pb-1 text-sm font-semibold text-[#6B1E1E]">{tier.cta} <ArrowUpRight className="h-4 w-4" /></Link>
+              <Link to="/strategy-session" className="mt-7 inline-flex items-center gap-2 border-b-2 border-[#A85638] pb-1 text-sm font-semibold text-[#A85638]">{tier.cta} <ArrowUpRight className="h-4 w-4" /></Link>
             </article>
           ))}
         </div>
         <div className="mt-10 flex flex-col items-start justify-between gap-6 border-t border-[#0E3B3B]/10 pt-10 md:flex-row md:items-center">
           <div>
             <h3 className="font-heading text-2xl text-[#0E3B3B]">{t('booking.fullRepTitle')}</h3>
-            <p className="mt-2 font-heading text-xl text-[#6B1E1E]">{t('booking.fullRepPrice')}</p>
+            <p className="mt-2 font-heading text-xl text-[#A85638]">{t('booking.fullRepPrice')}</p>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-[#0E3B3B]/55">{t('booking.fullRepBody')}</p>
           <Link to="/strategy-session" className="shrink-0 bg-[#0E3B3B] px-6 py-4 font-semibold text-white transition hover:bg-[#155454]">{t('booking.fullRepCta')}</Link>

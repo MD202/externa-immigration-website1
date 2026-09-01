@@ -47,7 +47,7 @@ export default function Hero() {
           </h1>
           <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/70">{t('hero.subtitle')}</p>
           <div className="mt-9 flex flex-wrap gap-4">
-            <Link to="/strategy-session" className="group flex items-center gap-3 bg-[#6B1E1E] px-6 py-4 font-semibold text-white transition hover:bg-[#561818] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0E3B3B]">{t('hero.cta1')} <ArrowUpRight className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true" /></Link>
+            <Link to="/strategy-session" className="group flex items-center gap-3 bg-[#A85638] px-6 py-4 font-semibold text-white transition hover:bg-[#8E4828] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0E3B3B]">{t('hero.cta1')} <ArrowUpRight className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true" /></Link>
             <a href="#services" className="border border-white/30 px-6 py-4 font-semibold transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C5A059] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0E3B3B]">{t('hero.cta2')}</a>
           </div>
         </div>

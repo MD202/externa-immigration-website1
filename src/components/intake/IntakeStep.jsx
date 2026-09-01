@@ -13,10 +13,10 @@ export default function IntakeStep({ title, options, selected, onSelect }) {
               type="button"
               key={value}
               onClick={() => onSelect(value)}
-              className={`flex items-center justify-between border p-5 text-left text-lg transition ${selected === value ? 'border-[#6B1E1E] bg-[#6B1E1E]/5 text-[#0E3B3B]' : 'border-[#0E3B3B]/15 text-[#0E3B3B]/80 hover:border-[#0E3B3B]/40'}`}
+              className={`flex items-center justify-between border p-5 text-left text-lg transition ${selected === value ? 'border-[#A85638] bg-[#A85638]/5 text-[#0E3B3B]' : 'border-[#0E3B3B]/15 text-[#0E3B3B]/80 hover:border-[#0E3B3B]/40'}`}
             >
               <span>{label}</span>
-              {selected === value && <Check className="h-5 w-5 text-[#6B1E1E]" />}
+              {selected === value && <Check className="h-5 w-5 text-[#A85638]" />}
             </button>
           );
         })}

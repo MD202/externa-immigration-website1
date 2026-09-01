@@ -94,7 +94,7 @@ export default function DetailsAgreementStep({ data, setData, saving, onPayNow, 
               <h4 className="font-heading text-lg text-[#0E3B3B]">{t('bookingFlow.payNow')}</h4>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-[#0E3B3B]/60">{t('bookingFlow.payNowDesc')}</p>
-            <button type="button" disabled={saving || !detailsValid} onClick={onPayNow} className="mt-6 w-full bg-[#6B1E1E] py-4 font-semibold text-white transition hover:bg-[#561818] disabled:opacity-40">
+            <button type="button" disabled={saving || !detailsValid} onClick={onPayNow} className="mt-6 w-full bg-[#A85638] py-4 font-semibold text-white transition hover:bg-[#8E4828] disabled:opacity-40">
               {saving ? t('bookingFlow.sending') : t('bookingFlow.payNow')}
             </button>
           </div>

@@ -16,7 +16,7 @@ export default function ServicesGrid() {
     { id: 9, icon: FileText, title: t('services.t9'), text: t('services.x9'), factors: t('services.f9') },
   ];
   return (
-    <section id="services" aria-label="Immigration services" className="bg-[#F4F7F9] px-5 py-28 lg:px-[8vw] lg:py-40">
+    <section id="services" aria-label="Immigration services" className="bg-[#F5F1E8] px-5 py-28 lg:px-[8vw] lg:py-40">
       <div className="mx-auto max-w-[1440px]">
         <div className="max-w-3xl">
           <p className="eyebrow">{t('services.eyebrow')}</p>
@@ -25,12 +25,12 @@ export default function ServicesGrid() {
         </div>
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {services.map(({ id, icon: Icon, title, text, factors }) => (
-            <Link to={`/services/${id}`} key={id} className="group flex flex-col justify-between bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6B1E1E]">
+            <Link to={`/services/${id}`} key={id} className="group flex flex-col justify-between bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#A85638]">
               <div className="flex justify-between">
-                <div className="flex h-12 w-12 items-center justify-center bg-[#6B1E1E]/8 text-[#6B1E1E] transition group-hover:bg-[#6B1E1E] group-hover:text-white">
+                <div className="flex h-12 w-12 items-center justify-center bg-[#A85638]/8 text-[#A85638] transition group-hover:bg-[#A85638] group-hover:text-white">
                   <Icon className="h-6 w-6" aria-hidden="true" />
                 </div>
-                <ArrowUpRight className="h-5 w-5 text-[#0E3B3B]/20 transition group-hover:text-[#6B1E1E]" aria-hidden="true" />
+                <ArrowUpRight className="h-5 w-5 text-[#0E3B3B]/20 transition group-hover:text-[#A85638]" aria-hidden="true" />
               </div>
               <div className="mt-8">
                 <h3 className="font-heading text-xl text-[#0E3B3B]">{title}</h3>

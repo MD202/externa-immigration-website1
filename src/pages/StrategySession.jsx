@@ -61,12 +61,12 @@ export default function StrategySession() {
   if (sent) {
     const isPayLater = sent === 'pay_later';
     return (
-      <main className="flex min-h-screen items-center justify-center bg-[#F4F7F9] px-5 text-[#0E3B3B]">
+      <main className="flex min-h-screen items-center justify-center bg-[#F5F1E8] px-5 text-[#0E3B3B]">
         <div className="max-w-xl text-center">
-          <CheckCircle2 className="mx-auto h-12 w-12 text-[#6B1E1E]" />
+          <CheckCircle2 className="mx-auto h-12 w-12 text-[#A85638]" />
           <h1 className="mt-7 font-heading text-4xl sm:text-5xl">{isPayLater ? t('bookingFlow.payLaterSuccessTitle') : t('bookingFlow.paidSuccessTitle')}</h1>
           <p className="mt-5 leading-relaxed text-[#0E3B3B]/60">{isPayLater ? t('bookingFlow.payLaterSuccessBody') : t('bookingFlow.paidSuccessBody')}</p>
-          <Link to="/" className="mt-8 inline-flex border-b border-[#6B1E1E] pb-2 text-[#6B1E1E]">{t('bookingFlow.returnHome')}</Link>
+          <Link to="/" className="mt-8 inline-flex border-b border-[#A85638] pb-2 text-[#A85638]">{t('bookingFlow.returnHome')}</Link>
         </div>
       </main>
     );
@@ -79,7 +79,7 @@ export default function StrategySession() {
   const nextLabel = step === 1 ? t('bookingFlow.continueToTime') : t('bookingFlow.continueToDetails');
 
   return (
-    <main className="min-h-screen bg-[#F4F7F9]">
+    <main className="min-h-screen bg-[#F5F1E8]">
       <div className="grid min-h-screen lg:grid-cols-[34%_66%]">
         <aside className="hidden bg-[#0E3B3B] p-12 text-white lg:flex lg:flex-col lg:justify-between">
           <Link to="/" className="flex items-center gap-3">
@@ -109,7 +109,7 @@ export default function StrategySession() {
                 </button>
               ) : <span />}
               {step < 3 && (
-                <button type="button" disabled={!canProceed} onClick={() => setStep(step + 1)} className="flex items-center gap-3 bg-[#6B1E1E] px-6 py-4 font-semibold text-white transition hover:bg-[#561818] disabled:opacity-40">
+                <button type="button" disabled={!canProceed} onClick={() => setStep(step + 1)} className="flex items-center gap-3 bg-[#A85638] px-6 py-4 font-semibold text-white transition hover:bg-[#8E4828] disabled:opacity-40">
                   {nextLabel} <ArrowRight className="h-4 w-4" />
                 </button>
               )}
