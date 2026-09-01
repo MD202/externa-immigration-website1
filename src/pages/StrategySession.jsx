@@ -1,97 +1,92 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, CheckCircle2, Compass } from 'lucide-react';
+import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { useLanguage } from '@/lib/LanguageContext';
-import IntakeProgress from '@/components/intake/IntakeProgress';
-import IntakeStep from '@/components/intake/IntakeStep';
-import ContactStep from '@/components/intake/ContactStep';
+import Logo from '@/components/site/Logo';
+import BookingStepper from '@/components/booking/BookingStepper';
+import ServiceStep from '@/components/booking/ServiceStep';
+import TimeStep from '@/components/booking/TimeStep';
+import DetailsAgreementStep from '@/components/booking/DetailsAgreementStep';
+import PaymentStep from '@/components/booking/PaymentStep';
 
 export default function StrategySession() {
   const { t } = useLanguage();
   const [step, setStep] = useState(1);
   const [saving, setSaving] = useState(false);
-  const [sent, setSent] = useState(false);
-  const [data, setData] = useState({ full_name: '', email: '', phone: '', matter: '', urgency: '', summary: '' });
+  const [sent, setSent] = useState(null);
+  const [data, setData] = useState({
+    service_tier: '', preferred_date: '', preferred_time: '',
+    full_name: '', email: '', phone: '', matter: '', urgency: '', summary: '',
+    agreement_accepted: false, signature_name: '',
+  });
 
-  const matters = [
-    { value: 'Appeal or refusal', label: t('strategy.m1') },
-    { value: 'Family sponsorship', label: t('strategy.m2') },
-    { value: 'Humanitarian and compassionate', label: t('strategy.m3') },
-    { value: 'Entrepreneurship', label: t('strategy.m4') },
-    { value: 'Permanent residence or PNP', label: t('strategy.m5') },
-    { value: 'PR card or citizenship', label: t('strategy.m6') },
-    { value: 'Other (permits & visas)', label: t('strategy.m7') },
-    { value: 'Refugee claim', label: t('strategy.m8') },
-    { value: 'Employer', label: t('strategy.m9') },
-  ];
-  const urgency = [
-    { value: 'Deadline within 7 days', label: t('strategy.u1') },
-    { value: 'Deadline within 30 days', label: t('strategy.u2') },
-    { value: 'No immediate deadline', label: t('strategy.u3') },
-    { value: 'Not sure', label: t('strategy.u4') },
-  ];
-
-  const select = (key) => (value) => {
-    setData((current) => ({ ...current, [key]: value }));
-    setTimeout(() => setStep((current) => Math.min(3, current + 1)), 180);
-  };
-  const submit = async (event) => {
-    event.preventDefault();
+  const submit = async (paymentPref) => {
     setSaving(true);
-    await base44.entities.Consultation.create(data);
-    setSent(true);
+    await base44.entities.Consultation.create({ ...data, payment_preference: paymentPref });
+    setSent(paymentPref);
     setSaving(false);
   };
 
   if (sent) {
+    const isPayLater = sent === 'pay_later';
     return (
       <main className="flex min-h-screen items-center justify-center bg-[#F4F7F9] px-5 text-[#0F2433]">
         <div className="max-w-xl text-center">
           <CheckCircle2 className="mx-auto h-12 w-12 text-[#C8102E]" />
-          <h1 className="mt-7 font-heading text-5xl">{t('strategy.successTitle')}</h1>
-          <p className="mt-5 leading-relaxed text-[#0F2433]/60">{t('strategy.successBody')}</p>
-          <Link to="/" className="mt-8 inline-flex border-b border-[#C8102E] pb-2 text-[#C8102E]">{t('strategy.successBack')}</Link>
+          <h1 className="mt-7 font-heading text-4xl sm:text-5xl">{isPayLater ? t('bookingFlow.payLaterSuccessTitle') : t('bookingFlow.paidSuccessTitle')}</h1>
+          <p className="mt-5 leading-relaxed text-[#0F2433]/60">{isPayLater ? t('bookingFlow.payLaterSuccessBody') : t('bookingFlow.paidSuccessBody')}</p>
+          <Link to="/" className="mt-8 inline-flex border-b border-[#C8102E] pb-2 text-[#C8102E]">{t('bookingFlow.returnHome')}</Link>
         </div>
       </main>
     );
   }
 
-  const ready = step === 1 ? data.matter : step === 2 ? data.urgency : data.full_name && data.email;
+  const canProceed = step === 1 ? !!data.service_tier
+    : step === 2 ? !!(data.preferred_date && data.preferred_time)
+    : step === 3 ? !!(data.full_name && data.email && data.agreement_accepted && data.signature_name)
+    : true;
+
+  const nextLabel = step === 1 ? t('bookingFlow.continueToTime') : step === 2 ? t('bookingFlow.continueToDetails') : t('bookingFlow.continueToPayment');
 
   return (
     <main className="min-h-screen bg-[#F4F7F9]">
       <div className="grid min-h-screen lg:grid-cols-[34%_66%]">
         <aside className="hidden bg-[#0F2433] p-12 text-white lg:flex lg:flex-col lg:justify-between">
-          <Link to="/" className="flex items-center gap-3 font-heading text-xl">
-            <Compass className="text-[#C8102E]" /> Externa
+          <Link to="/" className="flex items-center gap-3">
+            <Logo className="h-10 w-10" />
+            <span className="font-heading text-xl">Externa</span>
           </Link>
           <blockquote className="font-heading text-4xl leading-tight">{t('strategy.asideQuote')}</blockquote>
           <p className="text-sm leading-relaxed text-white/45">{t('strategy.asideNote')}</p>
         </aside>
         <section className="flex items-center px-5 py-10 sm:px-12 lg:px-[8vw]">
-          <form onSubmit={submit} className="mx-auto w-full max-w-2xl">
+          <div className="mx-auto w-full max-w-2xl">
             <Link to="/" className="mb-10 inline-flex items-center gap-2 text-sm text-[#0F2433]/60 lg:hidden">
               <ArrowLeft className="h-4 w-4" /> {t('strategy.back')}
             </Link>
-            <IntakeProgress step={step} />
-            {step === 1 && <IntakeStep title={t('strategy.s1')} options={matters} selected={data.matter} onSelect={select('matter')} />}
-            {step === 2 && <IntakeStep title={t('strategy.s2')} options={urgency} selected={data.urgency} onSelect={select('urgency')} />}
-            {step === 3 && <ContactStep data={data} setData={setData} />}
+            <h1 className="font-heading text-3xl text-[#0F2433] sm:text-4xl">{t('bookingFlow.title')}</h1>
+            <p className="mt-3 text-sm leading-relaxed text-[#0F2433]/55">{t('bookingFlow.subtitle')}</p>
+            <BookingStepper step={step} />
+
+            {step === 1 && <ServiceStep data={data} setData={setData} />}
+            {step === 2 && <TimeStep data={data} setData={setData} />}
+            {step === 3 && <DetailsAgreementStep data={data} setData={setData} />}
+            {step === 4 && <PaymentStep data={data} saving={saving} onPayNow={() => submit('pay_now')} onPayLater={() => submit('pay_later')} />}
+
             <div className="mt-9 flex items-center justify-between">
               {step > 1 ? (
                 <button type="button" onClick={() => setStep(step - 1)} className="flex items-center gap-2 text-sm text-[#0F2433]/55">
-                  <ArrowLeft className="h-4 w-4" /> {t('strategy.back')}
+                  <ArrowLeft className="h-4 w-4" /> {t('bookingFlow.back')}
                 </button>
               ) : <span />}
-              {step === 3 && (
-                <button disabled={!ready || saving} className="flex items-center gap-3 bg-[#C8102E] px-6 py-4 font-semibold text-white transition hover:bg-[#A00D24] disabled:opacity-40">
-                  {saving ? t('strategy.sending') : t('strategy.submit')}
-                  <ArrowRight className="h-4 w-4" />
+              {step < 4 && (
+                <button type="button" disabled={!canProceed} onClick={() => setStep(step + 1)} className="flex items-center gap-3 bg-[#C8102E] px-6 py-4 font-semibold text-white transition hover:bg-[#A00D24] disabled:opacity-40">
+                  {nextLabel} <ArrowRight className="h-4 w-4" />
                 </button>
               )}
             </div>
-          </form>
+          </div>
         </section>
       </div>
     </main>

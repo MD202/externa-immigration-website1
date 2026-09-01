@@ -38,6 +38,33 @@
     "summary": {
       "type": "string"
     },
+    "service_tier": {
+      "type": "string",
+      "enum": [
+        "quick_question",
+        "full_consultation",
+        "application_review"
+      ]
+    },
+    "preferred_date": {
+      "type": "string"
+    },
+    "preferred_time": {
+      "type": "string"
+    },
+    "payment_preference": {
+      "type": "string",
+      "enum": [
+        "pay_now",
+        "pay_later"
+      ]
+    },
+    "agreement_accepted": {
+      "type": "boolean"
+    },
+    "signature_name": {
+      "type": "string"
+    },
     "status": {
       "type": "string",
       "enum": [
@@ -50,8 +77,6 @@
   },
   "required": [
     "full_name",
-    "email",
-    "matter",
-    "urgency"
+    "email"
   ]
 }

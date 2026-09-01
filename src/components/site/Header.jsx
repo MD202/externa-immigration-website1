@@ -1,6 +1,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Compass, Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import Logo from '@/components/site/Logo';
 import { useLanguage } from '@/lib/LanguageContext';
 
 export default function Header() {
@@ -34,18 +35,13 @@ export default function Header() {
     { id: 8, label: t('services.t8') },
     { id: 9, label: t('services.t9') },
   ];
-  const aboutLinks = [
-    { label: t('nav.aboutUs'), href: '/#about' },
-    { label: t('howWeOperate.eyebrow'), href: '/#how-we-operate' },
-    { label: t('nav.approach'), href: '/#approach' },
-    { label: t('nav.fees'), href: '/fees' },
-  ];
+  // About links are now shown directly in the nav
 
   return (
     <header ref={headerRef} className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${compact ? 'bg-white py-3 shadow-lg' : 'bg-white/95 py-4 backdrop-blur-md'}`}>
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 lg:px-[8vw]">
         <Link to="/" className="flex items-center gap-3">
-          <Compass className="h-8 w-8 text-[#C8102E]" />
+          <Logo className="h-9 w-9" />
           <span className="font-heading text-lg leading-tight text-[#0F2433]">Externa<span className="mt-0.5 block font-body text-[9px] uppercase tracking-[.22em] text-[#0F2433]/55">Immigration Solutions Inc</span></span>
         </Link>
         <div className="hidden items-center gap-6 lg:flex">
@@ -64,20 +60,10 @@ export default function Header() {
                 </div>
               )}
             </div>
-            <div className="relative">
-              <button onClick={() => setOpenMenu(openMenu === 'about' ? null : 'about')} className="flex items-center gap-1 text-sm text-[#0F2433]/70 transition hover:text-[#C8102E]" aria-expanded={openMenu === 'about'}>
-                {t('nav.about')} <ChevronDown className={`h-4 w-4 transition-transform ${openMenu === 'about' ? 'rotate-180' : ''}`} />
-              </button>
-              {openMenu === 'about' && (
-                <div className="absolute top-full left-0 pt-2">
-                  <div className="grid gap-0 border border-[#0F2433]/10 bg-white py-2 shadow-xl">
-                    {aboutLinks.map((link) => (
-                      <Link key={link.href} to={link.href} onClick={() => setOpenMenu(null)} className="px-4 py-2.5 text-sm text-[#0F2433]/70 transition hover:bg-[#F4F7F9] hover:text-[#C8102E]">{link.label}</Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+            <Link to="/#about" className="text-sm text-[#0F2433]/70 transition hover:text-[#C8102E]">{t('nav.aboutUs')}</Link>
+            <Link to="/#how-we-operate" className="text-sm text-[#0F2433]/70 transition hover:text-[#C8102E]">{t('howWeOperate.eyebrow')}</Link>
+            <Link to="/#approach" className="text-sm text-[#0F2433]/70 transition hover:text-[#C8102E]">{t('nav.approach')}</Link>
+            <Link to="/fees" className="text-sm text-[#0F2433]/70 transition hover:text-[#C8102E]">{t('nav.fees')}</Link>
           </nav>
           <Link to="/strategy-session" className="bg-[#C8102E] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#A00D24]">{t('nav.book')}</Link>
         </div>

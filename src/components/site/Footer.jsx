@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Compass, BadgeCheck, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { BadgeCheck, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
+import Logo from '@/components/site/Logo';
 import { useLanguage } from '@/lib/LanguageContext';
 
 const CICC_URL = 'https://college-ic.ca/protecting-the-public/find-an-immigration-consultant/';
@@ -17,10 +18,10 @@ export default function Footer() {
       <div className="mx-auto max-w-[1440px]">
         <div className="grid gap-12 border-b border-white/10 pb-14 md:grid-cols-4">
           <div>
-            <a href="#top" className="flex items-center gap-3">
-              <Compass className="text-[#C8102E]" />
+            <Link to="/" className="flex items-center gap-3">
+              <Logo className="h-9 w-9" />
               <span className="font-heading text-xl leading-tight">Externa<span className="mt-1 block font-body text-[10px] uppercase tracking-[.18em] text-white/55">Immigration Solutions Inc</span></span>
-            </a>
+            </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/45">{t('footer.tagline')}</p>
             <p className="mt-4 flex items-center gap-2 text-sm text-white/55"><MapPin className="h-4 w-4 text-[#C8102E]" /> {t('truststrip.location')}</p>
             <p className="mt-1 text-sm text-white/55">{t('footer.remoteFirst')}</p>
