@@ -4,6 +4,12 @@ import { useLanguage } from '@/lib/LanguageContext';
 
 const CICC_URL = 'https://college-ic.ca/protecting-the-public/find-an-immigration-consultant/';
 
+const TikTokIcon = ({ className }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+  </svg>
+);
+
 export default function Footer() {
   const { t } = useLanguage();
   return (
@@ -13,7 +19,7 @@ export default function Footer() {
           <div>
             <a href="#top" className="flex items-center gap-3">
               <Compass className="text-[#C8102E]" />
-              <span className="font-heading text-xl">Externa<span className="mt-1 block font-body text-[9px] uppercase tracking-[.22em] text-white/55">Immigration Solutions Inc</span></span>
+              <span className="font-heading text-xl">Externa<span className="ml-2 font-body text-[10px] uppercase tracking-[.18em] text-white/55">Immigration Solutions Inc</span></span>
             </a>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/45">{t('footer.tagline')}</p>
             <p className="mt-4 flex items-center gap-2 text-sm text-white/55"><MapPin className="h-4 w-4 text-[#C8102E]" /> {t('truststrip.location')}</p>
@@ -23,6 +29,7 @@ export default function Footer() {
               <a href="#" aria-label="Facebook" className="text-white/40 transition hover:text-[#C8102E]"><Facebook className="h-5 w-5" /></a>
               <a href="#" aria-label="Instagram" className="text-white/40 transition hover:text-[#C8102E]"><Instagram className="h-5 w-5" /></a>
               <a href="#" aria-label="LinkedIn" className="text-white/40 transition hover:text-[#C8102E]"><Linkedin className="h-5 w-5" /></a>
+              <a href="#" aria-label="TikTok" className="text-white/40 transition hover:text-[#C8102E]"><TikTokIcon className="h-5 w-5" /></a>
             </div>
           </div>
           <div>
@@ -40,9 +47,9 @@ export default function Footer() {
           <div>
             <p className="text-xs uppercase tracking-[.2em] text-[#C5A059]">{t('nav.about')}</p>
             <div className="mt-5 grid gap-3 text-sm text-white/60">
-              <a href="#about" className="transition hover:text-[#C8102E]">{t('nav.aboutUs')}</a>
-              <a href="#how-we-operate" className="transition hover:text-[#C8102E]">{t('howWeOperate.eyebrow')}</a>
-              <a href="#approach" className="transition hover:text-[#C8102E]">{t('nav.approach')}</a>
+              <Link to="/#about" className="transition hover:text-[#C8102E]">{t('nav.aboutUs')}</Link>
+              <Link to="/#how-we-operate" className="transition hover:text-[#C8102E]">{t('howWeOperate.eyebrow')}</Link>
+              <Link to="/#approach" className="transition hover:text-[#C8102E]">{t('nav.approach')}</Link>
               <Link to="/fees" className="transition hover:text-[#C8102E]">{t('nav.fees')}</Link>
             </div>
           </div>

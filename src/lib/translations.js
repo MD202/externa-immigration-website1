@@ -137,7 +137,7 @@ export const translations = {
   },
   trust: {
     eyebrow: { en: 'Professional responsibility', ta: 'தொழில்முறை பொறுப்பு', hi: 'पेशेवर जिम्मेदारी' },
-    title: { en: 'Regulated advocacy. Human counsel.', ta: 'ஒழுங்குபடுத்தப்பட்ட வாதம். மனிதநேய ஆலோசனை.', hi: 'विनियमित वकालत। मानवीय परामर्श।' },
+    title: { en: 'Regulated advocacy. Personal representation.', ta: 'ஒழுங்குபடுத்தப்பட்ட வாதம். தனிப்பட்ட பிரதிநிதித்துவம்.', hi: 'विनियमित वकालत। व्यक्तिगत प्रतिनिधित्व।' },
     body: { en: 'We are licensed as RCIC-IRB and authorized to practise before the Immigration and Refugee Board of Canada. Every engagement is approached with preparation, professionalism and respect for the stakes involved.', ta: 'நாங்கள் RCIC-IRB ஆக உரிமம் பெற்றுள்ளோம் மற்றும் கனடாவின் குடியேற்ற மற்றும் அகதி வாரியத்தின் முன் பயிற்சி செய்ய அங்கீகரிக்கப்பட்டுள்ளோம். ஒவ்வொரு ஈடுபாடும் தயாரிப்பு, தொழில்முறை மற்றும் சம்பந்தப்பட்ட பங்குகளுக்கான மரியாதையுடன் அணுகப்படுகிறது.', hi: 'हम RCIC-IRB के रूप में लाइसेंस प्राप्त हैं और कनाडा के आव्रजन और शरणार्थी बोर्ड के सामने अभ्यास करने के लिए अधिकृत हैं। प्रत्येक जुड़ाव तैयारी, पेशेवरता और संबंधित दांव के प्रति सम्मान के साथ किया जाता है।' },
     note: { en: 'Verify our licence on the College of Immigration Consultants public register', ta: 'குடியேற்ற ஆலோசகர்களின் கல்லூரி பொதுப் பதிவேட்டில் எங்கள் உரிமத்தை சரிபார்க்கவும்', hi: 'आव्रजन सलाहकारों के महाविद्यालय सार्वजनिक रजिस्टर में हमारा लाइसेंस सत्यापित करें' },
     cta: { en: 'Verify licence →', ta: 'உரிமம் சரிபார்க்க →', hi: 'लाइसेंस सत्यापित करें →' },
@@ -160,7 +160,7 @@ export const translations = {
     navigate: { en: 'Navigate', ta: 'வழிசெலுத்தல்', hi: 'नेविगेट' },
     begin: { en: 'Begin', ta: 'தொடங்குங்கள்', hi: 'शुरू करें' },
     book: { en: 'Book a strategy session', ta: 'மூலோபாய அமர்வு பதிவு', hi: 'रणनीति सत्र बुक करें' },
-    license: { en: 'Verify our licence', ta: 'எங்கள் உரிமம் சரிபார்க்க', hi: 'हमारा लाइसेंस सत्यापित करें' },
+    license: { en: 'Verify licence', ta: 'உரிமம் சரிபார்க்க', hi: 'लाइसेंस सत्यापित करें' },
     rights: { en: '© 2026 Externa Immigration Solutions Inc. All rights reserved.', ta: '© 2026 எக்ஸ்டெர்னா இமிக்ரேஷன் சால்யுஷன்ஸ் இங்க். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.', hi: '© 2026 एक्सटर्ना इमिग्रेशन सॉल्यूशंस इंक। सर्वाधिकार सुरक्षित।' },
     disclaimer: { en: 'Information on this website is general and does not constitute legal advice.', ta: 'இந்த வலைத்தளத்தில் உள்ள தகவல் பொதுவானது மற்றும் சட்ட ஆலோசனையாக கருதப்படாது.', hi: 'इस वेबसाइट पर जानकारी सामान्य है और कानूनी सलाह नहीं है।' },
     privacy: { en: 'Privacy Policy', ta: 'தனியுரிமை கொள்கை', hi: 'गोपनीयता नीति' },
