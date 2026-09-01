@@ -29,56 +29,56 @@ export default function Fees() {
       <Header />
       <section className="px-5 pt-32 pb-20 lg:px-[8vw] lg:pt-40">
         <div className="mx-auto max-w-[1440px]">
-          <Link to="/" className="mb-10 inline-flex items-center gap-2 text-sm text-[#0F2433]/55 transition hover:text-[#C8102E]">
+          <Link to="/" className="mb-10 inline-flex items-center gap-2 text-sm text-[#0E3B3B]/55 transition hover:text-[#6B1E1E]">
             <ArrowLeft className="h-4 w-4" /> {t('fees.back')}
           </Link>
           <Link to="/" className="mb-10 flex items-center gap-3 lg:hidden">
-            <Compass className="h-8 w-8 text-[#C8102E]" />
-            <span className="font-heading text-lg leading-tight text-[#0F2433]">Externa<span className="mt-0.5 block font-body text-[9px] uppercase tracking-[.22em] text-[#0F2433]/55">Immigration Solutions Inc</span></span>
+            <Compass className="h-8 w-8 text-[#6B1E1E]" />
+            <span className="font-heading text-lg leading-tight text-[#0E3B3B]">Externa<span className="mt-0.5 block font-body text-[9px] uppercase tracking-[.22em] text-[#0E3B3B]/55">Immigration Solutions Inc</span></span>
           </Link>
           <p className="eyebrow">{t('fees.eyebrow')}</p>
           <h1 className="section-title">{t('fees.title')}</h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#0F2433]/65">{t('fees.intro')}</p>
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#0E3B3B]/65">{t('fees.intro')}</p>
           <div className="mt-14 grid gap-5 md:grid-cols-3">
             {tiers.map((tier) => (
               <article key={tier.label} className="relative flex flex-col bg-white p-8 shadow-sm">
-                {tier.badge && <span className="absolute -top-3 left-8 bg-[#C5A059] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0F2433]">{tier.badge}</span>}
-                <h3 className="font-heading text-2xl text-[#0F2433]">{tier.label}</h3>
-                <p className="mt-2 text-sm text-[#0F2433]/50">{tier.duration}</p>
-                <p className="mt-6 font-heading text-4xl text-[#C8102E]">{tier.price}</p>
-                <p className="mt-4 flex-1 text-sm leading-relaxed text-[#0F2433]/60">{tier.desc}</p>
-                <Link to="/strategy-session" className="mt-7 inline-flex items-center gap-2 border-b-2 border-[#C8102E] pb-1 text-sm font-semibold text-[#C8102E]">{tier.cta} <ArrowUpRight className="h-4 w-4" /></Link>
+                {tier.badge && <span className="absolute -top-3 left-8 bg-[#C5A059] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0E3B3B]">{tier.badge}</span>}
+                <h3 className="font-heading text-2xl text-[#0E3B3B]">{tier.label}</h3>
+                <p className="mt-2 text-sm text-[#0E3B3B]/50">{tier.duration}</p>
+                <p className="mt-6 font-heading text-4xl text-[#6B1E1E]">{tier.price}</p>
+                <p className="mt-4 flex-1 text-sm leading-relaxed text-[#0E3B3B]/60">{tier.desc}</p>
+                <Link to="/strategy-session" className="mt-7 inline-flex items-center gap-2 border-b-2 border-[#6B1E1E] pb-1 text-sm font-semibold text-[#6B1E1E]">{tier.cta} <ArrowUpRight className="h-4 w-4" /></Link>
               </article>
             ))}
           </div>
-          <div className="mt-14 flex flex-col items-start justify-between gap-6 border-t border-[#0F2433]/10 pt-10 md:flex-row md:items-center">
+          <div className="mt-14 flex flex-col items-start justify-between gap-6 border-t border-[#0E3B3B]/10 pt-10 md:flex-row md:items-center">
             <div>
-              <h3 className="font-heading text-2xl text-[#0F2433]">{t('booking.fullRepTitle')}</h3>
-              <p className="mt-2 font-heading text-xl text-[#C8102E]">{t('booking.fullRepPrice')}</p>
+              <h3 className="font-heading text-2xl text-[#0E3B3B]">{t('booking.fullRepTitle')}</h3>
+              <p className="mt-2 font-heading text-xl text-[#6B1E1E]">{t('booking.fullRepPrice')}</p>
             </div>
-            <p className="max-w-md text-sm leading-relaxed text-[#0F2433]/55">{t('booking.fullRepBody')}</p>
-            <Link to="/strategy-session" className="shrink-0 bg-[#0F2433] px-6 py-4 font-semibold text-white transition hover:bg-[#1A3548]">{t('booking.fullRepCta')}</Link>
+            <p className="max-w-md text-sm leading-relaxed text-[#0E3B3B]/55">{t('booking.fullRepBody')}</p>
+            <Link to="/strategy-session" className="shrink-0 bg-[#0E3B3B] px-6 py-4 font-semibold text-white transition hover:bg-[#155454]">{t('booking.fullRepCta')}</Link>
           </div>
           <div className="mt-16">
-            <h2 className="font-heading text-3xl text-[#0F2433]">Full representation fees</h2>
+            <h2 className="font-heading text-3xl text-[#0E3B3B]">Full representation fees</h2>
             <div className="mt-8 grid gap-5 md:grid-cols-2">
               {items.map((item) => (
-                <div key={item.title} className="flex flex-col justify-between border border-[#0F2433]/8 bg-white p-7 shadow-sm transition hover:shadow-md">
+                <div key={item.title} className="flex flex-col justify-between border border-[#0E3B3B]/8 bg-white p-7 shadow-sm transition hover:shadow-md">
                   <div className="flex items-start justify-between gap-4">
-                    <h3 className="font-heading text-2xl text-[#0F2433]">{item.title}</h3>
-                    <span className="whitespace-nowrap font-heading text-xl text-[#C8102E]">{item.fee}</span>
+                    <h3 className="font-heading text-2xl text-[#0E3B3B]">{item.title}</h3>
+                    <span className="whitespace-nowrap font-heading text-xl text-[#6B1E1E]">{item.fee}</span>
                   </div>
-                  <p className="mt-4 text-sm leading-relaxed text-[#0F2433]/55">{item.desc}</p>
+                  <p className="mt-4 text-sm leading-relaxed text-[#0E3B3B]/55">{item.desc}</p>
                 </div>
               ))}
             </div>
           </div>
-          <p className="mt-8 max-w-2xl text-sm leading-relaxed text-[#0F2433]/45">{t('fees.note')}</p>
-          <p className="mt-3 max-w-2xl text-sm font-semibold leading-relaxed text-[#C8102E]">{t('fees.exclusion')}</p>
+          <p className="mt-8 max-w-2xl text-sm leading-relaxed text-[#0E3B3B]/45">{t('fees.note')}</p>
+          <p className="mt-3 max-w-2xl text-sm font-semibold leading-relaxed text-[#6B1E1E]">{t('fees.exclusion')}</p>
           <div className="mt-6 max-w-2xl border-l-2 border-[#C5A059] bg-[#F4F7F9] px-5 py-4">
-            <p className="text-sm leading-relaxed text-[#0F2433]/70">{t('fees.stagedNote')}</p>
+            <p className="text-sm leading-relaxed text-[#0E3B3B]/70">{t('fees.stagedNote')}</p>
           </div>
-          <Link to="/strategy-session" className="mt-8 inline-flex items-center gap-3 bg-[#C8102E] px-6 py-4 font-semibold text-white transition hover:bg-[#A00D24]">{t('fees.cta')} <ArrowUpRight /></Link>
+          <Link to="/strategy-session" className="mt-8 inline-flex items-center gap-3 bg-[#6B1E1E] px-6 py-4 font-semibold text-white transition hover:bg-[#561818]">{t('fees.cta')} <ArrowUpRight /></Link>
         </div>
       </section>
       <Footer />

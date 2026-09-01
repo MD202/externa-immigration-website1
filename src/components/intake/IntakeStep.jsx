@@ -3,7 +3,7 @@ import { Check } from 'lucide-react';
 export default function IntakeStep({ title, options, selected, onSelect }) {
   return (
     <div>
-      <h2 className="font-heading text-4xl leading-tight text-[#0F2433] sm:text-5xl">{title}</h2>
+      <h2 className="font-heading text-4xl leading-tight text-[#0E3B3B] sm:text-5xl">{title}</h2>
       <div className="mt-9 grid gap-3">
         {options.map((option) => {
           const value = typeof option === 'string' ? option : option.value;
@@ -13,10 +13,10 @@ export default function IntakeStep({ title, options, selected, onSelect }) {
               type="button"
               key={value}
               onClick={() => onSelect(value)}
-              className={`flex items-center justify-between border p-5 text-left text-lg transition ${selected === value ? 'border-[#C8102E] bg-[#C8102E]/5 text-[#0F2433]' : 'border-[#0F2433]/15 text-[#0F2433]/80 hover:border-[#0F2433]/40'}`}
+              className={`flex items-center justify-between border p-5 text-left text-lg transition ${selected === value ? 'border-[#6B1E1E] bg-[#6B1E1E]/5 text-[#0E3B3B]' : 'border-[#0E3B3B]/15 text-[#0E3B3B]/80 hover:border-[#0E3B3B]/40'}`}
             >
               <span>{label}</span>
-              {selected === value && <Check className="h-5 w-5 text-[#C8102E]" />}
+              {selected === value && <Check className="h-5 w-5 text-[#6B1E1E]" />}
             </button>
           );
         })}

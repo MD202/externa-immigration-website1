@@ -11,7 +11,7 @@ export default function AppealsSection() {
     { n: '04', icon: ShieldCheck, title: t('appeals.s4t'), body: t('appeals.s4b') },
   ];
   return (
-    <section id="appeals" className="relative overflow-hidden bg-[#0F2433] px-5 py-28 text-white lg:px-[8vw] lg:py-40">
+    <section id="appeals" className="relative overflow-hidden bg-[#0E3B3B] px-5 py-28 text-white lg:px-[8vw] lg:py-40">
       <div className="absolute left-[8vw] top-0 h-full w-px bg-gradient-to-b from-transparent via-[#C5A059]/50 to-transparent" />
       <div className="relative mx-auto max-w-[1440px]">
         <div className="grid gap-8 lg:grid-cols-2">

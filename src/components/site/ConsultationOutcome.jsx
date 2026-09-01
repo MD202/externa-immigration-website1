@@ -9,7 +9,7 @@ export default function ConsultationOutcome() {
     { icon: Compass, title: t('outcome.i3t'), body: t('outcome.i3b') },
   ];
   return (
-    <section aria-label="Consultation outcomes" className="bg-[#0F2433] px-5 py-28 text-white lg:px-[8vw] lg:py-36">
+    <section aria-label="Consultation outcomes" className="bg-[#0E3B3B] px-5 py-28 text-white lg:px-[8vw] lg:py-36">
       <div className="mx-auto max-w-[1440px]">
         <p className="text-xs uppercase tracking-[.24em] text-[#C5A059]">{t('outcome.eyebrow')}</p>
         <h2 className="mt-3 font-heading text-4xl sm:text-5xl">{t('outcome.title')}</h2>

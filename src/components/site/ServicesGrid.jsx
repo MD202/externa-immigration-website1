@@ -21,21 +21,21 @@ export default function ServicesGrid() {
         <div className="max-w-3xl">
           <p className="eyebrow">{t('services.eyebrow')}</p>
           <h2 className="section-title">{t('services.title')}</h2>
-          <p className="mt-6 text-lg leading-relaxed text-[#0F2433]/65">{t('services.intro')}</p>
+          <p className="mt-6 text-lg leading-relaxed text-[#0E3B3B]/65">{t('services.intro')}</p>
         </div>
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {services.map(({ id, icon: Icon, title, text, factors }) => (
-            <Link to={`/services/${id}`} key={id} className="group flex flex-col justify-between bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8102E]">
+            <Link to={`/services/${id}`} key={id} className="group flex flex-col justify-between bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#6B1E1E]">
               <div className="flex justify-between">
-                <div className="flex h-12 w-12 items-center justify-center bg-[#C8102E]/8 text-[#C8102E] transition group-hover:bg-[#C8102E] group-hover:text-white">
+                <div className="flex h-12 w-12 items-center justify-center bg-[#6B1E1E]/8 text-[#6B1E1E] transition group-hover:bg-[#6B1E1E] group-hover:text-white">
                   <Icon className="h-6 w-6" aria-hidden="true" />
                 </div>
-                <ArrowUpRight className="h-5 w-5 text-[#0F2433]/20 transition group-hover:text-[#C8102E]" aria-hidden="true" />
+                <ArrowUpRight className="h-5 w-5 text-[#0E3B3B]/20 transition group-hover:text-[#6B1E1E]" aria-hidden="true" />
               </div>
               <div className="mt-8">
-                <h3 className="font-heading text-xl text-[#0F2433]">{title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[#0F2433]/60">{text}</p>
-                <p className="mt-5 border-t border-[#0F2433]/10 pt-4 text-xs uppercase tracking-[.1em] text-[#0F2433]/45">{factors}</p>
+                <h3 className="font-heading text-xl text-[#0E3B3B]">{title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-[#0E3B3B]/60">{text}</p>
+                <p className="mt-5 border-t border-[#0E3B3B]/10 pt-4 text-xs uppercase tracking-[.1em] text-[#0E3B3B]/45">{factors}</p>
               </div>
             </Link>
           ))}

@@ -61,12 +61,12 @@ export default function StrategySession() {
   if (sent) {
     const isPayLater = sent === 'pay_later';
     return (
-      <main className="flex min-h-screen items-center justify-center bg-[#F4F7F9] px-5 text-[#0F2433]">
+      <main className="flex min-h-screen items-center justify-center bg-[#F4F7F9] px-5 text-[#0E3B3B]">
         <div className="max-w-xl text-center">
-          <CheckCircle2 className="mx-auto h-12 w-12 text-[#C8102E]" />
+          <CheckCircle2 className="mx-auto h-12 w-12 text-[#6B1E1E]" />
           <h1 className="mt-7 font-heading text-4xl sm:text-5xl">{isPayLater ? t('bookingFlow.payLaterSuccessTitle') : t('bookingFlow.paidSuccessTitle')}</h1>
-          <p className="mt-5 leading-relaxed text-[#0F2433]/60">{isPayLater ? t('bookingFlow.payLaterSuccessBody') : t('bookingFlow.paidSuccessBody')}</p>
-          <Link to="/" className="mt-8 inline-flex border-b border-[#C8102E] pb-2 text-[#C8102E]">{t('bookingFlow.returnHome')}</Link>
+          <p className="mt-5 leading-relaxed text-[#0E3B3B]/60">{isPayLater ? t('bookingFlow.payLaterSuccessBody') : t('bookingFlow.paidSuccessBody')}</p>
+          <Link to="/" className="mt-8 inline-flex border-b border-[#6B1E1E] pb-2 text-[#6B1E1E]">{t('bookingFlow.returnHome')}</Link>
         </div>
       </main>
     );
@@ -81,7 +81,7 @@ export default function StrategySession() {
   return (
     <main className="min-h-screen bg-[#F4F7F9]">
       <div className="grid min-h-screen lg:grid-cols-[34%_66%]">
-        <aside className="hidden bg-[#0F2433] p-12 text-white lg:flex lg:flex-col lg:justify-between">
+        <aside className="hidden bg-[#0E3B3B] p-12 text-white lg:flex lg:flex-col lg:justify-between">
           <Link to="/" className="flex items-center gap-3">
             <Logo variant="light" className="h-10 w-10" />
             <span className="font-heading text-xl">Externa</span>
@@ -91,11 +91,11 @@ export default function StrategySession() {
         </aside>
         <section className="flex items-center px-5 py-10 sm:px-12 lg:px-[8vw]">
           <div className="mx-auto w-full max-w-2xl">
-            <Link to="/" className="mb-10 inline-flex items-center gap-2 text-sm text-[#0F2433]/60 lg:hidden">
+            <Link to="/" className="mb-10 inline-flex items-center gap-2 text-sm text-[#0E3B3B]/60 lg:hidden">
               <ArrowLeft className="h-4 w-4" /> {t('strategy.back')}
             </Link>
-            <h1 className="font-heading text-3xl text-[#0F2433] sm:text-4xl">{t('bookingFlow.title')}</h1>
-            <p className="mt-3 text-sm leading-relaxed text-[#0F2433]/55">{t('bookingFlow.subtitle')}</p>
+            <h1 className="font-heading text-3xl text-[#0E3B3B] sm:text-4xl">{t('bookingFlow.title')}</h1>
+            <p className="mt-3 text-sm leading-relaxed text-[#0E3B3B]/55">{t('bookingFlow.subtitle')}</p>
             <BookingStepper step={step} />
 
             {step === 1 && <ServiceStep data={data} setData={setData} />}
@@ -104,12 +104,12 @@ export default function StrategySession() {
 
             <div className="mt-9 flex items-center justify-between">
               {step > 1 ? (
-                <button type="button" onClick={() => setStep(step - 1)} className="flex items-center gap-2 text-sm text-[#0F2433]/55">
+                <button type="button" onClick={() => setStep(step - 1)} className="flex items-center gap-2 text-sm text-[#0E3B3B]/55">
                   <ArrowLeft className="h-4 w-4" /> {t('bookingFlow.back')}
                 </button>
               ) : <span />}
               {step < 3 && (
-                <button type="button" disabled={!canProceed} onClick={() => setStep(step + 1)} className="flex items-center gap-3 bg-[#C8102E] px-6 py-4 font-semibold text-white transition hover:bg-[#A00D24] disabled:opacity-40">
+                <button type="button" disabled={!canProceed} onClick={() => setStep(step + 1)} className="flex items-center gap-3 bg-[#6B1E1E] px-6 py-4 font-semibold text-white transition hover:bg-[#561818] disabled:opacity-40">
                   {nextLabel} <ArrowRight className="h-4 w-4" />
                 </button>
               )}

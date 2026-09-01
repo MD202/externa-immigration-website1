@@ -10,11 +10,11 @@ export default function TrustStrip() {
     { icon: Languages, text: t('truststrip.langs') },
   ];
   return (
-    <div className="border-b border-[#0F2433]/10 bg-white py-5 shadow-sm">
-      <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-center gap-x-10 gap-y-3 px-5 text-sm text-[#0F2433]/70 lg:px-[8vw]">
+    <div className="border-b border-[#0E3B3B]/10 bg-white py-5 shadow-sm">
+      <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-center gap-x-10 gap-y-3 px-5 text-sm text-[#0E3B3B]/70 lg:px-[8vw]">
         {items.map(({ icon: Icon, text }, i) => (
           <span key={i} className="flex items-center gap-2.5">
-            <Icon className="h-4 w-4 text-[#C8102E]" />
+            <Icon className="h-4 w-4 text-[#6B1E1E]" />
             {text}
           </span>
         ))}

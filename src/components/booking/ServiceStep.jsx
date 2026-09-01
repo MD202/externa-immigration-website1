@@ -10,24 +10,24 @@ export default function ServiceStep({ data, setData }) {
   ];
   return (
     <div>
-      <h2 className="font-heading text-2xl text-[#0F2433]">{t('bookingFlow.selectService')}</h2>
+      <h2 className="font-heading text-2xl text-[#0E3B3B]">{t('bookingFlow.selectService')}</h2>
       <div className="mt-6 grid gap-4">
         {services.map((s) => (
           <button
             key={s.id}
             type="button"
             onClick={() => setData((d) => ({ ...d, service_tier: s.id }))}
-            className={`relative border p-6 text-left transition ${data.service_tier === s.id ? 'border-[#C8102E] bg-[#C8102E]/5' : 'border-[#0F2433]/15 hover:border-[#0F2433]/40'}`}
+            className={`relative border p-6 text-left transition ${data.service_tier === s.id ? 'border-[#6B1E1E] bg-[#6B1E1E]/5' : 'border-[#0E3B3B]/15 hover:border-[#0E3B3B]/40'}`}
           >
-            {s.badge && <span className="absolute -top-3 left-6 bg-[#C5A059] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0F2433]">{s.badge}</span>}
+            {s.badge && <span className="absolute -top-3 left-6 bg-[#C5A059] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0E3B3B]">{s.badge}</span>}
             <div className="flex items-start justify-between gap-4">
               <div>
-                <h3 className="font-heading text-xl text-[#0F2433]">{s.label} <span className="text-sm font-normal text-[#0F2433]/50">({s.duration})</span></h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#0F2433]/60">{s.desc}</p>
+                <h3 className="font-heading text-xl text-[#0E3B3B]">{s.label} <span className="text-sm font-normal text-[#0E3B3B]/50">({s.duration})</span></h3>
+                <p className="mt-2 text-sm leading-relaxed text-[#0E3B3B]/60">{s.desc}</p>
               </div>
               <div className="flex flex-col items-end gap-2">
-                <span className="font-heading text-2xl text-[#C8102E]">{s.price}</span>
-                {data.service_tier === s.id && <Check className="h-5 w-5 text-[#C8102E]" />}
+                <span className="font-heading text-2xl text-[#6B1E1E]">{s.price}</span>
+                {data.service_tier === s.id && <Check className="h-5 w-5 text-[#6B1E1E]" />}
               </div>
             </div>
           </button>

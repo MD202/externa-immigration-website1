@@ -16,22 +16,22 @@ export default function BookingOptions() {
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {tiers.map((tier) => (
             <article key={tier.label} className="relative flex flex-col bg-white p-8 shadow-sm transition hover:shadow-lg">
-              {tier.badge && <span className="absolute -top-3 left-8 bg-[#C5A059] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0F2433]">{tier.badge}</span>}
-              <h3 className="font-heading text-2xl text-[#0F2433]">{tier.label}</h3>
-              <p className="mt-2 text-sm text-[#0F2433]/50">{tier.duration}</p>
-              <p className="mt-6 font-heading text-4xl text-[#C8102E]">{tier.price}</p>
-              <p className="mt-4 flex-1 text-sm leading-relaxed text-[#0F2433]/60">{tier.desc}</p>
-              <Link to="/strategy-session" className="mt-7 inline-flex items-center gap-2 border-b-2 border-[#C8102E] pb-1 text-sm font-semibold text-[#C8102E]">{tier.cta} <ArrowUpRight className="h-4 w-4" /></Link>
+              {tier.badge && <span className="absolute -top-3 left-8 bg-[#C5A059] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0E3B3B]">{tier.badge}</span>}
+              <h3 className="font-heading text-2xl text-[#0E3B3B]">{tier.label}</h3>
+              <p className="mt-2 text-sm text-[#0E3B3B]/50">{tier.duration}</p>
+              <p className="mt-6 font-heading text-4xl text-[#6B1E1E]">{tier.price}</p>
+              <p className="mt-4 flex-1 text-sm leading-relaxed text-[#0E3B3B]/60">{tier.desc}</p>
+              <Link to="/strategy-session" className="mt-7 inline-flex items-center gap-2 border-b-2 border-[#6B1E1E] pb-1 text-sm font-semibold text-[#6B1E1E]">{tier.cta} <ArrowUpRight className="h-4 w-4" /></Link>
             </article>
           ))}
         </div>
-        <div className="mt-10 flex flex-col items-start justify-between gap-6 border-t border-[#0F2433]/10 pt-10 md:flex-row md:items-center">
+        <div className="mt-10 flex flex-col items-start justify-between gap-6 border-t border-[#0E3B3B]/10 pt-10 md:flex-row md:items-center">
           <div>
-            <h3 className="font-heading text-2xl text-[#0F2433]">{t('booking.fullRepTitle')}</h3>
-            <p className="mt-2 font-heading text-xl text-[#C8102E]">{t('booking.fullRepPrice')}</p>
+            <h3 className="font-heading text-2xl text-[#0E3B3B]">{t('booking.fullRepTitle')}</h3>
+            <p className="mt-2 font-heading text-xl text-[#6B1E1E]">{t('booking.fullRepPrice')}</p>
           </div>
-          <p className="max-w-md text-sm leading-relaxed text-[#0F2433]/55">{t('booking.fullRepBody')}</p>
-          <Link to="/strategy-session" className="shrink-0 bg-[#0F2433] px-6 py-4 font-semibold text-white transition hover:bg-[#1A3548]">{t('booking.fullRepCta')}</Link>
+          <p className="max-w-md text-sm leading-relaxed text-[#0E3B3B]/55">{t('booking.fullRepBody')}</p>
+          <Link to="/strategy-session" className="shrink-0 bg-[#0E3B3B] px-6 py-4 font-semibold text-white transition hover:bg-[#155454]">{t('booking.fullRepCta')}</Link>
         </div>
       </div>
     </section>
