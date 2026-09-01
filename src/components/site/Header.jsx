@@ -49,7 +49,7 @@ export default function Header() {
           <Logo className="h-11 w-11" />
           <span className="font-heading text-2xl leading-tight text-[#0F2433]">Externa<span className="mt-1 block font-body text-[11px] uppercase tracking-[.22em] text-[#0F2433]/55">Immigration Solutions Inc</span></span>
         </Link>
-        <div className="hidden items-center gap-6 lg:flex">
+        <div className="hidden items-center gap-8 lg:flex">
           <nav className="flex items-center gap-6" aria-label="Main navigation">
             <div className="relative">
               <button onClick={() => setOpenMenu(openMenu === 'services' ? null : 'services')} className="flex items-center gap-1 text-sm text-[#0F2433]/70 transition hover:text-[#C8102E]" aria-expanded={openMenu === 'services'}>
@@ -81,6 +81,7 @@ export default function Header() {
             </div>
             <Link to="/eligibility" className="text-sm font-semibold text-[#C8102E] transition hover:text-[#A00D24]">{t('eligibility.nav')}</Link>
           </nav>
+          <span className="h-7 w-px bg-[#0F2433]/15" aria-hidden="true" />
           <Link to="/strategy-session" className="bg-[#C8102E] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#A00D24]">{t('nav.book')}</Link>
         </div>
         <button onClick={() => setMobileOpen(!mobileOpen)} className="text-[#0F2433] lg:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C8102E] focus-visible:ring-offset-2" aria-label="Toggle navigation" aria-expanded={mobileOpen} aria-controls="mobile-nav">{mobileOpen ? <X /> : <Menu />}</button>
@@ -97,7 +98,8 @@ export default function Header() {
           <Link onClick={() => setMobileOpen(false)} to="/#approach" className="block px-4 py-3 text-[#0F2433]/80">{t('nav.approach')}</Link>
           <Link onClick={() => setMobileOpen(false)} to="/fees" className="block px-4 py-3 text-[#0F2433]/80">{t('nav.fees')}</Link>
           <Link onClick={() => setMobileOpen(false)} to="/eligibility" className="block px-4 py-3 font-semibold text-[#C8102E]">{t('eligibility.nav')}</Link>
-          <Link to="/strategy-session" onClick={() => setMobileOpen(false)} className="m-3 bg-[#C8102E] px-4 py-3 text-center font-semibold text-white">{t('nav.book')}</Link>
+          <div className="my-2 border-t border-[#0F2433]/10" />
+          <Link to="/strategy-session" onClick={() => setMobileOpen(false)} className="mx-3 mb-3 bg-[#C8102E] px-4 py-3 text-center font-semibold text-white">{t('nav.book')}</Link>
         </nav>
       )}
     </header>

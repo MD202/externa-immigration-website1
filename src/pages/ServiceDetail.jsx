@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
@@ -23,6 +23,43 @@ export default function ServiceDetail() {
   const { t } = useLanguage();
   const svc = SERVICE_MAP[id];
   const [faqOpen, setFaqOpen] = useState(0);
+
+  useEffect(() => {
+    if (!svc) return;
+    document.title = `${t(svc.titleKey)} | Externa Immigration Solutions Inc`;
+    const desc = `${t(svc.textKey)} ${t(svc.blurbKey)}`;
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) metaDesc.setAttribute('content', desc);
+    else {
+      metaDesc = document.createElement('meta');
+      metaDesc.name = 'description';
+      metaDesc.content = desc;
+      document.head.appendChild(metaDesc);
+    }
+    const faqItems = [
+      { q: t(`faq.s${id}q1`), a: t(`faq.s${id}a1`) },
+      { q: t(`faq.s${id}q2`), a: t(`faq.s${id}a2`) },
+    ];
+    const ld = {
+      "@context": "https://schema.org",
+      "@graph": [
+        { "@type": "Service", "name": t(svc.titleKey), "description": t(svc.textKey), "provider": { "@type": "LegalService", "name": "Externa Immigration Solutions Inc" }, "areaServed": "Canada" },
+        { "@type": "FAQPage", "mainEntity": faqItems.map((f) => ({ "@type": "Question", "name": f.q, "acceptedAnswer": { "@type": "Answer", "text": f.a } })) }
+      ]
+    };
+    let script = document.getElementById('service-jsonld');
+    if (!script) {
+      script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.id = 'service-jsonld';
+      document.head.appendChild(script);
+    }
+    script.textContent = JSON.stringify(ld);
+    return () => {
+      const s = document.getElementById('service-jsonld');
+      if (s) s.remove();
+    };
+  }, [svc, id, t]);
 
   if (!svc) {
     return (
