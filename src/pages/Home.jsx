@@ -1,7 +1,7 @@
 import Header from '@/components/site/Header';
 import Hero from '@/components/site/Hero';
 import ValueProps from '@/components/site/ValueProps';
-import ProcessTimeline from '@/components/site/ProcessTimeline';
+import HowWeOperate from '@/components/site/HowWeOperate';
 import AppealsSection from '@/components/site/AppealsSection';
 import ServicesGrid from '@/components/site/ServicesGrid';
 import ApproachSection from '@/components/site/ApproachSection';
@@ -20,7 +20,7 @@ export default function Home() {
       <Header />
       <Hero />
       <ValueProps />
-      <ProcessTimeline />
+      <HowWeOperate />
       <ServicesGrid />
       <AppealsSection />
       <ApproachSection />

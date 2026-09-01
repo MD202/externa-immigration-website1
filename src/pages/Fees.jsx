@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowUpRight, ArrowLeft, Star } from 'lucide-react';
+import { ArrowUpRight, ArrowLeft } from 'lucide-react';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import NorthStarCursor from '@/components/site/NorthStarCursor';
@@ -34,13 +34,10 @@ export default function Fees() {
           <p className="eyebrow">{t('fees.eyebrow')}</p>
           <h1 className="section-title">{t('fees.title')}</h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#0F2433]/65">{t('fees.intro')}</p>
-
           <div className="mt-14 grid gap-5 md:grid-cols-3">
             {tiers.map((tier) => (
               <article key={tier.label} className="relative flex flex-col bg-white p-8 shadow-sm">
-                {tier.badge && (
-                  <span className="absolute -top-3 left-8 bg-[#C5A059] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0F2433]">{tier.badge}</span>
-                )}
+                {tier.badge && <span className="absolute -top-3 left-8 bg-[#C5A059] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0F2433]">{tier.badge}</span>}
                 <h3 className="font-heading text-2xl text-[#0F2433]">{tier.label}</h3>
                 <p className="mt-2 text-sm text-[#0F2433]/50">{tier.duration}</p>
                 <p className="mt-6 font-heading text-4xl text-[#C8102E]">{tier.price}</p>
@@ -49,7 +46,6 @@ export default function Fees() {
               </article>
             ))}
           </div>
-
           <div className="mt-14 flex flex-col items-start justify-between gap-6 border-t border-[#0F2433]/10 pt-10 md:flex-row md:items-center">
             <div>
               <h3 className="font-heading text-2xl text-[#0F2433]">{t('booking.fullRepTitle')}</h3>
@@ -58,7 +54,6 @@ export default function Fees() {
             <p className="max-w-md text-sm leading-relaxed text-[#0F2433]/55">{t('booking.fullRepBody')}</p>
             <Link to="/strategy-session" className="shrink-0 bg-[#0F2433] px-6 py-4 font-semibold text-white transition hover:bg-[#1A3548]">{t('booking.fullRepCta')}</Link>
           </div>
-
           <div className="mt-16">
             <h2 className="font-heading text-3xl text-[#0F2433]">Full representation fees</h2>
             <div className="mt-8 grid gap-5 md:grid-cols-2">

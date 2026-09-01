@@ -21,8 +21,8 @@ export default function Footer() {
           <div>
             <p className="text-xs uppercase tracking-[.2em] text-[#C5A059]">{t('footer.navigate')}</p>
             <div className="mt-5 grid gap-3 text-sm text-white/60">
-              <a href="#services">{t('nav.expertise')}</a>
-              <a href="#appeals">{t('nav.appeals')}</a>
+              <a href="#services">{t('nav.services')}</a>
+              <a href="#about">{t('nav.aboutUs')}</a>
               <a href="#approach">{t('nav.approach')}</a>
               <Link to="/fees">{t('nav.fees')}</Link>
             </div>
