@@ -46,8 +46,8 @@ export default function Header() {
     <header ref={headerRef} className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${compact ? 'bg-white py-3 shadow-lg' : 'bg-white/95 py-4 backdrop-blur-md'}`}>
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 lg:px-[8vw]">
         <Link to="/" className="flex items-center gap-3">
-          <Logo className="h-9 w-9" />
-          <span className="font-heading text-lg leading-tight text-[#0F2433]">Externa<span className="mt-0.5 block font-body text-[9px] uppercase tracking-[.22em] text-[#0F2433]/55">Immigration Solutions Inc</span></span>
+          <Logo className="h-11 w-11" />
+          <span className="font-heading text-2xl leading-tight text-[#0F2433]">Externa<span className="mt-1 block font-body text-[11px] uppercase tracking-[.22em] text-[#0F2433]/55">Immigration Solutions Inc</span></span>
         </Link>
         <div className="hidden items-center gap-6 lg:flex">
           <nav className="flex items-center gap-6" aria-label="Main navigation">
