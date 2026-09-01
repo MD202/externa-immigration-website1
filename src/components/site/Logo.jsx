@@ -1,19 +1,14 @@
-import { useId } from 'react';
+const LOGO_DEFAULT = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/8af61de3d_2.svg';
+const LOGO_LIGHT = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/3f49b6ecd_7.svg';
 
-export default function Logo({ className = 'h-9 w-9' }) {
-  const id = useId();
-  const gradId = `externa-logo-${id}`;
+export default function Logo({ className = 'h-9 w-9', variant = 'default' }) {
+  const src = variant === 'light' ? LOGO_LIGHT : LOGO_DEFAULT;
   return (
-    <svg viewBox="0 0 48 48" className={className} aria-hidden="true">
-      <defs>
-        <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="#C5A059" />
-          <stop offset="100%" stopColor="#C8102E" />
-        </linearGradient>
-      </defs>
-      <rect x="7" y="7" width="34" height="34" transform="rotate(45 24 24)" fill={`url(#${gradId})`} rx="2" />
-      <path d="M 30 14 L 19 14 Q 16 14 16 17 L 16 21 Q 16 24 19 24 L 25 24" stroke="#0F2433" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-      <path d="M 30 34 L 19 34 Q 16 34 16 31 L 16 27 Q 16 24 19 24 L 25 24" stroke="#0F2433" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-    </svg>
+    <img
+      src={src}
+      alt="Externa Immigration Solutions Inc"
+      className={className}
+      aria-hidden="true"
+    />
   );
 }

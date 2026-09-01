@@ -19,7 +19,7 @@ export default function Footer() {
         <div className="grid gap-12 border-b border-white/10 pb-14 md:grid-cols-4">
           <div>
             <Link to="/" className="flex items-center gap-3">
-              <Logo className="h-9 w-9" />
+              <Logo variant="light" className="h-9 w-9" />
               <span className="font-heading text-xl leading-tight">Externa<span className="mt-1 block font-body text-[10px] uppercase tracking-[.18em] text-white/55">Immigration Solutions Inc</span></span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/45">{t('footer.tagline')}</p>
