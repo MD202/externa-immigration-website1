@@ -1,8 +1,9 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import { translations } from './translations';
 
-const LanguageContext = createContext();
 const STORAGE_KEY = 'externa-lang';
+const tFallback = (path) => path;
+const LanguageContext = createContext({ lang: 'en', setLang: () => {}, t: tFallback });
 
 export function LanguageProvider({ children }) {
   const [lang, setLang] = useState(() => {
