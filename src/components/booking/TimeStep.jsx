@@ -1,35 +1,53 @@
-import { Calendar } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Loader2 } from 'lucide-react';
+import { base44 } from '@/api/base44Client';
 import { useLanguage } from '@/lib/LanguageContext';
 
 export default function TimeStep({ data, setData }) {
   const { t } = useLanguage();
-  const times = ['9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM'];
   const today = new Date().toISOString().split('T')[0];
+  const [slots, setSlots] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const serviceName = data.service_tier === 'quick_question' ? t('booking.tier1Label') : data.service_tier === 'full_consultation' ? t('booking.tier2Label') : t('booking.tier3Label');
   const serviceDuration = data.service_tier === 'quick_question' ? t('booking.tier1Duration') : data.service_tier === 'full_consultation' ? t('booking.tier2Duration') : t('booking.tier3Duration');
+
+  useEffect(() => {
+    if (!data.preferred_date) { setSlots([]); return; }
+    setLoading(true);
+    setData((d) => ({ ...d, preferred_time: '' }));
+    base44.functions.invoke('getCalendarAvailability', { date: data.preferred_date })
+      .then((res) => setSlots(res.data.slots || []))
+      .catch(() => setSlots([]))
+      .finally(() => setLoading(false));
+  }, [data.preferred_date]);
 
   return (
     <div>
       <h2 className="font-heading text-2xl text-[#0F2433]">{t('bookingFlow.selectTime')}</h2>
       <p className="mt-2 text-sm text-[#0F2433]/50">{serviceName} — {serviceDuration}</p>
 
-      <div className="mt-6 border border-dashed border-[#0F2433]/20 bg-[#F9F9F9] p-8 text-center">
-        <Calendar className="mx-auto h-8 w-8 text-[#0F2433]/40" />
-        <p className="mt-3 font-heading text-lg text-[#0F2433]">{t('bookingFlow.calendarPlaceholder')}</p>
-        <p className="mt-1 text-sm text-[#0F2433]/50">{t('bookingFlow.calendarNote')}</p>
-      </div>
-
       <div className="mt-6 grid gap-5 sm:grid-cols-2">
         <label className="intake-label">{t('bookingFlow.selectDate')}
           <input type="date" min={today} value={data.preferred_date} onChange={(e) => setData((d) => ({ ...d, preferred_date: e.target.value }))} className="intake-input" />
         </label>
-        <label className="intake-label">{t('bookingFlow.selectTimeLabel')}
-          <select value={data.preferred_time} onChange={(e) => setData((d) => ({ ...d, preferred_time: e.target.value }))} className="intake-input">
-            <option value="">—</option>
-            {times.map((time) => <option key={time} value={time}>{time}</option>)}
-          </select>
-        </label>
+        <div className="intake-label">{t('bookingFlow.selectTimeLabel')}
+          {loading ? (
+            <p className="mt-3 flex items-center gap-2 text-sm text-[#0F2433]/50"><Loader2 className="h-4 w-4 animate-spin" /> {t('bookingFlow.loadingSlots')}</p>
+          ) : data.preferred_date ? (
+            slots.length > 0 ? (
+              <div className="mt-3 flex flex-wrap gap-2">
+                {slots.map((time) => (
+                  <button key={time} type="button" onClick={() => setData((d) => ({ ...d, preferred_time: time }))} className={`border px-3 py-2 text-sm transition ${data.preferred_time === time ? 'border-[#C8102E] bg-[#C8102E] text-white' : 'border-[#0F2433]/20 text-[#0F2433]/70 hover:border-[#C8102E]'}`}>{time}</button>
+                ))}
+              </div>
+            ) : (
+              <p className="mt-3 text-sm text-[#0F2433]/50">{t('bookingFlow.noSlots')}</p>
+            )
+          ) : (
+            <p className="mt-3 text-sm text-[#0F2433]/40">{t('bookingFlow.pickDate')}</p>
+          )}
+        </div>
       </div>
 
       <p className="mt-4 text-xs text-[#0F2433]/40">{t('bookingFlow.timeZone')}</p>

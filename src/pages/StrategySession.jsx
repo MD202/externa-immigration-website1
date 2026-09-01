@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
@@ -16,6 +16,10 @@ export default function StrategySession() {
   const [step, setStep] = useState(1);
   const [saving, setSaving] = useState(false);
   const [sent, setSent] = useState(null);
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('payment') === 'success') setSent('pay_now');
+  }, []);
   const [data, setData] = useState({
     service_tier: '', preferred_date: '', preferred_time: '',
     full_name: '', email: '', phone: '', matter: '', urgency: '', summary: '',
@@ -24,8 +28,34 @@ export default function StrategySession() {
 
   const submit = async (paymentPref) => {
     setSaving(true);
-    await base44.entities.Consultation.create({ ...data, payment_preference: paymentPref });
-    setSent(paymentPref);
+    try {
+      await base44.entities.Consultation.create({ ...data, payment_preference: paymentPref });
+      try {
+        await base44.functions.invoke('createCalendarEvent', {
+          full_name: data.full_name, email: data.email,
+          preferred_date: data.preferred_date, preferred_time: data.preferred_time,
+          service_tier: data.service_tier,
+        });
+      } catch (calErr) {
+        console.error('Calendar event failed:', calErr);
+      }
+      if (paymentPref === 'pay_now') {
+        if (window.self !== window.top) {
+          alert('Checkout works only from the published app. Please open the app in a new tab to complete payment.');
+          setSaving(false);
+          return;
+        }
+        const res = await base44.functions.invoke('createCheckoutSession', {
+          service_tier: data.service_tier, full_name: data.full_name, email: data.email,
+          preferred_date: data.preferred_date, preferred_time: data.preferred_time,
+        });
+        window.location.href = res.data.url;
+        return;
+      }
+      setSent(paymentPref);
+    } catch (e) {
+      console.error('Submit failed:', e);
+    }
     setSaving(false);
   };
 

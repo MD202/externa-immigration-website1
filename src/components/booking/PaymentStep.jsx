@@ -29,10 +29,7 @@ export default function PaymentStep({ data, saving, onPayNow, onPayLater }) {
             <h3 className="font-heading text-lg text-[#0F2433]">{t('bookingFlow.payNow')}</h3>
           </div>
           <p className="mt-3 text-sm leading-relaxed text-[#0F2433]/60">{t('bookingFlow.payNowDesc')}</p>
-          <div className="mt-4 border border-dashed border-[#0F2433]/20 bg-[#F9F9F9] p-4 text-center">
-            <p className="text-sm font-semibold text-[#0F2433]/60">{t('bookingFlow.stripePlaceholder')}</p>
-          </div>
-          <button disabled={saving} onClick={onPayNow} className="mt-4 w-full bg-[#C8102E] py-4 font-semibold text-white transition hover:bg-[#A00D24] disabled:opacity-40">
+          <button disabled={saving} onClick={onPayNow} className="mt-6 w-full bg-[#C8102E] py-4 font-semibold text-white transition hover:bg-[#A00D24] disabled:opacity-40">
             {saving ? t('bookingFlow.sending') : t('bookingFlow.payNow')}
           </button>
         </div>
