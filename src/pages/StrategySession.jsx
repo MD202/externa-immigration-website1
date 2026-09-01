@@ -9,6 +9,7 @@ import ServiceStep from '@/components/booking/ServiceStep';
 import TimeStep from '@/components/booking/TimeStep';
 import DetailsAgreementStep from '@/components/booking/DetailsAgreementStep';
 import PaymentStep from '@/components/booking/PaymentStep';
+import WhatsAppWidget from '@/components/site/WhatsAppWidget';
 
 export default function StrategySession() {
   const { t } = useLanguage();
@@ -89,6 +90,7 @@ export default function StrategySession() {
           </div>
         </section>
       </div>
+      <WhatsAppWidget />
     </main>
   );
 }

@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
+import WhatsAppWidget from '@/components/site/WhatsAppWidget';
 
 const SERVICE_MAP = {
   1: { titleKey: 'services.t1', textKey: 'services.x1', blurbKey: 'services.b1', factorsKey: 'services.f1', pathwayKey: 'services.p1', matter: 'Refugee claim' },
@@ -106,6 +107,7 @@ export default function ServiceDetail() {
         </div>
       </section>
       <Footer />
+      <WhatsAppWidget />
     </main>
   );
 }

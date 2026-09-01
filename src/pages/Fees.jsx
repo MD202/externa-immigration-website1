@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowUpRight, ArrowLeft, Compass } from 'lucide-react';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
+import WhatsAppWidget from '@/components/site/WhatsAppWidget';
 import NorthStarCursor from '@/components/site/NorthStarCursor';
 import { useLanguage } from '@/lib/LanguageContext';
 
@@ -81,6 +82,7 @@ export default function Fees() {
         </div>
       </section>
       <Footer />
+      <WhatsAppWidget />
     </main>
   );
 }
