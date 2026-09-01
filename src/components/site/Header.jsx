@@ -35,7 +35,12 @@ export default function Header() {
     { id: 8, label: t('services.t8') },
     { id: 9, label: t('services.t9') },
   ];
-  // About links are now shown directly in the nav
+  const aboutLinks = [
+    { label: t('nav.aboutUs'), href: '/#about' },
+    { label: t('howWeOperate.eyebrow'), href: '/#how-we-operate' },
+    { label: t('nav.approach'), href: '/#approach' },
+    { label: t('nav.fees'), href: '/fees' },
+  ];
 
   return (
     <header ref={headerRef} className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${compact ? 'bg-white py-3 shadow-lg' : 'bg-white/95 py-4 backdrop-blur-md'}`}>
@@ -60,10 +65,20 @@ export default function Header() {
                 </div>
               )}
             </div>
-            <Link to="/#about" className="text-sm text-[#0F2433]/70 transition hover:text-[#C8102E]">{t('nav.aboutUs')}</Link>
-            <Link to="/#how-we-operate" className="text-sm text-[#0F2433]/70 transition hover:text-[#C8102E]">{t('howWeOperate.eyebrow')}</Link>
-            <Link to="/#approach" className="text-sm text-[#0F2433]/70 transition hover:text-[#C8102E]">{t('nav.approach')}</Link>
-            <Link to="/fees" className="text-sm text-[#0F2433]/70 transition hover:text-[#C8102E]">{t('nav.fees')}</Link>
+            <div className="relative">
+              <button onClick={() => setOpenMenu(openMenu === 'about' ? null : 'about')} className="flex items-center gap-1 text-sm text-[#0F2433]/70 transition hover:text-[#C8102E]" aria-expanded={openMenu === 'about'}>
+                {t('nav.aboutUs')} <ChevronDown className={`h-4 w-4 transition-transform ${openMenu === 'about' ? 'rotate-180' : ''}`} />
+              </button>
+              {openMenu === 'about' && (
+                <div className="absolute top-full left-0 pt-2 w-56">
+                  <div className="grid gap-0 border border-[#0F2433]/10 bg-white py-2 shadow-xl">
+                    {aboutLinks.map((link) => (
+                      <Link key={link.href} to={link.href} onClick={() => setOpenMenu(null)} className="px-4 py-2.5 text-sm text-[#0F2433]/70 transition hover:bg-[#F4F7F9] hover:text-[#C8102E]">{link.label}</Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
           </nav>
           <Link to="/strategy-session" className="bg-[#C8102E] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#A00D24]">{t('nav.book')}</Link>
         </div>

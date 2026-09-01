@@ -13,7 +13,7 @@ export const translations = {
     word2: { en: 'clarified', ta: 'தெளிவான', hi: 'स्पष्ट' },
     word3: { en: 'defensible', ta: 'பாதுகாக்கக்கூடிய', hi: 'रक्षणीय' },
     word4: { en: 'planned', ta: 'திட்டமிடப்பட்ட', hi: 'योजनाबद्ध' },
-    subtitle: { en: 'We are a licensed immigration practice working with individuals, families, employers, and people whose application was refused.', ta: 'நாங்கள் ஒரு உரிமம் பெற்ற குடியேற்ற நடைமுறை, தனிநபர்கள், குடும்பங்கள், தொழிலாளர்கள், மற்றும் விண்ணப்பம் நிராகரிக்கப்பட்டவர்களுக்காக பணியாற்றுகிறோம்.', hi: 'हम एक लाइसेंस प्राप्त आव्रजन प्रैक्टिस हैं, व्यक्तियों, परिवारों, नियोक्ताओं, और जिनके आवेदन अस्वीकृत हो गए, उनके लिए काम करते हैं।' },
+    subtitle: { en: 'We are a licensed immigration practice supporting individuals, families, employers, and clients facing complex applications, refusals, and important immigration decisions.', ta: 'நாங்கள் ஒரு உரிமம் பெற்ற குடியேற்ற நடைமுறை, தனிநபர்கள், குடும்பங்கள், தொழிலாளர்கள், மற்றும் சிக்கலான விண்ணப்பங்கள், நிராகரிப்புகள் மற்றும் முக்கிய குடியேற்ற முடிவுகளை எதிர்கொள்ளும் வாடிக்கையாளர்களுக்கு ஆதரவு அளிக்கிறோம்.', hi: 'हम एक लाइसेंस प्राप्त आव्रजन प्रैक्टिस हैं, व्यक्तियों, परिवारों, नियोक्ताओं, और जटिल आवेदनों, अस्वीकृतियों, और महत्वपूर्ण आव्रजन निर्णयों का सामना कर रहे क्लाइंट्स का समर्थन करते हैं।' },
     cta1: { en: 'Discuss your case', ta: 'உங்கள் வழக்கைப் பற்றி பேசுங்கள்', hi: 'अपना मामला चर्चा करें' },
     cta2: { en: 'Explore pathways', ta: 'பாதைகளை ஆராயுங்கள்', hi: 'मार्गों का अन्वेषण करें' },
     assessmentEyebrow: { en: 'Quick assessment', ta: 'விரைவு மதிப்பீடு', hi: 'त्वरित मूल्यांकन' },
