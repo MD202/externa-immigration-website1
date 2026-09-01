@@ -94,7 +94,7 @@
 }
 
 @layer components {
-  .eyebrow { @apply text-xs font-semibold uppercase tracking-[.24em] text-[#C5A059]; }
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-[.24em] text-[#B8A468]; }
   .section-title { @apply mt-4 font-heading text-4xl leading-[1.08] text-[#0E3B3B] sm:text-5xl lg:text-6xl; }
   .intake-label { @apply grid gap-2 text-xs font-semibold uppercase tracking-[.12em] text-[#0E3B3B]/60; }
   .intake-input { @apply w-full border-0 border-b border-[#0E3B3B]/20 bg-transparent px-0 py-3 text-base font-normal normal-case tracking-normal text-[#0E3B3B] outline-none transition focus:border-[#A85638] focus:ring-0; }

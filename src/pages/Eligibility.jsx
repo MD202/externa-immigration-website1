@@ -112,7 +112,7 @@ export default function Eligibility() {
                 <p className="eyebrow">{t('eligibility.resultEyebrow')}</p>
                 <h2 className="mt-3 font-heading text-3xl text-[#0E3B3B]">{svc ? t(svc.titleKey) : ''}</h2>
                 <p className="mt-4 text-base leading-relaxed text-[#0E3B3B]/65">{svc ? t(svc.descKey) : ''}</p>
-                <p className="mt-6 border-l-2 border-[#C5A059] bg-white px-5 py-4 text-sm italic leading-relaxed text-[#0E3B3B]/60">{t('eligibility.resultNote')}</p>
+                <p className="mt-6 border-l-2 border-[#B8A468] bg-white px-5 py-4 text-sm italic leading-relaxed text-[#0E3B3B]/60">{t('eligibility.resultNote')}</p>
                 <Link to="/strategy-session" className="mt-6 inline-flex items-center gap-2 border-b-2 border-[#A85638] pb-1 text-sm font-semibold text-[#A85638]">
                   {t('eligibility.bookConsult')} <ArrowRight className="h-4 w-4" />
                 </Link>

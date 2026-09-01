@@ -12,12 +12,12 @@ export default function AppealsSection() {
   ];
   return (
     <section id="appeals" className="relative overflow-hidden bg-[#0E3B3B] px-5 py-28 text-white lg:px-[8vw] lg:py-40">
-      <div className="absolute left-[8vw] top-0 h-full w-px bg-gradient-to-b from-transparent via-[#C5A059]/50 to-transparent" />
+      <div className="absolute left-[8vw] top-0 h-full w-px bg-gradient-to-b from-transparent via-[#B8A468]/50 to-transparent" />
       <div className="relative mx-auto max-w-[1440px]">
         <div className="grid gap-8 lg:grid-cols-2">
           <div>
             <p className="eyebrow">{t('appeals.eyebrow')}</p>
-            <h2 className="section-title text-white">{t('appeals.title1')}<br /><em className="text-[#C5A059]">{t('appeals.title2')}</em></h2>
+            <h2 className="section-title text-white">{t('appeals.title1')}<br /><em className="text-[#B8A468]">{t('appeals.title2')}</em></h2>
           </div>
           <p className="max-w-lg self-end text-lg leading-relaxed text-white/60">{t('appeals.intro')}</p>
         </div>
@@ -25,7 +25,7 @@ export default function AppealsSection() {
           {stages.map(({ n, icon: Icon, title, body }) => (
             <article key={n} className="group border-b border-r border-white/15 p-7 transition duration-500 hover:bg-white/[.05] lg:min-h-72">
               <div className="flex items-center justify-between">
-                <span className="font-mono text-xs text-[#C5A059]">{n}</span>
+                <span className="font-mono text-xs text-[#B8A468]">{n}</span>
                 <Icon className="h-5 w-5 text-white/50" />
               </div>
               <h3 className="mt-16 font-heading text-2xl">{title}</h3>
@@ -33,7 +33,7 @@ export default function AppealsSection() {
             </article>
           ))}
         </div>
-        <Link to="/strategy-session" className="mt-10 inline-flex items-center gap-3 text-sm font-semibold text-[#C5A059]">{t('appeals.cta')} <ArrowUpRight className="h-4 w-4" /></Link>
+        <Link to="/strategy-session" className="mt-10 inline-flex items-center gap-3 text-sm font-semibold text-[#B8A468]">{t('appeals.cta')} <ArrowUpRight className="h-4 w-4" /></Link>
       </div>
     </section>
   );

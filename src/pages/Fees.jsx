@@ -42,7 +42,7 @@ export default function Fees() {
           <div className="mt-14 grid gap-5 md:grid-cols-3">
             {tiers.map((tier) => (
               <article key={tier.label} className="relative flex flex-col bg-white p-8 shadow-sm">
-                {tier.badge && <span className="absolute -top-3 left-8 bg-[#C5A059] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0E3B3B]">{tier.badge}</span>}
+                {tier.badge && <span className="absolute -top-3 left-8 bg-[#B8A468] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0E3B3B]">{tier.badge}</span>}
                 <h3 className="font-heading text-2xl text-[#0E3B3B]">{tier.label}</h3>
                 <p className="mt-2 text-sm text-[#0E3B3B]/50">{tier.duration}</p>
                 <p className="mt-6 font-heading text-4xl text-[#A85638]">{tier.price}</p>
@@ -75,7 +75,7 @@ export default function Fees() {
           </div>
           <p className="mt-8 max-w-2xl text-sm leading-relaxed text-[#0E3B3B]/45">{t('fees.note')}</p>
           <p className="mt-3 max-w-2xl text-sm font-semibold leading-relaxed text-[#A85638]">{t('fees.exclusion')}</p>
-          <div className="mt-6 max-w-2xl border-l-2 border-[#C5A059] bg-[#F5F1E8] px-5 py-4">
+          <div className="mt-6 max-w-2xl border-l-2 border-[#B8A468] bg-[#F5F1E8] px-5 py-4">
             <p className="text-sm leading-relaxed text-[#0E3B3B]/70">{t('fees.stagedNote')}</p>
           </div>
           <Link to="/strategy-session" className="mt-8 inline-flex items-center gap-3 bg-[#A85638] px-6 py-4 font-semibold text-white transition hover:bg-[#8E4828]">{t('fees.cta')} <ArrowUpRight /></Link>

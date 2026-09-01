@@ -37,7 +37,7 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[.2em] text-[#C5A059]">{t('footer.navigate')}</p>
+            <p className="text-xs uppercase tracking-[.2em] text-[#B8A468]">{t('footer.navigate')}</p>
             <div className="mt-5 grid gap-2.5 text-sm text-white/60">
               <Link to="/services/1" className="transition hover:text-[#A85638]">{t('services.t1')}</Link>
               <Link to="/services/2" className="transition hover:text-[#A85638]">{t('services.t2')}</Link>
@@ -49,7 +49,7 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[.2em] text-[#C5A059]">{t('nav.about')}</p>
+            <p className="text-xs uppercase tracking-[.2em] text-[#B8A468]">{t('nav.about')}</p>
             <div className="mt-5 grid gap-3 text-sm text-white/60">
               <Link to="/#about" className="transition hover:text-[#A85638]">{t('nav.aboutUs')}</Link>
               <Link to="/#how-we-operate" className="transition hover:text-[#A85638]">{t('howWeOperate.eyebrow')}</Link>
@@ -58,7 +58,7 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <p className="text-xs uppercase tracking-[.2em] text-[#C5A059]">{t('footer.begin')}</p>
+            <p className="text-xs uppercase tracking-[.2em] text-[#B8A468]">{t('footer.begin')}</p>
             <Link to="/strategy-session" className="mt-5 inline-flex border-b border-[#A85638] pb-2 font-heading text-2xl text-white">{t('footer.book')}</Link>
             <a href={CICC_URL} target="_blank" rel="noopener noreferrer" className="mt-6 flex items-center gap-2 text-sm text-white/70 transition hover:text-[#A85638]">
               <BadgeCheck className="h-5 w-5 text-[#A85638]" />

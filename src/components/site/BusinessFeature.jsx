@@ -12,7 +12,7 @@ export default function BusinessFeature() {
       <div className="relative mx-auto flex min-h-[680px] max-w-[1440px] items-center px-5 lg:px-[8vw]">
         <div className="max-w-2xl">
           <p className="eyebrow">{t('business.eyebrow')}</p>
-          <h2 className="section-title text-white">{t('business.title1')}<br /><em className="text-[#C5A059]">{t('business.title2')}</em></h2>
+          <h2 className="section-title text-white">{t('business.title1')}<br /><em className="text-[#B8A468]">{t('business.title2')}</em></h2>
           <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/65">{t('business.body')}</p>
           <Link to="/strategy-session" className="mt-9 inline-flex items-center gap-3 bg-[#A85638] px-6 py-4 font-semibold text-white transition hover:bg-[#8E4828]">{t('business.cta')} <ArrowUpRight /></Link>
         </div>

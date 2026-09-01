@@ -21,7 +21,7 @@ export default function HowWeOperate() {
     <section id="how-we-operate" aria-label="How we operate" className="bg-[#0E3B3B] px-5 py-28 text-white lg:px-[8vw] lg:py-40">
       <div className="mx-auto max-w-[1440px]">
         <div className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[.24em] text-[#C5A059]">{t('howWeOperate.eyebrow')}</p>
+          <p className="text-xs font-semibold uppercase tracking-[.24em] text-[#B8A468]">{t('howWeOperate.eyebrow')}</p>
           <h2 className="mt-4 font-heading text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">{t('howWeOperate.title')}</h2>
         </div>
 
@@ -37,7 +37,7 @@ export default function HowWeOperate() {
                     active === i
                       ? 'border-[#A85638] bg-[#A85638] text-white'
                       : i < active
-                        ? 'border-[#C5A059] bg-[#C5A059]/15 text-[#C5A059]'
+                        ? 'border-[#B8A468] bg-[#B8A468]/15 text-[#B8A468]'
                         : 'border-white/25 bg-[#0E3B3B] text-white/50 hover:border-white/50 hover:text-white'
                   }`}>{step.n}</span>
                 </button>
@@ -54,7 +54,7 @@ export default function HowWeOperate() {
             }`}>
               <span className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 font-mono text-sm font-semibold ${
                 active === i ? 'border-[#A85638] bg-[#A85638] text-white' :
-                i < active ? 'border-[#C5A059] bg-[#C5A059]/15 text-[#C5A059]' :
+                i < active ? 'border-[#B8A468] bg-[#B8A468]/15 text-[#B8A468]' :
                 'border-white/25 text-white/50'
               }`}>{step.n}</span>
               <span className={`font-heading text-base ${active === i ? 'text-white' : 'text-white/60'}`}>{step.label}</span>
@@ -69,7 +69,7 @@ export default function HowWeOperate() {
         </div>
 
         {/* Staged fee note */}
-        <div className="mt-8 max-w-2xl border-l-2 border-[#C5A059] px-5 py-4">
+        <div className="mt-8 max-w-2xl border-l-2 border-[#B8A468] px-5 py-4">
           <p className="text-sm leading-relaxed text-white/50">{t('howWeOperate.stagedNote')}</p>
         </div>
 

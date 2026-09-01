@@ -103,7 +103,7 @@ export default function ServiceDetail() {
                     </li>
                   ))}
                 </ol>
-                <p className="mt-6 border-l-2 border-[#C5A059] bg-[#F5F1E8] px-5 py-4 text-sm italic leading-relaxed text-[#0E3B3B]/60">{t('services.stageNote')}</p>
+                <p className="mt-6 border-l-2 border-[#B8A468] bg-[#F5F1E8] px-5 py-4 text-sm italic leading-relaxed text-[#0E3B3B]/60">{t('services.stageNote')}</p>
               </div>
               <div className="mt-10 border-t border-[#0E3B3B]/10 pt-6">
                 <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#0E3B3B]/50">Key factors</p>

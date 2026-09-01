@@ -19,7 +19,7 @@ export default function ServiceStep({ data, setData }) {
             onClick={() => setData((d) => ({ ...d, service_tier: s.id }))}
             className={`relative border p-6 text-left transition ${data.service_tier === s.id ? 'border-[#A85638] bg-[#A85638]/5' : 'border-[#0E3B3B]/15 hover:border-[#0E3B3B]/40'}`}
           >
-            {s.badge && <span className="absolute -top-3 left-6 bg-[#C5A059] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0E3B3B]">{s.badge}</span>}
+            {s.badge && <span className="absolute -top-3 left-6 bg-[#B8A468] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0E3B3B]">{s.badge}</span>}
             <div className="flex items-start justify-between gap-4">
               <div>
                 <h3 className="font-heading text-xl text-[#0E3B3B]">{s.label} <span className="text-sm font-normal text-[#0E3B3B]/50">({s.duration})</span></h3>

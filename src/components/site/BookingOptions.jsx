@@ -16,7 +16,7 @@ export default function BookingOptions() {
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {tiers.map((tier) => (
             <article key={tier.label} className="relative flex flex-col bg-white p-8 shadow-sm transition hover:shadow-lg">
-              {tier.badge && <span className="absolute -top-3 left-8 bg-[#C5A059] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0E3B3B]">{tier.badge}</span>}
+              {tier.badge && <span className="absolute -top-3 left-8 bg-[#B8A468] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#0E3B3B]">{tier.badge}</span>}
               <h3 className="font-heading text-2xl text-[#0E3B3B]">{tier.label}</h3>
               <p className="mt-2 text-sm text-[#0E3B3B]/50">{tier.duration}</p>
               <p className="mt-6 font-heading text-4xl text-[#A85638]">{tier.price}</p>
