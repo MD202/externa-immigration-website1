@@ -3,7 +3,7 @@ import { MessageCircle, X } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 
 // Replace this number with the real WhatsApp business number (international format, no + or spaces).
-const WHATSAPP_NUMBER = '10000000000';
+const WHATSAPP_NUMBER = '16479099603';
 
 export default function WhatsAppWidget() {
   const { t } = useLanguage();
