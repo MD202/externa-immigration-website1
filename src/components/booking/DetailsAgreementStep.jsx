@@ -1,9 +1,11 @@
+import { CreditCard, Clock } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 
-export default function DetailsAgreementStep({ data, setData }) {
+export default function DetailsAgreementStep({ data, setData, saving, onPayNow, onPayLater }) {
   const { t } = useLanguage();
   const field = (key) => (e) => setData((d) => ({ ...d, [key]: e.target.value }));
   const today = new Date().toISOString().split('T')[0];
+  const detailsValid = !!(data.full_name && data.email && data.agreement_accepted && data.signature_name);
 
   const matters = [
     { value: 'Appeal or refusal', label: t('strategy.m1') },
@@ -81,6 +83,32 @@ export default function DetailsAgreementStep({ data, setData }) {
           <input type="checkbox" checked={data.agreement_accepted} onChange={(e) => setData((d) => ({ ...d, agreement_accepted: e.target.checked }))} className="mt-1 h-5 w-5 accent-[#0F2433]" />
           <span className="text-sm text-[#0F2433]/70">{t('bookingFlow.agreeCheckbox')}</span>
         </label>
+      </div>
+
+      <div className="mt-8 border-t border-[#0F2433]/10 pt-8">
+        <h3 className="font-heading text-xl text-[#0F2433]">{t('bookingFlow.paymentTitle')}</h3>
+        <div className="mt-5 grid gap-4 sm:grid-cols-2">
+          <div className="border border-[#0F2433]/15 p-6">
+            <div className="flex items-center gap-3">
+              <CreditCard className="h-6 w-6 text-[#0F2433]" />
+              <h4 className="font-heading text-lg text-[#0F2433]">{t('bookingFlow.payNow')}</h4>
+            </div>
+            <p className="mt-3 text-sm leading-relaxed text-[#0F2433]/60">{t('bookingFlow.payNowDesc')}</p>
+            <button type="button" disabled={saving || !detailsValid} onClick={onPayNow} className="mt-6 w-full bg-[#C8102E] py-4 font-semibold text-white transition hover:bg-[#A00D24] disabled:opacity-40">
+              {saving ? t('bookingFlow.sending') : t('bookingFlow.payNow')}
+            </button>
+          </div>
+          <div className="border border-[#0F2433]/15 p-6">
+            <div className="flex items-center gap-3">
+              <Clock className="h-6 w-6 text-[#0F2433]" />
+              <h4 className="font-heading text-lg text-[#0F2433]">{t('bookingFlow.payLater')}</h4>
+            </div>
+            <p className="mt-3 text-sm leading-relaxed text-[#0F2433]/60">{t('bookingFlow.payLaterDesc')}</p>
+            <button type="button" disabled={saving || !detailsValid} onClick={onPayLater} className="mt-6 w-full border-2 border-[#0F2433] py-4 font-semibold text-[#0F2433] transition hover:bg-[#0F2433] hover:text-white disabled:opacity-40">
+              {saving ? t('bookingFlow.sending') : t('bookingFlow.payLaterButton')}
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

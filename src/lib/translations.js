@@ -338,7 +338,7 @@ export const translations = {
     subtitle: { en: "You'll review and sign the consultation agreement before you pay. That order is required by our professional rules." },
     step1: { en: 'Choose a service' },
     step2: { en: 'Choose a time' },
-    step3: { en: 'Details and agreement' },
+    step3: { en: 'Details, agreement & payment', ta: 'விவரங்கள், ஒப்பந்தம் & கட்டணம்', hi: 'विवरण, समझौता और भुगतान' },
     step4: { en: 'Payment' },
     selectService: { en: 'Choose a service' },
     selectTime: { en: 'Choose a time' },

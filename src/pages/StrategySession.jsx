@@ -8,7 +8,6 @@ import BookingStepper from '@/components/booking/BookingStepper';
 import ServiceStep from '@/components/booking/ServiceStep';
 import TimeStep from '@/components/booking/TimeStep';
 import DetailsAgreementStep from '@/components/booking/DetailsAgreementStep';
-import PaymentStep from '@/components/booking/PaymentStep';
 import WhatsAppWidget from '@/components/site/WhatsAppWidget';
 
 export default function StrategySession() {
@@ -75,10 +74,9 @@ export default function StrategySession() {
 
   const canProceed = step === 1 ? !!data.service_tier
     : step === 2 ? !!(data.preferred_date && data.preferred_time)
-    : step === 3 ? !!(data.full_name && data.email && data.agreement_accepted && data.signature_name)
     : true;
 
-  const nextLabel = step === 1 ? t('bookingFlow.continueToTime') : step === 2 ? t('bookingFlow.continueToDetails') : t('bookingFlow.continueToPayment');
+  const nextLabel = step === 1 ? t('bookingFlow.continueToTime') : t('bookingFlow.continueToDetails');
 
   return (
     <main className="min-h-screen bg-[#F4F7F9]">
@@ -102,8 +100,7 @@ export default function StrategySession() {
 
             {step === 1 && <ServiceStep data={data} setData={setData} />}
             {step === 2 && <TimeStep data={data} setData={setData} />}
-            {step === 3 && <DetailsAgreementStep data={data} setData={setData} />}
-            {step === 4 && <PaymentStep data={data} saving={saving} onPayNow={() => submit('pay_now')} onPayLater={() => submit('pay_later')} />}
+            {step === 3 && <DetailsAgreementStep data={data} setData={setData} saving={saving} onPayNow={() => submit('pay_now')} onPayLater={() => submit('pay_later')} />}
 
             <div className="mt-9 flex items-center justify-between">
               {step > 1 ? (
@@ -111,7 +108,7 @@ export default function StrategySession() {
                   <ArrowLeft className="h-4 w-4" /> {t('bookingFlow.back')}
                 </button>
               ) : <span />}
-              {step < 4 && (
+              {step < 3 && (
                 <button type="button" disabled={!canProceed} onClick={() => setStep(step + 1)} className="flex items-center gap-3 bg-[#C8102E] px-6 py-4 font-semibold text-white transition hover:bg-[#A00D24] disabled:opacity-40">
                   {nextLabel} <ArrowRight className="h-4 w-4" />
                 </button>

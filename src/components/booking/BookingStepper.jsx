@@ -7,7 +7,6 @@ export default function BookingStepper({ step }) {
     { n: 1, label: t('bookingFlow.step1') },
     { n: 2, label: t('bookingFlow.step2') },
     { n: 3, label: t('bookingFlow.step3') },
-    { n: 4, label: t('bookingFlow.step4') },
   ];
   return (
     <div className="mt-8 mb-8">
