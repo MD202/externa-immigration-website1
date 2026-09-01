@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Compass, BadgeCheck, MapPin } from 'lucide-react';
+import { Compass, BadgeCheck, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 
 const CICC_URL = 'https://college-ic.ca/protecting-the-public/find-an-immigration-consultant/';
@@ -17,7 +17,13 @@ export default function Footer() {
             </a>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/45">{t('footer.tagline')}</p>
             <p className="mt-4 flex items-center gap-2 text-sm text-white/55"><MapPin className="h-4 w-4 text-[#C8102E]" /> {t('truststrip.location')}</p>
-            <p className="mt-1 text-sm text-white/55">Digital First</p>
+            <p className="mt-1 text-sm text-white/55">{t('footer.remoteFirst')}</p>
+            <p className="mt-1 text-sm text-white/55">{t('footer.languages')}</p>
+            <div className="mt-5 flex gap-3">
+              <a href="#" aria-label="Facebook" className="text-white/40 transition hover:text-[#C8102E]"><Facebook className="h-5 w-5" /></a>
+              <a href="#" aria-label="Instagram" className="text-white/40 transition hover:text-[#C8102E]"><Instagram className="h-5 w-5" /></a>
+              <a href="#" aria-label="LinkedIn" className="text-white/40 transition hover:text-[#C8102E]"><Linkedin className="h-5 w-5" /></a>
+            </div>
           </div>
           <div>
             <p className="text-xs uppercase tracking-[.2em] text-[#C5A059]">{t('footer.navigate')}</p>
@@ -39,7 +45,11 @@ export default function Footer() {
         </div>
         <div className="flex flex-col gap-3 pt-7 text-xs text-white/35 md:flex-row md:justify-between">
           <p>{t('footer.rights')}</p>
-          <p>{t('footer.disclaimer')}</p>
+          <div className="flex gap-5">
+            <a href="#" className="transition hover:text-white/60">{t('footer.privacy')}</a>
+            <a href="#" className="transition hover:text-white/60">{t('footer.refund')}</a>
+            <span>{t('footer.disclaimer')}</span>
+          </div>
         </div>
       </div>
     </footer>

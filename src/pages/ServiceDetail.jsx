@@ -7,15 +7,15 @@ import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 
 const SERVICE_MAP = {
-  1: { titleKey: 'services.t1', textKey: 'services.x1', factorsKey: 'services.f1', pathwayKey: 'services.p1', matter: 'Refugee claim' },
-  2: { titleKey: 'services.t2', textKey: 'services.x2', factorsKey: 'services.f2', pathwayKey: 'services.p2', matter: 'Appeal or refusal' },
-  3: { titleKey: 'services.t3', textKey: 'services.x3', factorsKey: 'services.f3', pathwayKey: 'services.p3', matter: 'Humanitarian and compassionate' },
-  4: { titleKey: 'services.t4', textKey: 'services.x4', factorsKey: 'services.f4', pathwayKey: 'services.p4', matter: 'Family sponsorship' },
-  5: { titleKey: 'services.t5', textKey: 'services.x5', factorsKey: 'services.f5', pathwayKey: 'services.p5', matter: 'Employer' },
-  6: { titleKey: 'services.t6', textKey: 'services.x6', factorsKey: 'services.f6', pathwayKey: 'services.p6', matter: 'Entrepreneurship' },
-  7: { titleKey: 'services.t7', textKey: 'services.x7', factorsKey: 'services.f7', pathwayKey: 'services.p7', matter: 'Other (permits & visas)' },
-  8: { titleKey: 'services.t8', textKey: 'services.x8', factorsKey: 'services.f8', pathwayKey: 'services.p8', matter: 'Permanent residence or PNP' },
-  9: { titleKey: 'services.t9', textKey: 'services.x9', factorsKey: 'services.f9', pathwayKey: 'services.p9', matter: 'Other (permits & visas)' },
+  1: { titleKey: 'services.t1', textKey: 'services.x1', blurbKey: 'services.b1', factorsKey: 'services.f1', pathwayKey: 'services.p1', matter: 'Refugee claim' },
+  2: { titleKey: 'services.t2', textKey: 'services.x2', blurbKey: 'services.b2', factorsKey: 'services.f2', pathwayKey: 'services.p2', matter: 'Appeal or refusal' },
+  3: { titleKey: 'services.t3', textKey: 'services.x3', blurbKey: 'services.b3', factorsKey: 'services.f3', pathwayKey: 'services.p3', matter: 'Humanitarian and compassionate' },
+  4: { titleKey: 'services.t4', textKey: 'services.x4', blurbKey: 'services.b4', factorsKey: 'services.f4', pathwayKey: 'services.p4', matter: 'Family sponsorship' },
+  5: { titleKey: 'services.t5', textKey: 'services.x5', blurbKey: 'services.b5', factorsKey: 'services.f5', pathwayKey: 'services.p5', matter: 'Employer' },
+  6: { titleKey: 'services.t6', textKey: 'services.x6', blurbKey: 'services.b6', factorsKey: 'services.f6', pathwayKey: 'services.p6', matter: 'Entrepreneurship' },
+  7: { titleKey: 'services.t7', textKey: 'services.x7', blurbKey: 'services.b7', factorsKey: 'services.f7', pathwayKey: 'services.p7', matter: 'Other (permits & visas)' },
+  8: { titleKey: 'services.t8', textKey: 'services.x8', blurbKey: 'services.b8', factorsKey: 'services.f8', pathwayKey: 'services.p8', matter: 'Permanent residence or PNP' },
+  9: { titleKey: 'services.t9', textKey: 'services.x9', blurbKey: 'services.b9', factorsKey: 'services.f9', pathwayKey: 'services.p9', matter: 'Other (permits & visas)' },
 };
 
 export default function ServiceDetail() {
@@ -37,7 +37,7 @@ export default function ServiceDetail() {
     );
   }
 
-  const pathwaySteps = t(svc.pathwayKey).split(' → ');
+  const pathwaySteps = t(svc.pathwayKey).split(' · ');
   const set = (key) => (e) => setForm((c) => ({ ...c, [key]: e.target.value }));
 
   const submit = async (e) => {
@@ -79,17 +79,18 @@ export default function ServiceDetail() {
               <p className="eyebrow">{t('services.eyebrow')}</p>
               <h1 className="section-title">{t(svc.titleKey)}</h1>
               <p className="mt-6 text-lg leading-relaxed text-[#0F2433]/65">{t(svc.textKey)}</p>
+              <p className="mt-5 text-base leading-relaxed text-[#0F2433]/55">{t(svc.blurbKey)}</p>
               <div className="mt-10">
-                <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#0F2433]/50">{t('services.eyebrow')} — Pathway</p>
+                <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#0F2433]/50">{t('services.potentialSteps')}</p>
                 <ol className="mt-6 grid gap-3">
                   {pathwaySteps.map((step, i) => (
                     <li key={i} className="flex items-center gap-4">
                       <span className="flex h-8 w-8 shrink-0 items-center justify-center bg-[#C8102E] font-mono text-xs text-white">{String(i + 1).padStart(2, '0')}</span>
                       <span className="font-heading text-lg text-[#0F2433]">{step}</span>
-                      {i < pathwaySteps.length - 1 && <span className="hidden text-[#0F2433]/20 lg:inline">→</span>}
                     </li>
                   ))}
                 </ol>
+                <p className="mt-6 border-l-2 border-[#C5A059] bg-[#F4F7F9] px-5 py-4 text-sm italic leading-relaxed text-[#0F2433]/60">{t('services.stageNote')}</p>
               </div>
               <div className="mt-10 border-t border-[#0F2433]/10 pt-6">
                 <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#0F2433]/50">Key factors</p>
