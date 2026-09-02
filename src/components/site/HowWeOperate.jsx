@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
+import Reveal from '@/components/site/Reveal';
 
 export default function HowWeOperate() {
   const { t } = useLanguage();
@@ -20,10 +21,10 @@ export default function HowWeOperate() {
   return (
     <section id="how-we-operate" aria-label="How we operate" className="bg-[#1E293B] px-5 py-28 text-white lg:px-[8vw] lg:py-40">
       <div className="mx-auto max-w-[1440px]">
-        <div className="max-w-2xl">
+        <Reveal className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[.24em] text-[#047857]">{t('howWeOperate.eyebrow')}</p>
           <h2 className="mt-4 font-heading text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">{t('howWeOperate.title')}</h2>
-        </div>
+        </Reveal>
 
         {/* Desktop: Horizontal timeline */}
         <div className="mt-16 hidden lg:block">
@@ -63,10 +64,10 @@ export default function HowWeOperate() {
         </div>
 
         {/* Active step content */}
-        <div className="mt-12 border-t border-white/10 pt-10">
+        <Reveal className="mt-12 border-t border-white/10 pt-10">
           <h3 className="font-heading text-2xl text-white lg:text-3xl">{steps[active].label}</h3>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-white/60">{steps[active].desc}</p>
-        </div>
+        </Reveal>
 
         {/* Staged fee note */}
         <div className="mt-8 max-w-2xl border-l-2 border-[#047857] px-5 py-4">

@@ -38,20 +38,22 @@ export default function Hero() {
   ];
   return (
     <section id="top" className="relative min-h-screen overflow-hidden bg-[#1E293B] text-white">
-      <Image src="https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/e8bb63d60_generated_8c88c781.jpg" alt="Professional overlooking Toronto at dawn" className="absolute inset-0 h-full w-full opacity-40" fittingType="fill" focalPointX={0.68} />
+      <Image src="https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/e8bb63d60_generated_8c88c781.jpg" alt="Professional overlooking Toronto at dawn" className="kenburns absolute inset-0 h-full w-full opacity-40" fittingType="fill" focalPointX={0.68} />
       <div className="absolute inset-0 bg-gradient-to-r from-[#1E293B] via-[#1E293B]/90 to-[#1E293B]/30" />
+      <div className="float-glow pointer-events-none absolute -right-20 top-1/4 h-72 w-72 rounded-full bg-[#047857]/20 blur-3xl" />
+      <div className="float-glow pointer-events-none absolute left-1/4 bottom-24 h-56 w-56 rounded-full bg-[#047857]/15 blur-3xl" style={{ animationDelay: '3s' }} />
       <div className="relative mx-auto grid min-h-screen max-w-[1440px] items-center gap-12 px-5 pb-16 pt-32 lg:grid-cols-12 lg:px-[8vw]">
         <div className="lg:col-span-7">
-          <h1 className="max-w-3xl font-heading text-5xl leading-[1.02] sm:text-6xl lg:text-[78px]">
+          <h1 className="hero-in max-w-3xl font-heading text-5xl leading-[1.02] sm:text-6xl lg:text-[78px]" style={{ animationDelay: '0.1s' }}>
             {t('hero.title')} <span className="text-[#047857] italic">{displayed}<span className="animate-pulse">|</span></span>
           </h1>
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/70">{t('hero.subtitle')}</p>
-          <div className="mt-9 flex flex-wrap gap-4">
+          <p className="hero-in mt-7 max-w-xl text-lg leading-relaxed text-white/70" style={{ animationDelay: '0.35s' }}>{t('hero.subtitle')}</p>
+          <div className="hero-in mt-9 flex flex-wrap gap-4" style={{ animationDelay: '0.55s' }}>
             <Link to="/strategy-session" className="group flex items-center gap-3 bg-[#047857] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#065F46] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#047857] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1E293B]">{t('hero.cta1')} <ArrowUpRight className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true" /></Link>
             <a href="#services" className="border border-white/30 px-6 py-4 font-semibold transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#047857] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1E293B]">{t('hero.cta2')}</a>
           </div>
         </div>
-        <aside className="border border-white/15 bg-white/10 p-6 backdrop-blur-xl lg:col-span-5 lg:p-8" aria-label="Quick assessment">
+        <aside className="hero-in border border-white/15 bg-white/10 p-6 backdrop-blur-xl lg:col-span-5 lg:p-8" style={{ animationDelay: '0.75s' }} aria-label="Quick assessment">
           <p className="text-xs uppercase tracking-[.24em] text-[#047857]">{t('hero.assessmentEyebrow')}</p>
           <h2 className="mt-3 font-heading text-3xl">{t('hero.assessmentTitle')}</h2>
           <div className="mt-6 grid gap-1">
@@ -64,6 +66,12 @@ export default function Hero() {
           </div>
           <p className="mt-5 text-xs leading-relaxed text-white/50">{t('hero.assessmentNote')}</p>
         </aside>
+      </div>
+      <div className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 lg:flex" aria-hidden="true">
+        <span className="text-[10px] uppercase tracking-[.3em] text-white/40">Scroll</span>
+        <span className="flex h-9 w-5 justify-center rounded-full border border-white/25 pt-1.5">
+          <span className="scroll-dot h-1.5 w-1.5 rounded-full bg-[#047857]" />
+        </span>
       </div>
     </section>
   );

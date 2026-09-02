@@ -112,3 +112,54 @@
   width: max-content;
 }
 .marquee-track:hover { animation-play-state: paused; }
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal-in { opacity: 1; transform: translateY(0); }
+
+/* Hero Ken Burns zoom on the background image */
+@keyframes kenburns {
+  from { transform: scale(1.08); }
+  to { transform: scale(1.18); }
+}
+.kenburns { animation: kenburns 24s ease-out forwards; }
+
+/* Staggered hero entrance */
+@keyframes heroIn {
+  from { opacity: 0; transform: translateY(34px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.hero-in { opacity: 0; animation: heroIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+/* Floating emerald glow orbs */
+@keyframes floatGlow {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+  50% { transform: translateY(-24px) scale(1.08); opacity: 0.75; }
+}
+.float-glow { animation: floatGlow 9s ease-in-out infinite; }
+
+/* Scroll-down indicator */
+@keyframes scrollDown {
+  0% { transform: translateY(0); opacity: 0; }
+  40% { opacity: 1; }
+  100% { transform: translateY(14px); opacity: 0; }
+}
+.scroll-dot { animation: scrollDown 1.8s ease-in-out infinite; }
+
+/* Parallax band slow drift */
+@keyframes drift {
+  from { transform: scale(1.1) translateY(0); }
+  to { transform: scale(1.18) translateY(-3%); }
+}
+.drift { animation: drift 26s ease-out forwards; }
+
+@media (prefers-reduced-motion: reduce) {
+  .kenburns, .hero-in, .float-glow, .scroll-dot, .drift { animation: none !important; }
+  .hero-in { opacity: 1; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}

@@ -333,6 +333,11 @@ export const translations = {
     q11: { en: 'Can you tell me if I qualify before I book a consultation?', ta: 'ஆலோசனை பதிவு செய்வதற்கு முன் நான் தகுதி பெற்றுள்ளேனா என்று சொல்ல முடியுமா?', hi: 'क्या परामर्श बुक करने से पहले आप मुझे बता सकते हैं कि मैं पात्र हूँ या नहीं?' },
     a11: { en: 'It depends on your unique situation. We would need to review your file to give you a clear answer. Every case turns on its own facts — your history, your evidence, your deadlines, and the specific program requirements. That is exactly what a consultation is for: we review everything and give you a straight answer about your options.', ta: 'அது உங்கள் தனிப்பட்ட நிலைமையைப் பொறுத்தது. தெளிவான பதிலை வழங்க உங்கள் கோப்பை மதிப்பாய்வு செய்ய வேண்டும். ஒவ்வொரு வழக்கும் அதன் சொந்த தகவல்களை அடிப்படையாகக் கொண்டுள்ளது — உங்கள் வரலாறு, உங்கள் ஆதாரம், உங்கள் காலக்கெடு, மற்றும் குறிப்பிட்ட திட்ட தேவைகள். அதுதான் ஆலோசனைக்கான நோக்கம்: நாங்கள் எல்லாவற்றையும் மதிப்பாய்வு செய்து உங்கள் விருப்பங்களைப் பற்றி நேரடியான பதிலை வழங்குகிறோம்.', hi: 'यह आपकी अद्वितीय स्थिति पर निर्भर करता है। स्पष्ट उत्तर देने के लिए हमें आपकी फ़ाइल की समीक्षा करने होगी। हर मामला अपने तथ्यों पर निर्भर करता है — आपका इतिहास, आपका साक्ष्य, आपकी समय सीमा, और विशिष्ट कार्यक्रम आवश्यकताएँ। यही परामर्श का उद्देश्य है: हम सब कुछ समीक्षा करते हैं और आपके विकल्पों के बारे में सीधा उत्तर देते हैं।' },
   },
+  parallax: {
+    eyebrow: { en: 'Your Canadian future', ta: 'உங்கள் கனடிய எதிர்காலம்', hi: 'आपका कनाडाई भविष्य' },
+    quote: { en: 'Every journey deserves a guide who knows the way — and tells you the truth about it.', ta: 'ஒவ்வொரு பயணத்திற்கும் வழியை அறிந்த வழிகாட்டி தேவை — மேலும் அதைப் பற்றி உண்மையைக் கூறுபவர்.', hi: 'हर यात्रा के लिए ऐसा मार्गदर्शक चाहिए जो रास्ता जानता हो — और इसके बारे में सच बताए।' },
+    cta: { en: 'Begin your assessment', ta: 'உங்கள் மதிப்பீட்டைத் தொடங்குங்கள்', hi: 'अपना मूल्यांकन शुरू करें' },
+  },
   bookingFlow: {
     title: { en: 'Book a consultation' },
     subtitle: { en: "You'll review and sign the consultation agreement before you pay. That order is required by our professional rules." },

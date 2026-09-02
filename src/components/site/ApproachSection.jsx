@@ -1,5 +1,6 @@
 import { Image } from '@/components/ui/image';
 import { useLanguage } from '@/lib/LanguageContext';
+import Reveal from '@/components/site/Reveal';
 
 export default function ApproachSection() {
   const { t } = useLanguage();
@@ -12,10 +13,10 @@ export default function ApproachSection() {
   return (
     <section id="approach" className="bg-[#F8FAFC] px-5 py-28 lg:px-[8vw] lg:py-40">
       <div className="mx-auto grid max-w-[1440px] gap-14 lg:grid-cols-12 lg:items-center">
-        <div className="relative lg:col-span-6">
+        <Reveal className="relative lg:col-span-6">
           <Image src="https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/37be7844c_generated_247cf172.jpg" alt="Careful review of immigration case materials" className="aspect-[4/3] w-full" fittingType="fill" />
-        </div>
-        <div className="lg:col-span-5 lg:col-start-8">
+        </Reveal>
+        <Reveal delay={150} className="lg:col-span-5 lg:col-start-8">
           <p className="eyebrow">{t('approach.eyebrow')}</p>
           <h2 className="section-title">{t('approach.title')}</h2>
           <p className="mt-6 text-lg leading-relaxed text-[#1E293B]/65">{t('approach.intro')}</p>
@@ -27,7 +28,7 @@ export default function ApproachSection() {
               </div>
             ))}
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

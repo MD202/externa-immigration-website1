@@ -1,6 +1,7 @@
 import { ArrowUpRight, Users, HeartHandshake, Landmark, Scale, Briefcase, Stethoscope, FileText, FileCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/lib/LanguageContext';
+import Reveal from '@/components/site/Reveal';
 
 export default function ServicesGrid() {
   const { t } = useLanguage();
@@ -18,26 +19,28 @@ export default function ServicesGrid() {
   return (
     <section id="services" aria-label="Immigration services" className="bg-[#F8FAFC] px-5 py-28 lg:px-[8vw] lg:py-40">
       <div className="mx-auto max-w-[1440px]">
-        <div className="max-w-3xl">
+        <Reveal className="max-w-3xl">
           <p className="eyebrow">{t('services.eyebrow')}</p>
           <h2 className="section-title">{t('services.title')}</h2>
           <p className="mt-6 text-lg leading-relaxed text-[#1E293B]/65">{t('services.intro')}</p>
-        </div>
+        </Reveal>
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {services.map(({ id, icon: Icon, title, text, factors }) => (
-            <Link to={`/services/${id}`} key={id} className="group flex flex-col justify-between bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#047857]">
-              <div className="flex justify-between">
-                <div className="flex h-12 w-12 items-center justify-center bg-[#047857]/8 text-[#047857] transition group-hover:bg-[#047857] group-hover:text-[#FFFFFF]">
-                  <Icon className="h-6 w-6" aria-hidden="true" />
+          {services.map(({ id, icon: Icon, title, text, factors }, i) => (
+            <Reveal key={id} delay={i * 70} className="h-full">
+              <Link to={`/services/${id}`} className="group flex h-full flex-col justify-between bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#047857]">
+                <div className="flex justify-between">
+                  <div className="flex h-12 w-12 items-center justify-center bg-[#047857]/8 text-[#047857] transition group-hover:bg-[#047857] group-hover:text-[#FFFFFF]">
+                    <Icon className="h-6 w-6" aria-hidden="true" />
+                  </div>
+                  <ArrowUpRight className="h-5 w-5 text-[#1E293B]/20 transition group-hover:text-[#047857]" aria-hidden="true" />
                 </div>
-                <ArrowUpRight className="h-5 w-5 text-[#1E293B]/20 transition group-hover:text-[#047857]" aria-hidden="true" />
-              </div>
-              <div className="mt-8">
-                <h3 className="font-heading text-xl text-[#1E293B]">{title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[#1E293B]/60">{text}</p>
-                <p className="mt-5 border-t border-[#1E293B]/10 pt-4 text-xs uppercase tracking-[.1em] text-[#1E293B]/45">{factors}</p>
-              </div>
-            </Link>
+                <div className="mt-8">
+                  <h3 className="font-heading text-xl text-[#1E293B]">{title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-[#1E293B]/60">{text}</p>
+                  <p className="mt-5 border-t border-[#1E293B]/10 pt-4 text-xs uppercase tracking-[.1em] text-[#1E293B]/45">{factors}</p>
+                </div>
+              </Link>
+            </Reveal>
           ))}
         </div>
       </div>
