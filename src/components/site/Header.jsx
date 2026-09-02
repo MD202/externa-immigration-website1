@@ -25,14 +25,14 @@ export default function Header() {
   }, []);
 
   const inCanada = [
-    { label: t('nav.familySponsorship'), to: '/services/4' },
-    { label: t('nav.hc'), to: '/services/3' },
+    { label: t('nav.familySponsorship'), to: '/family-sponsorship' },
+    { label: t('nav.hc'), to: '/humanitarian-compassionate' },
     { label: t('nav.refused'), to: '/refused-applications' },
   ];
   const fromAbroad = [
-    { label: t('nav.healthcare'), to: '/services/7' },
-    { label: t('nav.entrepreneurs'), to: '/services/6' },
-    { label: t('nav.otherServices'), to: '/services/9' },
+    { label: t('nav.healthcare'), to: '/healthcare-professionals' },
+    { label: t('nav.entrepreneurs'), to: '/entrepreneurs' },
+    { label: t('nav.otherServices'), to: '/other-services' },
   ];
   const aboutLinks = [
     { label: t('nav.aboutUs'), href: '/about' },

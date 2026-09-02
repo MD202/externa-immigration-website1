@@ -15,6 +15,11 @@ import RefusedApplications from '@/pages/RefusedApplications';
 import About from '@/pages/About';
 import Questions from '@/pages/Questions';
 import Contact from '@/pages/Contact';
+import HumanitarianCompassionate from '@/pages/HumanitarianCompassionate';
+import FamilySponsorship from '@/pages/FamilySponsorship';
+import HealthcareProfessionals from '@/pages/HealthcareProfessionals';
+import Entrepreneurs from '@/pages/Entrepreneurs';
+import OtherServices from '@/pages/OtherServices';
 import { LanguageProvider } from '@/lib/LanguageContext';
 // Add page imports here
 
@@ -52,6 +57,11 @@ const AuthenticatedApp = () => {
       <Route path="/about" element={<About />} />
       <Route path="/questions" element={<Questions />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/humanitarian-compassionate" element={<HumanitarianCompassionate />} />
+      <Route path="/family-sponsorship" element={<FamilySponsorship />} />
+      <Route path="/healthcare-professionals" element={<HealthcareProfessionals />} />
+      <Route path="/entrepreneurs" element={<Entrepreneurs />} />
+      <Route path="/other-services" element={<OtherServices />} />
       <Route path="/eligibility" element={<Eligibility />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>

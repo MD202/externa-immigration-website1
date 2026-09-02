@@ -13,10 +13,10 @@ export default function WhereAreYouNow() {
   const rows = [
     { tag: 'URGENT', title: t('wayn.r1t'), sub: t('wayn.r1s'), to: '/refused-applications#fairness', urgent: true },
     { tag: 'REFUSAL', title: t('wayn.r2t'), sub: t('wayn.r2s'), to: '/refused-applications' },
-    { tag: 'STATUS', title: t('wayn.r3t'), sub: t('wayn.r3s'), to: '/services/3' },
-    { tag: 'SPONSOR', title: t('wayn.r4t'), sub: t('wayn.r4s'), to: '/services/4' },
-    { tag: 'HEALTH', title: t('wayn.r5t'), sub: t('wayn.r5s'), to: '/services/7' },
-    { tag: 'BIZ', title: t('wayn.r6t'), sub: t('wayn.r6s'), to: '/services/6' },
+    { tag: 'STATUS', title: t('wayn.r3t'), sub: t('wayn.r3s'), to: '/humanitarian-compassionate' },
+    { tag: 'SPONSOR', title: t('wayn.r4t'), sub: t('wayn.r4s'), to: '/family-sponsorship' },
+    { tag: 'HEALTH', title: t('wayn.r5t'), sub: t('wayn.r5s'), to: '/healthcare-professionals' },
+    { tag: 'BIZ', title: t('wayn.r6t'), sub: t('wayn.r6s'), to: '/entrepreneurs' },
     { tag: 'OTHER', title: t('wayn.r7t'), sub: t('wayn.r7s'), triage: true },
   ];
   const go = (row) => {

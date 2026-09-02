@@ -1,9 +1,11 @@
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 import Reveal from '@/components/site/Reveal';
 
-export default function PatternRows({ rows, variant = 'light', eyebrow, heading, intro, close, hover = true, id }) {
+export default function PatternRows({ rows, variant = 'light', eyebrow, heading, intro, close, hover = true, id, pad = 'py-20 lg:py-40' }) {
   const dark = variant === 'dark';
   return (
-    <section id={id} className={`${dark ? 'bg-[#1E2A4A] text-white' : 'bg-[#FBFAF8] text-[#1E2A4A]'} px-5 py-20 lg:px-[8vw] lg:py-40`}>
+    <section id={id} className={`${dark ? 'bg-[#1E2A4A] text-white' : 'bg-[#FBFAF8] text-[#1E2A4A]'} px-5 lg:px-[8vw] ${pad}`}>
       <div className="mx-auto max-w-[1240px]">
         {(eyebrow || heading || intro) && (
           <Reveal className="max-w-2xl">
@@ -19,6 +21,7 @@ export default function PatternRows({ rows, variant = 'light', eyebrow, heading,
                 {hover && <span className="absolute left-0 top-0 h-full w-0.5 origin-top scale-y-0 bg-[#B8860B] transition-transform duration-200 group-hover:scale-y-100" />}
                 <p className={`font-heading text-xl ${dark ? 'text-white' : 'text-[#1E2A4A]'}`}>{row.lead}</p>
                 {row.body && <p className={`mt-2 max-w-2xl text-base leading-relaxed ${dark ? 'text-white/60' : 'text-[#1E2A4A]/65'}`}>{row.body}</p>}
+                {row.link && <Link to={row.link.to} className="link-arrow mt-3">{row.link.label} <ArrowRight className="h-4 w-4" /></Link>}
               </article>
             </Reveal>
           ))}

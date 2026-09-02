@@ -6,11 +6,11 @@ import Reveal from '@/components/site/Reveal';
 export default function FocusAreas() {
   const { t } = useLanguage();
   const cards = [
-    { title: t('home.focus.c1t'), body: t('home.focus.c1b'), meta: t('home.focus.c1m'), to: '/services/4' },
-    { title: t('home.focus.c2t'), body: t('home.focus.c2b'), meta: t('home.focus.c2m'), to: '/services/3' },
-    { title: t('home.focus.c3t'), body: t('home.focus.c3b'), meta: t('home.focus.c3m'), to: '/services/2' },
-    { title: t('home.focus.c4t'), body: t('home.focus.c4b'), meta: t('home.focus.c4m'), to: '/services/7' },
-    { title: t('home.focus.c5t'), body: t('home.focus.c5b'), meta: t('home.focus.c5m'), to: '/services/6' },
+    { title: t('home.focus.c1t'), body: t('home.focus.c1b'), meta: t('home.focus.c1m'), to: '/family-sponsorship' },
+    { title: t('home.focus.c2t'), body: t('home.focus.c2b'), meta: t('home.focus.c2m'), to: '/humanitarian-compassionate' },
+    { title: t('home.focus.c3t'), body: t('home.focus.c3b'), meta: t('home.focus.c3m'), to: '/refused-applications' },
+    { title: t('home.focus.c4t'), body: t('home.focus.c4b'), meta: t('home.focus.c4m'), to: '/healthcare-professionals' },
+    { title: t('home.focus.c5t'), body: t('home.focus.c5b'), meta: t('home.focus.c5m'), to: '/entrepreneurs' },
   ];
   return (
     <section className="bg-[#FBFAF8] px-5 py-20 lg:px-[8vw] lg:py-40">
@@ -32,7 +32,7 @@ export default function FocusAreas() {
           ))}
         </div>
         <Reveal>
-          <Link to="/fees" className="link-arrow mt-10">{t('home.focus.cta')} <ArrowUpRight className="h-4 w-4" /></Link>
+          <Link to="/other-services" className="link-arrow mt-10">{t('home.focus.cta')} <ArrowUpRight className="h-4 w-4" /></Link>
         </Reveal>
       </div>
     </section>

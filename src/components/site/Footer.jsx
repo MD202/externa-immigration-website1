@@ -15,16 +15,16 @@ const TikTokIcon = ({ className }) => (
 export default function Footer() {
   const { t } = useLanguage();
   const inCanada = [
-    { label: t('nav.familySponsorship'), to: '/services/4' },
-    { label: t('nav.hc'), to: '/services/3' },
+    { label: t('nav.familySponsorship'), to: '/family-sponsorship' },
+    { label: t('nav.hc'), to: '/humanitarian-compassionate' },
     { label: t('nav.refused'), to: '/refused-applications' },
-    { label: t('nav.otherServices'), to: '/services/9' },
+    { label: t('nav.otherServices'), to: '/other-services' },
   ];
   const fromAbroad = [
-    { label: t('nav.healthcare'), to: '/services/7' },
-    { label: t('nav.entrepreneurs'), to: '/services/6' },
-    { label: t('nav.studyWork'), to: '/services/9' },
-    { label: t('nav.prExpress'), to: '/services/5' },
+    { label: t('nav.healthcare'), to: '/healthcare-professionals' },
+    { label: t('nav.entrepreneurs'), to: '/entrepreneurs' },
+    { label: t('nav.studyWork'), to: '/other-services#work-permits' },
+    { label: t('nav.prExpress'), to: '/other-services#express-entry' },
   ];
   return (
     <footer className="bg-[#13203F] px-5 py-16 text-white lg:px-[8vw] lg:py-20">
