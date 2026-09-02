@@ -20,6 +20,10 @@ export default function TrustSection() {
               <span className="font-semibold">{t('trust.cta')}</span>
               <ExternalLink className="h-4 w-4" />
             </a>
+            <div className="mt-10 flex flex-wrap items-center gap-6">
+              <img src="https://college-ic.ca/ICCRC/Assets/Images/System/CICC_EF_HORZ_CLR_POS_TMMC_1000x326.png" alt="College of Immigration and Citizenship Consultants (CICC)" className="h-12 w-auto" />
+              <span className="inline-flex items-center rounded-sm border border-[#1E2A4A]/15 px-4 py-2 text-[11px] font-semibold uppercase tracking-[.18em] text-[#1E2A4A]/60">CAPIC Member</span>
+            </div>
           </Reveal>
         </div>
         <Reveal delay={150}>
