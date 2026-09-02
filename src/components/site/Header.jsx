@@ -82,7 +82,7 @@ export default function Header() {
             <Link to="/eligibility" className="text-sm font-semibold text-[#B8860B] transition hover:text-[#8B6508]">{t('eligibility.nav')}</Link>
           </nav>
           <span className="h-7 w-px bg-[#1E2A4A]/15" aria-hidden="true" />
-          <Link to="/strategy-session" className="bg-[#DC2626] px-5 py-3 text-sm font-semibold text-[#FFFFFF] transition hover:bg-[#B91C1C]">{t('nav.book')}</Link>
+          <Link to="/strategy-session" className="bg-[#4A0E0E] px-5 py-3 text-sm font-semibold text-[#FFFFFF] transition hover:bg-[#3A0808]">{t('nav.book')}</Link>
         </div>
         <button onClick={() => setMobileOpen(!mobileOpen)} className="text-[#1E2A4A] lg:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B] focus-visible:ring-offset-2" aria-label="Toggle navigation" aria-expanded={mobileOpen} aria-controls="mobile-nav">{mobileOpen ? <X /> : <Menu />}</button>
       </div>

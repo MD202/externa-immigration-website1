@@ -8,6 +8,6 @@ export default function NorthStarCursor() {
     return () => window.removeEventListener("mousemove", move);
   }, []);
   return <div className="pointer-events-none fixed inset-0 z-[100] hidden lg:block" aria-hidden="true">
-    {points.map((point, index) => <span key={point.id} className="absolute h-1 w-1 rounded-full bg-[#047857] transition-opacity" style={{ left: point.x, top: point.y, opacity: (index + 1) / 10 }} />)}
+    {points.map((point, index) => <span key={point.id} className="absolute h-1 w-1 rounded-full bg-[#B8860B] transition-opacity" style={{ left: point.x, top: point.y, opacity: (index + 1) / 10 }} />)}
   </div>;
 }
