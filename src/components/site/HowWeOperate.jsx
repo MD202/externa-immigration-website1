@@ -22,7 +22,7 @@ export default function HowWeOperate() {
     <section id="how-we-operate" aria-label="How we operate" className="bg-[#1E2A4A] px-5 py-28 text-white lg:px-[8vw] lg:py-40">
       <div className="mx-auto max-w-[1440px]">
         <Reveal className="max-w-2xl">
-          <p className="text-xs font-semibold uppercase tracking-[.24em] text-[#B8860B]">{t('howWeOperate.eyebrow')}</p>
+          <p className="text-xs font-semibold tracking-[.18em] text-[#B8860B]">{t('howWeOperate.eyebrow')}</p>
           <h2 className="mt-4 font-heading text-4xl leading-[1.08] sm:text-5xl lg:text-6xl">{t('howWeOperate.title')}</h2>
         </Reveal>
 

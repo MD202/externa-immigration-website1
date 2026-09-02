@@ -14,7 +14,7 @@ export default function TrustSection() {
           <Reveal className="max-w-xl">
             <p className="eyebrow">{t('trust.eyebrow')}</p>
             <h2 className="section-title">{t('trust.title')}</h2>
-            <p className="mt-7 text-lg leading-relaxed text-[#1E2A4A]/65">{t('trust.body')}</p>
+            <p className="mt-8 text-lg leading-relaxed text-[#1E2A4A]/65">{t('trust.body')}</p>
             <a href={CICC_URL} target="_blank" rel="noopener noreferrer" className="mt-9 inline-flex items-center gap-3 border-l-2 border-[#B8860B] pl-5 text-[#B8860B] transition hover:gap-4">
               <BadgeCheck className="h-6 w-6 shrink-0" />
               <span className="font-semibold">{t('trust.cta')}</span>
@@ -27,7 +27,9 @@ export default function TrustSection() {
           </Reveal>
         </div>
         <Reveal delay={150}>
-          <Image src="https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/62ee7416e_generated_78f96e2d.jpg" alt="Family moving toward a Canadian horizon" className="min-h-[480px] w-full" fittingType="fill" />
+          <div className="flex min-h-[480px] items-center justify-center p-8 lg:p-14">
+            <Image src="https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/62ee7416e_generated_78f96e2d.jpg" alt="Family moving toward a Canadian horizon" className="max-h-[580px] w-full" fittingType="fit" />
+          </div>
         </Reveal>
       </div>
     </section>

@@ -39,7 +39,7 @@ export const translations = {
     v5b: { en: 'Appointments to work around your schedule.', ta: 'உங்கள் அட்டவணைக்கு ஏற்ற நேர அமர்வுகள்.', hi: 'आपकी समयसूची के अनुसार अपॉइंटमेंट।' },
   },
   howWeOperate: {
-    eyebrow: { en: 'How we operate', ta: 'நாங்கள் எப்படி இயங்குகிறோம்', hi: 'हम कैसे काम करते हैं' },
+    eyebrow: { en: 'How We Operate', ta: 'நாங்கள் எப்படி இயங்குகிறோம்', hi: 'हम कैसे काम करते हैं' },
     title: { en: 'A clear process, start to decision.', ta: 'தொடக்கத்திலிருந்து முடிவு வரை தெளிவான செயல்முறை.', hi: 'शुरू से निर्णय तक स्पष्ट प्रक्रिया।' },
     step1: { en: 'You are here', ta: 'நீங்கள் இங்கே', hi: 'आप यहाँ हैं' },
     step2: { en: 'Book appointment', ta: 'நேர அமர்வு பதிவு', hi: 'अपॉइंटमेंट बुक करें' },
