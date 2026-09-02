@@ -27,7 +27,7 @@ export default function Header() {
   const inCanada = [
     { label: t('nav.familySponsorship'), to: '/services/4' },
     { label: t('nav.hc'), to: '/services/3' },
-    { label: t('nav.refused'), to: '/services/2' },
+    { label: t('nav.refused'), to: '/refused-applications' },
   ];
   const fromAbroad = [
     { label: t('nav.healthcare'), to: '/services/7' },

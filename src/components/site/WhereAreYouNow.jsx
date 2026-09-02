@@ -11,8 +11,8 @@ export default function WhereAreYouNow() {
   const navigate = useNavigate();
   const [triageOpen, setTriageOpen] = useState(false);
   const rows = [
-    { tag: 'URGENT', title: t('wayn.r1t'), sub: t('wayn.r1s'), to: '/services/2', urgent: true },
-    { tag: 'REFUSAL', title: t('wayn.r2t'), sub: t('wayn.r2s'), to: '/services/2' },
+    { tag: 'URGENT', title: t('wayn.r1t'), sub: t('wayn.r1s'), to: '/refused-applications#fairness', urgent: true },
+    { tag: 'REFUSAL', title: t('wayn.r2t'), sub: t('wayn.r2s'), to: '/refused-applications' },
     { tag: 'STATUS', title: t('wayn.r3t'), sub: t('wayn.r3s'), to: '/services/3' },
     { tag: 'SPONSOR', title: t('wayn.r4t'), sub: t('wayn.r4s'), to: '/services/4' },
     { tag: 'HEALTH', title: t('wayn.r5t'), sub: t('wayn.r5s'), to: '/services/7' },
