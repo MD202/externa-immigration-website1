@@ -15,7 +15,7 @@ export default function BusinessFeature() {
           <p className="eyebrow">{t('business.eyebrow')}</p>
           <h2 className="section-title text-white">{t('business.title1')}<br /><em className="text-[#B8860B]">{t('business.title2')}</em></h2>
           <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/65">{t('business.body')}</p>
-          <Link to="/strategy-session" className="mt-9 inline-flex items-center gap-3 bg-[#4A0E0E] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#3A0808]">{t('business.cta')} <ArrowUpRight /></Link>
+          <Link to="/strategy-session" className="mt-9 inline-flex items-center gap-3 bg-[#DC2626] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#B91C1C]">{t('business.cta')} <ArrowUpRight /></Link>
         </Reveal>
       </div>
     </section>

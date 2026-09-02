@@ -119,7 +119,7 @@ export default function ServiceDetail() {
                 <p className="mt-2 text-sm leading-relaxed text-[#1E2A4A]/55">{t('booking.tier2Desc')}</p>
                 <p className="mt-3 font-heading text-xl text-[#B8860B]">{t('booking.tier2Price')}</p>
               </div>
-              <Link to="/strategy-session" className="mt-5 flex items-center justify-center gap-3 bg-[#4A0E0E] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#3A0808]">
+              <Link to="/strategy-session" className="mt-5 flex items-center justify-center gap-3 bg-[#DC2626] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#B91C1C]">
                 {t('booking.tier2Cta')} <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

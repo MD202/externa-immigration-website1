@@ -78,7 +78,7 @@ export default function Fees() {
           <div className="mt-6 max-w-2xl border-l-2 border-[#B8860B] bg-[#F8FAFC] px-5 py-4">
             <p className="text-sm leading-relaxed text-[#1E2A4A]/70">{t('fees.stagedNote')}</p>
           </div>
-          <Link to="/strategy-session" className="mt-8 inline-flex items-center gap-3 bg-[#4A0E0E] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#3A0808]">{t('fees.cta')} <ArrowUpRight /></Link>
+          <Link to="/strategy-session" className="mt-8 inline-flex items-center gap-3 bg-[#DC2626] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#B91C1C]">{t('fees.cta')} <ArrowUpRight /></Link>
         </div>
       </section>
       <Footer />

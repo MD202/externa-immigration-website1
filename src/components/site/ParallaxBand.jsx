@@ -13,7 +13,7 @@ export default function ParallaxBand() {
       <Reveal className="relative mx-auto max-w-3xl px-5 text-center">
         <p className="text-xs uppercase tracking-[.3em] text-[#B8860B]">{t('parallax.eyebrow')}</p>
         <h2 className="mt-5 font-heading text-3xl leading-[1.15] sm:text-4xl lg:text-5xl">{t('parallax.quote')}</h2>
-        <Link to="/strategy-session" className="mt-9 inline-flex items-center gap-3 bg-[#4A0E0E] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#3A0808]">{t('parallax.cta')} <ArrowUpRight className="h-4 w-4" /></Link>
+        <Link to="/strategy-session" className="mt-9 inline-flex items-center gap-3 bg-[#DC2626] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#B91C1C]">{t('parallax.cta')} <ArrowUpRight className="h-4 w-4" /></Link>
       </Reveal>
     </section>
   );

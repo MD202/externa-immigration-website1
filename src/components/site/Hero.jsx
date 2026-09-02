@@ -49,7 +49,7 @@ export default function Hero() {
           </h1>
           <p className="hero-in mt-7 max-w-xl text-lg leading-relaxed text-white/70" style={{ animationDelay: '0.35s' }}>{t('hero.subtitle')}</p>
           <div className="hero-in mt-9 flex flex-wrap gap-4" style={{ animationDelay: '0.55s' }}>
-            <Link to="/strategy-session" className="group flex items-center gap-3 bg-[#4A0E0E] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#3A0808] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1E2A4A]">{t('hero.cta1')} <ArrowUpRight className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true" /></Link>
+            <Link to="/strategy-session" className="group flex items-center gap-3 bg-[#DC2626] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#B91C1C] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1E2A4A]">{t('hero.cta1')} <ArrowUpRight className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true" /></Link>
             <a href="#services" className="border border-white/30 px-6 py-4 font-semibold transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1E2A4A]">{t('hero.cta2')}</a>
           </div>
         </div>
