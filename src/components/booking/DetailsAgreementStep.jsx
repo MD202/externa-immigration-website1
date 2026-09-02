@@ -5,7 +5,8 @@ export default function DetailsAgreementStep({ data, setData, saving, onPayNow, 
   const { t } = useLanguage();
   const field = (key) => (e) => setData((d) => ({ ...d, [key]: e.target.value }));
   const today = new Date().toISOString().split('T')[0];
-  const detailsValid = !!(data.full_name && data.email && data.agreement_accepted && data.signature_name);
+  const signatureMatches = data.signature_name && data.signature_name.trim() === data.full_name.trim();
+  const detailsValid = !!(data.full_name && data.email && data.agreement_accepted && signatureMatches);
 
   const matters = [
     { value: 'Appeal or refusal', label: t('strategy.m1') },
@@ -72,7 +73,10 @@ export default function DetailsAgreementStep({ data, setData, saving, onPayNow, 
 
         <div className="mt-5 grid gap-5 sm:grid-cols-2">
           <label className="intake-label">{t('bookingFlow.signLabel')}
-            <input value={data.signature_name} onChange={field('signature_name')} className="intake-input" />
+            <input value={data.signature_name} onChange={field('signature_name')} className="intake-input" placeholder={data.full_name || ''} />
+            {data.signature_name && !signatureMatches && (
+              <span className="mt-1 text-xs text-[#8C2F39]">Must match your full name above.</span>
+            )}
           </label>
           <label className="intake-label">{t('bookingFlow.dateLabel')}
             <input type="date" value={today} readOnly className="intake-input" />
