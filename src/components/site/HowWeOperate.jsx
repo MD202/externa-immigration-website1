@@ -74,7 +74,7 @@ export default function HowWeOperate() {
           <p className="text-sm leading-relaxed text-white/50">{t('howWeOperate.stagedNote')}</p>
         </div>
 
-        <Link to="/strategy-session" className="mt-12 inline-flex items-center gap-3 bg-[#B8860B] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#065F46]">
+        <Link to="/strategy-session" className="mt-12 inline-flex items-center gap-3 bg-[#DC2626] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#B91C1C]">
           {t('howWeOperate.step2')} <ArrowRight className="h-4 w-4" />
         </Link>
       </div>

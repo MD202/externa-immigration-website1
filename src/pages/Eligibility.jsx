@@ -131,7 +131,7 @@ export default function Eligibility() {
                     <input value={contact.phone} onChange={(e) => setContact({ ...contact, phone: e.target.value })} className="intake-input" />
                   </label>
                 </div>
-                <button type="submit" disabled={saving} className="mt-7 flex w-full items-center justify-center gap-2 bg-[#B8860B] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#8B6508] disabled:opacity-50">
+                <button type="submit" disabled={saving} className="mt-7 flex w-full items-center justify-center gap-2 bg-[#DC2626] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#B91C1C] disabled:opacity-50">
                   {saving ? t('eligibility.sending') : t('eligibility.submit')} <ArrowRight className="h-4 w-4" />
                 </button>
               </form>
