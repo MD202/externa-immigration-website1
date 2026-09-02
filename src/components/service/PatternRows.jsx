@@ -3,7 +3,7 @@ import Reveal from '@/components/site/Reveal';
 export default function PatternRows({ rows, variant = 'light', eyebrow, heading, intro, close, hover = true, id }) {
   const dark = variant === 'dark';
   return (
-    <section id={id} className={`${dark ? 'bg-[#1E2A4A] text-white' : 'bg-[#FBFAF8] text-[#1E2A4A]'} px-5 py-28 lg:px-[8vw] lg:py-40`}>
+    <section id={id} className={`${dark ? 'bg-[#1E2A4A] text-white' : 'bg-[#FBFAF8] text-[#1E2A4A]'} px-5 py-20 lg:px-[8vw] lg:py-40`}>
       <div className="mx-auto max-w-[1240px]">
         {(eyebrow || heading || intro) && (
           <Reveal className="max-w-2xl">

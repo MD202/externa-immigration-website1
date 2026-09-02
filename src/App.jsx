@@ -12,6 +12,9 @@ import Fees from '@/pages/Fees';
 import ServiceDetail from '@/pages/ServiceDetail';
 import Eligibility from '@/pages/Eligibility';
 import RefusedApplications from '@/pages/RefusedApplications';
+import About from '@/pages/About';
+import Questions from '@/pages/Questions';
+import Contact from '@/pages/Contact';
 import { LanguageProvider } from '@/lib/LanguageContext';
 // Add page imports here
 
@@ -46,6 +49,9 @@ const AuthenticatedApp = () => {
       <Route path="/fees" element={<Fees />} />
       <Route path="/services/:id" element={<ServiceDetail />} />
       <Route path="/refused-applications" element={<RefusedApplications />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/questions" element={<Questions />} />
+      <Route path="/contact" element={<Contact />} />
       <Route path="/eligibility" element={<Eligibility />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>

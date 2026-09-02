@@ -9,7 +9,7 @@ export default function OutcomeSection() {
     { title: t('home.outcome.o3t'), body: t('home.outcome.o3b') },
   ];
   return (
-    <section className="bg-[#13203F] px-5 py-28 text-white lg:px-[8vw] lg:py-40">
+    <section className="bg-[#13203F] px-5 py-20 text-white lg:px-[8vw] lg:py-40">
       <div className="mx-auto max-w-[1240px]">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">{t('home.outcome.eyebrow')}</p>

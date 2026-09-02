@@ -13,7 +13,7 @@ export default function NumberedProcess({ steps, eyebrow, heading, variant = 'da
     return () => obs.disconnect();
   }, []);
   return (
-    <section className={`${dark ? 'bg-[#1E2A4A] text-white' : 'bg-[#FBFAF8] text-[#1E2A4A]'} px-5 py-28 lg:px-[8vw] lg:py-40`}>
+    <section className={`${dark ? 'bg-[#1E2A4A] text-white' : 'bg-[#FBFAF8] text-[#1E2A4A]'} px-5 py-20 lg:px-[8vw] lg:py-40`}>
       <div className="mx-auto max-w-[1240px]">
         <Reveal className="max-w-2xl">
           {eyebrow && <p className="eyebrow">{eyebrow}</p>}

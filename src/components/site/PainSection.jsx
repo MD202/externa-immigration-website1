@@ -5,7 +5,7 @@ export default function PainSection() {
   const { t } = useLanguage();
   const rows = [1, 2, 3, 4, 5, 6, 7, 8].map((i) => ({ lead: t(`home.pain.r${i}l`), body: t(`home.pain.r${i}b`) }));
   return (
-    <section className="bg-[#FBFAF8] px-5 py-28 lg:px-[8vw] lg:py-40">
+    <section className="bg-[#FBFAF8] px-5 py-20 lg:px-[8vw] lg:py-40">
       <div className="mx-auto max-w-[1240px]">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">{t('home.pain.eyebrow')}</p>

@@ -9,7 +9,7 @@ export default function Hero() {
     <section id="top" className="relative min-h-screen overflow-hidden bg-[#13203F] text-white">
       <div className="relative mx-auto grid min-h-screen max-w-[1440px] items-center gap-12 px-5 pt-32 pb-16 lg:grid-cols-2 lg:px-[8vw]">
         <div>
-          <h1 className="hero-in max-w-xl font-heading text-4xl leading-[1.05] sm:text-5xl lg:text-[52px]" style={{ animationDelay: '0.1s' }}>
+          <h1 className="hero-in max-w-xl font-heading text-[40px] leading-[1.05] sm:text-5xl lg:text-[52px]" style={{ animationDelay: '0.1s' }}>
             {t('home.hero.h1')}
           </h1>
           <p className="hero-in mt-4 font-heading text-2xl italic leading-snug text-[#B8860B] sm:text-3xl" style={{ animationDelay: '0.25s' }}>

@@ -13,7 +13,7 @@ export default function FocusAreas() {
     { title: t('home.focus.c5t'), body: t('home.focus.c5b'), meta: t('home.focus.c5m'), to: '/services/6' },
   ];
   return (
-    <section className="bg-[#FBFAF8] px-5 py-28 lg:px-[8vw] lg:py-40">
+    <section className="bg-[#FBFAF8] px-5 py-20 lg:px-[8vw] lg:py-40">
       <div className="mx-auto max-w-[1240px]">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">{t('home.focus.eyebrow')}</p>
@@ -22,7 +22,7 @@ export default function FocusAreas() {
         <div className="mt-14 grid gap-5 md:grid-cols-3">
           {cards.map((c, i) => (
             <Reveal key={c.to} delay={i * 60} className="h-full">
-              <Link to={c.to} className="group relative flex h-full min-h-[320px] flex-col border border-[#1E2A4A]/10 bg-white p-10 transition duration-200 hover:border-[#1E2A4A]">
+              <Link to={c.to} className="group relative flex h-full min-h-[260px] flex-col border border-[#1E2A4A]/10 bg-white p-7 transition duration-200 hover:border-[#1E2A4A] lg:min-h-[320px] lg:p-10">
                 <ArrowUpRight className="absolute right-8 top-8 h-5 w-5 text-[#1E2A4A]/25 transition duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#B8860B]" aria-hidden="true" />
                 <h3 className="max-w-[12rem] font-heading text-2xl text-[#1E2A4A]">{c.title}</h3>
                 <p className="mt-4 text-base leading-relaxed text-[#1E2A4A]/65">{c.body}</p>

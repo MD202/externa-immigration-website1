@@ -35,9 +35,9 @@ export default function Header() {
     { label: t('nav.otherServices'), to: '/services/9' },
   ];
   const aboutLinks = [
-    { label: t('nav.aboutUs'), href: '/#about' },
-    { label: t('howWeOperate.eyebrow'), href: '/#how-we-operate' },
-    { label: t('nav.approach'), href: '/#approach' },
+    { label: t('nav.aboutUs'), href: '/about' },
+    { label: t('nav.questions'), href: '/questions' },
+    { label: t('nav.contact'), href: '/contact' },
   ];
 
   const dropdown = (label, items, name) => (

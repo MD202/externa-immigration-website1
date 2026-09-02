@@ -5,7 +5,7 @@ export default function WhyMe() {
   const { t } = useLanguage();
   const points = [1, 2, 3, 4, 5, 6, 7].map((i) => ({ lead: t(`home.whyme.p${i}l`), body: t(`home.whyme.p${i}b`) }));
   return (
-    <section className="bg-[#1E2A4A] px-5 py-28 text-white lg:px-[8vw] lg:py-40">
+    <section className="bg-[#1E2A4A] px-5 py-20 text-white lg:px-[8vw] lg:py-40">
       <div className="mx-auto grid max-w-[1240px] gap-14 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-32">

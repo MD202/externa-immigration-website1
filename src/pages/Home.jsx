@@ -9,6 +9,7 @@ import OutcomeSection from '@/components/site/OutcomeSection';
 import CloseSection from '@/components/site/CloseSection';
 import Footer from '@/components/site/Footer';
 import NorthStarCursor from '@/components/site/NorthStarCursor';
+import MobileStickyBar from '@/components/site/MobileStickyBar';
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <OutcomeSection />
       <CloseSection />
       <Footer />
+      <MobileStickyBar />
     </main>
   );
 }

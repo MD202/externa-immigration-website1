@@ -7,7 +7,7 @@ const CICC_URL = 'https://register.college-ic.ca/';
 export default function Verification() {
   const { t } = useLanguage();
   return (
-    <section className="bg-[#13203F] px-5 py-40 text-white text-center lg:py-52">
+    <section className="bg-[#13203F] px-5 py-20 text-white text-center lg:py-52">
       <div className="mx-auto max-w-[900px]">
         <Reveal>
           <p className="eyebrow">{t('home.verify.eyebrow')}</p>
