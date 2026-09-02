@@ -19,23 +19,23 @@ export default function HowWeAreDifferent() {
         <Reveal className="max-w-3xl">
           <p className="eyebrow">{t('different.eyebrow')}</p>
           <h2 className="section-title">{t('different.title')}</h2>
-          <p className="mt-6 text-lg leading-relaxed text-[#1E293B]/65">{t('different.intro')}</p>
+          <p className="mt-6 text-lg leading-relaxed text-[#1E2A4A]/65">{t('different.intro')}</p>
         </Reveal>
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {points.map(({ icon: Icon, title, body }, i) => (
             <Reveal key={title} delay={i * 80} className="h-full">
-              <article className="group h-full border border-[#1E293B]/10 bg-[#F8FAFC] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#047857]/40 hover:shadow-lg">
-                <div className="flex h-12 w-12 items-center justify-center bg-[#047857]/8 text-[#047857] transition group-hover:bg-[#047857] group-hover:text-white">
+              <article className="group h-full border border-[#1E2A4A]/10 bg-[#F8FAFC] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#B91C1C]/40 hover:shadow-lg">
+                <div className="flex h-12 w-12 items-center justify-center bg-[#C9A227]/8 text-[#C9A227] transition group-hover:bg-[#C9A227] group-hover:text-white">
                   <Icon className="h-6 w-6" aria-hidden="true" />
                 </div>
-                <h3 className="mt-6 font-heading text-xl text-[#1E293B]">{title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-[#1E293B]/60">{body}</p>
+                <h3 className="mt-6 font-heading text-xl text-[#1E2A4A]">{title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-[#1E2A4A]/60">{body}</p>
               </article>
             </Reveal>
           ))}
         </div>
         <Reveal>
-          <Link to="/strategy-session" className="mt-12 inline-flex items-center gap-3 bg-[#047857] px-6 py-4 font-semibold text-white transition hover:bg-[#065F46]">{t('different.cta')} <ArrowUpRight className="h-4 w-4" /></Link>
+          <Link to="/strategy-session" className="mt-12 inline-flex items-center gap-3 bg-[#C9A227] px-6 py-4 font-semibold text-white transition hover:bg-[#065F46]">{t('different.cta')} <ArrowUpRight className="h-4 w-4" /></Link>
         </Reveal>
       </div>
     </section>

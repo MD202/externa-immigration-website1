@@ -12,7 +12,7 @@ export default function Logo({ className = 'h-9 w-9', variant = 'default' }) {
   const clipBottom = `logo-clip-bottom-${id}`;
   // default = navy + teal (for light backgrounds); light = off-white (for dark backgrounds)
   const topColor = variant === 'light' ? '#F8FAFC' : '#334155';
-  const bottomColor = variant === 'light' ? '#F8FAFC' : '#1E293B';
+  const bottomColor = variant === 'light' ? '#F8FAFC' : '#1E2A4A';
   return (
     <svg viewBox={VIEW_BOX} className={className} aria-hidden="true" preserveAspectRatio="xMidYMid meet">
       <defs>

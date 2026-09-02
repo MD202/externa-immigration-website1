@@ -23,8 +23,8 @@ export default function FAQSection() {
       <div className="mx-auto max-w-[1440px]">
         <p className="eyebrow">{t('faq.eyebrow')}</p>
         <h2 className="section-title">{t('faq.title')}</h2>
-        <p className="mt-5 max-w-xl text-lg leading-relaxed text-[#1E293B]/60">{t('faq.blurb')}</p>
-        <div className="mt-12 divide-y divide-[#1E293B]/10 border-y border-[#1E293B]/10">
+        <p className="mt-5 max-w-xl text-lg leading-relaxed text-[#1E2A4A]/60">{t('faq.blurb')}</p>
+        <div className="mt-12 divide-y divide-[#1E2A4A]/10 border-y border-[#1E2A4A]/10">
           {items.map((item, i) => (
             <div key={i}>
               <button
@@ -32,17 +32,17 @@ export default function FAQSection() {
                 aria-controls={`faq-panel-${i}`}
                 id={`faq-button-${i}`}
                 onClick={() => setOpen(open === i ? -1 : i)}
-                className="flex w-full items-center justify-between gap-4 py-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#047857] focus-visible:ring-offset-2"
+                className="flex w-full items-center justify-between gap-4 py-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A227] focus-visible:ring-offset-2"
               >
-                <span className="font-heading text-xl text-[#1E293B] lg:text-2xl">{item.q}</span>
-                <ChevronDown className={`h-6 w-6 shrink-0 text-[#047857] transition-transform duration-300 ${open === i ? 'rotate-180' : ''}`} aria-hidden="true" />
+                <span className="font-heading text-xl text-[#1E2A4A] lg:text-2xl">{item.q}</span>
+                <ChevronDown className={`h-6 w-6 shrink-0 text-[#C9A227] transition-transform duration-300 ${open === i ? 'rotate-180' : ''}`} aria-hidden="true" />
               </button>
               {open === i && (
                 <div
                   role="region"
                   id={`faq-panel-${i}`}
                   aria-labelledby={`faq-button-${i}`}
-                  className="pb-6 pr-12 text-lg leading-relaxed text-[#1E293B]/65"
+                  className="pb-6 pr-12 text-lg leading-relaxed text-[#1E2A4A]/65"
                 >
                   {item.a}
                 </div>

@@ -22,22 +22,22 @@ export default function ServicesGrid() {
         <Reveal className="max-w-3xl">
           <p className="eyebrow">{t('services.eyebrow')}</p>
           <h2 className="section-title">{t('services.title')}</h2>
-          <p className="mt-6 text-lg leading-relaxed text-[#1E293B]/65">{t('services.intro')}</p>
+          <p className="mt-6 text-lg leading-relaxed text-[#1E2A4A]/65">{t('services.intro')}</p>
         </Reveal>
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {services.map(({ id, icon: Icon, title, text, factors }, i) => (
             <Reveal key={id} delay={i * 70} className="h-full">
-              <Link to={`/services/${id}`} className="group flex h-full flex-col justify-between bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#047857]">
+              <Link to={`/services/${id}`} className="group flex h-full flex-col justify-between bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A227]">
                 <div className="flex justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center bg-[#047857]/8 text-[#047857] transition group-hover:bg-[#047857] group-hover:text-[#FFFFFF]">
+                  <div className="flex h-12 w-12 items-center justify-center bg-[#C9A227]/8 text-[#C9A227] transition group-hover:bg-[#C9A227] group-hover:text-[#FFFFFF]">
                     <Icon className="h-6 w-6" aria-hidden="true" />
                   </div>
-                  <ArrowUpRight className="h-5 w-5 text-[#1E293B]/20 transition group-hover:text-[#047857]" aria-hidden="true" />
+                  <ArrowUpRight className="h-5 w-5 text-[#1E2A4A]/20 transition group-hover:text-[#C9A227]" aria-hidden="true" />
                 </div>
                 <div className="mt-8">
-                  <h3 className="font-heading text-xl text-[#1E293B]">{title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[#1E293B]/60">{text}</p>
-                  <p className="mt-5 border-t border-[#1E293B]/10 pt-4 text-xs uppercase tracking-[.1em] text-[#1E293B]/45">{factors}</p>
+                  <h3 className="font-heading text-xl text-[#1E2A4A]">{title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-[#1E2A4A]/60">{text}</p>
+                  <p className="mt-5 border-t border-[#1E2A4A]/10 pt-4 text-xs uppercase tracking-[.1em] text-[#1E2A4A]/45">{factors}</p>
                 </div>
               </Link>
             </Reveal>

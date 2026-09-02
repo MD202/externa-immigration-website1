@@ -16,7 +16,7 @@ export default function WhatsAppWidget() {
   return (
     <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
       {open && (
-        <div className="w-72 overflow-hidden rounded-xl border border-[#0E3B3B]/10 bg-white shadow-2xl">
+        <div className="w-72 overflow-hidden rounded-xl border border-[#1E2A4A]/10 bg-white shadow-2xl">
           <div className="flex items-center justify-between bg-[#25D366] px-4 py-3 text-white">
             <div className="flex items-center gap-2">
               <MessageCircle className="h-5 w-5" />
@@ -27,7 +27,7 @@ export default function WhatsAppWidget() {
             </button>
           </div>
           <div className="p-4">
-            <p className="text-sm leading-relaxed text-[#0E3B3B]/70">
+            <p className="text-sm leading-relaxed text-[#1E2A4A]/70">
               {t('footer.whatsappIntro')}
             </p>
             <a

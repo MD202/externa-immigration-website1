@@ -19,12 +19,12 @@ export default function ApproachSection() {
         <Reveal delay={150} className="lg:col-span-5 lg:col-start-8">
           <p className="eyebrow">{t('approach.eyebrow')}</p>
           <h2 className="section-title">{t('approach.title')}</h2>
-          <p className="mt-6 text-lg leading-relaxed text-[#1E293B]/65">{t('approach.intro')}</p>
+          <p className="mt-6 text-lg leading-relaxed text-[#1E2A4A]/65">{t('approach.intro')}</p>
           <div className="mt-9 grid gap-5">
             {principles.map((item) => (
-              <div key={item.n} className="flex gap-5 border-b border-[#1E293B]/10 pb-5">
-                <span className="font-mono text-sm font-semibold text-[#047857]">{item.n}</span>
-                <span className="text-[#1E293B]/80">{item.text}</span>
+              <div key={item.n} className="flex gap-5 border-b border-[#1E2A4A]/10 pb-5">
+                <span className="font-mono text-sm font-semibold text-[#C9A227]">{item.n}</span>
+                <span className="text-[#1E2A4A]/80">{item.text}</span>
               </div>
             ))}
           </div>
