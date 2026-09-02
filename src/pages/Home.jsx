@@ -10,7 +10,6 @@ import ConsultationOutcome from '@/components/site/ConsultationOutcome';
 import TrustSection from '@/components/site/TrustSection';
 import BusinessFeature from '@/components/site/BusinessFeature';
 import ParallaxBand from '@/components/site/ParallaxBand';
-import WhyCanada from '@/components/site/WhyCanada';
 import PathwaysAtAGlance from '@/components/site/PathwaysAtAGlance';
 import HowWeAreDifferent from '@/components/site/HowWeAreDifferent';
 import FAQSection from '@/components/site/FAQSection';
@@ -25,7 +24,6 @@ export default function Home() {
       <Header />
       <Hero />
       <ValueProps />
-      <WhyCanada />
       <HowWeOperate />
       <ServicesGrid />
       <PathwaysAtAGlance />
