@@ -27,7 +27,7 @@ export default function StrategySession() {
   const submit = async (paymentPref) => {
     setSaving(true);
     try {
-      await base44.entities.Consultation.create({ ...data, payment_preference: paymentPref });
+      await base44.entities.Consultation.create({ ...data, payment_preference: paymentPref, triage_tag: (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('externa-triage-tag')) || '' });
       try {
         await base44.functions.invoke('createCalendarEvent', {
           full_name: data.full_name, email: data.email,

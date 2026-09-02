@@ -65,6 +65,9 @@
     "signature_name": {
       "type": "string"
     },
+    "triage_tag": {
+      "type": "string"
+    },
     "status": {
       "type": "string",
       "enum": [

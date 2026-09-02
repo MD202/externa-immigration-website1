@@ -1,5 +1,6 @@
 import Header from '@/components/site/Header';
 import Hero from '@/components/site/Hero';
+import WhereAreYouNow from '@/components/site/WhereAreYouNow';
 import ValueProps from '@/components/site/ValueProps';
 import HowWeOperate from '@/components/site/HowWeOperate';
 import PainPoints from '@/components/site/PainPoints';
@@ -21,6 +22,7 @@ export default function Home() {
       <NorthStarCursor />
       <Header />
       <Hero />
+      <WhereAreYouNow />
       <ValueProps />
       <HowWeOperate />
       <PainPoints />

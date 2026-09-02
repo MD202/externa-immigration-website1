@@ -24,26 +24,41 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', onClickOutside);
   }, []);
 
-  const services = [
-    { id: 1, label: t('services.t1') },
-    { id: 2, label: t('services.t2') },
-    { id: 3, label: t('services.t3') },
-    { id: 4, label: t('services.t4') },
-    { id: 5, label: t('services.t5') },
-    { id: 6, label: t('services.t6') },
-    { id: 7, label: t('services.t7') },
-    { id: 8, label: t('services.t8') },
-    { id: 9, label: t('services.t9') },
+  const inCanada = [
+    { label: t('nav.familySponsorship'), to: '/services/4' },
+    { label: t('nav.hc'), to: '/services/3' },
+    { label: t('nav.refused'), to: '/services/2' },
+  ];
+  const fromAbroad = [
+    { label: t('nav.healthcare'), to: '/services/7' },
+    { label: t('nav.entrepreneurs'), to: '/services/6' },
+    { label: t('nav.otherServices'), to: '/services/9' },
   ];
   const aboutLinks = [
     { label: t('nav.aboutUs'), href: '/#about' },
     { label: t('howWeOperate.eyebrow'), href: '/#how-we-operate' },
     { label: t('nav.approach'), href: '/#approach' },
-    { label: t('nav.fees'), href: '/fees' },
   ];
 
+  const dropdown = (label, items, name) => (
+    <div className="relative">
+      <button onClick={() => setOpenMenu(openMenu === name ? null : name)} className="flex items-center gap-1 text-sm text-[#1E2A4A]/70 transition hover:text-[#B8860B]" aria-expanded={openMenu === name}>
+        {label} <ChevronDown className={`h-4 w-4 transition-transform ${openMenu === name ? 'rotate-180' : ''}`} />
+      </button>
+      {openMenu === name && (
+        <div className="absolute top-full left-0 pt-2 w-56">
+          <div className="grid gap-0 border border-[#1E2A4A]/10 bg-white py-2">
+            {items.map((s) => (
+              <Link key={s.to} to={s.to} onClick={() => setOpenMenu(null)} className="px-4 py-3 text-sm text-[#1E2A4A]/70 transition hover:text-[#B8860B]">{s.label}</Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+
   return (
-    <header ref={headerRef} className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${compact ? 'bg-white py-3' : 'bg-white py-4'}`}>
+    <header ref={headerRef} className={`fixed inset-x-0 top-0 z-50 bg-white transition-all duration-300 ${compact ? 'py-3' : 'py-4'}`}>
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 lg:px-[8vw]">
         <Link to="/" className="flex items-center gap-3">
           <Logo className="h-11 w-11" />
@@ -51,55 +66,34 @@ export default function Header() {
         </Link>
         <div className="hidden items-center gap-8 lg:flex">
           <nav className="flex items-center gap-6" aria-label="Main navigation">
-            <div className="relative">
-              <button onClick={() => setOpenMenu(openMenu === 'services' ? null : 'services')} className="flex items-center gap-1 text-sm text-[#1E2A4A]/70 transition hover:text-[#B8860B]" aria-expanded={openMenu === 'services'}>
-                {t('nav.services')} <ChevronDown className={`h-4 w-4 transition-transform ${openMenu === 'services' ? 'rotate-180' : ''}`} />
-              </button>
-              {openMenu === 'services' && (
-                <div className="absolute top-full left-0 pt-2 w-72">
-                  <div className="grid gap-0 border border-[#1E2A4A]/10 bg-white py-2">
-                    {services.map((s) => (
-                      <Link key={s.id} to={`/services/${s.id}`} onClick={() => setOpenMenu(null)} className="px-4 py-3 text-sm text-[#1E2A4A]/70 transition hover:text-[#B8860B]">{s.label}</Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-            <div className="relative">
-              <button onClick={() => setOpenMenu(openMenu === 'about' ? null : 'about')} className="flex items-center gap-1 text-sm text-[#1E2A4A]/70 transition hover:text-[#B8860B]" aria-expanded={openMenu === 'about'}>
-                {t('nav.aboutUs')} <ChevronDown className={`h-4 w-4 transition-transform ${openMenu === 'about' ? 'rotate-180' : ''}`} />
-              </button>
-              {openMenu === 'about' && (
-                <div className="absolute top-full left-0 pt-2 w-56">
-                  <div className="grid gap-0 border border-[#1E2A4A]/10 bg-white py-2">
-                    {aboutLinks.map((link) => (
-                      <Link key={link.href} to={link.href} onClick={() => setOpenMenu(null)} className="px-4 py-3 text-sm text-[#1E2A4A]/70 transition hover:text-[#B8860B]">{link.label}</Link>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-            <Link to="/eligibility" className="text-sm font-semibold text-[#B8860B] transition hover:text-[#8B6508]">{t('eligibility.nav')}</Link>
+            {dropdown(t('nav.inCanada'), inCanada, 'inCanada')}
+            {dropdown(t('nav.fromAbroad'), fromAbroad, 'fromAbroad')}
+            <Link to="/fees" className="text-sm text-[#1E2A4A]/70 transition hover:text-[#B8860B]">{t('nav.fees')}</Link>
+            {dropdown(t('nav.about'), aboutLinks, 'about')}
           </nav>
           <span className="h-7 w-px bg-[#1E2A4A]/15" aria-hidden="true" />
-          <Link to="/strategy-session" className="bg-[#DC2626] px-5 py-3 text-sm font-semibold text-[#FFFFFF] transition hover:bg-[#B91C1C]">{t('nav.book')}</Link>
+          <Link to="/strategy-session" className="bg-[#DC2626] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#B91C1C]">{t('nav.bookCta')}</Link>
         </div>
-        <button onClick={() => setMobileOpen(!mobileOpen)} className="text-[#1E2A4A] lg:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B] focus-visible:ring-offset-2" aria-label="Toggle navigation" aria-expanded={mobileOpen} aria-controls="mobile-nav">{mobileOpen ? <X /> : <Menu />}</button>
+        <div className="flex items-center gap-3 lg:hidden">
+          <Link to="/strategy-session" className="bg-[#DC2626] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#B91C1C]">{t('nav.bookCta')}</Link>
+          <button onClick={() => setMobileOpen(!mobileOpen)} className="text-[#1E2A4A] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B] focus-visible:ring-offset-2" aria-label="Toggle navigation" aria-expanded={mobileOpen} aria-controls="mobile-nav">{mobileOpen ? <X /> : <Menu />}</button>
+        </div>
       </div>
       {mobileOpen && (
-        <nav id="mobile-nav" className="mx-5 mt-3 max-h-[70vh] overflow-y-auto rounded-lg border border-[#1E2A4A]/10 bg-white py-4 lg:hidden" aria-label="Mobile navigation">
-          <p className="px-4 pb-2 text-xs font-semibold uppercase tracking-[.18em] text-[#1E2A4A]/40">{t('nav.services')}</p>
-          {services.map((s) => (
-            <Link key={s.id} onClick={() => setMobileOpen(false)} to={`/services/${s.id}`} className="block px-4 py-2.5 text-sm text-[#1E2A4A]/80">{s.label}</Link>
+        <nav id="mobile-nav" className="mx-5 mt-3 max-h-[70vh] overflow-y-auto border border-[#1E2A4A]/10 bg-white py-4 lg:hidden" aria-label="Mobile navigation">
+          <p className="px-4 pb-2 text-xs font-semibold uppercase tracking-[.18em] text-[#1E2A4A]/40">{t('nav.inCanada')}</p>
+          {inCanada.map((s) => (
+            <Link key={s.to} onClick={() => setMobileOpen(false)} to={s.to} className="block px-4 py-2.5 text-sm text-[#1E2A4A]/80">{s.label}</Link>
+          ))}
+          <p className="mt-2 px-4 pb-2 text-xs font-semibold uppercase tracking-[.18em] text-[#1E2A4A]/40">{t('nav.fromAbroad')}</p>
+          {fromAbroad.map((s) => (
+            <Link key={s.to} onClick={() => setMobileOpen(false)} to={s.to} className="block px-4 py-2.5 text-sm text-[#1E2A4A]/80">{s.label}</Link>
           ))}
           <div className="my-2 border-t border-[#1E2A4A]/10" />
-          <Link onClick={() => setMobileOpen(false)} to="/#about" className="block px-4 py-3 text-[#1E2A4A]/80">{t('nav.aboutUs')}</Link>
-          <Link onClick={() => setMobileOpen(false)} to="/#how-we-operate" className="block px-4 py-3 text-[#1E2A4A]/80">{t('howWeOperate.eyebrow')}</Link>
-          <Link onClick={() => setMobileOpen(false)} to="/#approach" className="block px-4 py-3 text-[#1E2A4A]/80">{t('nav.approach')}</Link>
           <Link onClick={() => setMobileOpen(false)} to="/fees" className="block px-4 py-3 text-[#1E2A4A]/80">{t('nav.fees')}</Link>
-          <Link onClick={() => setMobileOpen(false)} to="/eligibility" className="block px-4 py-3 font-semibold text-[#B8860B]">{t('eligibility.nav')}</Link>
-          <div className="my-2 border-t border-[#1E2A4A]/10" />
-          <Link to="/strategy-session" onClick={() => setMobileOpen(false)} className="mx-3 mb-3 bg-[#B8860B] px-4 py-3 text-center font-semibold text-white">{t('nav.book')}</Link>
+          {aboutLinks.map((link) => (
+            <Link key={link.href} onClick={() => setMobileOpen(false)} to={link.href} className="block px-4 py-3 text-[#1E2A4A]/80">{link.label}</Link>
+          ))}
         </nav>
       )}
     </header>
