@@ -39,7 +39,7 @@ export default function AppealsSection() {
           ))}
         </div>
         <Reveal>
-          <Link to="/strategy-session" className="mt-10 inline-flex items-center gap-3 text-sm font-semibold text-[#B8860B]">{t('appeals.cta')} <ArrowUpRight className="h-4 w-4" /></Link>
+          <Link to="/strategy-session" className="btn btn-primary mt-10">{t('appeals.cta')} <ArrowUpRight className="h-4 w-4" /></Link>
         </Reveal>
       </div>
     </section>

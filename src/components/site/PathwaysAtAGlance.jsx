@@ -37,7 +37,7 @@ export default function PathwaysAtAGlance() {
           ))}
         </div>
         <Reveal>
-          <Link to="/eligibility" className="mt-12 inline-flex items-center gap-3 bg-[#B8860B] px-6 py-4 font-semibold text-white transition hover:bg-[#065F46]">{t('pathways.cta')} <ArrowUpRight className="h-4 w-4" /></Link>
+          <Link to="/eligibility" className="btn btn-primary mt-12">{t('pathways.cta')} <ArrowUpRight className="h-4 w-4" /></Link>
         </Reveal>
       </div>
     </section>

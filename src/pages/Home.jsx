@@ -2,6 +2,7 @@ import Header from '@/components/site/Header';
 import Hero from '@/components/site/Hero';
 import ValueProps from '@/components/site/ValueProps';
 import HowWeOperate from '@/components/site/HowWeOperate';
+import PainPoints from '@/components/site/PainPoints';
 import AppealsSection from '@/components/site/AppealsSection';
 import ServicesGrid from '@/components/site/ServicesGrid';
 import ApproachSection from '@/components/site/ApproachSection';
@@ -11,7 +12,6 @@ import TrustSection from '@/components/site/TrustSection';
 import BusinessFeature from '@/components/site/BusinessFeature';
 import ParallaxBand from '@/components/site/ParallaxBand';
 import PathwaysAtAGlance from '@/components/site/PathwaysAtAGlance';
-import HowWeAreDifferent from '@/components/site/HowWeAreDifferent';
 import FAQSection from '@/components/site/FAQSection';
 import Footer from '@/components/site/Footer';
 import WhatsAppWidget from '@/components/site/WhatsAppWidget';
@@ -25,6 +25,7 @@ export default function Home() {
       <Hero />
       <ValueProps />
       <HowWeOperate />
+      <PainPoints />
       <ServicesGrid />
       <PathwaysAtAGlance />
       <AppealsSection />
@@ -32,7 +33,6 @@ export default function Home() {
       <ParallaxBand />
       <BookingOptions />
       <ConsultationOutcome />
-      <HowWeAreDifferent />
       <TrustSection />
       <BusinessFeature />
       <FAQSection />
