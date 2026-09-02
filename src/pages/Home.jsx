@@ -10,11 +10,9 @@ import BookingOptions from '@/components/site/BookingOptions';
 import ConsultationOutcome from '@/components/site/ConsultationOutcome';
 import TrustSection from '@/components/site/TrustSection';
 import BusinessFeature from '@/components/site/BusinessFeature';
-import ParallaxBand from '@/components/site/ParallaxBand';
 import PathwaysAtAGlance from '@/components/site/PathwaysAtAGlance';
 import FAQSection from '@/components/site/FAQSection';
 import Footer from '@/components/site/Footer';
-import WhatsAppWidget from '@/components/site/WhatsAppWidget';
 import NorthStarCursor from '@/components/site/NorthStarCursor';
 
 export default function Home() {
@@ -30,14 +28,12 @@ export default function Home() {
       <PathwaysAtAGlance />
       <AppealsSection />
       <ApproachSection />
-      <ParallaxBand />
       <BookingOptions />
       <ConsultationOutcome />
       <TrustSection />
       <BusinessFeature />
       <FAQSection />
       <Footer />
-      <WhatsAppWidget />
     </main>
   );
 }

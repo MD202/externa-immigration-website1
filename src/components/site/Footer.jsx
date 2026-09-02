@@ -3,7 +3,7 @@ import { BadgeCheck, MapPin, Mail, Facebook, Instagram, Linkedin } from 'lucide-
 import Logo from '@/components/site/Logo';
 import { useLanguage } from '@/lib/LanguageContext';
 
-const CICC_URL = 'https://college-ic.ca/protecting-the-public/find-an-immigration-consultant/';
+const CICC_URL = 'https://register.college-ic.ca/';
 
 const TikTokIcon = ({ className }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
@@ -64,6 +64,7 @@ export default function Footer() {
               <BadgeCheck className="h-5 w-5 text-[#B8860B]" />
               {t('footer.license')}
             </a>
+            <p className="mt-2 text-sm text-white/55">Malathi Dhandapani, RCIC R709272</p>
           </div>
         </div>
         <div className="flex flex-col gap-3 pt-7 text-xs text-white/35 md:flex-row md:justify-between">

@@ -4,7 +4,6 @@ import { ArrowLeft, ArrowRight, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
-import WhatsAppWidget from '@/components/site/WhatsAppWidget';
 
 const SERVICE_MAP = {
   1: { titleKey: 'services.t1', textKey: 'services.x1', blurbKey: 'services.b1', factorsKey: 'services.f1', pathwayKey: 'services.p1', matter: 'Refugee claim' },
@@ -111,7 +110,7 @@ export default function ServiceDetail() {
               </div>
             </div>
             {/* Right: contact form */}
-            <div className="bg-white p-8 shadow-sm lg:sticky lg:top-32 lg:self-start">
+            <div className="bg-white p-8 lg:sticky lg:top-32 lg:self-start">
               <h2 className="font-heading text-2xl text-[#1E2A4A]">{t('bookingFlow.title')}</h2>
               <p className="mt-2 text-sm leading-relaxed text-[#1E2A4A]/55">{t('bookingFlow.subtitle')}</p>
               <div className="mt-6 border border-[#1E2A4A]/10 bg-[#F8FAFC] p-5">
@@ -144,7 +143,6 @@ export default function ServiceDetail() {
         </div>
       </section>
       <Footer />
-      <WhatsAppWidget />
     </main>
   );
 }

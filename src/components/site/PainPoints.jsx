@@ -56,7 +56,7 @@ export default function PainPoints() {
           </div>
         </div>
         <Reveal>
-          <Link to="/strategy-session" className="btn btn-primary mt-12">{t('pain.cta')} <ArrowRight className="h-4 w-4" /></Link>
+          <Link to="/strategy-session" className="link-arrow mt-12">{t('pain.cta')} <ArrowRight className="h-4 w-4" /></Link>
         </Reveal>
       </div>
     </section>

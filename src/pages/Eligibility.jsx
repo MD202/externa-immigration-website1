@@ -1,6 +1,5 @@
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
-import WhatsAppWidget from '@/components/site/WhatsAppWidget';
 import EligibilityCalculator from '@/components/eligibility/EligibilityCalculator';
 
 export default function Eligibility() {
@@ -11,7 +10,6 @@ export default function Eligibility() {
         <EligibilityCalculator />
       </section>
       <Footer />
-      <WhatsAppWidget />
     </main>
   );
 }

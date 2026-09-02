@@ -36,7 +36,7 @@ export default function BookingOptions() {
             <p className="mt-2 font-heading text-xl text-[#B8860B]">{t('booking.fullRepPrice')}</p>
           </div>
           <p className="max-w-md text-sm leading-relaxed text-[#1E2A4A]/55">{t('booking.fullRepBody')}</p>
-          <Link to="/strategy-session" className="btn btn-primary shrink-0">{t('booking.fullRepCta')} <ArrowRight className="h-4 w-4" /></Link>
+          <Link to="/strategy-session" className="link-arrow shrink-0">{t('booking.fullRepCta')} <ArrowRight className="h-4 w-4" /></Link>
         </div>
       </div>
     </section>

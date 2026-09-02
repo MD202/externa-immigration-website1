@@ -13,7 +13,7 @@ export default function AppealsSection() {
   ];
   return (
     <section id="appeals" className="relative overflow-hidden bg-[#1E2A4A] px-5 py-28 text-white lg:px-[8vw] lg:py-40">
-      <div className="absolute left-[8vw] top-0 h-full w-px bg-gradient-to-b from-transparent via-[#DC2626]/50 to-transparent" />
+      <div className="absolute left-[8vw] top-0 h-full w-px bg-white/15" />
       <div className="relative mx-auto max-w-[1440px]">
         <div className="grid gap-8 lg:grid-cols-2">
           <Reveal>
@@ -39,7 +39,7 @@ export default function AppealsSection() {
           ))}
         </div>
         <Reveal>
-          <Link to="/strategy-session" className="btn btn-primary mt-10">{t('appeals.cta')} <ArrowUpRight className="h-4 w-4" /></Link>
+          <Link to="/strategy-session" className="link-arrow mt-10">{t('appeals.cta')} <ArrowUpRight className="h-4 w-4" /></Link>
         </Reveal>
       </div>
     </section>

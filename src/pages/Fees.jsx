@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import { ArrowUpRight, ArrowLeft, Compass } from 'lucide-react';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
-import WhatsAppWidget from '@/components/site/WhatsAppWidget';
 import NorthStarCursor from '@/components/site/NorthStarCursor';
 import { useLanguage } from '@/lib/LanguageContext';
 
@@ -41,7 +40,7 @@ export default function Fees() {
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[#1E2A4A]/65">{t('fees.intro')}</p>
           <div className="mt-14 grid gap-5 md:grid-cols-3">
             {tiers.map((tier) => (
-              <article key={tier.label} className="relative flex flex-col bg-white p-8 shadow-sm">
+              <article key={tier.label} className="relative flex flex-col bg-white p-8">
                 {tier.badge && <span className="absolute -top-3 left-8 bg-[#B8860B] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white">{tier.badge}</span>}
                 <h3 className="font-heading text-2xl text-[#1E2A4A]">{tier.label}</h3>
                 <p className="mt-2 text-sm text-[#1E2A4A]/50">{tier.duration}</p>
@@ -63,7 +62,7 @@ export default function Fees() {
             <h2 className="font-heading text-3xl text-[#1E2A4A]">Full representation fees</h2>
             <div className="mt-8 grid gap-5 md:grid-cols-2">
               {items.map((item) => (
-                <div key={item.title} className="flex flex-col justify-between border border-[#1E2A4A]/8 bg-white p-7 shadow-sm transition hover:shadow-md">
+                <div key={item.title} className="flex flex-col justify-between border border-[#1E2A4A]/8 bg-white p-7 transition">
                   <div className="flex items-start justify-between gap-4">
                     <h3 className="font-heading text-2xl text-[#1E2A4A]">{item.title}</h3>
                     <span className="whitespace-nowrap font-heading text-xl text-[#B8860B]">{item.fee}</span>
@@ -82,7 +81,6 @@ export default function Fees() {
         </div>
       </section>
       <Footer />
-      <WhatsAppWidget />
     </main>
   );
 }

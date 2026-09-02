@@ -43,7 +43,7 @@ export default function Header() {
   ];
 
   return (
-    <header ref={headerRef} className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${compact ? 'bg-white py-3 shadow-lg' : 'bg-white/95 py-4 backdrop-blur-md'}`}>
+    <header ref={headerRef} className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${compact ? 'bg-white py-3' : 'bg-white py-4'}`}>
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 lg:px-[8vw]">
         <Link to="/" className="flex items-center gap-3">
           <Logo className="h-11 w-11" />
@@ -57,7 +57,7 @@ export default function Header() {
               </button>
               {openMenu === 'services' && (
                 <div className="absolute top-full left-0 pt-2 w-72">
-                  <div className="grid gap-0 border border-[#1E2A4A]/10 bg-white py-2 shadow-xl">
+                  <div className="grid gap-0 border border-[#1E2A4A]/10 bg-white py-2">
                     {services.map((s) => (
                       <Link key={s.id} to={`/services/${s.id}`} onClick={() => setOpenMenu(null)} className="px-4 py-3 text-sm text-[#1E2A4A]/70 transition hover:text-[#B8860B]">{s.label}</Link>
                     ))}
@@ -71,7 +71,7 @@ export default function Header() {
               </button>
               {openMenu === 'about' && (
                 <div className="absolute top-full left-0 pt-2 w-56">
-                  <div className="grid gap-0 border border-[#1E2A4A]/10 bg-white py-2 shadow-xl">
+                  <div className="grid gap-0 border border-[#1E2A4A]/10 bg-white py-2">
                     {aboutLinks.map((link) => (
                       <Link key={link.href} to={link.href} onClick={() => setOpenMenu(null)} className="px-4 py-3 text-sm text-[#1E2A4A]/70 transition hover:text-[#B8860B]">{link.label}</Link>
                     ))}
@@ -87,7 +87,7 @@ export default function Header() {
         <button onClick={() => setMobileOpen(!mobileOpen)} className="text-[#1E2A4A] lg:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B] focus-visible:ring-offset-2" aria-label="Toggle navigation" aria-expanded={mobileOpen} aria-controls="mobile-nav">{mobileOpen ? <X /> : <Menu />}</button>
       </div>
       {mobileOpen && (
-        <nav id="mobile-nav" className="mx-5 mt-3 max-h-[70vh] overflow-y-auto rounded-lg border border-[#1E2A4A]/10 bg-white py-4 shadow-xl lg:hidden" aria-label="Mobile navigation">
+        <nav id="mobile-nav" className="mx-5 mt-3 max-h-[70vh] overflow-y-auto rounded-lg border border-[#1E2A4A]/10 bg-white py-4 lg:hidden" aria-label="Mobile navigation">
           <p className="px-4 pb-2 text-xs font-semibold uppercase tracking-[.18em] text-[#1E2A4A]/40">{t('nav.services')}</p>
           {services.map((s) => (
             <Link key={s.id} onClick={() => setMobileOpen(false)} to={`/services/${s.id}`} className="block px-4 py-2.5 text-sm text-[#1E2A4A]/80">{s.label}</Link>

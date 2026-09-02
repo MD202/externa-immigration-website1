@@ -27,7 +27,7 @@ export default function ServicesGrid() {
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {services.map(({ id, title, text, factors }, i) => (
             <Reveal key={id} delay={i * 60} className="h-full">
-              <Link to={`/services/${id}`} className="group relative flex h-full flex-col border border-[#1E2A4A]/10 bg-white p-7 transition duration-300 hover:border-[#B8860B] hover:shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B]">
+              <Link to={`/services/${id}`} className="group relative flex h-full flex-col border border-[#1E2A4A]/10 bg-white p-7 transition duration-300 hover:border-[#B8860B] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B]">
                 <span className="font-mono text-xs text-[#B8860B]">{String(id).padStart(2, '0')}</span>
                 <h3 className="mt-4 font-heading text-xl text-[#1E2A4A]">{title}</h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-[#1E2A4A]/60">{text}</p>

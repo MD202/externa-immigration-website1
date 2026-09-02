@@ -1,33 +1,9 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, ChevronRight } from 'lucide-react';
-import { Image } from '@/components/ui/image';
 import { useLanguage } from '@/lib/LanguageContext';
 
 export default function Hero() {
   const { t } = useLanguage();
-  const words = [t('hero.word1'), t('hero.word2'), t('hero.word3'), t('hero.word4')];
-  const [wordIndex, setWordIndex] = useState(0);
-  const [displayed, setDisplayed] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  useEffect(() => {
-    const current = words[wordIndex];
-    const speed = isDeleting ? 50 : 120;
-    const timer = setTimeout(() => {
-      if (!isDeleting) {
-        const next = current.slice(0, displayed.length + 1);
-        setDisplayed(next);
-        if (next === current) setTimeout(() => setIsDeleting(true), 2000);
-      } else {
-        const next = current.slice(0, displayed.length - 1);
-        setDisplayed(next);
-        if (next === '') { setIsDeleting(false); setWordIndex((prev) => (prev + 1) % words.length); }
-      }
-    }, speed);
-    return () => clearTimeout(timer);
-  }, [displayed, isDeleting, wordIndex, words]);
-
   const intents = [
     { key: 'hero.opt1', href: '#services' },
     { key: 'hero.opt2', href: '#appeals' },
@@ -38,22 +14,18 @@ export default function Hero() {
   ];
   return (
     <section id="top" className="relative min-h-screen overflow-hidden bg-[#1E2A4A] text-white">
-      <Image src="https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/e8bb63d60_generated_8c88c781.jpg" alt="Professional overlooking Toronto at dawn" className="kenburns absolute inset-0 h-full w-full opacity-40" fittingType="fill" focalPointX={0.68} />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#1E2A4A] via-[#1E2A4A]/90 to-[#1E2A4A]/30" />
-      <div className="float-glow pointer-events-none absolute -right-20 top-1/4 h-72 w-72 rounded-full bg-[#B8860B]/20 blur-3xl" />
-      <div className="float-glow pointer-events-none absolute left-1/4 bottom-24 h-56 w-56 rounded-full bg-[#DC2626]/15 blur-3xl" style={{ animationDelay: '3s' }} />
       <div className="relative mx-auto grid min-h-screen max-w-[1440px] items-center gap-12 px-5 pb-16 pt-32 lg:grid-cols-12 lg:px-[8vw]">
         <div className="lg:col-span-7">
           <h1 className="hero-in max-w-3xl font-heading text-5xl leading-[1.02] sm:text-6xl lg:text-[78px]" style={{ animationDelay: '0.1s' }}>
-            {t('hero.title')} <span className="text-[#B8860B] italic">{displayed}<span className="animate-pulse">|</span></span>
+            {t('hero.title')} <span className="text-[#B8860B] italic">{t('hero.word1')}</span>
           </h1>
           <p className="hero-in mt-7 max-w-xl text-lg leading-relaxed text-white/70" style={{ animationDelay: '0.35s' }}>{t('hero.subtitle')}</p>
           <div className="hero-in mt-9 flex flex-wrap gap-4" style={{ animationDelay: '0.55s' }}>
             <Link to="/strategy-session" className="btn btn-primary">{t('hero.cta1')} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
-            <a href="#services" className="text-sm font-semibold text-[#B8860B] underline underline-offset-4 transition hover:text-white">{t('hero.cta2')}</a>
+            <Link to="/eligibility" className="btn border border-white/40 px-9 py-4 text-white hover:border-white">{t('hero.cta2')} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
           </div>
         </div>
-        <aside className="hero-in border border-white/15 bg-white/10 p-6 backdrop-blur-xl lg:col-span-5 lg:p-8" style={{ animationDelay: '0.75s' }} aria-label="Quick assessment">
+        <aside className="hero-in border border-white/15 bg-[#13203F] p-6 lg:col-span-5 lg:p-8" style={{ animationDelay: '0.75s' }} aria-label="Quick assessment">
           <p className="text-xs uppercase tracking-[.24em] text-[#B8860B]">{t('hero.assessmentEyebrow')}</p>
           <h2 className="mt-3 font-heading text-3xl">{t('hero.assessmentTitle')}</h2>
           <div className="mt-6 grid gap-1">
@@ -66,12 +38,6 @@ export default function Hero() {
           </div>
           <p className="mt-5 text-xs leading-relaxed text-white/50">{t('hero.assessmentNote')}</p>
         </aside>
-      </div>
-      <div className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 lg:flex" aria-hidden="true">
-        <span className="text-[10px] uppercase tracking-[.3em] text-white/40">Scroll</span>
-        <span className="flex h-9 w-5 justify-center rounded-full border border-white/25 pt-1.5">
-          <span className="scroll-dot h-1.5 w-1.5 rounded-full bg-[#DC2626]" />
-        </span>
       </div>
     </section>
   );
