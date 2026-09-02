@@ -100,7 +100,7 @@
   .intake-input { @apply w-full border-0 border-b border-[#1E2A4A]/20 bg-transparent px-0 py-3 text-base font-normal normal-case tracking-normal text-[#1E2A4A] outline-none transition focus:border-[#B8860B] focus:ring-0; }
 }
 
-::selection { background: #B91C1C; color: #FFFFFF; }
+::selection { background: #DC2626; color: #FFFFFF; }
 
 @keyframes marquee {
   from { transform: translateX(0); }

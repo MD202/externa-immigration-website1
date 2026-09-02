@@ -24,7 +24,7 @@ export default function HowWeAreDifferent() {
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {points.map(({ icon: Icon, title, body }, i) => (
             <Reveal key={title} delay={i * 80} className="h-full">
-              <article className="group h-full border border-[#1E2A4A]/10 bg-[#F8FAFC] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#B91C1C]/40 hover:shadow-lg">
+              <article className="group h-full border border-[#1E2A4A]/10 bg-[#F8FAFC] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#DC2626]/40 hover:shadow-lg">
                 <div className="flex h-12 w-12 items-center justify-center bg-[#B8860B]/8 text-[#B8860B] transition group-hover:bg-[#B8860B] group-hover:text-white">
                   <Icon className="h-6 w-6" aria-hidden="true" />
                 </div>

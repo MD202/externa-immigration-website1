@@ -13,11 +13,11 @@ export default function AppealsSection() {
   ];
   return (
     <section id="appeals" className="relative overflow-hidden bg-[#1E2A4A] px-5 py-28 text-white lg:px-[8vw] lg:py-40">
-      <div className="absolute left-[8vw] top-0 h-full w-px bg-gradient-to-b from-transparent via-[#B91C1C]/50 to-transparent" />
+      <div className="absolute left-[8vw] top-0 h-full w-px bg-gradient-to-b from-transparent via-[#DC2626]/50 to-transparent" />
       <div className="relative mx-auto max-w-[1440px]">
         <div className="grid gap-8 lg:grid-cols-2">
           <Reveal>
-            <p className="eyebrow text-[#B91C1C]">{t('appeals.eyebrow')}</p>
+            <p className="eyebrow text-[#DC2626]">{t('appeals.eyebrow')}</p>
             <h2 className="section-title text-white">{t('appeals.title1')}<br /><em className="text-[#B8860B]">{t('appeals.title2')}</em></h2>
           </Reveal>
           <Reveal delay={150}>

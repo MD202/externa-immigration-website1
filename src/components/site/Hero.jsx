@@ -41,7 +41,7 @@ export default function Hero() {
       <Image src="https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/e8bb63d60_generated_8c88c781.jpg" alt="Professional overlooking Toronto at dawn" className="kenburns absolute inset-0 h-full w-full opacity-40" fittingType="fill" focalPointX={0.68} />
       <div className="absolute inset-0 bg-gradient-to-r from-[#1E2A4A] via-[#1E2A4A]/90 to-[#1E2A4A]/30" />
       <div className="float-glow pointer-events-none absolute -right-20 top-1/4 h-72 w-72 rounded-full bg-[#B8860B]/20 blur-3xl" />
-      <div className="float-glow pointer-events-none absolute left-1/4 bottom-24 h-56 w-56 rounded-full bg-[#B91C1C]/15 blur-3xl" style={{ animationDelay: '3s' }} />
+      <div className="float-glow pointer-events-none absolute left-1/4 bottom-24 h-56 w-56 rounded-full bg-[#DC2626]/15 blur-3xl" style={{ animationDelay: '3s' }} />
       <div className="relative mx-auto grid min-h-screen max-w-[1440px] items-center gap-12 px-5 pb-16 pt-32 lg:grid-cols-12 lg:px-[8vw]">
         <div className="lg:col-span-7">
           <h1 className="hero-in max-w-3xl font-heading text-5xl leading-[1.02] sm:text-6xl lg:text-[78px]" style={{ animationDelay: '0.1s' }}>
@@ -70,7 +70,7 @@ export default function Hero() {
       <div className="absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 lg:flex" aria-hidden="true">
         <span className="text-[10px] uppercase tracking-[.3em] text-white/40">Scroll</span>
         <span className="flex h-9 w-5 justify-center rounded-full border border-white/25 pt-1.5">
-          <span className="scroll-dot h-1.5 w-1.5 rounded-full bg-[#B91C1C]" />
+          <span className="scroll-dot h-1.5 w-1.5 rounded-full bg-[#DC2626]" />
         </span>
       </div>
     </section>

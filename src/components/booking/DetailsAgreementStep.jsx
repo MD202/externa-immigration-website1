@@ -75,7 +75,7 @@ export default function DetailsAgreementStep({ data, setData, saving, onPayNow, 
           <label className="intake-label">{t('bookingFlow.signLabel')}
             <input value={data.signature_name} onChange={field('signature_name')} className="intake-input" placeholder={data.full_name || ''} />
             {data.signature_name && !signatureMatches && (
-              <span className="mt-1 text-xs text-[#B91C1C]">Must match your full name above.</span>
+              <span className="mt-1 text-xs text-[#DC2626]">Must match your full name above.</span>
             )}
           </label>
           <label className="intake-label">{t('bookingFlow.dateLabel')}
