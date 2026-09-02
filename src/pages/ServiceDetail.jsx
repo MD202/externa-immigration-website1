@@ -63,10 +63,10 @@ export default function ServiceDetail() {
 
   if (!svc) {
     return (
-      <main className="flex min-h-screen items-center justify-center bg-[#F4EEE2] text-[#123B2C]">
+      <main className="flex min-h-screen items-center justify-center bg-[#F8FAFC] text-[#1E293B]">
         <div className="text-center">
           <p className="font-heading text-3xl">Service not found</p>
-          <Link to="/" className="mt-6 inline-flex border-b border-[#C9A227] pb-1 text-[#C9A227]">Return home</Link>
+          <Link to="/" className="mt-6 inline-flex border-b border-[#047857] pb-1 text-[#047857]">Return home</Link>
         </div>
       </main>
     );
@@ -79,11 +79,11 @@ export default function ServiceDetail() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#F4EEE2]">
+    <main className="min-h-screen bg-[#F8FAFC]">
       <Header />
       <section className="px-5 pt-32 pb-20 lg:px-[8vw] lg:pt-40">
         <div className="mx-auto max-w-[1440px]">
-          <Link to="/#services" className="mb-10 inline-flex items-center gap-2 text-sm text-[#123B2C]/55 transition hover:text-[#C9A227]">
+          <Link to="/#services" className="mb-10 inline-flex items-center gap-2 text-sm text-[#1E293B]/55 transition hover:text-[#047857]">
             <ArrowLeft className="h-4 w-4" /> {t('fees.back')}
           </Link>
           <div className="grid gap-12 lg:grid-cols-[60%_40%]">
@@ -91,35 +91,35 @@ export default function ServiceDetail() {
             <div>
               <p className="eyebrow">{t('services.eyebrow')}</p>
               <h1 className="section-title">{t(svc.titleKey)}</h1>
-              <p className="mt-6 text-lg leading-relaxed text-[#123B2C]/65">{t(svc.textKey)}</p>
-              <p className="mt-5 text-base leading-relaxed text-[#123B2C]/55">{t(svc.blurbKey)}</p>
+              <p className="mt-6 text-lg leading-relaxed text-[#1E293B]/65">{t(svc.textKey)}</p>
+              <p className="mt-5 text-base leading-relaxed text-[#1E293B]/55">{t(svc.blurbKey)}</p>
               <div className="mt-10">
-                <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#123B2C]/50">{t('services.potentialSteps')}</p>
+                <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#1E293B]/50">{t('services.potentialSteps')}</p>
                 <ol className="mt-6 grid gap-3">
                   {pathwaySteps.map((step, i) => (
                     <li key={i} className="flex items-center gap-4">
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center bg-[#C9A227] font-mono text-xs text-[#3D2F06]">{String(i + 1).padStart(2, '0')}</span>
-                      <span className="font-heading text-lg text-[#123B2C]">{step}</span>
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center bg-[#047857] font-mono text-xs text-[#FFFFFF]">{String(i + 1).padStart(2, '0')}</span>
+                      <span className="font-heading text-lg text-[#1E293B]">{step}</span>
                     </li>
                   ))}
                 </ol>
-                <p className="mt-6 border-l-2 border-[#C9A227] bg-[#F4EEE2] px-5 py-4 text-sm italic leading-relaxed text-[#123B2C]/60">{t('services.stageNote')}</p>
+                <p className="mt-6 border-l-2 border-[#047857] bg-[#F8FAFC] px-5 py-4 text-sm italic leading-relaxed text-[#1E293B]/60">{t('services.stageNote')}</p>
               </div>
-              <div className="mt-10 border-t border-[#123B2C]/10 pt-6">
-                <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#123B2C]/50">Key factors</p>
-                <p className="mt-3 text-sm text-[#123B2C]/60">{t(svc.factorsKey)}</p>
+              <div className="mt-10 border-t border-[#1E293B]/10 pt-6">
+                <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#1E293B]/50">Key factors</p>
+                <p className="mt-3 text-sm text-[#1E293B]/60">{t(svc.factorsKey)}</p>
               </div>
             </div>
             {/* Right: contact form */}
             <div className="bg-white p-8 shadow-sm lg:sticky lg:top-32 lg:self-start">
-              <h2 className="font-heading text-2xl text-[#123B2C]">{t('bookingFlow.title')}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-[#123B2C]/55">{t('bookingFlow.subtitle')}</p>
-              <div className="mt-6 border border-[#123B2C]/10 bg-[#F4EEE2] p-5">
-                <p className="font-heading text-lg text-[#123B2C]">{t('booking.tier2Label')} <span className="text-sm font-normal text-[#123B2C]/50">({t('booking.tier2Duration')})</span></p>
-                <p className="mt-2 text-sm leading-relaxed text-[#123B2C]/55">{t('booking.tier2Desc')}</p>
-                <p className="mt-3 font-heading text-xl text-[#C9A227]">{t('booking.tier2Price')}</p>
+              <h2 className="font-heading text-2xl text-[#1E293B]">{t('bookingFlow.title')}</h2>
+              <p className="mt-2 text-sm leading-relaxed text-[#1E293B]/55">{t('bookingFlow.subtitle')}</p>
+              <div className="mt-6 border border-[#1E293B]/10 bg-[#F8FAFC] p-5">
+                <p className="font-heading text-lg text-[#1E293B]">{t('booking.tier2Label')} <span className="text-sm font-normal text-[#1E293B]/50">({t('booking.tier2Duration')})</span></p>
+                <p className="mt-2 text-sm leading-relaxed text-[#1E293B]/55">{t('booking.tier2Desc')}</p>
+                <p className="mt-3 font-heading text-xl text-[#047857]">{t('booking.tier2Price')}</p>
               </div>
-              <Link to="/strategy-session" className="mt-5 flex items-center justify-center gap-3 bg-[#C9A227] px-6 py-4 font-semibold text-[#3D2F06] transition hover:bg-[#A8871A]">
+              <Link to="/strategy-session" className="mt-5 flex items-center justify-center gap-3 bg-[#047857] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#065F46]">
                 {t('booking.tier2Cta')} <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -130,14 +130,14 @@ export default function ServiceDetail() {
         <div className="mx-auto max-w-[1440px]">
           <p className="eyebrow">{t('faq.eyebrow')}</p>
           <h2 className="section-title">{t('faq.title')}</h2>
-          <div className="mt-12 max-w-3xl divide-y divide-[#123B2C]/10 border-y border-[#123B2C]/10">
+          <div className="mt-12 max-w-3xl divide-y divide-[#1E293B]/10 border-y border-[#1E293B]/10">
             {faqs.map((item, i) => (
               <div key={i}>
                 <button aria-expanded={faqOpen === i} onClick={() => setFaqOpen(faqOpen === i ? -1 : i)} className="flex w-full items-center justify-between gap-4 py-6 text-left">
-                  <span className="font-heading text-xl text-[#123B2C]">{item.q}</span>
-                  <ChevronDown className={`h-5 w-5 shrink-0 text-[#C9A227] transition-transform ${faqOpen === i ? 'rotate-180' : ''}`} />
+                  <span className="font-heading text-xl text-[#1E293B]">{item.q}</span>
+                  <ChevronDown className={`h-5 w-5 shrink-0 text-[#047857] transition-transform ${faqOpen === i ? 'rotate-180' : ''}`} />
                 </button>
-                {faqOpen === i && <p className="pb-6 pr-8 leading-relaxed text-[#123B2C]/65">{item.a}</p>}
+                {faqOpen === i && <p className="pb-6 pr-8 leading-relaxed text-[#1E293B]/65">{item.a}</p>}
               </div>
             ))}
           </div>

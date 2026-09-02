@@ -61,12 +61,12 @@ export default function StrategySession() {
   if (sent) {
     const isPayLater = sent === 'pay_later';
     return (
-      <main className="flex min-h-screen items-center justify-center bg-[#F4EEE2] px-5 text-[#123B2C]">
+      <main className="flex min-h-screen items-center justify-center bg-[#F8FAFC] px-5 text-[#1E293B]">
         <div className="max-w-xl text-center">
-          <CheckCircle2 className="mx-auto h-12 w-12 text-[#C9A227]" />
+          <CheckCircle2 className="mx-auto h-12 w-12 text-[#047857]" />
           <h1 className="mt-7 font-heading text-4xl sm:text-5xl">{isPayLater ? t('bookingFlow.payLaterSuccessTitle') : t('bookingFlow.paidSuccessTitle')}</h1>
-          <p className="mt-5 leading-relaxed text-[#123B2C]/60">{isPayLater ? t('bookingFlow.payLaterSuccessBody') : t('bookingFlow.paidSuccessBody')}</p>
-          <Link to="/" className="mt-8 inline-flex border-b border-[#C9A227] pb-2 text-[#C9A227]">{t('bookingFlow.returnHome')}</Link>
+          <p className="mt-5 leading-relaxed text-[#1E293B]/60">{isPayLater ? t('bookingFlow.payLaterSuccessBody') : t('bookingFlow.paidSuccessBody')}</p>
+          <Link to="/" className="mt-8 inline-flex border-b border-[#047857] pb-2 text-[#047857]">{t('bookingFlow.returnHome')}</Link>
         </div>
       </main>
     );
@@ -79,9 +79,9 @@ export default function StrategySession() {
   const nextLabel = step === 1 ? t('bookingFlow.continueToTime') : t('bookingFlow.continueToDetails');
 
   return (
-    <main className="min-h-screen bg-[#F4EEE2]">
+    <main className="min-h-screen bg-[#F8FAFC]">
       <div className="grid min-h-screen lg:grid-cols-[34%_66%]">
-        <aside className="hidden bg-[#123B2C] p-12 text-white lg:flex lg:flex-col lg:justify-between">
+        <aside className="hidden bg-[#1E293B] p-12 text-white lg:flex lg:flex-col lg:justify-between">
           <Link to="/" className="flex items-center gap-3">
             <Logo variant="light" className="h-10 w-10" />
             <span className="font-heading text-xl">Externa</span>
@@ -91,11 +91,11 @@ export default function StrategySession() {
         </aside>
         <section className="flex items-center px-5 py-10 sm:px-12 lg:px-[8vw]">
           <div className="mx-auto w-full max-w-2xl">
-            <Link to="/" className="mb-10 inline-flex items-center gap-2 text-sm text-[#123B2C]/60 lg:hidden">
+            <Link to="/" className="mb-10 inline-flex items-center gap-2 text-sm text-[#1E293B]/60 lg:hidden">
               <ArrowLeft className="h-4 w-4" /> {t('strategy.back')}
             </Link>
-            <h1 className="font-heading text-3xl text-[#123B2C] sm:text-4xl">{t('bookingFlow.title')}</h1>
-            <p className="mt-3 text-sm leading-relaxed text-[#123B2C]/55">{t('bookingFlow.subtitle')}</p>
+            <h1 className="font-heading text-3xl text-[#1E293B] sm:text-4xl">{t('bookingFlow.title')}</h1>
+            <p className="mt-3 text-sm leading-relaxed text-[#1E293B]/55">{t('bookingFlow.subtitle')}</p>
             <BookingStepper step={step} />
 
             {step === 1 && <ServiceStep data={data} setData={setData} />}
@@ -104,12 +104,12 @@ export default function StrategySession() {
 
             <div className="mt-9 flex items-center justify-between">
               {step > 1 ? (
-                <button type="button" onClick={() => setStep(step - 1)} className="flex items-center gap-2 text-sm text-[#123B2C]/55">
+                <button type="button" onClick={() => setStep(step - 1)} className="flex items-center gap-2 text-sm text-[#1E293B]/55">
                   <ArrowLeft className="h-4 w-4" /> {t('bookingFlow.back')}
                 </button>
               ) : <span />}
               {step < 3 && (
-                <button type="button" disabled={!canProceed} onClick={() => setStep(step + 1)} className="flex items-center gap-3 bg-[#C9A227] px-6 py-4 font-semibold text-[#3D2F06] transition hover:bg-[#A8871A] disabled:opacity-40">
+                <button type="button" disabled={!canProceed} onClick={() => setStep(step + 1)} className="flex items-center gap-3 bg-[#047857] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#065F46] disabled:opacity-40">
                   {nextLabel} <ArrowRight className="h-4 w-4" />
                 </button>
               )}

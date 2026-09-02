@@ -37,28 +37,28 @@ export default function Hero() {
     { key: 'hero.opt6', href: '#services' },
   ];
   return (
-    <section id="top" className="relative min-h-screen overflow-hidden bg-[#123B2C] text-white">
+    <section id="top" className="relative min-h-screen overflow-hidden bg-[#1E293B] text-white">
       <Image src="https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/e8bb63d60_generated_8c88c781.jpg" alt="Professional overlooking Toronto at dawn" className="absolute inset-0 h-full w-full opacity-40" fittingType="fill" focalPointX={0.68} />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#123B2C] via-[#123B2C]/90 to-[#123B2C]/30" />
+      <div className="absolute inset-0 bg-gradient-to-r from-[#1E293B] via-[#1E293B]/90 to-[#1E293B]/30" />
       <div className="relative mx-auto grid min-h-screen max-w-[1440px] items-center gap-12 px-5 pb-16 pt-32 lg:grid-cols-12 lg:px-[8vw]">
         <div className="lg:col-span-7">
           <h1 className="max-w-3xl font-heading text-5xl leading-[1.02] sm:text-6xl lg:text-[78px]">
-            {t('hero.title')} <span className="text-[#C9A227] italic">{displayed}<span className="animate-pulse">|</span></span>
+            {t('hero.title')} <span className="text-[#047857] italic">{displayed}<span className="animate-pulse">|</span></span>
           </h1>
           <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/70">{t('hero.subtitle')}</p>
           <div className="mt-9 flex flex-wrap gap-4">
-            <Link to="/strategy-session" className="group flex items-center gap-3 bg-[#C9A227] px-6 py-4 font-semibold text-[#3D2F06] transition hover:bg-[#A8871A] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A227] focus-visible:ring-offset-2 focus-visible:ring-offset-[#123B2C]">{t('hero.cta1')} <ArrowUpRight className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true" /></Link>
-            <a href="#services" className="border border-white/30 px-6 py-4 font-semibold transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A227] focus-visible:ring-offset-2 focus-visible:ring-offset-[#123B2C]">{t('hero.cta2')}</a>
+            <Link to="/strategy-session" className="group flex items-center gap-3 bg-[#047857] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#065F46] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#047857] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1E293B]">{t('hero.cta1')} <ArrowUpRight className="transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" aria-hidden="true" /></Link>
+            <a href="#services" className="border border-white/30 px-6 py-4 font-semibold transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#047857] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1E293B]">{t('hero.cta2')}</a>
           </div>
         </div>
         <aside className="border border-white/15 bg-white/10 p-6 backdrop-blur-xl lg:col-span-5 lg:p-8" aria-label="Quick assessment">
-          <p className="text-xs uppercase tracking-[.24em] text-[#C9A227]">{t('hero.assessmentEyebrow')}</p>
+          <p className="text-xs uppercase tracking-[.24em] text-[#047857]">{t('hero.assessmentEyebrow')}</p>
           <h2 className="mt-3 font-heading text-3xl">{t('hero.assessmentTitle')}</h2>
           <div className="mt-6 grid gap-1">
             {intents.map((item) => (
-              <a key={item.key} href={item.href} className="group flex items-center justify-between border-b border-white/15 py-3.5 text-left text-sm text-white/80 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A227]">
+              <a key={item.key} href={item.href} className="group flex items-center justify-between border-b border-white/15 py-3.5 text-left text-sm text-white/80 transition hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#047857]">
                 {t(item.key)}
-                <ChevronRight className="h-4 w-4 text-[#C9A227] transition group-hover:translate-x-1" aria-hidden="true" />
+                <ChevronRight className="h-4 w-4 text-[#047857] transition group-hover:translate-x-1" aria-hidden="true" />
               </a>
             ))}
           </div>

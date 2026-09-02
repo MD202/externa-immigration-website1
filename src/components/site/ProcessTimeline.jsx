@@ -21,28 +21,28 @@ export default function ProcessTimeline() {
   return (
     <section aria-label="Assessment and process timeline" className="bg-white px-5 py-28 lg:px-[8vw] lg:py-40">
       <div className="mx-auto max-w-[1440px]">
-        <h2 className="font-heading text-4xl text-[#0E2F23] sm:text-5xl">{t('assessment.title')}</h2>
+        <h2 className="font-heading text-4xl text-[#0F172A] sm:text-5xl">{t('assessment.title')}</h2>
         <div className="mt-8 flex flex-wrap gap-3">
           {pills.map((pill) => (
-            <a key={pill.key} href={pill.href} className="border border-[#0E2F23]/15 px-5 py-3 text-sm text-[#0E2F23]/75 transition hover:border-[#C9A227] hover:text-[#C9A227]">
+            <a key={pill.key} href={pill.href} className="border border-[#0F172A]/15 px-5 py-3 text-sm text-[#0F172A]/75 transition hover:border-[#047857] hover:text-[#047857]">
               {t(pill.key)}
             </a>
           ))}
         </div>
         <div className="mt-20 grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
-            <p className="font-heading text-2xl leading-snug text-[#0E2F23]">{t('assessment.timelineTitle')}</p>
-            <p className="mt-5 text-lg leading-relaxed text-[#0E2F23]/60">{t('assessment.timelineBody')}</p>
-            <Link to="/strategy-session" className="mt-8 inline-flex items-center gap-3 bg-[#C9A227] px-6 py-4 font-semibold text-[#3D2F06] transition hover:bg-[#A8871A]">
+            <p className="font-heading text-2xl leading-snug text-[#0F172A]">{t('assessment.timelineTitle')}</p>
+            <p className="mt-5 text-lg leading-relaxed text-[#0F172A]/60">{t('assessment.timelineBody')}</p>
+            <Link to="/strategy-session" className="mt-8 inline-flex items-center gap-3 bg-[#047857] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#065F46]">
               {t('assessment.timelineCta')} <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-          <ol className="relative grid gap-0 border-l-2 border-[#0E2F23]/10 pl-0">
+          <ol className="relative grid gap-0 border-l-2 border-[#0F172A]/10 pl-0">
             {steps.map((step, i) => (
-              <li key={step.n} className="flex items-center gap-5 border-b border-[#0E2F23]/10 py-6 last:border-0">
-                <span className={`flex h-12 w-12 shrink-0 items-center justify-center font-mono text-sm ${step.active ? 'bg-[#C9A227] text-[#3D2F06]' : 'bg-[#0E2F23]/8 text-[#0E2F23]/60'}`}>{step.n}</span>
-                <span className={`font-heading text-xl ${step.active ? 'text-[#0E2F23]' : 'text-[#0E2F23]/50'}`}>{step.label}</span>
-                {i < steps.length - 1 && <span className="ml-auto text-[#0E2F23]/20">→</span>}
+              <li key={step.n} className="flex items-center gap-5 border-b border-[#0F172A]/10 py-6 last:border-0">
+                <span className={`flex h-12 w-12 shrink-0 items-center justify-center font-mono text-sm ${step.active ? 'bg-[#047857] text-[#FFFFFF]' : 'bg-[#0F172A]/8 text-[#0F172A]/60'}`}>{step.n}</span>
+                <span className={`font-heading text-xl ${step.active ? 'text-[#0F172A]' : 'text-[#0F172A]/50'}`}>{step.label}</span>
+                {i < steps.length - 1 && <span className="ml-auto text-[#0F172A]/20">→</span>}
               </li>
             ))}
           </ol>

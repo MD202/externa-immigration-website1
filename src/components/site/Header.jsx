@@ -47,59 +47,59 @@ export default function Header() {
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 lg:px-[8vw]">
         <Link to="/" className="flex items-center gap-3">
           <Logo className="h-11 w-11" />
-          <span className="font-heading text-2xl leading-tight text-[#123B2C]">Externa<span className="mt-1 block font-body text-[11px] uppercase tracking-[.22em] text-[#123B2C]/55">Immigration Solutions Inc</span></span>
+          <span className="font-heading text-2xl leading-tight text-[#1E293B]">Externa<span className="mt-1 block font-body text-[11px] uppercase tracking-[.22em] text-[#1E293B]/55">Immigration Solutions Inc</span></span>
         </Link>
         <div className="hidden items-center gap-8 lg:flex">
           <nav className="flex items-center gap-6" aria-label="Main navigation">
             <div className="relative">
-              <button onClick={() => setOpenMenu(openMenu === 'services' ? null : 'services')} className="flex items-center gap-1 text-sm text-[#123B2C]/70 transition hover:text-[#C9A227]" aria-expanded={openMenu === 'services'}>
+              <button onClick={() => setOpenMenu(openMenu === 'services' ? null : 'services')} className="flex items-center gap-1 text-sm text-[#1E293B]/70 transition hover:text-[#047857]" aria-expanded={openMenu === 'services'}>
                 {t('nav.services')} <ChevronDown className={`h-4 w-4 transition-transform ${openMenu === 'services' ? 'rotate-180' : ''}`} />
               </button>
               {openMenu === 'services' && (
                 <div className="absolute top-full left-0 pt-2 w-72">
-                  <div className="grid gap-0 border border-[#123B2C]/10 bg-white py-2 shadow-xl">
+                  <div className="grid gap-0 border border-[#1E293B]/10 bg-white py-2 shadow-xl">
                     {services.map((s) => (
-                      <Link key={s.id} to={`/services/${s.id}`} onClick={() => setOpenMenu(null)} className="px-4 py-3 text-sm text-[#123B2C]/70 transition hover:text-[#C9A227]">{s.label}</Link>
+                      <Link key={s.id} to={`/services/${s.id}`} onClick={() => setOpenMenu(null)} className="px-4 py-3 text-sm text-[#1E293B]/70 transition hover:text-[#047857]">{s.label}</Link>
                     ))}
                   </div>
                 </div>
               )}
             </div>
             <div className="relative">
-              <button onClick={() => setOpenMenu(openMenu === 'about' ? null : 'about')} className="flex items-center gap-1 text-sm text-[#123B2C]/70 transition hover:text-[#C9A227]" aria-expanded={openMenu === 'about'}>
+              <button onClick={() => setOpenMenu(openMenu === 'about' ? null : 'about')} className="flex items-center gap-1 text-sm text-[#1E293B]/70 transition hover:text-[#047857]" aria-expanded={openMenu === 'about'}>
                 {t('nav.aboutUs')} <ChevronDown className={`h-4 w-4 transition-transform ${openMenu === 'about' ? 'rotate-180' : ''}`} />
               </button>
               {openMenu === 'about' && (
                 <div className="absolute top-full left-0 pt-2 w-56">
-                  <div className="grid gap-0 border border-[#123B2C]/10 bg-white py-2 shadow-xl">
+                  <div className="grid gap-0 border border-[#1E293B]/10 bg-white py-2 shadow-xl">
                     {aboutLinks.map((link) => (
-                      <Link key={link.href} to={link.href} onClick={() => setOpenMenu(null)} className="px-4 py-3 text-sm text-[#123B2C]/70 transition hover:text-[#C9A227]">{link.label}</Link>
+                      <Link key={link.href} to={link.href} onClick={() => setOpenMenu(null)} className="px-4 py-3 text-sm text-[#1E293B]/70 transition hover:text-[#047857]">{link.label}</Link>
                     ))}
                   </div>
                 </div>
               )}
             </div>
-            <Link to="/eligibility" className="text-sm font-semibold text-[#C9A227] transition hover:text-[#A8871A]">{t('eligibility.nav')}</Link>
+            <Link to="/eligibility" className="text-sm font-semibold text-[#047857] transition hover:text-[#065F46]">{t('eligibility.nav')}</Link>
           </nav>
-          <span className="h-7 w-px bg-[#123B2C]/15" aria-hidden="true" />
-          <Link to="/strategy-session" className="bg-[#C9A227] px-5 py-3 text-sm font-semibold text-[#3D2F06] transition hover:bg-[#A8871A]">{t('nav.book')}</Link>
+          <span className="h-7 w-px bg-[#1E293B]/15" aria-hidden="true" />
+          <Link to="/strategy-session" className="bg-[#047857] px-5 py-3 text-sm font-semibold text-[#FFFFFF] transition hover:bg-[#065F46]">{t('nav.book')}</Link>
         </div>
-        <button onClick={() => setMobileOpen(!mobileOpen)} className="text-[#123B2C] lg:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A227] focus-visible:ring-offset-2" aria-label="Toggle navigation" aria-expanded={mobileOpen} aria-controls="mobile-nav">{mobileOpen ? <X /> : <Menu />}</button>
+        <button onClick={() => setMobileOpen(!mobileOpen)} className="text-[#1E293B] lg:hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-[#047857] focus-visible:ring-offset-2" aria-label="Toggle navigation" aria-expanded={mobileOpen} aria-controls="mobile-nav">{mobileOpen ? <X /> : <Menu />}</button>
       </div>
       {mobileOpen && (
-        <nav id="mobile-nav" className="mx-5 mt-3 max-h-[70vh] overflow-y-auto rounded-lg border border-[#123B2C]/10 bg-white py-4 shadow-xl lg:hidden" aria-label="Mobile navigation">
-          <p className="px-4 pb-2 text-xs font-semibold uppercase tracking-[.18em] text-[#123B2C]/40">{t('nav.services')}</p>
+        <nav id="mobile-nav" className="mx-5 mt-3 max-h-[70vh] overflow-y-auto rounded-lg border border-[#1E293B]/10 bg-white py-4 shadow-xl lg:hidden" aria-label="Mobile navigation">
+          <p className="px-4 pb-2 text-xs font-semibold uppercase tracking-[.18em] text-[#1E293B]/40">{t('nav.services')}</p>
           {services.map((s) => (
-            <Link key={s.id} onClick={() => setMobileOpen(false)} to={`/services/${s.id}`} className="block px-4 py-2.5 text-sm text-[#123B2C]/80">{s.label}</Link>
+            <Link key={s.id} onClick={() => setMobileOpen(false)} to={`/services/${s.id}`} className="block px-4 py-2.5 text-sm text-[#1E293B]/80">{s.label}</Link>
           ))}
-          <div className="my-2 border-t border-[#123B2C]/10" />
-          <Link onClick={() => setMobileOpen(false)} to="/#about" className="block px-4 py-3 text-[#123B2C]/80">{t('nav.aboutUs')}</Link>
-          <Link onClick={() => setMobileOpen(false)} to="/#how-we-operate" className="block px-4 py-3 text-[#123B2C]/80">{t('howWeOperate.eyebrow')}</Link>
-          <Link onClick={() => setMobileOpen(false)} to="/#approach" className="block px-4 py-3 text-[#123B2C]/80">{t('nav.approach')}</Link>
-          <Link onClick={() => setMobileOpen(false)} to="/fees" className="block px-4 py-3 text-[#123B2C]/80">{t('nav.fees')}</Link>
-          <Link onClick={() => setMobileOpen(false)} to="/eligibility" className="block px-4 py-3 font-semibold text-[#C9A227]">{t('eligibility.nav')}</Link>
-          <div className="my-2 border-t border-[#123B2C]/10" />
-          <Link to="/strategy-session" onClick={() => setMobileOpen(false)} className="mx-3 mb-3 bg-[#C9A227] px-4 py-3 text-center font-semibold text-white">{t('nav.book')}</Link>
+          <div className="my-2 border-t border-[#1E293B]/10" />
+          <Link onClick={() => setMobileOpen(false)} to="/#about" className="block px-4 py-3 text-[#1E293B]/80">{t('nav.aboutUs')}</Link>
+          <Link onClick={() => setMobileOpen(false)} to="/#how-we-operate" className="block px-4 py-3 text-[#1E293B]/80">{t('howWeOperate.eyebrow')}</Link>
+          <Link onClick={() => setMobileOpen(false)} to="/#approach" className="block px-4 py-3 text-[#1E293B]/80">{t('nav.approach')}</Link>
+          <Link onClick={() => setMobileOpen(false)} to="/fees" className="block px-4 py-3 text-[#1E293B]/80">{t('nav.fees')}</Link>
+          <Link onClick={() => setMobileOpen(false)} to="/eligibility" className="block px-4 py-3 font-semibold text-[#047857]">{t('eligibility.nav')}</Link>
+          <div className="my-2 border-t border-[#1E293B]/10" />
+          <Link to="/strategy-session" onClick={() => setMobileOpen(false)} className="mx-3 mb-3 bg-[#047857] px-4 py-3 text-center font-semibold text-white">{t('nav.book')}</Link>
         </nav>
       )}
     </header>

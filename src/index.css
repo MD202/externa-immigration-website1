@@ -89,18 +89,18 @@
   }
 
   html { scroll-behavior: smooth; }
-  body { @apply bg-[#F4EEE2] text-[#1A211D] font-body; }
+  body { @apply bg-[#F8FAFC] text-[#334155] font-body; }
   section[id] { scroll-margin-top: 90px; }
 }
 
 @layer components {
-  .eyebrow { @apply text-xs font-semibold uppercase tracking-[.24em] text-[#C9A227]; }
-  .section-title { @apply mt-4 font-heading text-4xl leading-[1.08] text-[#123B2C] sm:text-5xl lg:text-6xl; }
-  .intake-label { @apply grid gap-2 text-xs font-semibold uppercase tracking-[.12em] text-[#123B2C]/60; }
-  .intake-input { @apply w-full border-0 border-b border-[#123B2C]/20 bg-transparent px-0 py-3 text-base font-normal normal-case tracking-normal text-[#123B2C] outline-none transition focus:border-[#C9A227] focus:ring-0; }
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-[.24em] text-[#047857]; }
+  .section-title { @apply mt-4 font-heading text-4xl leading-[1.08] text-[#1E293B] sm:text-5xl lg:text-6xl; }
+  .intake-label { @apply grid gap-2 text-xs font-semibold uppercase tracking-[.12em] text-[#1E293B]/60; }
+  .intake-input { @apply w-full border-0 border-b border-[#1E293B]/20 bg-transparent px-0 py-3 text-base font-normal normal-case tracking-normal text-[#1E293B] outline-none transition focus:border-[#047857] focus:ring-0; }
 }
 
-::selection { background: #C9A227; color: #3D2F06; }
+::selection { background: #047857; color: #FFFFFF; }
 
 @keyframes marquee {
   from { transform: translateX(0); }

@@ -27,7 +27,7 @@ export default function DetailsAgreementStep({ data, setData, saving, onPayNow, 
 
   return (
     <div>
-      <h2 className="font-heading text-2xl text-[#123B2C]">{t('bookingFlow.detailsTitle')}</h2>
+      <h2 className="font-heading text-2xl text-[#1E293B]">{t('bookingFlow.detailsTitle')}</h2>
 
       <div className="mt-6 grid gap-5 sm:grid-cols-2">
         <label className="intake-label">{t('strategy.fullName')}
@@ -57,15 +57,15 @@ export default function DetailsAgreementStep({ data, setData, saving, onPayNow, 
       </div>
 
       <div className="mt-8">
-        <h3 className="font-heading text-xl text-[#123B2C]">{t('bookingFlow.agreementTitle')}</h3>
-        <div className="mt-4 max-h-64 overflow-y-auto border border-[#123B2C]/10 bg-[#DEE6DE] p-6 text-sm leading-relaxed text-[#123B2C]/70">
-          <p className="font-semibold text-[#123B2C]">{t('bookingFlow.agreementWhoWeAre')}</p>
+        <h3 className="font-heading text-xl text-[#1E293B]">{t('bookingFlow.agreementTitle')}</h3>
+        <div className="mt-4 max-h-64 overflow-y-auto border border-[#1E293B]/10 bg-[#F1F5F9] p-6 text-sm leading-relaxed text-[#1E293B]/70">
+          <p className="font-semibold text-[#1E293B]">{t('bookingFlow.agreementWhoWeAre')}</p>
           <p className="mt-1 whitespace-pre-line">{t('bookingFlow.agreementWhoWeAreBody')}</p>
-          <p className="mt-4 font-semibold text-[#123B2C]">{t('bookingFlow.agreementCost')}</p>
+          <p className="mt-4 font-semibold text-[#1E293B]">{t('bookingFlow.agreementCost')}</p>
           <p className="mt-1">{t('bookingFlow.agreementCostBody')}</p>
-          <p className="mt-4 font-semibold text-[#123B2C]">{t('bookingFlow.agreementRegulator')}</p>
+          <p className="mt-4 font-semibold text-[#1E293B]">{t('bookingFlow.agreementRegulator')}</p>
           <p className="mt-1">{t('bookingFlow.agreementRegulatorBody')}</p>
-          <p className="mt-4 font-semibold text-[#123B2C]">{t('bookingFlow.agreementScope')}</p>
+          <p className="mt-4 font-semibold text-[#1E293B]">{t('bookingFlow.agreementScope')}</p>
           <p className="mt-1">{t('bookingFlow.agreementScopeCovers')}</p>
           <p className="mt-1">{t('bookingFlow.agreementScopeNotCover')}</p>
         </div>
@@ -80,31 +80,31 @@ export default function DetailsAgreementStep({ data, setData, saving, onPayNow, 
         </div>
 
         <label className="mt-5 flex items-start gap-3 cursor-pointer">
-          <input type="checkbox" checked={data.agreement_accepted} onChange={(e) => setData((d) => ({ ...d, agreement_accepted: e.target.checked }))} className="mt-1 h-5 w-5 accent-[#123B2C]" />
-          <span className="text-sm text-[#123B2C]/70">{t('bookingFlow.agreeCheckbox')}</span>
+          <input type="checkbox" checked={data.agreement_accepted} onChange={(e) => setData((d) => ({ ...d, agreement_accepted: e.target.checked }))} className="mt-1 h-5 w-5 accent-[#1E293B]" />
+          <span className="text-sm text-[#1E293B]/70">{t('bookingFlow.agreeCheckbox')}</span>
         </label>
       </div>
 
-      <div className="mt-8 border-t border-[#123B2C]/10 pt-8">
-        <h3 className="font-heading text-xl text-[#123B2C]">{t('bookingFlow.paymentTitle')}</h3>
+      <div className="mt-8 border-t border-[#1E293B]/10 pt-8">
+        <h3 className="font-heading text-xl text-[#1E293B]">{t('bookingFlow.paymentTitle')}</h3>
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
-          <div className="border border-[#123B2C]/15 p-6">
+          <div className="border border-[#1E293B]/15 p-6">
             <div className="flex items-center gap-3">
-              <CreditCard className="h-6 w-6 text-[#123B2C]" />
-              <h4 className="font-heading text-lg text-[#123B2C]">{t('bookingFlow.payNow')}</h4>
+              <CreditCard className="h-6 w-6 text-[#1E293B]" />
+              <h4 className="font-heading text-lg text-[#1E293B]">{t('bookingFlow.payNow')}</h4>
             </div>
-            <p className="mt-3 text-sm leading-relaxed text-[#123B2C]/60">{t('bookingFlow.payNowDesc')}</p>
-            <button type="button" disabled={saving || !detailsValid} onClick={onPayNow} className="mt-6 w-full bg-[#C9A227] py-4 font-semibold text-[#3D2F06] transition hover:bg-[#A8871A] disabled:opacity-40">
+            <p className="mt-3 text-sm leading-relaxed text-[#1E293B]/60">{t('bookingFlow.payNowDesc')}</p>
+            <button type="button" disabled={saving || !detailsValid} onClick={onPayNow} className="mt-6 w-full bg-[#047857] py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#065F46] disabled:opacity-40">
               {saving ? t('bookingFlow.sending') : t('bookingFlow.payNow')}
             </button>
           </div>
-          <div className="border border-[#123B2C]/15 p-6">
+          <div className="border border-[#1E293B]/15 p-6">
             <div className="flex items-center gap-3">
-              <Clock className="h-6 w-6 text-[#123B2C]" />
-              <h4 className="font-heading text-lg text-[#123B2C]">{t('bookingFlow.payLater')}</h4>
+              <Clock className="h-6 w-6 text-[#1E293B]" />
+              <h4 className="font-heading text-lg text-[#1E293B]">{t('bookingFlow.payLater')}</h4>
             </div>
-            <p className="mt-3 text-sm leading-relaxed text-[#123B2C]/60">{t('bookingFlow.payLaterDesc')}</p>
-            <button type="button" disabled={saving || !detailsValid} onClick={onPayLater} className="mt-6 w-full border-2 border-[#123B2C] py-4 font-semibold text-[#123B2C] transition hover:bg-[#123B2C] hover:text-white disabled:opacity-40">
+            <p className="mt-3 text-sm leading-relaxed text-[#1E293B]/60">{t('bookingFlow.payLaterDesc')}</p>
+            <button type="button" disabled={saving || !detailsValid} onClick={onPayLater} className="mt-6 w-full border-2 border-[#1E293B] py-4 font-semibold text-[#1E293B] transition hover:bg-[#1E293B] hover:text-white disabled:opacity-40">
               {saving ? t('bookingFlow.sending') : t('bookingFlow.payLaterButton')}
             </button>
           </div>
