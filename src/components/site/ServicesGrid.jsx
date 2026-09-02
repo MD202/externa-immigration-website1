@@ -27,12 +27,12 @@ export default function ServicesGrid() {
         <div className="mt-16 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {services.map(({ id, icon: Icon, title, text, factors }, i) => (
             <Reveal key={id} delay={i * 70} className="h-full">
-              <Link to={`/services/${id}`} className="group flex h-full flex-col justify-between bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A227]">
+              <Link to={`/services/${id}`} className="group flex h-full flex-col justify-between bg-white p-7 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B]">
                 <div className="flex justify-between">
-                  <div className="flex h-12 w-12 items-center justify-center bg-[#C9A227]/8 text-[#C9A227] transition group-hover:bg-[#C9A227] group-hover:text-[#FFFFFF]">
+                  <div className="flex h-12 w-12 items-center justify-center bg-[#B8860B]/8 text-[#B8860B] transition group-hover:bg-[#B8860B] group-hover:text-[#FFFFFF]">
                     <Icon className="h-6 w-6" aria-hidden="true" />
                   </div>
-                  <ArrowUpRight className="h-5 w-5 text-[#1E2A4A]/20 transition group-hover:text-[#C9A227]" aria-hidden="true" />
+                  <ArrowUpRight className="h-5 w-5 text-[#1E2A4A]/20 transition group-hover:text-[#B8860B]" aria-hidden="true" />
                 </div>
                 <div className="mt-8">
                   <h3 className="font-heading text-xl text-[#1E2A4A]">{title}</h3>

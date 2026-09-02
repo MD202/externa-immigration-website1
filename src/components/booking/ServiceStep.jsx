@@ -17,17 +17,17 @@ export default function ServiceStep({ data, setData }) {
             key={s.id}
             type="button"
             onClick={() => setData((d) => ({ ...d, service_tier: s.id }))}
-            className={`relative border p-6 text-left transition ${data.service_tier === s.id ? 'border-[#C9A227] bg-[#C9A227]/5' : 'border-[#1E2A4A]/15 hover:border-[#1E2A4A]/40'}`}
+            className={`relative border p-6 text-left transition ${data.service_tier === s.id ? 'border-[#B8860B] bg-[#B8860B]/5' : 'border-[#1E2A4A]/15 hover:border-[#1E2A4A]/40'}`}
           >
-            {s.badge && <span className="absolute -top-3 left-6 bg-[#C9A227] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white">{s.badge}</span>}
+            {s.badge && <span className="absolute -top-3 left-6 bg-[#B8860B] px-3 py-1 text-xs font-semibold uppercase tracking-wider text-white">{s.badge}</span>}
             <div className="flex items-start justify-between gap-4">
               <div>
                 <h3 className="font-heading text-xl text-[#1E2A4A]">{s.label} <span className="text-sm font-normal text-[#1E2A4A]/50">({s.duration})</span></h3>
                 <p className="mt-2 text-sm leading-relaxed text-[#1E2A4A]/60">{s.desc}</p>
               </div>
               <div className="flex flex-col items-end gap-2">
-                <span className="font-heading text-2xl text-[#C9A227]">{s.price}</span>
-                {data.service_tier === s.id && <Check className="h-5 w-5 text-[#C9A227]" />}
+                <span className="font-heading text-2xl text-[#B8860B]">{s.price}</span>
+                {data.service_tier === s.id && <Check className="h-5 w-5 text-[#B8860B]" />}
               </div>
             </div>
           </button>

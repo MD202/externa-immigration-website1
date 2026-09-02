@@ -23,7 +23,7 @@ export default function ApproachSection() {
           <div className="mt-9 grid gap-5">
             {principles.map((item) => (
               <div key={item.n} className="flex gap-5 border-b border-[#1E2A4A]/10 pb-5">
-                <span className="font-mono text-sm font-semibold text-[#C9A227]">{item.n}</span>
+                <span className="font-mono text-sm font-semibold text-[#B8860B]">{item.n}</span>
                 <span className="text-[#1E2A4A]/80">{item.text}</span>
               </div>
             ))}

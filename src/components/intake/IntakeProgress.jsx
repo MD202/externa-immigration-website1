@@ -9,7 +9,7 @@ export default function IntakeProgress({ step }) {
         <span>{step} / 3</span>
       </div>
       <div className="h-px bg-[#1E2A4A]/15">
-        <div className="h-px bg-[#C9A227] transition-all duration-500" style={{ width: `${step * 33.33}%` }} />
+        <div className="h-px bg-[#B8860B] transition-all duration-500" style={{ width: `${step * 33.33}%` }} />
       </div>
     </div>
   );

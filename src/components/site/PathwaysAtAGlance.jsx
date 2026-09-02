@@ -26,8 +26,8 @@ export default function PathwaysAtAGlance() {
         <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {pathways.map(({ icon: Icon, title, body }, i) => (
             <Reveal key={title} delay={i * 70} className="h-full">
-              <article className="group h-full border border-white/10 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#C9A227]/50 hover:bg-white/[.04]">
-                <div className="flex h-11 w-11 items-center justify-center bg-[#C9A227]/15 text-[#C9A227] transition group-hover:bg-[#C9A227] group-hover:text-white">
+              <article className="group h-full border border-white/10 p-6 transition duration-300 hover:-translate-y-1 hover:border-[#B8860B]/50 hover:bg-white/[.04]">
+                <div className="flex h-11 w-11 items-center justify-center bg-[#B8860B]/15 text-[#B8860B] transition group-hover:bg-[#B8860B] group-hover:text-white">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <h3 className="mt-5 font-heading text-lg">{title}</h3>
@@ -37,7 +37,7 @@ export default function PathwaysAtAGlance() {
           ))}
         </div>
         <Reveal>
-          <Link to="/eligibility" className="mt-12 inline-flex items-center gap-3 bg-[#C9A227] px-6 py-4 font-semibold text-white transition hover:bg-[#065F46]">{t('pathways.cta')} <ArrowUpRight className="h-4 w-4" /></Link>
+          <Link to="/eligibility" className="mt-12 inline-flex items-center gap-3 bg-[#B8860B] px-6 py-4 font-semibold text-white transition hover:bg-[#065F46]">{t('pathways.cta')} <ArrowUpRight className="h-4 w-4" /></Link>
         </Reveal>
       </div>
     </section>

@@ -14,7 +14,7 @@ export default function TrustStrip() {
       <div className="mx-auto flex max-w-[1440px] flex-wrap items-center justify-center gap-x-10 gap-y-3 px-5 text-sm text-[#1E2A4A]/70 lg:px-[8vw]">
         {items.map(({ icon: Icon, text }, i) => (
           <span key={i} className="flex items-center gap-2.5">
-            <Icon className="h-4 w-4 text-[#C9A227]" />
+            <Icon className="h-4 w-4 text-[#B8860B]" />
             {text}
           </span>
         ))}

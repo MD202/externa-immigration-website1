@@ -16,14 +16,14 @@ export default function ConsultationOutcome() {
       <div className="absolute inset-0 bg-gradient-to-r from-[#1E2A4A] via-[#1E2A4A]/85 to-[#1E2A4A]/70" />
       <div className="relative mx-auto max-w-[1440px]">
         <Reveal>
-          <p className="text-xs uppercase tracking-[.24em] text-[#C9A227]">{t('outcome.eyebrow')}</p>
+          <p className="text-xs uppercase tracking-[.24em] text-[#B8860B]">{t('outcome.eyebrow')}</p>
           <h2 className="mt-3 font-heading text-4xl sm:text-5xl">{t('outcome.title')}</h2>
         </Reveal>
         <div className="mt-14 grid gap-10 md:grid-cols-3">
           {items.map(({ icon: Icon, title, body }, i) => (
             <Reveal key={title} delay={i * 120}>
-              <article className="border-l-2 border-[#C9A227]/40 pl-6">
-                <Icon className="h-8 w-8 text-[#C9A227]" aria-hidden="true" />
+              <article className="border-l-2 border-[#B8860B]/40 pl-6">
+                <Icon className="h-8 w-8 text-[#B8860B]" aria-hidden="true" />
                 <h3 className="mt-5 font-heading text-2xl">{title}</h3>
                 <p className="mt-3 leading-relaxed text-white/55">{body}</p>
               </article>

@@ -13,9 +13,9 @@ export default function BusinessFeature() {
       <div className="relative mx-auto flex min-h-[680px] max-w-[1440px] items-center px-5 lg:px-[8vw]">
         <Reveal className="max-w-2xl">
           <p className="eyebrow">{t('business.eyebrow')}</p>
-          <h2 className="section-title text-white">{t('business.title1')}<br /><em className="text-[#C9A227]">{t('business.title2')}</em></h2>
+          <h2 className="section-title text-white">{t('business.title1')}<br /><em className="text-[#B8860B]">{t('business.title2')}</em></h2>
           <p className="mt-7 max-w-xl text-lg leading-relaxed text-white/65">{t('business.body')}</p>
-          <Link to="/strategy-session" className="mt-9 inline-flex items-center gap-3 bg-[#C9A227] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#A8871A]">{t('business.cta')} <ArrowUpRight /></Link>
+          <Link to="/strategy-session" className="mt-9 inline-flex items-center gap-3 bg-[#B8860B] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#8B6508]">{t('business.cta')} <ArrowUpRight /></Link>
         </Reveal>
       </div>
     </section>

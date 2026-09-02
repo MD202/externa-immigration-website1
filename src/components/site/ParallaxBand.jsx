@@ -11,9 +11,9 @@ export default function ParallaxBand() {
       <Image src="https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/53ffb71ae_generated_image.png" alt="Canadian Rockies at golden hour" className="drift absolute inset-0 h-full w-full opacity-60" fittingType="fill" />
       <div className="absolute inset-0 bg-gradient-to-b from-[#13203F]/75 via-[#13203F]/45 to-[#13203F]/80" />
       <Reveal className="relative mx-auto max-w-3xl px-5 text-center">
-        <p className="text-xs uppercase tracking-[.3em] text-[#C9A227]">{t('parallax.eyebrow')}</p>
+        <p className="text-xs uppercase tracking-[.3em] text-[#B8860B]">{t('parallax.eyebrow')}</p>
         <h2 className="mt-5 font-heading text-3xl leading-[1.15] sm:text-4xl lg:text-5xl">{t('parallax.quote')}</h2>
-        <Link to="/strategy-session" className="mt-9 inline-flex items-center gap-3 bg-[#C9A227] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#A8871A]">{t('parallax.cta')} <ArrowUpRight className="h-4 w-4" /></Link>
+        <Link to="/strategy-session" className="mt-9 inline-flex items-center gap-3 bg-[#B8860B] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#8B6508]">{t('parallax.cta')} <ArrowUpRight className="h-4 w-4" /></Link>
       </Reveal>
     </section>
   );

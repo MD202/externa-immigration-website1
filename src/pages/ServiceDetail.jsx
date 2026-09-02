@@ -66,7 +66,7 @@ export default function ServiceDetail() {
       <main className="flex min-h-screen items-center justify-center bg-[#F8FAFC] text-[#1E2A4A]">
         <div className="text-center">
           <p className="font-heading text-3xl">Service not found</p>
-          <Link to="/" className="mt-6 inline-flex border-b border-[#C9A227] pb-1 text-[#C9A227]">Return home</Link>
+          <Link to="/" className="mt-6 inline-flex border-b border-[#B8860B] pb-1 text-[#B8860B]">Return home</Link>
         </div>
       </main>
     );
@@ -83,7 +83,7 @@ export default function ServiceDetail() {
       <Header />
       <section className="px-5 pt-32 pb-20 lg:px-[8vw] lg:pt-40">
         <div className="mx-auto max-w-[1440px]">
-          <Link to="/#services" className="mb-10 inline-flex items-center gap-2 text-sm text-[#1E2A4A]/55 transition hover:text-[#C9A227]">
+          <Link to="/#services" className="mb-10 inline-flex items-center gap-2 text-sm text-[#1E2A4A]/55 transition hover:text-[#B8860B]">
             <ArrowLeft className="h-4 w-4" /> {t('fees.back')}
           </Link>
           <div className="grid gap-12 lg:grid-cols-[60%_40%]">
@@ -98,12 +98,12 @@ export default function ServiceDetail() {
                 <ol className="mt-6 grid gap-3">
                   {pathwaySteps.map((step, i) => (
                     <li key={i} className="flex items-center gap-4">
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center bg-[#C9A227] font-mono text-xs text-[#FFFFFF]">{String(i + 1).padStart(2, '0')}</span>
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center bg-[#B8860B] font-mono text-xs text-[#FFFFFF]">{String(i + 1).padStart(2, '0')}</span>
                       <span className="font-heading text-lg text-[#1E2A4A]">{step}</span>
                     </li>
                   ))}
                 </ol>
-                <p className="mt-6 border-l-2 border-[#C9A227] bg-[#F8FAFC] px-5 py-4 text-sm italic leading-relaxed text-[#1E2A4A]/60">{t('services.stageNote')}</p>
+                <p className="mt-6 border-l-2 border-[#B8860B] bg-[#F8FAFC] px-5 py-4 text-sm italic leading-relaxed text-[#1E2A4A]/60">{t('services.stageNote')}</p>
               </div>
               <div className="mt-10 border-t border-[#1E2A4A]/10 pt-6">
                 <p className="text-xs font-semibold uppercase tracking-[.18em] text-[#1E2A4A]/50">Key factors</p>
@@ -117,9 +117,9 @@ export default function ServiceDetail() {
               <div className="mt-6 border border-[#1E2A4A]/10 bg-[#F8FAFC] p-5">
                 <p className="font-heading text-lg text-[#1E2A4A]">{t('booking.tier2Label')} <span className="text-sm font-normal text-[#1E2A4A]/50">({t('booking.tier2Duration')})</span></p>
                 <p className="mt-2 text-sm leading-relaxed text-[#1E2A4A]/55">{t('booking.tier2Desc')}</p>
-                <p className="mt-3 font-heading text-xl text-[#C9A227]">{t('booking.tier2Price')}</p>
+                <p className="mt-3 font-heading text-xl text-[#B8860B]">{t('booking.tier2Price')}</p>
               </div>
-              <Link to="/strategy-session" className="mt-5 flex items-center justify-center gap-3 bg-[#C9A227] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#A8871A]">
+              <Link to="/strategy-session" className="mt-5 flex items-center justify-center gap-3 bg-[#B8860B] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#8B6508]">
                 {t('booking.tier2Cta')} <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
@@ -135,7 +135,7 @@ export default function ServiceDetail() {
               <div key={i}>
                 <button aria-expanded={faqOpen === i} onClick={() => setFaqOpen(faqOpen === i ? -1 : i)} className="flex w-full items-center justify-between gap-4 py-6 text-left">
                   <span className="font-heading text-xl text-[#1E2A4A]">{item.q}</span>
-                  <ChevronDown className={`h-5 w-5 shrink-0 text-[#C9A227] transition-transform ${faqOpen === i ? 'rotate-180' : ''}`} />
+                  <ChevronDown className={`h-5 w-5 shrink-0 text-[#B8860B] transition-transform ${faqOpen === i ? 'rotate-180' : ''}`} />
                 </button>
                 {faqOpen === i && <p className="pb-6 pr-8 leading-relaxed text-[#1E2A4A]/65">{item.a}</p>}
               </div>

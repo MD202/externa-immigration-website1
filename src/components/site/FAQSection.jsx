@@ -32,10 +32,10 @@ export default function FAQSection() {
                 aria-controls={`faq-panel-${i}`}
                 id={`faq-button-${i}`}
                 onClick={() => setOpen(open === i ? -1 : i)}
-                className="flex w-full items-center justify-between gap-4 py-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A227] focus-visible:ring-offset-2"
+                className="flex w-full items-center justify-between gap-4 py-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B] focus-visible:ring-offset-2"
               >
                 <span className="font-heading text-xl text-[#1E2A4A] lg:text-2xl">{item.q}</span>
-                <ChevronDown className={`h-6 w-6 shrink-0 text-[#C9A227] transition-transform duration-300 ${open === i ? 'rotate-180' : ''}`} aria-hidden="true" />
+                <ChevronDown className={`h-6 w-6 shrink-0 text-[#B8860B] transition-transform duration-300 ${open === i ? 'rotate-180' : ''}`} aria-hidden="true" />
               </button>
               {open === i && (
                 <div

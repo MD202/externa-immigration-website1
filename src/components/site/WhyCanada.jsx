@@ -30,7 +30,7 @@ export default function WhyCanada() {
           {benefits.map(({ icon: Icon, title, body }, i) => (
             <Reveal key={title} delay={i * 80} className="h-full">
               <article className="group h-full bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
-                <div className="flex h-11 w-11 items-center justify-center bg-[#C9A227]/8 text-[#C9A227] transition group-hover:bg-[#C9A227] group-hover:text-white">
+                <div className="flex h-11 w-11 items-center justify-center bg-[#B8860B]/8 text-[#B8860B] transition group-hover:bg-[#B8860B] group-hover:text-white">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </div>
                 <h3 className="mt-5 font-heading text-lg text-[#1E2A4A]">{title}</h3>
