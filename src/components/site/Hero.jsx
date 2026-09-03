@@ -10,7 +10,7 @@ import { Image } from '@/components/ui/image';
 export default function Hero() {
   const { t } = useLanguage();
   const [triageOpen, setTriageOpen] = useState(false);
-  const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/0fd283695_generated_image.png';
+  const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/669dd803e_generated_image.png';
   return (
     <section id="top" className="relative min-h-screen overflow-hidden bg-[#13203F] text-white">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">

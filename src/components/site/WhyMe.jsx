@@ -4,7 +4,7 @@ import { Image } from '@/components/ui/image';
 
 export default function WhyMe() {
   const { t } = useLanguage();
-  const WHYME_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/b433380ba_generated_image.png';
+  const WHYME_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/589468607_generated_image.png';
   const points = [
     { lead: t('home.whyme.p1l'), body: t('home.whyme.p1b') },
     { lead: t('home.whyme.p2l'), body: t('home.whyme.p2b') },

@@ -5,7 +5,7 @@ import HoverRevealCards from '@/components/site/HoverRevealCards';
 export default function PainSection() {
   const { t } = useLanguage();
   // row 4 ("prove your marriage is real") removed per request
-  const rows = [1, 2, 3, 5, 6, 7, 8].map((i) => ({ lead: t(`home.pain.r${i}l`), body: t(`home.pain.r${i}b`) }));
+  const rows = [1, 2, 3, 5, 6, 7].map((i) => ({ lead: t(`home.pain.r${i}l`), body: t(`home.pain.r${i}b`) }));
   return (
     <section className="bg-[#FBFAF8] px-5 py-20 lg:px-[8vw] lg:py-40">
       <div className="mx-auto max-w-[1240px]">
