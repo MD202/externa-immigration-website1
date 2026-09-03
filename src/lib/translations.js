@@ -1095,9 +1095,13 @@ export const translations = {
       r3b: { en: "Eligibility locks to the child's age and dependency at the date we receive the application, not the date it's decided. Where a child is near the age limit, the timing of filing is the whole strategy." },
       r4l: { en: "Parents and grandparents" },
       r4b: { en: "The sponsorship intake is limited and competitive. The super visa is a separate option — a bridge that keeps parents visiting while a sponsorship is planned or awaited." },
+      r1b2: { en: "Most outland files are decided in 10–12 months, though visa offices vary. The sponsored person can keep working and travelling while it processes. Because a refusal carries IAD appeal rights, the file is built to withstand both the officer and a possible hearing." },
       r1key: { en: "Can travel while it processes · Refusal appealable to the IAD" },
+      r2b2: { en: "The open work permit is the main advantage — your partner can work in Canada while the application is decided. The trade-off is procedural: there is no IAD appeal, so the only challenge to a refusal is Federal Court. We prepare every inland file with that higher bar in mind." },
       r2key: { en: "Open work permit while it processes · No IAD appeal — Federal Court only" },
+      r3b2: { en: "A child is dependent if under 22 and unmarried, or over 22 but financially dependent. The lock is at the date the application is received — not when we start, not when it's decided. Where a birthday is close, we sometimes file first and perfect the evidence after." },
       r3key: { en: "Dependency locks at the date we receive the application" },
+      r4b2: { en: "The parent and grandparent programme opens by invitation and the interest-to-sponsor form is competitive. Many families wait years. The super visa — up to five years per entry — keeps parents present in the meantime, and we often run the two in parallel." },
       r4key: { en: "Limited intake · Super visa as a bridge" },
     },
     hear: {
