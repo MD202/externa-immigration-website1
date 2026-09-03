@@ -4,7 +4,6 @@ import ServiceHero from '@/components/service/ServiceHero';
 import PatternRows from '@/components/service/PatternRows';
 import NumberedProcess from '@/components/service/NumberedProcess';
 import ServiceList from '@/components/service/ServiceList';
-import TextSection from '@/components/service/TextSection';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 
@@ -31,7 +30,6 @@ export default function Entrepreneurs() {
       <NumberedProcess eyebrow={t('entrepreneurs.steps.eyebrow')} heading={t('entrepreneurs.steps.heading')} steps={steps} variant="dark" />
       <PatternRows heading={t('entrepreneurs.hear.heading')} rows={hear} variant="light" />
       <ServiceList heading={t('entrepreneurs.do.heading')} items={dos} />
-      <TextSection paragraphs={[t('entrepreneurs.close.body')]} ctaLabel={t('entrepreneurs.close.cta')} ctaTo="/strategy-session" variant="light" />
       <Footer />
     </main>
   );
