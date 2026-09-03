@@ -8,99 +8,126 @@ import Footer from '@/components/site/Footer';
 import Reveal from '@/components/site/Reveal';
 import PriceTable from '@/components/fees/PriceTable';
 import TierMatrix from '@/components/fees/TierMatrix';
+import { Image } from '@/components/ui/image';
+
+const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/bbfbbabed_generated_image.png';
 
 const BANNER = 'All fees are professional fees in Canadian dollars, plus HST. Government fees are separate, listed on their own, and never marked up. Every file begins with a consultation so I can tell you what yours will actually cost — and whether it\'s worth filing at all.';
 
-const commodityTabs = [
+const howWeWork = [
+  { h: 'How we work', b: 'Every file starts with a conversation. We assess the matter, pick the route, and tell you whether it\'s worth filing at all.' },
+  { h: 'How we charge', b: 'Full Representation is staged as the work progresses. Guided and File Review are fixed pieces, paid in full and delivered inside a set window.' },
+  { h: 'What\'s covered', b: 'Forms, supporting letters, strategy, written review, submission, and dealing with IRCC — depending on the tier you choose.' },
+  { h: 'What\'s additional', b: 'Government fees are yours, never marked up. Add-ons, rush handling, and ATIP requests are listed separately.' },
+];
+
+const consultations = [
+  { name: 'Full consultation', price: '$175', detail: '60 minutes · Written summary. Credited to your package within 15 days.', featured: true },
+  { name: 'Standard', price: '$110', detail: '30 minutes.' },
+  { name: 'Quick question', price: '$50', detail: '15 minutes · One specific question.' },
+  { name: 'Eligibility assessment', price: '$45', detail: 'Eligibility only.' },
+];
+
+const categories = [
   {
-    id: 'economic',
-    label: 'Permanent residence — economic',
+    id: 'pr', label: 'Permanent residence',
     rows: [
-      { service: 'Express Entry profile (pre-ITA)', full: '$1,050', guided: '$650', review: '$375', bench: '$1,250' },
-      { service: 'Canadian Experience Class', full: '$1,900', guided: '$1,150', review: '$550', bench: '$2,250' },
-      { service: 'Federal Skilled Worker', full: '$2,100', guided: '$1,275', review: '$550', bench: '$2,500' },
-      { service: 'OINP — Express Entry streams', full: '$2,100', guided: '$1,275', review: '$550', bench: '$2,500' },
-      { service: 'OINP — outside Express Entry', full: '$3,400', guided: '$2,050', review: '$550', bench: '$4,000' },
+      { service: 'Express Entry profile (pre-ITA)', full: '$1,050', guided: '$650', review: '$375' },
+      { service: 'Canadian Experience Class', full: '$1,900', guided: '$1,150', review: '$550' },
+      { service: 'Federal Skilled Worker', full: '$2,100', guided: '$1,275', review: '$550' },
+      { service: 'OINP — Express Entry streams', full: '$2,100', guided: '$1,275', review: '$550' },
+      { service: 'OINP — outside Express Entry', full: '$3,400', guided: '$2,050', review: '$550' },
       { service: 'Other provincial nominee programmes', full: '$3,400', guided: '$2,050', review: '$550' },
     ],
   },
   {
-    id: 'family',
-    label: 'Family class',
+    id: 'family', label: 'Family sponsorships',
     rows: [
-      { service: 'Spousal / partner sponsorship', full: '$3,200', guided: '$1,900', review: '$550', bench: '$3,750' },
-      { service: 'Spouse open work permit', full: '$1,500', guided: '$900', review: '$375', bench: '$1,750' },
-      { service: 'Visitor visa for spouse', full: '$1,500', guided: '$1,000', review: '$550', bench: '$1,750' },
-      { service: 'Parent & grandparent sponsorship', full: '$2,550', guided: '$1,550', review: '$550', bench: '$3,000' },
-      { service: 'Super visa', full: '$1,500', guided: '$900', review: '$375', bench: '$1,750' },
-      { service: 'Visitor visa for parent', full: '$1,275', guided: '$775', review: '$375', bench: '$1,500' },
-      { service: 'Dependent child sponsorship', full: '$2,550', guided: '$1,550', review: '$550', bench: '$3,000' },
+      { service: 'Spousal / partner sponsorship', full: '$3,200', guided: '$1,900', review: '$550' },
+      { service: 'Parent & grandparent sponsorship', full: '$2,550', guided: '$1,550', review: '$550' },
+      { service: 'Dependent child sponsorship', full: '$2,550', guided: '$1,550', review: '$550' },
+      { service: 'Spouse open work permit (with sponsorship)', full: '$1,500', guided: '$900', review: '$375' },
     ],
   },
   {
-    id: 'temporary',
-    label: 'Temporary residence',
+    id: 'temp', label: 'Study / work / temp permits / visitor / super',
     rows: [
-      { service: 'LMIA (employer)', full: '$2,550', guided: '$1,275', review: '$550', bench: '$3,000' },
-      { service: 'Closed work permit', full: '$1,275', guided: '$775', review: '$325', bench: '$1,500' },
-      { service: 'LMIA-exempt work permit', full: '$2,100', guided: '$1,275', review: '$550', bench: '$2,500' },
-      { service: 'Study permit', full: '$2,100', guided: '$1,000', review: '$500', bench: '$2,500' },
-      { service: 'Post-graduation work permit', full: '$1,050', guided: '$650', review: '$325', bench: '$1,250' },
-      { service: 'Visitor / tourist visa', full: '$1,700', guided: '$1,000', review: '$550', bench: '$2,000' },
-      { service: 'Bridging open work permit', full: '$1,050', guided: '$650', review: '$325', bench: '$1,250' },
+      { service: 'Study permit', full: '$2,100', guided: '$1,000', review: '$500' },
+      { service: 'Post-graduation work permit', full: '$1,050', guided: '$650', review: '$325' },
+      { service: 'Bridging open work permit', full: '$1,050', guided: '$650', review: '$325' },
+      { service: 'LMIA (employer)', full: '$2,550', guided: '$1,275', review: '$550' },
+      { service: 'Closed work permit', full: '$1,275', guided: '$775', review: '$325' },
+      { service: 'LMIA-exempt work permit', full: '$2,100', guided: '$1,275', review: '$550' },
+      { service: 'Visitor / tourist visa', full: '$1,700', guided: '$1,000', review: '$550' },
+      { service: 'Super visa', full: '$1,500', guided: '$900', review: '$375' },
+      { service: 'Visitor visa for parent', full: '$1,275', guided: '$775', review: '$375' },
+      { service: 'Visitor visa for spouse', full: '$1,500', guided: '$1,000', review: '$550' },
     ],
   },
   {
-    id: 'status',
-    label: 'Status & documents',
+    id: 'status', label: 'PR card renewal / citizenship / PRTD',
     rows: [
-      { service: 'Citizenship application', full: '$1,050', guided: '$650', review: '$325', bench: '$1,250' },
-      { service: 'Proof of citizenship', full: '$1,500', guided: '$900', review: '$375', bench: '$1,750' },
-      { service: 'PR card renewal', full: '$1,050', guided: '$650', review: '$325', bench: '$1,250' },
-      { service: 'Status extension', full: '$1,050', guided: '$650', review: '$325', bench: '$1,250' },
-      { service: 'Status restoration', full: '$1,050', guided: '$650', review: '$325', bench: '$1,250' },
-      { service: 'Change of status', full: '$1,050', guided: '$650', review: '$325', bench: '$1,250' },
-      { service: 'Document replacement', full: '$1,050', guided: '$650', review: '$325', bench: '$1,250' },
-      { service: 'Status verification', full: '$1,050', guided: '$650', review: '$325', bench: '$1,250' },
-      { service: 'Travel document (PRTD)', full: '$1,275', guided: '$775', review: '$325', bench: '$1,250' },
+      { service: 'Citizenship application', full: '$1,050', guided: '$650', review: '$325' },
+      { service: 'Proof of citizenship', full: '$1,500', guided: '$900', review: '$375' },
+      { service: 'PR card renewal', full: '$1,050', guided: '$650', review: '$325' },
+      { service: 'Status extension', full: '$1,050', guided: '$650', review: '$325' },
+      { service: 'Status restoration', full: '$1,050', guided: '$650', review: '$325' },
+      { service: 'Change of status', full: '$1,050', guided: '$650', review: '$325' },
+      { service: 'Document replacement', full: '$1,050', guided: '$650', review: '$325' },
+      { service: 'Status verification', full: '$1,050', guided: '$650', review: '$325' },
+      { service: 'Travel document (PRTD)', full: '$1,275', guided: '$775', review: '$325' },
     ],
-    note: 'PRTD is the one exception — priced slightly above the benchmark because a PRTD refusal is usually a residency obligation problem, not paperwork.',
+    note: 'A PRTD refusal is usually a residency obligation problem, not paperwork — priced accordingly.',
   },
-];
-
-const consultations = [
-  { name: 'Quick question', price: '$50', detail: '15 minutes · One specific question.' },
-  { name: 'Standard', price: '$110', detail: '30 minutes.' },
-  { name: 'Full consultation', price: '$175', detail: '60 minutes · Written summary.', featured: true },
-  { name: 'Eligibility assessment', price: '$45', detail: 'Eligibility only.' },
-];
-
-const anchorRefusals = [
-  { service: 'Refusal analysis — notes request, review, written opinion', fee: '$650' },
-  { service: 'Procedural fairness letter response', fee: '$2,100' },
-  { service: 'Procedural fairness — misrepresentation allegation', fee: '$3,400' },
-  { service: 'Reconsideration request', fee: '$1,400' },
-  { service: 'Rebuilt application after refusal', fee: 'Package fee + $1,000' },
-  { service: 'Citizenship residency questionnaire response', fee: '$2,100' },
-];
-
-const refugee = [
-  { service: 'Basis of Claim narrative and evidence package', fee: '$2,800' },
-  { service: 'Hearing representation (RPD)', fee: '+$3,200' },
-  { service: 'Both together', fee: '$5,800' },
-  { service: 'Refugee Appeal Division — written appeal', fee: '$4,200' },
-];
-
-const iad = [
-  { service: 'Sponsorship appeal — written stages', fee: '$4,500', full: '$8,500 full' },
-  { service: 'Residency obligation appeal (PRTD / PR card) — written', fee: '$4,500', full: '$8,500 full' },
-  { service: 'Removal order appeal — written stages', fee: '$5,000', full: '$9,500 full' },
-];
-
-const idHearings = [
-  { service: 'Admissibility hearing', fee: '$4,500' },
-  { service: 'Detention review — first', fee: '$1,800' },
-  { service: 'Detention review — each subsequent', fee: '$900' },
+  {
+    id: 'hc', label: 'Humanitarian & compassionate',
+    rows: [
+      { service: 'H&C — single applicant', full: '$6,500', guided: '$3,200', review: '$1,200' },
+      { service: 'H&C — with dependent children', full: '$8,500', guided: '$4,200', review: '$1,500' },
+      { service: 'H&C — complex (removal pending, prior refusals, multiple applicants)', full: '$9,500–$12,000', guided: '—', review: '$1,800' },
+      { service: 'Pre-removal risk assessment', full: '$4,800', guided: '—', review: '$1,200' },
+      { service: 'PRRA + H&C combined', full: '$10,500', guided: '—', review: '—' },
+    ],
+    note: 'An H&C application is decided on the quality of the written submissions. Guided is available, but Full Representation is what this work actually requires.',
+  },
+  {
+    id: 'refusals', label: 'Refusals',
+    simple: [
+      { service: 'Refusal analysis — notes request, review, written opinion', fee: '$650' },
+      { service: 'Procedural fairness letter response', fee: '$2,100' },
+      { service: 'Procedural fairness — misrepresentation allegation', fee: '$3,400' },
+      { service: 'Reconsideration request', fee: '$1,400' },
+      { service: 'Rebuilt application after refusal', fee: 'Package fee + $1,000' },
+      { service: 'Citizenship residency questionnaire response', fee: '$2,100' },
+    ],
+  },
+  {
+    id: 'refugee', label: 'Refugee protection',
+    simple: [
+      { service: 'Basis of Claim narrative and evidence package', fee: '$2,800' },
+      { service: 'Hearing representation (RPD)', fee: '+$3,200' },
+      { service: 'Both together', fee: '$5,800' },
+      { service: 'Refugee Appeal Division — written appeal', fee: '$4,200' },
+    ],
+  },
+  {
+    id: 'iad', label: 'Immigration Appeal Division',
+    iad: [
+      { service: 'Sponsorship appeal', written: '$4,500', full: '$8,500' },
+      { service: 'Residency obligation appeal (PRTD / PR card)', written: '$4,500', full: '$8,500' },
+      { service: 'Removal order appeal', written: '$5,000', full: '$9,500' },
+    ],
+    note: 'Written stages = notice of appeal, appeal record, evidence assembly, written submissions.',
+  },
+  {
+    id: 'id', label: 'Immigration Division',
+    simple: [
+      { service: 'Admissibility hearing', fee: '$4,500' },
+      { service: 'Detention review — first', fee: '$1,800' },
+      { service: 'Detention review — each subsequent', fee: '$900' },
+    ],
+    hearing: true,
+  },
 ];
 
 const businessRows = [
@@ -146,6 +173,13 @@ const servicesAddOn = [
   { name: 'Written eligibility opinion (standalone)', price: '$350' },
 ];
 
+const paymentTerms = [
+  { h: 'Full Representation — staged', items: ['Standard: 40% opening · 40% submission · 20% decision', 'H&C and complex: 30% · 30% · 30% · 10% decision', 'Appeals: 30% filing · 30% record · 30% submissions · 10% conclusion'] },
+  { h: 'Guided — paid in full before work begins', items: ['Fixed scope, fixed deliverables, delivered within a stated window', 'Funds to trust, drawn as work is performed', 'The tier that converts to earned revenue fastest'] },
+  { h: 'File Review — paid in full before work begins', items: ['Same reasoning as Guided', 'Delivered within 5 business days'] },
+  { h: 'Consultations and fixed products — paid in full', items: ['Consultations, refusal analysis, ATIP requests, roadmaps, second opinions'] },
+];
+
 const discounts = [
   { title: 'Consultation credit', body: 'Your consultation fee is credited toward any package if you retain me within 15 days.' },
   { title: 'Returning clients — 50% off', body: 'Extensions, restorations, change of status, PR card renewals and citizenship applications are half price after a Full Representation file. Professional fees only.' },
@@ -157,10 +191,7 @@ const discounts = [
 
 const wontList = [
   'Guarantee a result. No one may, and no one can.',
-  'Suggest I have contacts inside a government. Nobody does.',
-  'Ask you to sign a blank form or state anything untrue.',
-  'Invoice you for anything that wasn\'t in your agreement.',
-  'Offer a free resubmission if you\'re refused. No one can promise how an application will be decided.',
+  'Suggest I have contacts inside a government.',
 ];
 
 function SectionLabel({ n, children }) {
@@ -172,20 +203,67 @@ function SectionLabel({ n, children }) {
   );
 }
 
+function SimpleTable({ rows }) {
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full border-collapse min-w-[480px]">
+        <tbody>
+          {rows.map((r, i) => (
+            <tr key={i} className="border-b border-[#1E2A4A]/8 last:border-0">
+              <td className="py-4 pr-4 text-sm leading-relaxed text-[#1E2A4A]/80">{r.service}</td>
+              <td className="py-4 pl-4 text-right text-sm font-semibold text-[#1E2A4A]">{r.fee}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function IadTable({ rows }) {
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full border-collapse min-w-[520px]">
+        <thead>
+          <tr className="border-b border-[#1E2A4A]/15">
+            <th className="py-4 pr-4 text-left text-xs font-semibold uppercase tracking-[.12em] text-[#1E2A4A]/50">Service</th>
+            <th className="px-3 py-4 text-right text-xs font-semibold uppercase tracking-[.12em] text-[#1E2A4A]/55">Written stages</th>
+            <th className="py-4 pl-4 text-right text-xs font-semibold uppercase tracking-[.12em] text-[#1E2A4A]">Full, incl. ADR & hearing</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((r, i) => (
+            <tr key={i} className="border-b border-[#1E2A4A]/8 last:border-0">
+              <td className="py-4 pr-4 text-sm leading-relaxed text-[#1E2A4A]/80">{r.service}</td>
+              <td className="px-3 py-4 text-right text-sm text-[#1E2A4A]/65">{r.written}</td>
+              <td className="py-4 pl-4 text-right text-sm font-semibold text-[#1E2A4A]">{r.full}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
 export default function Fees() {
   const { t } = useLanguage();
   usePageMeta(t('fees.meta.title'), t('fees.meta.description'));
-  const [tab, setTab] = useState('economic');
-  const active = commodityTabs.find((c) => c.id === tab);
+  const [tab, setTab] = useState('pr');
+  const active = categories.find((c) => c.id === tab);
   return (
     <main className="bg-[#FBFAF8]">
       <Header />
-      <section className="bg-[#13203F] px-5 pt-32 pb-14 text-white lg:px-[8vw] lg:pt-40">
-        <div className="mx-auto max-w-[1240px]">
+      {/* Hero */}
+      <section className="relative flex min-h-[78vh] items-center overflow-hidden bg-[#13203F] px-5 pt-32 pb-16 text-white lg:px-[8vw] lg:pt-40">
+        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+          <Image src={HERO_IMG} fittingType="fill" className="h-full w-full opacity-30" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#13203F]/90 via-[#13203F]/72 to-[#13203F]/95" />
+        </div>
+        <div className="relative mx-auto w-full max-w-[1240px]">
           <Reveal className="max-w-2xl">
             <p className="eyebrow text-[#B8860B]">PUBLISHED PRICING</p>
-            <h1 className="mt-4 font-heading text-[40px] leading-[1.05] sm:text-5xl lg:text-[64px]">{t('fees.heading')}</h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/65">{t('fees.intro')}</p>
+            <h1 className="mt-4 font-heading text-[40px] leading-[1.05] sm:text-5xl lg:text-[64px]">Fees</h1>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/65">Three tiers — full representation, guided, and file review. Published, because you shouldn't have to ask. All amounts in Canadian dollars, plus HST. Government fees are separate and never marked up.</p>
           </Reveal>
         </div>
       </section>
@@ -197,17 +275,14 @@ export default function Fees() {
         </div>
       </div>
 
-      {/* PART 1 — Three tiers */}
+      {/* Three tiers */}
       <section className="px-5 py-16 lg:px-[8vw] lg:py-24">
         <div className="mx-auto max-w-[1240px]">
           <Reveal><SectionLabel n="01">THE THREE TIERS</SectionLabel></Reveal>
           <Reveal className="mt-6 max-w-2xl">
             <h2 className="section-title">One representation tier, two advisory tiers.</h2>
-            <p className="mt-5 text-lg leading-relaxed text-[#1E2A4A]/65">Full Representation is paid in stages as the work progresses, because it runs for months. Guided and File Review are fixed pieces of work with a fixed deliverable, so they're paid upfront and delivered inside a set window.</p>
           </Reveal>
-          <Reveal className="mt-10">
-            <TierMatrix />
-          </Reveal>
+          <Reveal className="mt-10"><TierMatrix /></Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {[
               { h: 'Full Representation', b: 'I am your representative on the record. I complete it, I submit it, and IRCC deals with me.' },
@@ -230,12 +305,32 @@ export default function Fees() {
         </div>
       </section>
 
-      {/* PART 6 — Consultations */}
+      {/* How we work */}
       <section className="bg-white px-5 py-16 lg:px-[8vw] lg:py-24">
         <div className="mx-auto max-w-[1240px]">
-          <Reveal><SectionLabel n="02">CONSULTATIONS</SectionLabel></Reveal>
+          <Reveal><SectionLabel n="02">HOW WE WORK</SectionLabel></Reveal>
           <Reveal className="mt-6 max-w-2xl">
-            <h2 className="section-title">Start with a conversation.</h2>
+            <h2 className="section-title">How we work, how we charge, what's covered.</h2>
+          </Reveal>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {howWeWork.map((c, i) => (
+              <Reveal key={i} delay={i * 50}>
+                <div className="h-full border border-[#1E2A4A]/12 bg-[#FBFAF8] p-6">
+                  <h3 className="font-heading text-base text-[#1E2A4A]">{c.h}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-[#1E2A4A]/65">{c.b}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Consultations */}
+      <section className="px-5 py-16 lg:px-[8vw] lg:py-24">
+        <div className="mx-auto max-w-[1240px]">
+          <Reveal><SectionLabel n="03">START WITH A CONVERSATION</SectionLabel></Reveal>
+          <Reveal className="mt-6 max-w-2xl">
+            <h2 className="section-title">Begin with a consultation.</h2>
             <p className="mt-5 text-lg leading-relaxed text-[#1E2A4A]/65">Credited in full toward any package retained within 15 days.</p>
           </Reveal>
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -253,7 +348,7 @@ export default function Fees() {
             <div className="flex flex-col items-start gap-4 border-l-2 border-[#8C2F39] bg-[#FBF6F6] p-6 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <p className="flex items-center gap-2 font-heading text-xl text-[#1E2A4A]"><Star className="h-5 w-5 fill-[#B8860B] text-[#B8860B]" /> Refusal analysis — $650</p>
-                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#1E2A4A]/70">Notes request, file review, and a written opinion. Cheap enough to say yes to while panicking, real work for the money, and it converts to representation at a high rate. Includes ATIP.</p>
+                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#1E2A4A]/70">Notes request, file review, and a written opinion. Real work for the money, and it converts to representation at a high rate. Includes ATIP.</p>
               </div>
               <Link to="/strategy-session" className="btn btn-primary shrink-0">Book a consultation <ArrowRight className="h-4 w-4" /></Link>
             </div>
@@ -261,155 +356,43 @@ export default function Fees() {
         </div>
       </section>
 
-      {/* PART 2 — Commodity work */}
-      <section className="px-5 py-16 lg:px-[8vw] lg:py-24">
+      {/* Our fees by category */}
+      <section className="bg-white px-5 py-16 lg:px-[8vw] lg:py-24">
         <div className="mx-auto max-w-[1240px]">
-          <Reveal><SectionLabel n="03">COMMODITY WORK — 15% BELOW THE BENCHMARK</SectionLabel></Reveal>
+          <Reveal><SectionLabel n="04">OUR FEES</SectionLabel></Reveal>
           <Reveal className="mt-6 max-w-2xl">
-            <h2 className="section-title">Where they compete, we undercut.</h2>
-            <p className="mt-5 text-lg leading-relaxed text-[#1E2A4A]/65">These are templated applications and price is what moves the client. Benchmark shown where one exists.</p>
+            <h2 className="section-title">Professional fees by category.</h2>
+            <p className="mt-5 text-lg leading-relaxed text-[#1E2A4A]/65">Full Representation, Guided, and File Review pricing. Government fees are separate.</p>
           </Reveal>
           <Reveal className="mt-8">
             <div className="flex flex-wrap gap-2">
-              {commodityTabs.map((c) => (
-                <button key={c.id} onClick={() => setTab(c.id)} className={`rounded-full px-5 py-2.5 text-sm font-semibold transition ${tab === c.id ? 'bg-[#1E2A4A] text-white' : 'border border-[#1E2A4A]/15 bg-white text-[#1E2A4A]/60 hover:text-[#1E2A4A]'}`}>{c.label}</button>
+              {categories.map((c) => (
+                <button key={c.id} onClick={() => setTab(c.id)} className={`rounded-full px-4 py-2.5 text-xs font-semibold transition lg:text-sm ${tab === c.id ? 'bg-[#1E2A4A] text-white' : 'border border-[#1E2A4A]/15 bg-white text-[#1E2A4A]/60 hover:text-[#1E2A4A]'}`}>{c.label}</button>
               ))}
             </div>
           </Reveal>
           <Reveal className="mt-8">
-            <div className="border border-[#1E2A4A]/10 bg-white p-6 lg:p-8">
-              <PriceTable rows={active.rows} showBenchmark note={active.note} />
+            <div className="border border-[#1E2A4A]/10 bg-[#FBFAF8] p-6 lg:p-8">
+              {active.rows && <PriceTable rows={active.rows} note={active.note} />}
+              {active.simple && <SimpleTable rows={active.simple} />}
+              {active.iad && <IadTable rows={active.iad} />}
+              {active.hearing && (
+                <div className="mt-5 border-l-2 border-[#8C2F39] bg-[#FBF6F6] p-5">
+                  <p className="text-sm font-semibold uppercase tracking-[.08em] text-[#8C2F39]">On hearing dates</p>
+                  <p className="mt-2 text-sm leading-relaxed text-[#1E2A4A]/75">My availability for weekday hearings and conferences is currently limited. Tell me what you're facing and I'll tell you honestly whether I can act throughout, act on the written stages only, or refer you to someone who should take it. What I won't do is take your retainer and work it out later.</p>
+                </div>
+              )}
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* PART 3 — Anchor work */}
-      <section className="bg-white px-5 py-16 lg:px-[8vw] lg:py-24">
-        <div className="mx-auto max-w-[1240px]">
-          <Reveal><SectionLabel n="04">ANCHOR WORK — NO BENCHMARK, NO DISCOUNT</SectionLabel></Reveal>
-          <Reveal className="mt-6 max-w-2xl">
-            <h2 className="section-title">The work that isn't on anyone's fee page.</h2>
-            <p className="mt-5 text-lg leading-relaxed text-[#1E2A4A]/65">Humanitarian and compassionate applications, refusals, appeals, refugee claims and admissibility hearings. There is nothing here to undercut — this is the work that carries the practice.</p>
-          </Reveal>
-
-          {/* H&C */}
-          <Reveal className="mt-10">
-            <h3 className="font-heading text-2xl text-[#1E2A4A]">Humanitarian & compassionate</h3>
-            <div className="mt-4 border border-[#1E2A4A]/10 bg-[#FBFAF8] p-6 lg:p-8">
-              <PriceTable rows={[
-                { service: 'H&C — single applicant', full: '$6,500', guided: '$3,200', review: '$1,200' },
-                { service: 'H&C — with dependent children', full: '$8,500', guided: '$4,200', review: '$1,500' },
-                { service: 'H&C — complex (removal pending, prior refusals, multiple applicants)', full: '$9,500–$12,000', guided: '—', review: '$1,800' },
-                { service: 'Pre-removal risk assessment', full: '$4,800', guided: '—', review: '$1,200' },
-                { service: 'PRRA + H&C combined', full: '$10,500', guided: '—', review: '—' },
-              ]} />
-              <p className="mt-4 border-l-2 border-[#8C2F39] pl-4 text-sm italic leading-relaxed text-[#1E2A4A]/70">An H&C application is decided on the quality of the written submissions. Guided is available, but Full Representation is what this work actually requires.</p>
-            </div>
-          </Reveal>
-
-          {/* Refusals */}
-          <Reveal className="mt-10">
-            <h3 className="font-heading text-2xl text-[#1E2A4A]">Refusals</h3>
-            <div className="mt-4 border border-[#1E2A4A]/10 bg-[#FBFAF8] p-6 lg:p-8">
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse min-w-[480px]">
-                  <tbody>
-                    {anchorRefusals.map((r, i) => (
-                      <tr key={i} className="border-b border-[#1E2A4A]/8 last:border-0">
-                        <td className="py-4 pr-4 text-sm leading-relaxed text-[#1E2A4A]/80">{r.service}</td>
-                        <td className="py-4 pl-4 text-right text-sm font-semibold text-[#1E2A4A]">{r.fee}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </Reveal>
-
-          {/* Refugee */}
-          <Reveal className="mt-10">
-            <h3 className="font-heading text-2xl text-[#1E2A4A]">Refugee protection</h3>
-            <div className="mt-4 border border-[#1E2A4A]/10 bg-[#FBFAF8] p-6 lg:p-8">
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse min-w-[480px]">
-                  <tbody>
-                    {refugee.map((r, i) => (
-                      <tr key={i} className="border-b border-[#1E2A4A]/8 last:border-0">
-                        <td className="py-4 pr-4 text-sm leading-relaxed text-[#1E2A4A]/80">{r.service}</td>
-                        <td className="py-4 pl-4 text-right text-sm font-semibold text-[#1E2A4A]">{r.fee}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </Reveal>
-
-          {/* IAD */}
-          <Reveal className="mt-10">
-            <h3 className="font-heading text-2xl text-[#1E2A4A]">Immigration Appeal Division</h3>
-            <p className="mt-2 text-sm text-[#1E2A4A]/55">Written stages = notice of appeal, appeal record, evidence assembly, written submissions.</p>
-            <div className="mt-4 border border-[#1E2A4A]/10 bg-[#FBFAF8] p-6 lg:p-8">
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse min-w-[560px]">
-                  <thead>
-                    <tr className="border-b border-[#1E2A4A]/15">
-                      <th className="py-4 pr-4 text-left text-xs font-semibold uppercase tracking-[.12em] text-[#1E2A4A]/50">Service</th>
-                      <th className="px-3 py-4 text-right text-xs font-semibold uppercase tracking-[.12em] text-[#1E2A4A]/55">Written stages</th>
-                      <th className="py-4 pl-4 text-right text-xs font-semibold uppercase tracking-[.12em] text-[#1E2A4A]">Full, incl. ADR & hearing</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {iad.map((r, i) => (
-                      <tr key={i} className="border-b border-[#1E2A4A]/8 last:border-0">
-                        <td className="py-4 pr-4 text-sm leading-relaxed text-[#1E2A4A]/80">{r.service.replace(' — written stages', '').replace(' — written', '')}</td>
-                        <td className="px-3 py-4 text-right text-sm text-[#1E2A4A]/65">{r.fee}</td>
-                        <td className="py-4 pl-4 text-right text-sm font-semibold text-[#1E2A4A]">{r.full}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </Reveal>
-
-          {/* ID */}
-          <Reveal className="mt-10">
-            <h3 className="font-heading text-2xl text-[#1E2A4A]">Immigration Division</h3>
-            <div className="mt-4 border border-[#1E2A4A]/10 bg-[#FBFAF8] p-6 lg:p-8">
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse min-w-[480px]">
-                  <tbody>
-                    {idHearings.map((r, i) => (
-                      <tr key={i} className="border-b border-[#1E2A4A]/8 last:border-0">
-                        <td className="py-4 pr-4 text-sm leading-relaxed text-[#1E2A4A]/80">{r.service}</td>
-                        <td className="py-4 pl-4 text-right text-sm font-semibold text-[#1E2A4A]">{r.fee}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </Reveal>
-
-          {/* Hearing scheduling note */}
-          <Reveal className="mt-8">
-            <div className="border-l-2 border-[#8C2F39] bg-[#FBF6F6] p-6">
-              <p className="text-sm font-semibold uppercase tracking-[.08em] text-[#8C2F39]">On hearing dates</p>
-              <p className="mt-2 text-base leading-relaxed text-[#1E2A4A]/75">My availability for weekday hearings and conferences is currently limited. Tell me what you're facing and I'll tell you honestly whether I can act throughout, act on the written stages only, or refer you to someone who should take it. What I won't do is take your retainer and work it out later.</p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* PART 4 — Business */}
+      {/* Business */}
       <section className="px-5 py-16 lg:px-[8vw] lg:py-24">
         <div className="mx-auto max-w-[1240px]">
-          <Reveal><SectionLabel n="05">BUSINESS — PRICED FOR THE WORK, NOT UNDERCUT</SectionLabel></Reveal>
+          <Reveal><SectionLabel n="05">BUSINESS IMMIGRATION</SectionLabel></Reveal>
           <Reveal className="mt-6 max-w-2xl">
-            <h2 className="section-title">This buyer treats price as a quality signal.</h2>
-            <p className="mt-5 text-lg leading-relaxed text-[#1E2A4A]/65">A start-up visa quoted alongside consultancies charging $25,000 doesn't read as good value at the low end — it reads as someone who hasn't done one. These sit above the benchmark on purpose.</p>
+            <h2 className="section-title">Priced for the work.</h2>
           </Reveal>
           <Reveal className="mt-8">
             <div className="border border-[#1E2A4A]/10 bg-white p-6 lg:p-8">
@@ -428,12 +411,12 @@ export default function Fees() {
         </div>
       </section>
 
-      {/* PART 5 — Add-ons */}
+      {/* Add-ons */}
       <section className="bg-white px-5 py-16 lg:px-[8vw] lg:py-24">
         <div className="mx-auto max-w-[1240px]">
           <Reveal><SectionLabel n="06">ADD-ONS</SectionLabel></Reveal>
           <Reveal className="mt-6 max-w-2xl">
-            <h2 className="section-title">Shown inside the package for each service.</h2>
+            <h2 className="section-title">What you can add.</h2>
           </Reveal>
           <div className="mt-10 grid gap-8 lg:grid-cols-2">
             {addOns.map((g, gi) => (
@@ -460,20 +443,15 @@ export default function Fees() {
         </div>
       </section>
 
-      {/* PART 7 — Payment terms */}
+      {/* Payment terms + discounts */}
       <section className="px-5 py-16 lg:px-[8vw] lg:py-24">
         <div className="mx-auto max-w-[1240px]">
-          <Reveal><SectionLabel n="07">PAYMENT TERMS BY TIER</SectionLabel></Reveal>
+          <Reveal><SectionLabel n="07">PAYMENT & DISCOUNTS</SectionLabel></Reveal>
           <Reveal className="mt-6 max-w-2xl">
             <h2 className="section-title">Staged where it runs long, upfront where it's fixed.</h2>
           </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-2">
-            {[
-              { h: 'Full Representation — staged', items: ['Standard: 40% opening · 40% submission · 20% decision', 'H&C and complex: 30% · 30% · 30% · 10% decision', 'Appeals: 30% filing · 30% record · 30% submissions · 10% conclusion'] },
-              { h: 'Guided — paid in full before work begins', items: ['Fixed scope, fixed deliverables, delivered within a stated window', 'Funds to trust, drawn as work is performed', 'The tier that converts to earned revenue fastest'] },
-              { h: 'File Review — paid in full before work begins', items: ['Same reasoning as Guided', 'Delivered within 5 business days'] },
-              { h: 'Consultations and fixed products — paid in full', items: ['Consultations, refusal analysis, ATIP requests, roadmaps, second opinions'] },
-            ].map((c, i) => (
+            {paymentTerms.map((c, i) => (
               <Reveal key={i} delay={i * 50}>
                 <div className="h-full border border-[#1E2A4A]/12 bg-white p-6">
                   <h3 className="font-heading text-lg text-[#1E2A4A]">{c.h}</h3>
@@ -489,35 +467,28 @@ export default function Fees() {
               </Reveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* PART 8 — Discounts */}
-      <section className="bg-white px-5 py-16 lg:px-[8vw] lg:py-24">
-        <div className="mx-auto max-w-[1240px]">
-          <Reveal><SectionLabel n="08">DISCOUNTS</SectionLabel></Reveal>
-          <Reveal className="mt-6 max-w-2xl">
-            <h2 className="section-title">Honest, checkable, and built for repeat business.</h2>
+          <Reveal className="mt-12">
+            <h3 className="font-heading text-2xl text-[#1E2A4A]">Discounts</h3>
+            <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {discounts.map((d, i) => (
+                <Reveal key={i} delay={i * 40}>
+                  <div className="h-full border border-[#1E2A4A]/12 bg-[#FBFAF8] p-6">
+                    <h4 className="font-heading text-base text-[#1E2A4A]">{d.title}</h4>
+                    <p className="mt-3 text-sm leading-relaxed text-[#1E2A4A]/65">{d.body}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </Reveal>
-          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {discounts.map((d, i) => (
-              <Reveal key={i} delay={i * 40}>
-                <div className="h-full border border-[#1E2A4A]/12 bg-[#FBFAF8] p-6">
-                  <h3 className="font-heading text-base text-[#1E2A4A]">{d.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-[#1E2A4A]/65">{d.body}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
       {/* What we won't do */}
-      <section className="px-5 py-16 lg:px-[8vw] lg:py-24">
+      <section className="bg-white px-5 py-16 lg:px-[8vw] lg:py-24">
         <div className="mx-auto max-w-[1240px]">
-          <Reveal><SectionLabel n="09">WHAT WE WON'T DO</SectionLabel></Reveal>
+          <Reveal><SectionLabel n="08">WHAT WE WON'T DO</SectionLabel></Reveal>
           <Reveal className="mt-6">
-            <div className="border border-[#1E2A4A]/12 bg-white p-8">
+            <div className="border border-[#1E2A4A]/12 bg-[#FBFAF8] p-8">
               <ul className="grid gap-4">
                 {wontList.map((w, i) => (
                   <li key={i} className="flex gap-3 text-base leading-relaxed text-[#1E2A4A]/75">
@@ -526,7 +497,6 @@ export default function Fees() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 border-t border-[#1E2A4A]/10 pt-6 text-base leading-relaxed text-[#1E2A4A]/70">What I do instead is tell you before you file whether it's worth filing.</p>
               <Link to="/strategy-session" className="btn btn-primary mt-6">Book a consultation <ArrowRight className="h-4 w-4" /></Link>
             </div>
           </Reveal>
