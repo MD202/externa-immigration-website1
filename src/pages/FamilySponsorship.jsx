@@ -5,7 +5,6 @@ import ServiceHero from '@/components/service/ServiceHero';
 import NumberedProcess from '@/components/service/NumberedProcess';
 import PatternRows from '@/components/service/PatternRows';
 import ServiceList from '@/components/service/ServiceList';
-import TextSection from '@/components/service/TextSection';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import CloseCta from '@/components/service/CloseCta';
@@ -18,12 +17,12 @@ export default function FamilySponsorship() {
   usePageMeta(t('family.meta.title'), t('family.meta.description'));
   const [tab, setTab] = useState('outland');
   const outland = [
-    { title: t('family.types.r1l'), body: t('family.types.r1b') },
-    { title: t('family.types.r3l'), body: t('family.types.r3b') },
-    { title: t('family.types.r4l'), body: t('family.types.r4b') },
+    { title: t('family.types.r1l'), body: t('family.types.r1b'), key: t('family.types.r1key') },
+    { title: t('family.types.r3l'), body: t('family.types.r3b'), key: t('family.types.r3key') },
+    { title: t('family.types.r4l'), body: t('family.types.r4b'), key: t('family.types.r4key') },
   ];
   const inland = [
-    { title: t('family.types.r2l'), body: t('family.types.r2b') },
+    { title: t('family.types.r2l'), body: t('family.types.r2b'), key: t('family.types.r2key') },
   ];
   const cards = tab === 'outland' ? outland : inland;
   const steps = [1, 2, 3, 4, 5].map((i) => ({ n: `0${i}`, title: t(`family.steps.s${i}t`), body: t(`family.steps.s${i}b`) }));
@@ -47,12 +46,13 @@ export default function FamilySponsorship() {
             <button onClick={() => setTab('outland')} className={`rounded-full px-6 py-2.5 text-sm font-semibold transition ${tab === 'outland' ? 'bg-[#1E2A4A] text-white' : 'text-[#1E2A4A]/60 hover:text-[#1E2A4A]'}`}>Outland</button>
             <button onClick={() => setTab('inland')} className={`rounded-full px-6 py-2.5 text-sm font-semibold transition ${tab === 'inland' ? 'bg-[#1E2A4A] text-white' : 'text-[#1E2A4A]/60 hover:text-[#1E2A4A]'}`}>Inland</button>
           </div>
-          <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
             {cards.map((c, i) => (
               <Reveal key={i}>
-                <article className="flex h-full flex-col border border-[#1E2A4A]/10 bg-white p-7 transition hover:-translate-y-1 hover:border-[#B8860B]/40 hover:shadow-[0_18px_40px_-24px_rgba(30,42,74,0.35)]">
-                  <h3 className="font-heading text-xl text-[#1E2A4A]">{c.title}</h3>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-[#1E2A4A]/65">{c.body}</p>
+                <article className="flex h-full flex-col border border-[#1E2A4A]/10 bg-white p-8 transition hover:-translate-y-1 hover:border-[#B8860B]/40 hover:shadow-[0_18px_40px_-24px_rgba(30,42,74,0.35)]">
+                  <h3 className="font-heading text-2xl text-[#1E2A4A]">{c.title}</h3>
+                  <p className="mt-4 flex-1 text-base leading-relaxed text-[#1E2A4A]/70">{c.body}</p>
+                  <p className="mt-6 border-t border-[#1E2A4A]/10 pt-4 text-sm font-semibold uppercase tracking-[.08em] text-[#B8860B]">{c.key}</p>
                 </article>
               </Reveal>
             ))}
@@ -62,8 +62,18 @@ export default function FamilySponsorship() {
       <NumberedProcess eyebrow={t('family.steps.eyebrow')} heading={t('family.steps.heading')} steps={steps} variant="dark" />
       <PatternRows heading={t('family.hear.heading')} rows={hear} variant="light" />
       <ServiceList heading={t('family.handle.heading')} items={handle} />
-      <TextSection heading={t('family.lang.heading')} paragraphs={[t('family.lang.body')]} variant="light" centered />
-      <TextSection heading={t('family.honesty.heading')} paragraphs={[t('family.honesty.p1')]} variant="light" centered />
+      <section className="bg-[#FBFAF8] px-5 py-16 lg:px-[8vw] lg:py-24">
+        <div className="mx-auto grid max-w-[1240px] gap-10 md:grid-cols-2">
+          <Reveal>
+            <p className="eyebrow">{t('family.lang.heading')}</p>
+            <p className="mt-4 text-lg leading-relaxed text-[#1E2A4A]/70">{t('family.lang.body')}</p>
+          </Reveal>
+          <Reveal>
+            <p className="eyebrow">{t('family.honesty.heading')}</p>
+            <p className="mt-4 text-lg leading-relaxed text-[#1E2A4A]/70">{t('family.honesty.p1')}</p>
+          </Reveal>
+        </div>
+      </section>
       <CloseCta label={t('nav.bookCta')} />
       <Footer />
     </main>

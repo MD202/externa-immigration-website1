@@ -1095,6 +1095,10 @@ export const translations = {
       r3b: { en: "Eligibility locks to the child's age and dependency at the date we receive the application, not the date it's decided. Where a child is near the age limit, the timing of filing is the whole strategy." },
       r4l: { en: "Parents and grandparents" },
       r4b: { en: "The sponsorship intake is limited and competitive. The super visa is a separate option — a bridge that keeps parents visiting while a sponsorship is planned or awaited." },
+      r1key: { en: "Can travel while it processes · Refusal appealable to the IAD" },
+      r2key: { en: "Open work permit while it processes · No IAD appeal — Federal Court only" },
+      r3key: { en: "Dependency locks at the date we receive the application" },
+      r4key: { en: "Limited intake · Super visa as a bridge" },
     },
     hear: {
       heading: { en: "What we hear most" },
