@@ -4,8 +4,10 @@ import ServiceHero from '@/components/service/ServiceHero';
 import PatternRows from '@/components/service/PatternRows';
 import NumberedProcess from '@/components/service/NumberedProcess';
 import ServiceList from '@/components/service/ServiceList';
+import TextSection from '@/components/service/TextSection';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
+import CloseCta from '@/components/service/CloseCta';
 
 const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/e0c6dad26_generated_image.png';
 
@@ -13,13 +15,7 @@ export default function Entrepreneurs() {
   const { t } = useLanguage();
   usePageMeta(t('entrepreneurs.meta.title'), t('entrepreneurs.meta.description'));
   const programs = [1, 2, 3, 4].map((i) => ({ lead: t(`entrepreneurs.programs.r${i}l`), body: t(`entrepreneurs.programs.r${i}b`) }));
-  const steps = [
-    { n: '01', title: t('entrepreneurs.steps.s1t'), body: t('entrepreneurs.steps.s1b') },
-    { n: '02', title: t('entrepreneurs.steps.s2t'), body: t('entrepreneurs.steps.s2b') },
-    { n: '03', title: t('entrepreneurs.steps.s3t'), body: t('entrepreneurs.steps.s3b') },
-    { n: '04', title: t('entrepreneurs.steps.s4t'), body: t('entrepreneurs.steps.s4b') },
-    { n: '05', title: t('entrepreneurs.steps.s5t'), body: t('entrepreneurs.steps.s5b') },
-  ];
+  const steps = [1, 2, 3, 4, 5].map((i) => ({ n: `0${i}`, title: t(`entrepreneurs.steps.s${i}t`), body: t(`entrepreneurs.steps.s${i}b`) }));
   const hear = [1, 2, 3, 4, 5, 6].map((i) => ({ lead: t(`entrepreneurs.hear.r${i}l`), body: t(`entrepreneurs.hear.r${i}b`) }));
   const dos = [1, 2, 3, 4, 5, 6].map((i) => t(`entrepreneurs.do.i${i}`));
   return (
@@ -30,6 +26,9 @@ export default function Entrepreneurs() {
       <NumberedProcess eyebrow={t('entrepreneurs.steps.eyebrow')} heading={t('entrepreneurs.steps.heading')} steps={steps} variant="dark" />
       <PatternRows heading={t('entrepreneurs.hear.heading')} rows={hear} variant="light" />
       <ServiceList heading={t('entrepreneurs.do.heading')} items={dos} />
+      <TextSection heading={t('entrepreneurs.lang.heading')} paragraphs={[t('entrepreneurs.lang.body')]} variant="light" />
+      <TextSection heading={t('entrepreneurs.honesty.heading')} paragraphs={[t('entrepreneurs.honesty.p1'), t('entrepreneurs.honesty.p2')]} variant="light" />
+      <CloseCta label={t('entrepreneurs.close.cta')} />
       <Footer />
     </main>
   );

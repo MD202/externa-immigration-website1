@@ -7,6 +7,11 @@ import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import Reveal from '@/components/site/Reveal';
 import { Image } from '@/components/ui/image';
+import NumberedProcess from '@/components/service/NumberedProcess';
+import PatternRows from '@/components/service/PatternRows';
+import ServiceList from '@/components/service/ServiceList';
+import TextSection from '@/components/service/TextSection';
+import CloseCta from '@/components/service/CloseCta';
 
 const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/9642c4524_generated_image.png';
 
@@ -33,6 +38,9 @@ export default function OtherServices() {
     { id: 'employer-permits', title: t('other.business.b3t'), body: t('other.business.b3b') },
   ];
   const cards = tab === 'individual' ? individual : business;
+  const steps = [1, 2, 3, 4].map((i) => ({ n: `0${i}`, title: t(`other.steps.s${i}t`), body: t(`other.steps.s${i}b`) }));
+  const hear = [1, 2, 3].map((i) => ({ lead: t(`other.hear.r${i}l`), body: t(`other.hear.r${i}b`) }));
+  const handle = [1, 2, 3, 4, 5, 6].map((i) => t(`other.handle.i${i}`));
   return (
     <main className="bg-[#FBFAF8]">
       <Header />
@@ -79,6 +87,12 @@ export default function OtherServices() {
           </Reveal>
         </div>
       </section>
+      <NumberedProcess eyebrow={t('other.steps.eyebrow')} heading={t('other.steps.heading')} steps={steps} variant="dark" />
+      <PatternRows heading={t('other.hear.heading')} rows={hear} variant="light" />
+      <ServiceList heading={t('other.handle.heading')} items={handle} />
+      <TextSection heading={t('other.lang.heading')} paragraphs={[t('other.lang.body')]} variant="light" />
+      <TextSection heading={t('other.honesty.heading')} paragraphs={[t('other.honesty.p1'), t('other.honesty.p2')]} variant="light" />
+      <CloseCta label={t('nav.bookCta')} />
       <Footer />
     </main>
   );

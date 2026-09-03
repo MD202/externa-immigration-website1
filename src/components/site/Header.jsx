@@ -26,12 +26,10 @@ export default function Header() {
     return () => document.removeEventListener('mousedown', onClickOutside);
   }, []);
 
-  const inCanada = [
+  const focusedAreas = [
     { label: t('nav.familySponsorship'), to: '/family-sponsorship' },
     { label: t('nav.hc'), to: '/humanitarian-compassionate' },
     { label: t('nav.refused'), to: '/refused-applications' },
-  ];
-  const fromAbroad = [
     { label: t('nav.healthcare'), to: '/healthcare-professionals' },
     { label: t('nav.entrepreneurs'), to: '/entrepreneurs' },
     { label: t('nav.otherServices'), to: '/other-services' },
@@ -68,10 +66,9 @@ export default function Header() {
         </Link>
         <div className="hidden items-center gap-8 lg:flex">
           <nav className="flex items-center gap-6" aria-label="Main navigation">
-            {dropdown(t('nav.inCanada'), inCanada, 'inCanada')}
-            {dropdown(t('nav.fromAbroad'), fromAbroad, 'fromAbroad')}
-            <Link to="/fees" className="text-sm text-[#1E2A4A]/70 transition hover:text-[#B8860B]">{t('nav.fees')}</Link>
+            {dropdown(t('nav.focusedAreas'), focusedAreas, 'focusedAreas')}
             {dropdown(t('nav.about'), aboutLinks, 'about')}
+            <Link to="/fees" className="text-sm text-[#1E2A4A]/70 transition hover:text-[#B8860B]">{t('nav.fees')}</Link>
           </nav>
           <a href={`tel:${PHONE}`} className="flex items-center gap-2 text-sm text-[#1E2A4A]/70 transition hover:text-[#B8860B]"><Phone className="h-4 w-4 text-[#B8860B]" /> {PHONE}</a>
         </div>
@@ -82,19 +79,16 @@ export default function Header() {
       </div>
       {mobileOpen && (
         <nav id="mobile-nav" className="mx-5 mt-3 max-h-[70vh] overflow-y-auto border border-[#1E2A4A]/10 bg-white py-4 lg:hidden" aria-label="Mobile navigation">
-          <p className="px-4 pb-2 text-xs font-semibold uppercase tracking-[.18em] text-[#1E2A4A]/40">{t('nav.inCanada')}</p>
-          {inCanada.map((s) => (
-            <Link key={s.to} onClick={() => setMobileOpen(false)} to={s.to} className="block px-4 py-2.5 text-sm text-[#1E2A4A]/80">{s.label}</Link>
-          ))}
-          <p className="mt-2 px-4 pb-2 text-xs font-semibold uppercase tracking-[.18em] text-[#1E2A4A]/40">{t('nav.fromAbroad')}</p>
-          {fromAbroad.map((s) => (
+          <p className="px-4 pb-2 text-xs font-semibold uppercase tracking-[.18em] text-[#1E2A4A]/40">{t('nav.focusedAreas')}</p>
+          {focusedAreas.map((s) => (
             <Link key={s.to} onClick={() => setMobileOpen(false)} to={s.to} className="block px-4 py-2.5 text-sm text-[#1E2A4A]/80">{s.label}</Link>
           ))}
           <div className="my-2 border-t border-[#1E2A4A]/10" />
-          <Link onClick={() => setMobileOpen(false)} to="/fees" className="block px-4 py-3 text-[#1E2A4A]/80">{t('nav.fees')}</Link>
           {aboutLinks.map((link) => (
             <Link key={link.href} onClick={() => setMobileOpen(false)} to={link.href} className="block px-4 py-3 text-[#1E2A4A]/80">{link.label}</Link>
           ))}
+          <div className="my-2 border-t border-[#1E2A4A]/10" />
+          <Link onClick={() => setMobileOpen(false)} to="/fees" className="block px-4 py-3 text-[#1E2A4A]/80">{t('nav.fees')}</Link>
         </nav>
       )}
       <Link to="/strategy-session" className="fixed bottom-6 right-6 z-40 hidden items-center gap-2 rounded-full bg-[#DC2626] px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-black/20 transition hover:bg-[#B91C1C] lg:inline-flex">{t('nav.bookCta')} <ArrowUpRight className="h-4 w-4" /></Link>

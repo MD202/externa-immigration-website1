@@ -15,22 +15,18 @@ const TikTokIcon = ({ className }) => (
 
 export default function Footer() {
   const { t } = useLanguage();
-  const inCanada = [
+  const focusedAreas = [
     { label: t('nav.familySponsorship'), to: '/family-sponsorship' },
     { label: t('nav.hc'), to: '/humanitarian-compassionate' },
     { label: t('nav.refused'), to: '/refused-applications' },
-    { label: t('nav.otherServices'), to: '/other-services' },
-  ];
-  const fromAbroad = [
     { label: t('nav.healthcare'), to: '/healthcare-professionals' },
     { label: t('nav.entrepreneurs'), to: '/entrepreneurs' },
-    { label: t('nav.studyWork'), to: '/other-services#work-permits' },
-    { label: t('nav.prExpress'), to: '/other-services#express-entry' },
+    { label: t('nav.otherServices'), to: '/other-services' },
   ];
   return (
     <footer className="bg-[#13203F] px-5 py-16 text-white lg:px-[8vw] lg:py-20">
       <div className="mx-auto max-w-[1440px]">
-        <div className="grid gap-12 border-b border-white/10 pb-14 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-12 border-b border-white/10 pb-14 md:grid-cols-2 lg:grid-cols-3">
           <div>
             <Link to="/" className="flex items-center gap-3">
               <Logo variant="light" className="h-9 w-9" />
@@ -53,13 +49,7 @@ export default function Footer() {
           <div>
             <p className="text-xs uppercase tracking-[.2em] text-[#B8860B]">{t('foot.col2.title')}</p>
             <div className="mt-5 grid gap-2.5 text-sm text-white/60">
-              {inCanada.map((s) => <Link key={s.to + s.label} to={s.to} className="transition hover:text-[#B8860B]">{s.label}</Link>)}
-            </div>
-          </div>
-          <div>
-            <p className="text-xs uppercase tracking-[.2em] text-[#B8860B]">{t('foot.col3.title')}</p>
-            <div className="mt-5 grid gap-2.5 text-sm text-white/60">
-              {fromAbroad.map((s) => <Link key={s.to + s.label} to={s.to} className="transition hover:text-[#B8860B]">{s.label}</Link>)}
+              {focusedAreas.map((s) => <Link key={s.to} to={s.to} className="transition hover:text-[#B8860B]">{s.label}</Link>)}
             </div>
           </div>
           <div>

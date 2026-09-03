@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import Reveal from '@/components/site/Reveal';
 
-export default function NumberedProcess({ steps, eyebrow, heading, variant = 'dark' }) {
+export default function NumberedProcess({ steps, eyebrow, heading, intro, variant = 'dark' }) {
   const dark = variant === 'dark';
   const ref = useRef(null);
   const [drawn, setDrawn] = useState(false);
@@ -18,6 +18,7 @@ export default function NumberedProcess({ steps, eyebrow, heading, variant = 'da
         <Reveal className="max-w-2xl">
           {eyebrow && <p className="eyebrow">{eyebrow}</p>}
           {heading && <h2 className={`section-title ${dark ? 'text-white' : ''}`}>{heading}</h2>}
+          {intro && <p className={`mt-6 text-lg leading-relaxed ${dark ? 'text-white/60' : 'text-[#1E2A4A]/65'}`}>{intro}</p>}
         </Reveal>
         <div ref={ref} className="relative mt-14">
           <span aria-hidden="true" className={`absolute left-0 top-1 h-[calc(100%-0.5rem)] w-px origin-top bg-[#B8860B] transition-transform duration-[1400ms] ease-out ${drawn ? 'scale-y-100' : 'scale-y-0'}`} />
