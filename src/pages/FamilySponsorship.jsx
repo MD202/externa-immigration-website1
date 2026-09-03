@@ -1,20 +1,31 @@
+import { useState } from 'react';
 import { useLanguage } from '@/lib/LanguageContext';
 import { usePageMeta } from '@/lib/usePageMeta';
 import ServiceHero from '@/components/service/ServiceHero';
-import PatternRows from '@/components/service/PatternRows';
 import NumberedProcess from '@/components/service/NumberedProcess';
+import PatternRows from '@/components/service/PatternRows';
 import ServiceList from '@/components/service/ServiceList';
 import TextSection from '@/components/service/TextSection';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import CloseCta from '@/components/service/CloseCta';
+import Reveal from '@/components/site/Reveal';
 
 const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/51313beb1_generated_image.png';
 
 export default function FamilySponsorship() {
   const { t } = useLanguage();
   usePageMeta(t('family.meta.title'), t('family.meta.description'));
-  const types = [1, 2, 3, 4].map((i) => ({ lead: t(`family.types.r${i}l`), body: t(`family.types.r${i}b`) }));
+  const [tab, setTab] = useState('outland');
+  const outland = [
+    { title: t('family.types.r1l'), body: t('family.types.r1b') },
+    { title: t('family.types.r3l'), body: t('family.types.r3b') },
+    { title: t('family.types.r4l'), body: t('family.types.r4b') },
+  ];
+  const inland = [
+    { title: t('family.types.r2l'), body: t('family.types.r2b') },
+  ];
+  const cards = tab === 'outland' ? outland : inland;
   const steps = [1, 2, 3, 4, 5].map((i) => ({ n: `0${i}`, title: t(`family.steps.s${i}t`), body: t(`family.steps.s${i}b`) }));
   const hear = [1, 2, 3, 4, 5, 6, 7].map((i) => {
     const row = { lead: t(`family.hear.r${i}l`), body: t(`family.hear.r${i}b`) };
@@ -26,12 +37,33 @@ export default function FamilySponsorship() {
     <main className="bg-[#FBFAF8]">
       <Header />
       <ServiceHero eyebrow={t('family.hero.eyebrow')} headline={t('family.hero.headline')} body={t('family.hero.body')} ctaLabel={t('family.hero.cta')} ctaTo="/strategy-session" image={HERO_IMG} />
-      <PatternRows heading={t('family.types.heading')} intro={t('family.types.intro')} rows={types} variant="light" />
+      <section className="bg-[#FBFAF8] px-5 py-16 lg:px-[8vw] lg:py-24">
+        <div className="mx-auto max-w-[1240px]">
+          <Reveal className="max-w-2xl">
+            <h2 className="section-title">{t('family.types.heading')}</h2>
+            <p className="mt-6 text-lg leading-relaxed text-[#1E2A4A]/65">{t('family.types.intro')}</p>
+          </Reveal>
+          <div className="mt-8 inline-flex rounded-full border border-[#1E2A4A]/15 bg-white p-1">
+            <button onClick={() => setTab('outland')} className={`rounded-full px-6 py-2.5 text-sm font-semibold transition ${tab === 'outland' ? 'bg-[#1E2A4A] text-white' : 'text-[#1E2A4A]/60 hover:text-[#1E2A4A]'}`}>Outland</button>
+            <button onClick={() => setTab('inland')} className={`rounded-full px-6 py-2.5 text-sm font-semibold transition ${tab === 'inland' ? 'bg-[#1E2A4A] text-white' : 'text-[#1E2A4A]/60 hover:text-[#1E2A4A]'}`}>Inland</button>
+          </div>
+          <div className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {cards.map((c, i) => (
+              <Reveal key={i}>
+                <article className="flex h-full flex-col border border-[#1E2A4A]/10 bg-white p-7 transition hover:-translate-y-1 hover:border-[#B8860B]/40 hover:shadow-[0_18px_40px_-24px_rgba(30,42,74,0.35)]">
+                  <h3 className="font-heading text-xl text-[#1E2A4A]">{c.title}</h3>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-[#1E2A4A]/65">{c.body}</p>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
       <NumberedProcess eyebrow={t('family.steps.eyebrow')} heading={t('family.steps.heading')} steps={steps} variant="dark" />
       <PatternRows heading={t('family.hear.heading')} rows={hear} variant="light" />
       <ServiceList heading={t('family.handle.heading')} items={handle} />
-      <TextSection heading={t('family.lang.heading')} paragraphs={[t('family.lang.body')]} variant="light" />
-      <TextSection heading={t('family.honesty.heading')} paragraphs={[t('family.honesty.p1'), t('family.honesty.p2')]} variant="light" />
+      <TextSection heading={t('family.lang.heading')} paragraphs={[t('family.lang.body')]} variant="light" centered />
+      <TextSection heading={t('family.honesty.heading')} paragraphs={[t('family.honesty.p1')]} variant="light" centered />
       <CloseCta label={t('nav.bookCta')} />
       <Footer />
     </main>
