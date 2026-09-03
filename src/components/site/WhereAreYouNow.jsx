@@ -1,15 +1,12 @@
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
-import Triage from '@/components/site/Triage';
 
 const TAG_KEY = 'externa-triage-tag';
 
-export default function WhereAreYouNow() {
+export default function WhereAreYouNow({ onOpenTriage }) {
   const { t } = useLanguage();
   const navigate = useNavigate();
-  const [triageOpen, setTriageOpen] = useState(false);
   const rows = [
     { tag: 'URGENT', title: t('wayn.r1t'), sub: t('wayn.r1s'), to: '/refused-applications#fairness', urgent: true },
     { tag: 'REFUSAL', title: t('wayn.r2t'), sub: t('wayn.r2s'), to: '/refused-applications' },
@@ -21,12 +18,11 @@ export default function WhereAreYouNow() {
   ];
   const go = (row) => {
     try { sessionStorage.setItem(TAG_KEY, row.tag); } catch { /* ignore */ }
-    if (row.triage) setTriageOpen(true);
+    if (row.triage) onOpenTriage?.();
     else navigate(row.to);
   };
   return (
-    <>
-      <div id="where" className="hero-in border border-white/14 bg-[#1E2A4A] p-6 lg:p-8" style={{ animationDelay: '0.6s' }}>
+    <div id="where" className="hero-in border border-white/14 bg-[#1E2A4A] p-6 lg:p-8" style={{ animationDelay: '0.6s' }}>
         <p className="text-xs uppercase tracking-[.24em] text-[#B8860B]">{t('wayn.eyebrow')}</p>
         <h2 className="mt-3 font-heading text-2xl text-white">{t('wayn.heading')}</h2>
         <p className="mt-2 text-sm text-white/50">{t('wayn.sub')}</p>
@@ -45,7 +41,5 @@ export default function WhereAreYouNow() {
         </div>
         <p className="mt-4 text-[11px] uppercase tracking-[.18em] text-white/40">{t('wayn.footer')}</p>
       </div>
-      {triageOpen && <Triage onClose={() => setTriageOpen(false)} />}
-    </>
   );
 }
