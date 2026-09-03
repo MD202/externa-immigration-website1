@@ -1303,9 +1303,10 @@ export const translations = {
       r2key: { en: "Provincial · operate then nominate" },
       ont: {
         l: { en: "Ontario — OINP Entrepreneur Stream" },
-        b: { en: "Ontario's stream targets established business owners with a minimum net worth, an active business plan, and a performance deposit." },
-        b2: { en: "Toronto and the GTA are competitive; the scoring and deposit thresholds are among the higher ones, but the market is there to support the plan." },
-        key: { en: "Ontario · higher thresholds" },
+        status: { en: "Currently closed" },
+        b: { en: "Ontario's OINP Entrepreneur Stream is currently closed to new registrations. We track when it reopens and whether your profile would qualify when it does." },
+        b2: { en: "If Ontario is your target, the federal Start-up Visa or an owner-operator work permit can be the way in while the provincial stream stays closed." },
+        key: { en: "Ontario · closed to new applications" },
       },
       bc: {
         l: { en: "British Columbia — BC PNP Entrepreneur" },
@@ -1314,10 +1315,16 @@ export const translations = {
         key: { en: "BC · regional pilot" },
       },
       ab: {
-        l: { en: "Alberta & Atlantic streams" },
-        b: { en: "Alberta and the Atlantic provinces run entrepreneur streams with lower thresholds and, in the Atlantic, settlement-focused criteria." },
-        b2: { en: "Lower capital requirements, but the business has to make sense for the community and the numbers have to hold." },
-        key: { en: "Alberta/Atlantic · lower capital" },
+        l: { en: "Alberta — AAIP Entrepreneur Streams" },
+        b: { en: "Alberta runs entrepreneur streams through the AAIP with lower net-worth and deposit thresholds than Ontario or BC." },
+        b2: { en: "Lower capital requirements, but the business has to make sense for the province and the numbers have to hold." },
+        key: { en: "Alberta · lower capital" },
+      },
+      atlantic: {
+        l: { en: "Atlantic — AIP & Provincial Entrepreneur" },
+        b: { en: "The Atlantic provinces — New Brunswick, Nova Scotia, PEI and Newfoundland — run entrepreneur routes with settlement-focused criteria and lower thresholds." },
+        b2: { en: "Tied to a specific community and its business needs; the plan has to show genuine intent to settle and operate there." },
+        key: { en: "Atlantic · community-tied" },
       },
     },
     steps: {
