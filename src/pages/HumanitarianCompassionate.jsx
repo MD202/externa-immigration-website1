@@ -56,7 +56,7 @@ export default function HumanitarianCompassionate() {
           </div>
         </div>
       </section>
-      <TextSection heading={t('hc.honesty.heading')} paragraphs={[t('hc.honesty.p1'), t('hc.honesty.p2')]} variant="light" pad={PAD} />
+      <TextSection heading={t('hc.honesty.heading')} paragraphs={[t('hc.honesty.p1')]} variant="light" pad={PAD} />
       <section className="bg-[#FBFAF8] px-5 py-14 text-center lg:py-20">
         <div className="mx-auto max-w-[720px]">
           <Reveal>
