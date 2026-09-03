@@ -4,13 +4,18 @@ import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import WhereAreYouNow from '@/components/site/WhereAreYouNow';
 import Triage from '@/components/site/Triage';
+import { Image } from '@/components/ui/image';
 
 export default function Hero() {
   const { t } = useLanguage();
   const [triageOpen, setTriageOpen] = useState(false);
+  const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/ac79d3ba0_generated_image.png';
   return (
     <section id="top" className="relative min-h-screen overflow-hidden bg-[#13203F] text-white">
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true" style={{ background: 'radial-gradient(55% 45% at 15% 12%, rgba(184,134,11,0.14), transparent 70%)' }} />
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <Image src={HERO_IMG} fittingType="fill" className="h-full w-full opacity-40" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#13203F]/70 via-[#13203F]/40 to-[#13203F]/85" />
+      </div>
       <div className="relative mx-auto grid min-h-screen max-w-[1440px] items-center gap-12 px-5 pt-32 pb-16 lg:grid-cols-2 lg:px-[8vw]">
         <div>
           <h1 className="hero-in max-w-xl font-heading text-[40px] leading-[1.05] sm:text-5xl lg:text-[52px]" style={{ animationDelay: '0.1s' }}>

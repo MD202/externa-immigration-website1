@@ -20,7 +20,7 @@ export default function WhyRepresentation() {
           <h2 className="section-title text-white">{t('home.whyrep.heading1')} {t('home.whyrep.heading2')}</h2>
           <p className="mt-6 text-lg leading-relaxed text-white/60">{t('home.whyrep.intro')}</p>
         </Reveal>
-        <HoverRevealCards rows={rows} variant="dark" start={1} />
+        <HoverRevealCards rows={rows} variant="dark" />
         <Reveal className="mt-12 max-w-2xl">
           <p className="text-lg leading-relaxed text-white/70">{t('home.whyrep.close1')}</p>
           <p className="mt-4 font-heading text-2xl italic text-white">{t('home.whyrep.close2')}</p>

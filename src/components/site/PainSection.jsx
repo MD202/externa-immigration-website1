@@ -13,7 +13,7 @@ export default function PainSection() {
           <p className="eyebrow">{t('home.pain.eyebrow')}</p>
           <h2 className="section-title">{t('home.pain.heading')}</h2>
         </Reveal>
-        <HoverRevealCards rows={rows} variant="light" start={1} />
+        <HoverRevealCards rows={rows} variant="light" columns={3} />
       </div>
     </section>
   );
