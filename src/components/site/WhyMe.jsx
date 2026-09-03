@@ -3,10 +3,12 @@ import Reveal from '@/components/site/Reveal';
 
 export default function WhyMe() {
   const { t } = useLanguage();
-  const points = [1, 2, 3, 4, 5, 6, 7].map((i) => ({ lead: t(`home.whyme.p${i}l`), body: t(`home.whyme.p${i}b`) }));
+  // Only the languages and evenings points remain; the attacking points were removed per request
+  const points = [5, 6].map((i) => ({ lead: t(`home.whyme.p${i}l`), body: t(`home.whyme.p${i}b`) }));
   return (
-    <section className="bg-[#1E2A4A] px-5 py-20 text-white lg:px-[8vw] lg:py-40">
-      <div className="mx-auto grid max-w-[1240px] gap-14 lg:grid-cols-12">
+    <section className="relative overflow-hidden bg-[#1E2A4A] px-5 py-20 text-white lg:px-[8vw] lg:py-40">
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true" style={{ background: 'linear-gradient(120deg, rgba(184,134,11,0.10), transparent 45%)' }} />
+      <div className="relative mx-auto grid max-w-[1240px] gap-14 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-32">
             <p className="eyebrow">{t('home.whyme.eyebrow')}</p>
@@ -24,9 +26,6 @@ export default function WhyMe() {
               </Reveal>
             ))}
           </div>
-          <Reveal className="mt-10 max-w-xl">
-            <p className="text-base leading-relaxed text-white/55">{t('home.whyme.close')}</p>
-          </Reveal>
         </div>
       </div>
     </section>

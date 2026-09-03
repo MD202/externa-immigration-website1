@@ -629,12 +629,12 @@ export const translations = {
   },
   home: {
     hero: {
-      h1: { en: "Someone qualified will look at your situation and tell you the truth about it." },
-      h1gold: { en: "Including when the truth is that you shouldn't apply." },
-      list: { en: "Family sponsorship · Humanitarian and compassionate applications · Refused applications · Healthcare professionals and business owners applying from abroad" },
+      h1: { en: "Someone qualified will look at your situation and give you a straight, honest answer." },
+      h1gold: { en: "And a clear path forward — even when the right answer is to wait." },
+      list: { en: "Family sponsorship · Humanitarian & compassionate · Refusals and appeals · Healthcare professionals · Entrepreneurs from abroad" },
       book: { en: "Book a consultation" },
       where: { en: "Where are you now?" },
-      foot: { en: "Evening and weekend appointments · English · தமிழ் · हिंदी" },
+      foot: { en: "Flexible appointments, multilingual · Evenings & weekends · English · தமிழ் · हिंदी" },
     },
     pain: {
       eyebrow: { en: "YOU'RE NOT THE FIRST PERSON TO ARRIVE HERE LIKE THIS" },
@@ -659,6 +659,7 @@ export const translations = {
     },
     whyrep: {
       eyebrow: { en: "WHY REPRESENTATION MATTERS" },
+      openquote: { en: "Difficult and hopeless are not the same thing. Usually it means nobody has looked at the file properly yet." },
       heading1: { en: "The forms are free." },
       heading2: { en: "The mistakes cost years." },
       intro: { en: "Anyone can download an application. That's not the hard part, and it's not where files fail. They fail in the same handful of ways, over and over, and almost all of them are invisible until it's far too late to fix." },
@@ -685,6 +686,12 @@ export const translations = {
       licensee: { en: "Malathi Dhandapani · RCIC-IRB · LICENCE R709272" },
       cta: { en: "Verify on the public register" },
       foot: { en: "If anyone advising you — anywhere in the world — cannot give you a licence number you can check, stop there." },
+      badgeLic: { en: "RCIC-IRB Licensed" },
+      badgeLicSub: { en: "Licence R709272 · Regulated by the CICC" },
+      badgeCapic: { en: "CAPIC Member" },
+      badgeCapicSub: { en: "Canadian Association of Professional Immigration Consultants" },
+      badgeIrb: { en: "IRB Representation" },
+      badgeIrbSub: { en: "Authorized before the Immigration and Refugee Board" },
     },
     focus: {
       eyebrow: { en: "WHERE I FOCUS" },

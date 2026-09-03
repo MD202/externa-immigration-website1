@@ -10,6 +10,7 @@ export default function Hero() {
   const [triageOpen, setTriageOpen] = useState(false);
   return (
     <section id="top" className="relative min-h-screen overflow-hidden bg-[#13203F] text-white">
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true" style={{ background: 'radial-gradient(55% 45% at 15% 12%, rgba(184,134,11,0.14), transparent 70%)' }} />
       <div className="relative mx-auto grid min-h-screen max-w-[1440px] items-center gap-12 px-5 pt-32 pb-16 lg:grid-cols-2 lg:px-[8vw]">
         <div>
           <h1 className="hero-in max-w-xl font-heading text-[40px] leading-[1.05] sm:text-5xl lg:text-[52px]" style={{ animationDelay: '0.1s' }}>
