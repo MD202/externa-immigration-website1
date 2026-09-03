@@ -849,7 +849,7 @@ export const translations = {
       description: { en: "Published consultation and representation fees. Quick question $50, full consultation $175, application review from $399, full representation from $2,500. Canadian dollars, plus HST. Government fees separate, never marked up." },
     },
     heading: { en: "Fees" },
-    intro: { en: "Published, because you shouldn't have to ask. All amounts in Canadian dollars, plus HST where applicable. Government fees are separate, shown on their own, and never marked up." },
+    intro: { en: "Published, because you shouldn't have to ask. Three tiers — full representation, guided, and file review — benchmarked against the market and priced below where they compete. All amounts in Canadian dollars, plus HST. Government fees are separate, listed on their own, and never marked up." },
     card1: { name: { en: "Quick question" }, price: { en: "$50" }, desc: { en: "15 minutes · One specific question." } },
     card2: { name: { en: "Full consultation" }, price: { en: "$175" }, badge: { en: "MOST PEOPLE START HERE" }, desc: { en: "One hour · Full assessment with a written summary. Credited to your service agreement if you retain me within 15 days." } },
     card3: { name: { en: "Application review" }, price: { en: "from $399" }, desc: { en: "5 business days · I review what you've already prepared." } },
