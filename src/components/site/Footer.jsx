@@ -5,6 +5,7 @@ import { useLanguage } from '@/lib/LanguageContext';
 
 const CICC_URL = 'https://register.college-ic.ca/';
 const PHONE = '+1-647-909-9603';
+const MAPS_URL = 'https://www.google.com/maps/search/?api=1&query=Markham%2C%20Ontario%2C%20Canada';
 
 const TikTokIcon = ({ className }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
@@ -36,7 +37,8 @@ export default function Footer() {
               <span className="font-heading text-xl leading-tight">Externa<span className="mt-1 block font-body text-[10px] uppercase tracking-[.18em] text-white/55">Immigration Solutions Inc</span></span>
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/45">{t('foot.col1.desc')}</p>
-            <p className="mt-4 flex items-center gap-2 text-sm text-white/55"><MapPin className="h-4 w-4 text-[#B8860B]" /> {t('foot.col1.location')}</p>
+            <a href={CICC_URL} target="_blank" rel="noopener noreferrer" className="mt-4 flex items-center gap-2 text-sm text-white/55 transition hover:text-[#B8860B]"><BadgeCheck className="h-4 w-4 text-[#B8860B]" /> {t('foot.col1.licence')}</a>
+            <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="mt-1 flex items-center gap-2 text-sm text-white/55 transition hover:text-[#B8860B]"><MapPin className="h-4 w-4 text-[#B8860B]" /> {t('foot.col1.location')}</a>
             <p className="mt-1 text-sm text-white/55">{t('foot.col1.remote')}</p>
             <p className="mt-1 text-sm text-white/55">{t('foot.col1.langs')}</p>
             <a href={`tel:${PHONE}`} className="mt-2 flex items-center gap-2 text-sm text-white/55 transition hover:text-[#B8860B]"><Phone className="h-4 w-4 text-[#B8860B]" /> {PHONE}</a>
@@ -72,8 +74,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-b border-white/10 py-8 text-center text-xs leading-relaxed text-white/50">
-          <p>{t('foot.legal.licensee')}</p>
-          <div className="mt-4 flex items-center justify-center gap-3">
+          <div className="flex items-center justify-center gap-3">
             <span className="border border-white/20 px-3 py-1 font-mono uppercase tracking-[.12em] text-white/60">RCIC Licensee</span>
             <span className="border border-white/20 px-3 py-1 font-mono uppercase tracking-[.12em] text-white/60">CAPIC Member</span>
           </div>

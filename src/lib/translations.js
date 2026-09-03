@@ -637,7 +637,8 @@ export const translations = {
       list: { en: "Regulated RCIC-IRB representation for appeals, sponsorship, and professional pathways — clear, candid, and built on a plan you can verify." },
       book: { en: "Book a consultation" },
       where: { en: "Where do you stand?" },
-      foot: { en: "Flexible appointments · Evenings & weekends · Multilingual English · தமிழ் · हिंदी" },
+      foot: { en: "Flexible appointments · Evenings & weekends" },
+      foot2: { en: "Multilingual · English · தமிழ் · हिंदी" },
     },
     pain: {
       eyebrow: { en: "YOU'RE NOT THE FIRST PERSON TO ARRIVE HERE LIKE THIS" },
@@ -914,6 +915,7 @@ export const translations = {
   foot: {
     col1: {
       desc: { en: "Canadian immigration advice and representation." },
+      licence: { en: "RCIC-IRB · Licence R709272 · Verify at register.college-ic.ca" },
       location: { en: "Markham, Ontario" },
       remote: { en: "Remote first" },
       langs: { en: "English · தமிழ் · हिंदी" },

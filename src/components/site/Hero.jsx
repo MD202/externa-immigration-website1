@@ -33,6 +33,9 @@ export default function Hero() {
           <p className="hero-in mt-4 text-xs uppercase tracking-[.18em] text-white/45" style={{ animationDelay: '0.8s' }}>
             {t('home.hero.foot')}
           </p>
+          <p className="hero-in mt-1 text-xs uppercase tracking-[.18em] text-white/45" style={{ animationDelay: '0.9s' }}>
+            {t('home.hero.foot2')}
+          </p>
         </div>
         <WhereAreYouNow onOpenTriage={() => setTriageOpen(true)} />
       </div>

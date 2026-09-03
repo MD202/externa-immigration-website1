@@ -1,8 +1,10 @@
 import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Phone, ArrowUpRight } from 'lucide-react';
 import Logo from '@/components/site/Logo';
 import { useLanguage } from '@/lib/LanguageContext';
+
+const PHONE = '+1-647-909-9603';
 
 export default function Header() {
   const { t } = useLanguage();
@@ -71,8 +73,7 @@ export default function Header() {
             <Link to="/fees" className="text-sm text-[#1E2A4A]/70 transition hover:text-[#B8860B]">{t('nav.fees')}</Link>
             {dropdown(t('nav.about'), aboutLinks, 'about')}
           </nav>
-          <span className="h-7 w-px bg-[#1E2A4A]/15" aria-hidden="true" />
-          <Link to="/strategy-session" className="bg-[#DC2626] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#B91C1C]">{t('nav.bookCta')}</Link>
+          <a href={`tel:${PHONE}`} className="flex items-center gap-2 text-sm text-[#1E2A4A]/70 transition hover:text-[#B8860B]"><Phone className="h-4 w-4 text-[#B8860B]" /> {PHONE}</a>
         </div>
         <div className="flex items-center gap-3 lg:hidden">
           <Link to="/strategy-session" className="bg-[#DC2626] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#B91C1C]">{t('nav.bookCta')}</Link>
@@ -96,6 +97,7 @@ export default function Header() {
           ))}
         </nav>
       )}
+      <Link to="/strategy-session" className="fixed bottom-6 right-6 z-40 hidden items-center gap-2 rounded-full bg-[#DC2626] px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-black/20 transition hover:bg-[#B91C1C] lg:inline-flex">{t('nav.bookCta')} <ArrowUpRight className="h-4 w-4" /></Link>
     </header>
   );
 }

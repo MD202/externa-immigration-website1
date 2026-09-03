@@ -6,7 +6,7 @@ import { Image } from '@/components/ui/image';
 
 export default function CloseSection() {
   const { t } = useLanguage();
-  const CLOSE_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/8c7c1d0fd_generated_image.png';
+  const CLOSE_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/0c3d08ea9_generated_image.png';
   return (
     <section className="relative overflow-hidden bg-[#FBFAF8] px-5 py-20 text-center lg:py-44">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
