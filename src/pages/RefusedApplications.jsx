@@ -9,6 +9,8 @@ import Reveal from '@/components/site/Reveal';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 
+const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/90dda2851_generated_image.png';
+
 export default function RefusedApplications() {
   const { t } = useLanguage();
   usePageMeta(t('refused.meta.title'), t('refused.meta.description'));
@@ -19,14 +21,10 @@ export default function RefusedApplications() {
     { n: '04', title: t('refused.process.s4t'), body: t('refused.process.s4b') },
     { n: '05', title: t('refused.process.s5t'), body: t('refused.process.s5b') },
   ];
-  const also = [
-    { lead: t('refused.also.r1l'), body: t('refused.also.r1b') },
-    { lead: t('refused.also.r2l'), body: t('refused.also.r2b') },
-  ];
   return (
     <main className="bg-white">
       <Header />
-      <ServiceHero eyebrow={t('refused.hero.eyebrow')} headline={t('refused.hero.headline')} body={t('refused.hero.body')} ctaLabel={t('refused.hero.cta')} ctaTo="/strategy-session" />
+      <ServiceHero eyebrow={t('refused.hero.eyebrow')} headline={t('refused.hero.headline')} body={t('refused.hero.body')} ctaLabel={t('refused.hero.cta')} ctaTo="/strategy-session" image={HERO_IMG} />
       <PatternRows heading={t('refused.mistake.heading')} rows={[{ lead: t('refused.mistake.lead'), body: t('refused.mistake.body') }]} close={t('refused.mistake.close')} variant="light" />
       <NumberedProcess eyebrow={t('refused.process.eyebrow')} steps={process} variant="dark" />
       <section id="fairness" className="bg-[#FBFAF8] px-5 py-28 lg:px-[8vw] lg:py-40">
@@ -52,10 +50,10 @@ export default function RefusedApplications() {
             <p className="mt-6 text-lg leading-relaxed text-white/60">{t('refused.appeals.p1')}</p>
             <p className="mt-4 text-lg leading-relaxed text-white/60">{t('refused.appeals.p2')}</p>
             <p className="mt-4 text-lg leading-relaxed text-white/60">{t('refused.appeals.p3')}</p>
+            <p className="mt-4 text-lg leading-relaxed text-white/60">{t('refused.appeals.p4')}</p>
           </Reveal>
         </div>
       </section>
-      <PatternRows eyebrow={t('refused.also.heading')} heading={t('refused.also.sub')} rows={also} variant="light" />
       <section className="bg-[#FBFAF8] px-5 py-28 text-center lg:py-36">
         <div className="mx-auto max-w-[720px]">
           <Reveal>

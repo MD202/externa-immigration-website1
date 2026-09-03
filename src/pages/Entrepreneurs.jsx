@@ -2,48 +2,36 @@ import { useLanguage } from '@/lib/LanguageContext';
 import { usePageMeta } from '@/lib/usePageMeta';
 import ServiceHero from '@/components/service/ServiceHero';
 import PatternRows from '@/components/service/PatternRows';
+import NumberedProcess from '@/components/service/NumberedProcess';
+import ServiceList from '@/components/service/ServiceList';
 import TextSection from '@/components/service/TextSection';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
-import Reveal from '@/components/site/Reveal';
+
+const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/e0c6dad26_generated_image.png';
 
 export default function Entrepreneurs() {
   const { t } = useLanguage();
   usePageMeta(t('entrepreneurs.meta.title'), t('entrepreneurs.meta.description'));
+  const programs = [1, 2, 3, 4].map((i) => ({ lead: t(`entrepreneurs.programs.r${i}l`), body: t(`entrepreneurs.programs.r${i}b`) }));
+  const steps = [
+    { n: '01', title: t('entrepreneurs.steps.s1t'), body: t('entrepreneurs.steps.s1b') },
+    { n: '02', title: t('entrepreneurs.steps.s2t'), body: t('entrepreneurs.steps.s2b') },
+    { n: '03', title: t('entrepreneurs.steps.s3t'), body: t('entrepreneurs.steps.s3b') },
+    { n: '04', title: t('entrepreneurs.steps.s4t'), body: t('entrepreneurs.steps.s4b') },
+    { n: '05', title: t('entrepreneurs.steps.s5t'), body: t('entrepreneurs.steps.s5b') },
+  ];
   const hear = [1, 2, 3, 4, 5, 6].map((i) => ({ lead: t(`entrepreneurs.hear.r${i}l`), body: t(`entrepreneurs.hear.r${i}b`) }));
   const dos = [1, 2, 3, 4, 5, 6].map((i) => t(`entrepreneurs.do.i${i}`));
-  const donts = [1, 2, 3].map((i) => t(`entrepreneurs.dont.i${i}`));
   return (
     <main className="bg-[#FBFAF8]">
       <Header />
-      <ServiceHero eyebrow={t('entrepreneurs.hero.eyebrow')} headline={t('entrepreneurs.hero.headline')} ctaLabel={t('entrepreneurs.hero.cta')} ctaTo="/strategy-session" />
-      <TextSection heading={t('entrepreneurs.read.heading')} paragraphs={[t('entrepreneurs.read.p1'), t('entrepreneurs.read.p2'), t('entrepreneurs.read.p3')]} variant="dark" centered />
+      <ServiceHero eyebrow={t('entrepreneurs.hero.eyebrow')} headline={t('entrepreneurs.hero.headline')} body={t('entrepreneurs.hero.body')} ctaLabel={t('entrepreneurs.hero.cta')} ctaTo="/strategy-session" image={HERO_IMG} />
+      <PatternRows heading={t('entrepreneurs.programs.heading')} intro={t('entrepreneurs.programs.intro')} rows={programs} variant="light" />
+      <NumberedProcess eyebrow={t('entrepreneurs.steps.eyebrow')} heading={t('entrepreneurs.steps.heading')} steps={steps} variant="dark" />
       <PatternRows heading={t('entrepreneurs.hear.heading')} rows={hear} variant="light" />
-      <section className="bg-[#1E2A4A] px-5 py-20 text-white lg:px-[8vw] lg:py-40">
-        <div className="mx-auto max-w-[1240px]">
-          <Reveal className="max-w-2xl">
-            <h2 className="section-title text-white">{t('entrepreneurs.dd.heading')}</h2>
-          </Reveal>
-          <div className="mt-14 grid gap-12 lg:grid-cols-2">
-            <Reveal>
-              <p className="font-heading text-xl text-[#B8860B]">{t('entrepreneurs.do.heading')}</p>
-              <ul className="mt-5 border-t border-white/14">
-                {dos.map((d, i) => <li key={i} className="border-b border-white/14 py-4 text-base text-white/75">{d}</li>)}
-              </ul>
-            </Reveal>
-            <Reveal>
-              <p className="font-heading text-xl text-[#B8860B]">{t('entrepreneurs.dont.heading')}</p>
-              <ul className="mt-5 border-t border-white/14">
-                {donts.map((d, i) => <li key={i} className="border-b border-white/14 py-4 text-base text-white/75">{d}</li>)}
-              </ul>
-            </Reveal>
-          </div>
-          <Reveal className="mt-8 max-w-2xl">
-            <p className="text-base leading-relaxed text-white/60">{t('entrepreneurs.dd.note')}</p>
-          </Reveal>
-        </div>
-      </section>
-      <TextSection heading={t('entrepreneurs.ask.heading')} paragraphs={[t('entrepreneurs.ask.body')]} ctaLabel={t('entrepreneurs.ask.cta')} ctaTo="/strategy-session" variant="light" />
+      <ServiceList heading={t('entrepreneurs.do.heading')} items={dos} />
+      <TextSection paragraphs={[t('entrepreneurs.close.body')]} ctaLabel={t('entrepreneurs.close.cta')} ctaTo="/strategy-session" variant="light" />
       <Footer />
     </main>
   );

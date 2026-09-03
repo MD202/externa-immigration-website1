@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
@@ -5,11 +6,15 @@ import { usePageMeta } from '@/lib/usePageMeta';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import Reveal from '@/components/site/Reveal';
+import { Image } from '@/components/ui/image';
+
+const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/9642c4524_generated_image.png';
 
 export default function OtherServices() {
   const { t } = useLanguage();
   usePageMeta(t('other.meta.title'), t('other.meta.description'));
-  const entries = [
+  const [tab, setTab] = useState('individual');
+  const individual = [
     { id: 'express-entry', title: t('other.e1t'), body: t('other.e1b') },
     { id: 'pnp', title: t('other.e2t'), body: t('other.e2b') },
     { id: 'work-permits', title: t('other.e3t'), body: t('other.e3b') },
@@ -21,29 +26,50 @@ export default function OtherServices() {
     { id: 'pr-card', title: t('other.e9t'), body: t('other.e9b'), link: { label: t('other.e9link'), to: '/refused-applications' } },
     { id: 'citizenship', title: t('other.e10t'), body: t('other.e10b') },
     { id: 'prra', title: t('other.e11t'), body: t('other.e11b') },
-    { id: 'employer-services', title: t('other.e12t'), body: t('other.e12b') },
   ];
+  const business = [
+    { id: 'lmia', title: t('other.business.b1t'), body: t('other.business.b1b') },
+    { id: 'compliance', title: t('other.business.b2t'), body: t('other.business.b2b') },
+    { id: 'employer-permits', title: t('other.business.b3t'), body: t('other.business.b3b') },
+  ];
+  const cards = tab === 'individual' ? individual : business;
   return (
     <main className="bg-[#FBFAF8]">
       <Header />
-      <section className="px-5 pt-32 pb-14 lg:px-[8vw] lg:pt-40">
-        <div className="mx-auto max-w-[1240px]">
+      <section className="relative overflow-hidden bg-[#13203F] text-white">
+        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+          <Image src={HERO_IMG} fittingType="fill" className="h-full w-full opacity-40" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#13203F]/90 via-[#13203F]/72 to-[#13203F]/92" />
+        </div>
+        <div className="relative mx-auto max-w-[1240px] px-5 pt-32 pb-16 lg:px-[8vw]">
           <Reveal className="max-w-2xl">
-            <h1 className="font-heading text-[40px] leading-[1.05] text-[#1E2A4A] sm:text-5xl lg:text-[64px]">{t('other.heading')}</h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-[#1E2A4A]/65">{t('other.intro')}</p>
+            <h1 className="font-heading text-[40px] leading-[1.05] sm:text-5xl lg:text-[64px]">{t('other.heading')}</h1>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/65">{t('other.intro')}</p>
           </Reveal>
         </div>
       </section>
-      <section className="px-5 pb-24 lg:px-[8vw] lg:pb-32">
+      <section className="px-5 pt-16 lg:px-[8vw] lg:pt-20">
         <div className="mx-auto max-w-[1240px]">
-          <div className="border-t border-[#1E2A4A]/10">
-            {entries.map((e) => (
+          <div className="inline-flex rounded-full border border-[#1E2A4A]/15 bg-white p-1">
+            <button onClick={() => setTab('individual')} className={`rounded-full px-6 py-2.5 text-sm font-semibold transition ${tab === 'individual' ? 'bg-[#1E2A4A] text-white' : 'text-[#1E2A4A]/60 hover:text-[#1E2A4A]'}`}>Individual</button>
+            <button onClick={() => setTab('business')} className={`rounded-full px-6 py-2.5 text-sm font-semibold transition ${tab === 'business' ? 'bg-[#1E2A4A] text-white' : 'text-[#1E2A4A]/60 hover:text-[#1E2A4A]'}`}>Business</button>
+          </div>
+        </div>
+      </section>
+      <section className="px-5 pb-24 pt-10 lg:px-[8vw] lg:pb-32">
+        <div className="mx-auto max-w-[1240px]">
+          {tab === 'business' && (
+            <Reveal className="mb-8 max-w-2xl">
+              <p className="text-lg leading-relaxed text-[#1E2A4A]/65">{t('other.business.intro')}</p>
+            </Reveal>
+          )}
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {cards.map((e) => (
               <Reveal key={e.id}>
-                <article id={e.id} className="group relative scroll-mt-32 border-b border-[#1E2A4A]/10 py-10 pl-6 transition hover:bg-[#1E2A4A]/[.02]">
-                  <span className="absolute left-0 top-0 h-full w-0.5 origin-top scale-y-0 bg-[#B8860B] transition-transform duration-200 group-hover:scale-y-100" />
-                  <h2 className="font-heading text-2xl text-[#1E2A4A]">{e.title}</h2>
-                  <p className="mt-3 max-w-3xl text-base leading-relaxed text-[#1E2A4A]/65">{e.body}</p>
-                  {e.link && <Link to={e.link.to} className="link-arrow mt-4">{e.link.label} <ArrowRight className="h-4 w-4" /></Link>}
+                <article id={e.id} className="group flex h-full flex-col scroll-mt-32 border border-[#1E2A4A]/10 bg-white p-7 transition hover:-translate-y-1 hover:border-[#B8860B]/40 hover:shadow-[0_18px_40px_-24px_rgba(30,42,74,0.35)]">
+                  <h2 className="font-heading text-xl text-[#1E2A4A]">{e.title}</h2>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-[#1E2A4A]/65">{e.body}</p>
+                  {e.link && <Link to={e.link.to} className="link-arrow mt-5 self-start">{e.link.label} <ArrowRight className="h-4 w-4" /></Link>}
                 </article>
               </Reveal>
             ))}

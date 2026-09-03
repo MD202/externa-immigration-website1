@@ -1,11 +1,18 @@
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
+import { Image } from '@/components/ui/image';
 
-export default function ServiceHero({ eyebrow, headline, body, ctaLabel, ctaTo, secondary, redButton = true, size = 'default', variant = 'dark' }) {
+export default function ServiceHero({ eyebrow, headline, body, ctaLabel, ctaTo, secondary, redButton = true, size = 'default', variant = 'dark', image }) {
   const dark = variant === 'dark';
   const headlineSize = size === 'quiet' ? 'text-[40px] sm:text-5xl lg:text-[56px]' : 'text-[40px] sm:text-5xl lg:text-[64px]';
   return (
     <section className={`relative flex min-h-[88vh] items-center overflow-hidden ${dark ? 'bg-[#13203F] text-white' : 'bg-[#FBFAF8] text-[#1E2A4A]'}`}>
+      {image && (
+        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+          <Image src={image} fittingType="fill" className="h-full w-full opacity-40" />
+          <div className={`absolute inset-0 ${dark ? 'bg-gradient-to-br from-[#13203F]/90 via-[#13203F]/72 to-[#13203F]/92' : 'bg-gradient-to-br from-[#FBFAF8]/88 via-[#FBFAF8]/72 to-[#FBFAF8]/92'}`} />
+        </div>
+      )}
       <div className="relative mx-auto w-full max-w-[1240px] px-5 pt-32 pb-16 lg:px-[8vw]">
         <p className="eyebrow">{eyebrow}</p>
         <h1 className={`mt-5 max-w-3xl font-heading leading-[1.05] ${headlineSize}`}>{headline}</h1>
