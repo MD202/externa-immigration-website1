@@ -23,9 +23,14 @@ const howWeWork = [
 
 const consultations = [
   { name: 'Full consultation', price: '$175', detail: '60 minutes · Written summary. Credited to your package within 15 days.', featured: true },
-  { name: 'Standard', price: '$110', detail: '30 minutes.' },
-  { name: 'Quick question', price: '$50', detail: '15 minutes · One specific question.' },
-  { name: 'Eligibility assessment', price: '$45', detail: 'Eligibility only.' },
+  { name: 'Quick sync', price: '$50', detail: '15 minutes · One specific question.' },
+  { name: 'Refusal analysis', price: '$650', detail: 'Notes request, file review, and a written opinion. Includes ATIP.', featured: true },
+];
+
+const tierToggles = [
+  { key: 'full', label: 'Full Representation' },
+  { key: 'guided', label: 'DIY (with our guidance)' },
+  { key: 'review', label: 'Review Only' },
 ];
 
 const categories = [
@@ -249,7 +254,13 @@ export default function Fees() {
   const { t } = useLanguage();
   usePageMeta(t('fees.meta.title'), t('fees.meta.description'));
   const [tab, setTab] = useState('pr');
+  const [show, setShow] = useState({ full: true, guided: true, review: true });
   const active = categories.find((c) => c.id === tab);
+  const toggleTier = (key) => {
+    const next = { ...show, [key]: !show[key] };
+    const count = Object.values(next).filter(Boolean).length;
+    if (count >= 1) setShow(next);
+  };
   return (
     <main className="bg-[#FBFAF8]">
       <Header />
@@ -282,12 +293,20 @@ export default function Fees() {
           <Reveal className="mt-6 max-w-2xl">
             <h2 className="section-title">One representation tier, two advisory tiers.</h2>
           </Reveal>
-          <Reveal className="mt-10"><TierMatrix /></Reveal>
+          <Reveal className="mt-8">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="text-xs font-semibold uppercase tracking-[.12em] text-[#1E2A4A]/50">Compare</span>
+              {tierToggles.map((tg) => (
+                <button key={tg.key} onClick={() => toggleTier(tg.key)} className={`rounded-full px-4 py-2 text-xs font-semibold transition lg:text-sm ${show[tg.key] ? 'bg-[#1E2A4A] text-white' : 'border border-[#1E2A4A]/15 bg-white text-[#1E2A4A]/40'}`}>{tg.label}</button>
+              ))}
+            </div>
+          </Reveal>
+          <Reveal className="mt-6"><TierMatrix show={show} /></Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {[
-              { h: 'Full Representation', b: 'I am your representative on the record. I complete it, I submit it, and IRCC deals with me.' },
-              { h: 'Guided', b: 'You submit under your own name. I tell you which route, what evidence, and what will sink you. You prepare it, I review every page, and you file it. I am not on the record.' },
-              { h: 'File Review', b: 'You\'ve already prepared everything. I read it and tell you what\'s wrong before IRCC does.' },
+              { h: 'Full Representation', b: 'We are your representative on the record. We complete it, we submit it, and IRCC deals with us.' },
+              { h: 'DIY (with our guidance)', b: 'You submit under your own name. We tell you which route, what evidence, and what will sink you. You prepare it, we review every page, and you file it. We are not on the record.' },
+              { h: 'Review Only', b: 'You\'ve already prepared everything. We read it and tell you what\'s wrong before IRCC does.' },
             ].map((c, i) => (
               <Reveal key={i} delay={i * 60}>
                 <div className={`h-full p-6 ${i === 0 ? 'bg-[#1E2A4A] text-white' : 'border border-[#1E2A4A]/12 bg-white'}`}>
@@ -344,14 +363,8 @@ export default function Fees() {
               </Reveal>
             ))}
           </div>
-          <Reveal className="mt-6">
-            <div className="flex flex-col items-start gap-4 border-l-2 border-[#8C2F39] bg-[#FBF6F6] p-6 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                <p className="flex items-center gap-2 font-heading text-xl text-[#1E2A4A]"><Star className="h-5 w-5 fill-[#B8860B] text-[#B8860B]" /> Refusal analysis — $650</p>
-                <p className="mt-2 max-w-2xl text-sm leading-relaxed text-[#1E2A4A]/70">Notes request, file review, and a written opinion. Real work for the money, and it converts to representation at a high rate. Includes ATIP.</p>
-              </div>
-              <Link to="/strategy-session" className="btn btn-primary shrink-0">Book a consultation <ArrowRight className="h-4 w-4" /></Link>
-            </div>
+          <Reveal className="mt-8">
+            <Link to="/strategy-session" className="btn btn-primary">Book a consultation <ArrowRight className="h-4 w-4" /></Link>
           </Reveal>
         </div>
       </section>
