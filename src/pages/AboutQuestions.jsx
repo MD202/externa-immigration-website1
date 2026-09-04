@@ -86,9 +86,18 @@ export default function AboutQuestions() {
           <Reveal>
             <p className="eyebrow">OUR APPROACH</p>
             <h2 className="mt-4 font-heading text-3xl leading-tight text-[#1E2A4A] sm:text-4xl">{t('about.s2.heading')}</h2>
+            <p className="mt-6 font-heading text-xl leading-snug text-[#1E2A4A]/85">{t('about.s2.lead')}</p>
           </Reveal>
           <Reveal delay={100}>
-            <p className="text-lg leading-relaxed text-[#1E2A4A]/70">{t('about.s2.body')}</p>
+            <div className="grid gap-5 text-lg leading-relaxed text-[#1E2A4A]/70">
+              <p>{t('about.s2.p1')}</p>
+              <p>{t('about.s2.p2')}</p>
+              <div className="grid gap-3 border-l-2 border-[#B8860B] pl-5">
+                <p className="text-[#1E2A4A]">{t('about.s2.p3')}</p>
+                <p className="text-[#1E2A4A]">{t('about.s2.p4')}</p>
+                <p className="text-[#1E2A4A]">{t('about.s2.p5')}</p>
+              </div>
+            </div>
           </Reveal>
         </div>
       </section>

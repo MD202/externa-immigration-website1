@@ -884,7 +884,12 @@ export const translations = {
     },
     s2: {
       heading: { en: "How this practice works" },
-      body: { en: "A boutique practice. You work directly with the licensed consultant who handles your file. Deliberately small — a limited number of files at a time, so complex matters get the hours they need. Focused on family sponsorship, humanitarian and compassionate applications, and refused applications; healthcare professionals and business owners applying from abroad. Published fees, staged payment — you review and sign an agreement before paying. English, Tamil and Hindi, including evening and weekend appointments. Honest assessments, including when the answer is that you shouldn't apply." },
+      lead: { en: "Externa Immigration Solutions is a licensed Canadian immigration practice, and most of our clients have never sat in an office to talk to us." },
+      p1: { en: "Some are in Canada. Others are eight time zones away, finishing a shift as a Toronto office closes. The practice is built for both — consultations by video, documents exchanged securely, files tracked online, and appointments in the evenings and at weekends. You shouldn't need to take a day off work, or live in the right city, to get proper advice." },
+      p2: { en: "The people we work with are usually trying to bring family here, sort out their status, or understand a refusal that explained nothing. Others are healthcare professionals and business owners planning a move to Canada. Few of them arrive with a straightforward file, and that suits us — it's the work we're set up for." },
+      p3: { en: "You deal with the same person throughout, from the first conversation to the decision." },
+      p4: { en: "Fees are published on this website, and everything is set out in a written agreement before any work begins." },
+      p5: { en: "We work in English, Tamil and Hindi." },
     },
     s3: {
       heading: { en: "Credentials" },
