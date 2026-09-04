@@ -88,7 +88,6 @@ export default function StrategySession() {
             <span className="font-heading text-xl">Externa</span>
           </Link>
           <blockquote className="font-heading text-4xl leading-tight">{t('strategy.asideQuote')}</blockquote>
-          <p className="text-sm leading-relaxed text-white/45">{t('strategy.asideNote')}</p>
         </aside>
         <section className="flex items-center px-5 pt-24 pb-10 sm:px-12 lg:px-[8vw]">
           <div className="mx-auto w-full max-w-2xl">
