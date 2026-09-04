@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Star, Check } from 'lucide-react';
+import { ArrowRight, Star } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import { usePageMeta } from '@/lib/usePageMeta';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import Reveal from '@/components/site/Reveal';
-import TierMatrix from '@/components/fees/TierMatrix';
 import { FeeRow } from '@/components/fees/ServiceCards';
 import AddOnsPopover from '@/components/fees/AddOnsPopover';
 import CompareModal from '@/components/fees/CompareModal';
@@ -21,16 +20,10 @@ const howWeWork = [
   { h: 'What\'s additional', b: 'Government fees are yours, never marked up. Courier, translation, interpretation, and affidavits are billed separately at cost.' },
 ];
 
-const tierCards = [
-  { key: 'full', name: 'Full Representation', desc: 'We represent you, end to end. We prepare and submit on your behalf.' },
-  { key: 'guided', name: 'DIY (with our guidance)', desc: 'You file under your own name. We guide you and review every page.' },
-  { key: 'review', name: 'Review Only', desc: 'You\'ve prepared everything. We review your work before you send it.' },
-];
-
 const consultations = [
-  { name: 'Full consultation', price: '$175', detail: '60 minutes · Written summary. Credited to your package within 15 days.', featured: true },
-  { name: 'Quick sync', price: '$50', detail: '15 minutes · One specific question.' },
-  { name: 'Refusal analysis', price: '$650', detail: 'Notes request, file review, and a written opinion. Includes ATIP.', featured: true },
+  { name: 'Full consultation', price: '$175', detail: '60 minutes. A full assessment and a written summary afterward. Credited in full toward any package if you retain us within 15 days.', featured: true },
+  { name: 'Quick sync', price: '$50', detail: '15 minutes. One specific question.' },
+  { name: 'Refusal analysis', price: '$650', detail: 'If you\'ve already been refused, start here instead. We order your file notes, read what actually happened, and give you a written opinion on your options. Includes the ATIP request.', featured: true },
 ];
 
 const categories = [
@@ -201,13 +194,8 @@ export default function Fees() {
   const { t } = useLanguage();
   usePageMeta(t('fees.meta.title'), t('fees.meta.description'));
   const [tab, setTab] = useState('pr');
-  const [show, setShow] = useState({ full: true, guided: true, review: true });
   const [compareRow, setCompareRow] = useState(null);
   const active = categories.find((c) => c.id === tab);
-  const toggleTier = (key) => {
-    const next = { ...show, [key]: !show[key] };
-    if (Object.values(next).filter(Boolean).length >= 1) setShow(next);
-  };
   return (
     <main className="bg-[#FBFAF8]">
       <Header />
@@ -221,38 +209,65 @@ export default function Fees() {
           <Reveal className="max-w-2xl">
             <p className="eyebrow text-[#B8860B]">PUBLISHED PRICING</p>
             <h1 className="mt-4 font-heading text-[40px] leading-[1.05] sm:text-5xl lg:text-[64px]">Fees</h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/65">Three tiers — full representation, DIY with our guidance, and review only. Published, because you shouldn't have to ask. All amounts in Canadian dollars, plus HST. Government fees are separate and never marked up.</p>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/65">Three ways to work with us, and every price on the page. Canadian dollars, plus HST. Government fees are separate and never marked up.</p>
+            <Link to="/strategy-session" className="btn btn-primary mt-8">Book a consultation <ArrowRight className="h-4 w-4" /></Link>
           </Reveal>
         </div>
       </section>
 
-      {/* Tiers — cards on top, compare below */}
+      {/* Start here — consultations */}
       <section className="px-5 py-16 lg:px-[8vw] lg:py-24">
+        <div className="mx-auto max-w-[1240px]">
+          <Reveal><Eyebrow>START HERE</Eyebrow></Reveal>
+          <Reveal className="mt-6 max-w-2xl">
+            <h2 className="section-title">Every file begins with a conversation.</h2>
+          </Reveal>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {consultations.map((c, i) => (
+              <Reveal key={i} delay={i * 60}>
+                <div className={`flex h-full flex-col p-7 ${c.featured ? 'border-2 border-[#B8860B] bg-white' : 'border border-[#1E2A4A]/12 bg-white'}`}>
+                  <h3 className="font-heading text-xl text-[#1E2A4A]">{c.name}</h3>
+                  <p className="mt-3 font-heading text-4xl text-[#1E2A4A]">{c.price}</p>
+                  <p className="mt-3 flex-1 text-sm leading-relaxed text-[#1E2A4A]/65">{c.detail}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal className="mt-8">
+            <Link to="/strategy-session" className="btn btn-primary">Book a consultation <ArrowRight className="h-4 w-4" /></Link>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Three ways to work with us */}
+      <section className="bg-white px-5 py-16 lg:px-[8vw] lg:py-24">
         <div className="mx-auto max-w-[1240px]">
           <Reveal><Eyebrow>CHOOSE YOUR TIER</Eyebrow></Reveal>
           <Reveal className="mt-6 max-w-2xl">
             <h2 className="section-title">Three ways to work with us.</h2>
-            <p className="mt-5 text-lg leading-relaxed text-[#1E2A4A]/65">Tap a tier to include it in the comparison. Select what you want to see.</p>
           </Reveal>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {tierCards.map((c, i) => (
-              <Reveal key={c.key} delay={i * 60}>
-                <button onClick={() => toggleTier(c.key)} className={`flex h-full w-full flex-col p-6 text-left transition ${show[c.key] ? 'border-2 border-[#B8860B] bg-white' : 'border border-[#1E2A4A]/12 bg-white opacity-60'}`}>
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-heading text-lg text-[#1E2A4A]">{c.name}</h3>
-                    <span className={`flex h-5 w-5 items-center justify-center rounded-full ${show[c.key] ? 'bg-[#B8860B] text-white' : 'border border-[#1E2A4A]/25'}`}>{show[c.key] && <Check className="h-3 w-3" />}</span>
-                  </div>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-[#1E2A4A]/65">{c.desc}</p>
-                  <span className="mt-4 text-xs font-semibold uppercase tracking-[.12em] text-[#B8860B]">{show[c.key] ? 'In comparison' : 'Tap to include'}</span>
-                </button>
-              </Reveal>
-            ))}
+          <div className="mt-8 grid gap-6 lg:grid-cols-3">
+            <Reveal>
+              <div className="h-full border-l-2 border-[#B8860B] pl-5">
+                <h3 className="font-heading text-lg text-[#1E2A4A]">Full Representation</h3>
+                <p className="mt-2 text-base leading-relaxed text-[#1E2A4A]/70">We prepare it, we submit it, and we're on the record. The immigration authority deals with us.</p>
+              </div>
+            </Reveal>
+            <Reveal delay={60}>
+              <div className="h-full border-l-2 border-[#B8860B] pl-5">
+                <h3 className="font-heading text-lg text-[#1E2A4A]">DIY</h3>
+                <p className="mt-2 text-base leading-relaxed text-[#1E2A4A]/70">You file under your own name. We tell you which route to take and what evidence you need, then review every page before you send it.</p>
+              </div>
+            </Reveal>
+            <Reveal delay={120}>
+              <div className="h-full border-l-2 border-[#B8860B] pl-5">
+                <h3 className="font-heading text-lg text-[#1E2A4A]">Review Only</h3>
+                <p className="mt-2 text-base leading-relaxed text-[#1E2A4A]/70">You've prepared everything. We read it and tell you what's wrong before the immigration authority does.</p>
+              </div>
+            </Reveal>
           </div>
-          <Reveal className="mt-10">
-            <p className="text-xs font-semibold uppercase tracking-[.2em] text-[#1E2A4A]/40">Compare</p>
-            <div className="mt-4 border border-[#1E2A4A]/10 bg-white p-4 lg:p-6">
-              <TierMatrix show={show} />
-            </div>
+          <Reveal className="mt-8">
+            <p className="text-sm leading-relaxed text-[#1E2A4A]/60">Open any service below to see exactly what each tier includes for that application.</p>
           </Reveal>
         </div>
       </section>
@@ -280,30 +295,6 @@ export default function Fees() {
         </div>
       </section>
 
-      {/* Consultations */}
-      <section className="px-5 py-16 lg:px-[8vw] lg:py-24">
-        <div className="mx-auto max-w-[1240px]">
-          <Reveal><Eyebrow>START WITH A CONVERSATION</Eyebrow></Reveal>
-          <Reveal className="mt-6 max-w-2xl">
-            <h2 className="section-title">Begin with a consultation.</h2>
-            <p className="mt-5 text-lg leading-relaxed text-[#1E2A4A]/65">Credited in full toward any package retained within 15 days.</p>
-          </Reveal>
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {consultations.map((c, i) => (
-              <Reveal key={i} delay={i * 60}>
-                <div className={`flex h-full flex-col p-7 ${c.featured ? 'border-2 border-[#B8860B] bg-white' : 'border border-[#1E2A4A]/12 bg-white'}`}>
-                  <h3 className="font-heading text-xl text-[#1E2A4A]">{c.name}</h3>
-                  <p className="mt-3 font-heading text-4xl text-[#1E2A4A]">{c.price}</p>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-[#1E2A4A]/65">{c.detail}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal className="mt-8">
-            <Link to="/strategy-session" className="btn btn-primary">Book a consultation <ArrowRight className="h-4 w-4" /></Link>
-          </Reveal>
-        </div>
-      </section>
 
       {/* Our fees by category */}
       <section className="bg-white px-5 py-16 lg:px-[8vw] lg:py-24">
