@@ -485,7 +485,7 @@ export const translations = {
     payLaterSuccessBody: { en: "Thank you. We'll review your request and call you within 1–2 business days to confirm your booking and arrange payment." },
     paidSuccessTitle: { en: 'Your consultation is booked.' },
     paidSuccessBody: { en: "Thank you for your payment. We'll send a confirmation email with your appointment details shortly." },
-    returnHome: { en: 'Return to the website' },
+    returnHome: { en: 'Return to Home' },
     sending: { en: 'Sending…' },
   },
   eligibility: {
