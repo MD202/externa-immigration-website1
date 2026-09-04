@@ -23,7 +23,7 @@ export default function DetailsAgreementStep({ data, setData, saving, onPayNow, 
     { value: 'Not sure', label: t('strategy.u4') },
   ];
 
-  const detailsValid = !!(data.full_name && data.email);
+  const detailsValid = !!(data.full_name && data.email && data.agreement_accepted);
 
   return (
     <div>
@@ -55,6 +55,11 @@ export default function DetailsAgreementStep({ data, setData, saving, onPayNow, 
           <textarea rows="3" value={data.summary} onChange={field('summary')} className="intake-input resize-none" />
         </label>
       </div>
+
+      <label className="mt-8 flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" checked={data.agreement_accepted} onChange={(e) => setData((d) => ({ ...d, agreement_accepted: e.target.checked }))} className="mt-1 h-5 w-5 accent-[#B8860B]" />
+        <span className="text-sm leading-relaxed text-[#1E2A4A]/70">I agree to proceed with the initial consultation and consent to being contacted about my matter. I'll give at least 24 hours' notice to reschedule.</span>
+      </label>
 
       <div className="mt-8 border-t border-[#1E2A4A]/10 pt-8">
         <h3 className="font-heading text-xl text-[#1E2A4A]">{t('bookingFlow.paymentTitle')}</h3>
