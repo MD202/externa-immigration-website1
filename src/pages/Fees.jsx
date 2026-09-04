@@ -27,8 +27,17 @@ const paymentModes = [
 ];
 
 const payNotes = [
-  { h: "What's included", b: 'Forms, supporting letters, strategy, written review, submission, and liaising with the immigration authority on your behalf — depending on the tier.' },
-  { h: "What's separate", b: 'Government fees are yours and never marked up. Courier, translation, interpretation and affidavits are billed at cost.' },
+  { h: "What's included", items: [
+    'Strategy — route, evidence, what to avoid',
+    'Written review of every form and letter',
+    'Forms and supporting letters drafted by us',
+    'Submission to the immigration authority',
+    'Liaising with the immigration authority on your behalf',
+  ], note: 'Depending on the tier.' },
+  { h: "What's separate", items: [
+    'Government fees — yours, never marked up',
+    'Courier, translation, interpretation and affidavits — billed at cost',
+  ] },
 ];
 
 const savings = [
@@ -218,7 +227,15 @@ export default function Fees() {
               <Reveal key={i} delay={i * 50}>
                 <div className="h-full p-6">
                   <h3 className="font-heading text-base text-[#B8860B]">{n.h}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-white/75">{n.b}</p>
+                  <ul className="mt-4 grid gap-2.5">
+                    {n.items.map((it, j) => (
+                      <li key={j} className="flex gap-3 text-sm leading-relaxed text-white/75">
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#B8860B]" />
+                        <span>{it}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  {n.note && <p className="mt-4 text-xs leading-relaxed text-white/50">{n.note}</p>}
                 </div>
               </Reveal>
             ))}
@@ -245,22 +262,16 @@ export default function Fees() {
               </Reveal>
             ))}
           </div>
-          <Reveal className="mt-10">
-            <div className="max-w-3xl border-l-2 border-[#B8860B] bg-white p-6">
-              <p className="text-xs font-semibold uppercase tracking-[.12em] text-[#B8860B]">What we don't offer</p>
-              <p className="mt-3 text-base leading-relaxed text-[#1E2A4A]/80">A free resubmission if you're refused. Nobody can promise how an application will be decided, and a promise built around a refusal is a promise about an outcome. What we do instead is tell you before you file whether it's worth filing.</p>
-            </div>
-          </Reveal>
         </div>
       </section>
 
       {/* Closing */}
-      <section className="px-5 py-16 lg:px-[8vw] lg:py-24">
+      <section className="px-5 py-10 lg:px-[8vw] lg:py-14">
         <div className="mx-auto max-w-[1240px] text-center">
           <Reveal>
             <h2 className="font-heading text-3xl text-[#1E2A4A] sm:text-4xl">Not sure which tier fits?</h2>
-            <p className="mx-auto mt-5 max-w-xl text-lg leading-relaxed text-[#1E2A4A]/65">That's what the consultation is for. We'll tell you what your file actually involves, what it will cost, and whether it's worth filing at all.</p>
-            <Link to="/strategy-session" className="btn btn-primary mt-8">Book a consultation <ArrowRight className="h-4 w-4" /></Link>
+            <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-[#1E2A4A]/65">That's what the consultation is for. We'll tell you what your file actually involves, what it will cost, and whether it's worth filing at all.</p>
+            <Link to="/strategy-session" className="btn btn-primary mt-6">Book a consultation <ArrowRight className="h-4 w-4" /></Link>
           </Reveal>
         </div>
       </section>

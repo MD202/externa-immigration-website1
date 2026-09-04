@@ -105,7 +105,8 @@ export default function ServiceRow({ svc, open, onToggle }) {
               {hearing && (
                 <div className="mb-6 max-w-2xl">
                   <p className="text-sm leading-relaxed text-white/80">{SCHEDULING_NOTE}</p>
-                  <div className="mt-4 grid max-w-sm gap-2">
+                  <p className="mt-5 mb-3 text-xs font-semibold uppercase tracking-[.16em] text-[#B8860B]">Full representation</p>
+                  <div className="grid max-w-sm gap-2">
                     <div className="flex items-center justify-between border-b border-white/10 pb-2">
                       <span className="text-sm text-white/70">Written stages</span>
                       <span className="tabular-nums font-medium">{svc.written}</span>
