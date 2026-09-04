@@ -37,7 +37,7 @@ export default function RefusedApplications() {
             <p className="mt-4 font-heading text-3xl leading-tight sm:text-4xl">{t('refused.fairness.p1')}</p>
             <p className="mt-5 text-lg leading-relaxed text-white/70">{t('refused.fairness.p2')}</p>
             <p className="mt-4 text-base leading-relaxed text-white/80">{t('refused.fairness.p3')}</p>
-            <Link to="/contact" className="btn btn-primary mt-8">{t('refused.fairness.cta')} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
+            <Link to="/contact" className="btn btn-gold mt-8">{t('refused.fairness.cta')} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
           </Reveal>
         </div>
       </section>
@@ -88,7 +88,7 @@ export default function RefusedApplications() {
             <div className="w-full max-w-sm border border-white/15 p-8">
               <p className="font-heading text-5xl">{t('refused.analysis.price')}</p>
               <p className="mt-2 text-xs uppercase tracking-[.18em] text-white/50">{t('refused.analysis.eyebrow')}</p>
-              <Link to="/strategy-session" className="btn btn-primary mt-6 w-full">{t('refused.analysis.cta')} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
+              <Link to="/strategy-session" className="btn btn-gold mt-6 w-full">{t('refused.analysis.cta')} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
             </div>
           </Reveal>
         </div>

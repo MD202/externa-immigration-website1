@@ -21,9 +21,9 @@ export default function ServiceHero({ eyebrow, headline, body, ctaLabel, ctaTo, 
           <div className="mt-8">
             {redButton ? (
               onCtaClick ? (
-                <button type="button" onClick={onCtaClick} className="btn btn-primary">{ctaLabel} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></button>
+                <button type="button" onClick={onCtaClick} className="btn btn-gold">{ctaLabel} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></button>
               ) : (
-                <Link to={ctaTo} className="btn btn-primary">{ctaLabel} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
+                <Link to={ctaTo} className="btn btn-gold">{ctaLabel} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
               )
             ) : (
               onCtaClick ? (

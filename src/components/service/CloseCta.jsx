@@ -10,7 +10,7 @@ export default function CloseCta({ label }) {
       <div className="mx-auto max-w-[720px]">
         <Reveal>
           <div className="flex flex-col items-center gap-4">
-            <Link to="/strategy-session" className="btn btn-primary">{label} <ArrowRight className="h-4 w-4" /></Link>
+            <Link to="/strategy-session" className="btn btn-gold">{label} <ArrowRight className="h-4 w-4" /></Link>
             <Link to="/fees" className="text-sm font-semibold text-[#B8860B] underline underline-offset-[6px] decoration-1 transition hover:decoration-2">{t('nav.seeFees')}</Link>
           </div>
         </Reveal>

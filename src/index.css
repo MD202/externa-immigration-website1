@@ -100,6 +100,7 @@
   .intake-input { @apply w-full border-0 border-b border-[#1E2A4A]/20 bg-transparent px-0 py-3 text-base font-normal normal-case tracking-normal text-[#1E2A4A] outline-none transition focus:border-[#B8860B] focus:ring-0; }
   .btn { @apply inline-flex items-center justify-center gap-2 rounded-[2px] text-base font-semibold transition-colors; }
   .btn-primary { @apply bg-[#B8860B] px-9 py-4 text-white hover:bg-[#A8871A]; }
+  .btn-gold { @apply border border-[#B8860B] px-9 py-4 text-[#B8860B] hover:bg-[#B8860B] hover:text-white; }
   .btn-outline { @apply border border-[#1E2A4A]/30 px-9 py-4 text-[#1E2A4A] hover:border-[#1E2A4A]; }
   .link-arrow { @apply inline-flex items-center gap-2 text-[#B8860B] underline underline-offset-[6px] decoration-1 transition hover:decoration-2; }
   .btn svg { transition: transform 200ms ease-out; }
