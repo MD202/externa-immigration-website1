@@ -18,15 +18,13 @@ export default function FamilySponsorship() {
   const { t } = useLanguage();
   usePageMeta(t('family.meta.title'), t('family.meta.description'));
   const [tab, setTab] = useState('outland');
-  const outland = [
-    { title: t('family.types.r1l'), body: t('family.types.r1b'), body2: t('family.types.r1b2'), key: t('family.types.r1key') },
-    { title: t('family.types.r3l'), body: t('family.types.r3b'), body2: t('family.types.r3b2'), key: t('family.types.r3key') },
-    { title: t('family.types.r4l'), body: t('family.types.r4b'), body2: t('family.types.r4b2'), key: t('family.types.r4key') },
+  const spousesCard = tab === 'outland'
+    ? { title: t('family.types.r1l'), helper: t('family.types.r1helper'), body: t('family.types.r1b'), body2: t('family.types.r1b2'), key: t('family.types.r1key') }
+    : { title: t('family.types.r2l'), helper: t('family.types.r2helper'), body: t('family.types.r2b'), body2: t('family.types.r2b2'), key: t('family.types.r2key') };
+  const staticCards = [
+    { title: t('family.types.r3l'), body: t('family.types.r3b'), body2: t('family.types.r3b2'), body3: t('family.types.r3b3'), key: t('family.types.r3key') },
+    { title: t('family.types.r4l'), body: t('family.types.r4b'), body2: t('family.types.r4b2'), body3: t('family.types.r4b3'), key: t('family.types.r4key') },
   ];
-  const inland = [
-    { title: t('family.types.r2l'), body: t('family.types.r2b'), body2: t('family.types.r2b2'), key: t('family.types.r2key') },
-  ];
-  const cards = tab === 'outland' ? outland : inland;
   const steps = [1, 2, 3, 4, 5].map((i) => ({ n: `0${i}`, title: t(`family.steps.s${i}t`), body: t(`family.steps.s${i}b`) }));
   const hear = [1, 2, 3, 4, 5, 6, 7].map((i) => {
     const row = { lead: t(`family.hear.r${i}l`), body: t(`family.hear.r${i}b`) };
@@ -48,13 +46,26 @@ export default function FamilySponsorship() {
             <button onClick={() => setTab('outland')} className={`rounded-full px-6 py-2.5 text-sm font-semibold transition ${tab === 'outland' ? 'bg-[#1E2A4A] text-white' : 'text-[#1E2A4A]/60 hover:text-[#1E2A4A]'}`}>Outside Canada</button>
             <button onClick={() => setTab('inland')} className={`rounded-full px-6 py-2.5 text-sm font-semibold transition ${tab === 'inland' ? 'bg-[#1E2A4A] text-white' : 'text-[#1E2A4A]/60 hover:text-[#1E2A4A]'}`}>Inside Canada</button>
           </div>
-          <div className="mt-8 grid gap-6 md:grid-cols-2">
-            {cards.map((c, i) => (
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-[#1E2A4A]/60">{spousesCard.helper}</p>
+          <div className="mt-6">
+            <Reveal>
+              <article className="flex h-full flex-col border border-[#1E2A4A]/10 bg-white p-8 transition hover:-translate-y-1 hover:border-[#B8860B]/40 hover:shadow-[0_18px_40px_-24px_rgba(30,42,74,0.35)]">
+                <h3 className="font-heading text-2xl text-[#1E2A4A]">{spousesCard.title}</h3>
+                <p className="mt-4 text-base leading-relaxed text-[#1E2A4A]/70">{spousesCard.body}</p>
+                <p className="mt-3 text-base leading-relaxed text-[#1E2A4A]/60">{spousesCard.body2}</p>
+                <p className="mt-6 border-t border-[#1E2A4A]/10 pt-4 text-sm font-semibold uppercase tracking-[.08em] text-[#B8860B]">{spousesCard.key}</p>
+              </article>
+            </Reveal>
+          </div>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-[#1E2A4A]/60">{t('family.types.spousesNote')}</p>
+          <div className="mt-10 grid gap-6 md:grid-cols-2">
+            {staticCards.map((c, i) => (
               <Reveal key={i}>
                 <article className="flex h-full flex-col border border-[#1E2A4A]/10 bg-white p-8 transition hover:-translate-y-1 hover:border-[#B8860B]/40 hover:shadow-[0_18px_40px_-24px_rgba(30,42,74,0.35)]">
                   <h3 className="font-heading text-2xl text-[#1E2A4A]">{c.title}</h3>
                   <p className="mt-4 text-base leading-relaxed text-[#1E2A4A]/70">{c.body}</p>
-                  <p className="mt-3 flex-1 text-base leading-relaxed text-[#1E2A4A]/60">{c.body2}</p>
+                  <p className="mt-3 text-base leading-relaxed text-[#1E2A4A]/60">{c.body2}</p>
+                  <p className="mt-3 flex-1 text-base leading-relaxed text-[#1E2A4A]/60">{c.body3}</p>
                   <p className="mt-6 border-t border-[#1E2A4A]/10 pt-4 text-sm font-semibold uppercase tracking-[.08em] text-[#B8860B]">{c.key}</p>
                 </article>
               </Reveal>
