@@ -12,8 +12,7 @@ import Fees from '@/pages/Fees';
 import ServiceDetail from '@/pages/ServiceDetail';
 import Eligibility from '@/pages/Eligibility';
 import RefusedApplications from '@/pages/RefusedApplications';
-import About from '@/pages/About';
-import Questions from '@/pages/Questions';
+import AboutQuestions from '@/pages/AboutQuestions';
 import Contact from '@/pages/Contact';
 import HumanitarianCompassionate from '@/pages/HumanitarianCompassionate';
 import FamilySponsorship from '@/pages/FamilySponsorship';
@@ -54,8 +53,8 @@ const AuthenticatedApp = () => {
       <Route path="/fees" element={<Fees />} />
       <Route path="/services/:id" element={<ServiceDetail />} />
       <Route path="/refused-applications" element={<RefusedApplications />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/questions" element={<Questions />} />
+      <Route path="/about" element={<AboutQuestions />} />
+      <Route path="/questions" element={<AboutQuestions />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/humanitarian-compassionate" element={<HumanitarianCompassionate />} />
       <Route path="/family-sponsorship" element={<FamilySponsorship />} />
