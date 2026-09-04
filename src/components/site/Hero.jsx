@@ -27,8 +27,8 @@ export default function Hero() {
             {t('home.hero.list')}
           </p>
           <div className="hero-in mt-8 flex flex-wrap gap-4" style={{ animationDelay: '0.55s' }}>
-            <Link to="/strategy-session" className="btn btn-primary">{t('home.hero.book')} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
-            <button type="button" onClick={() => setTriageOpen(true)} className="btn border border-white/40 px-9 py-4 text-white hover:border-white">{t('home.hero.where')} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></button>
+            <Link to="/strategy-session" className="btn btn-primary w-full sm:w-auto sm:flex-1">{t('home.hero.book')} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
+            <button type="button" onClick={() => setTriageOpen(true)} className="btn border border-white/40 px-9 py-4 text-white hover:border-white w-full sm:w-auto sm:flex-1">{t('home.hero.where')} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></button>
           </div>
           <div className="hero-in mt-10 h-px w-24 bg-[#B8860B]" style={{ animationDelay: '0.7s' }} />
           <p className="hero-in mt-4 text-xs uppercase tracking-[.18em] text-white/45" style={{ animationDelay: '0.8s' }}>

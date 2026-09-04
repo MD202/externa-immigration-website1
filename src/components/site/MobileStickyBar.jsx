@@ -13,7 +13,7 @@ export default function MobileStickyBar() {
   }, []);
   return (
     <div className={`fixed inset-x-0 bottom-0 z-50 lg:hidden transition-transform duration-300 ${show ? 'translate-y-0' : 'translate-y-full'}`}>
-      <Link to="/strategy-session" className="flex h-14 items-center justify-center bg-[#B8860B] text-base font-semibold text-white">{t('nav.bookCta')}</Link>
+      <Link to="/strategy-session" className="flex h-14 items-center justify-center border-y border-[#B8860B] bg-white text-base font-semibold text-[#B8860B]">{t('nav.bookCta')}</Link>
     </div>
   );
 }
