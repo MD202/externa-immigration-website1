@@ -441,7 +441,7 @@ export const translations = {
     subtitle: { en: "Once your appointment is booked, the initial consultation agreement will be sent to your email address." },
     step1: { en: 'Choose a service' },
     step2: { en: 'Choose a time' },
-    step3: { en: 'Details, agreement & payment', ta: 'விவரங்கள், ஒப்பந்தம் & கட்டணம்', hi: 'विवरण, समझौता और भुगतान' },
+    step3: { en: 'Details & payment', ta: 'விவரங்கள், ஒப்பந்தம் & கட்டணம்', hi: 'विवरण, समझौता और भुगतान' },
     step4: { en: 'Payment' },
     selectService: { en: 'Choose a service' },
     selectTime: { en: 'Choose a time' },
