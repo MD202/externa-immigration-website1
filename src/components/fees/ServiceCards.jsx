@@ -43,7 +43,7 @@ const Price = ({ label, value, strong }) => (
 );
 
 // Row-based fee display with a Book now action.
-export function FeeRow({ cat, row }) {
+export function FeeRow({ cat, row, onCompare }) {
   return (
     <div className="group flex flex-col gap-3 border-b border-[#1E2A4A]/10 py-5 transition-colors hover:bg-[#FBFAF8] sm:flex-row sm:items-center sm:justify-between sm:gap-6 sm:px-3">
       <p className="text-sm font-medium leading-snug text-[#1E2A4A] sm:max-w-[40%]">{row.service}</p>
@@ -52,7 +52,11 @@ export function FeeRow({ cat, row }) {
         {cat.kind === 'iad' && (<><Price label="Written" value={row.written} /><Price label="Full" value={row.full} strong /></>)}
         {cat.kind === 'simple' && <span className="font-heading text-lg text-[#1E2A4A]">{row.fee}</span>}
       </div>
-      <Link to="/strategy-session" className="btn shrink-0 border border-[#1E2A4A]/20 px-5 py-2.5 text-sm font-semibold text-[#1E2A4A] transition hover:border-[#B8860B] hover:text-[#B8860B]">Book now</Link>
+      {cat.kind === 'tier' ? (
+        <button onClick={() => onCompare?.(row)} className="btn shrink-0 bg-[#DC2626] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#B91C1C]">Compare packages</button>
+      ) : (
+        <Link to="/strategy-session" className="btn shrink-0 border border-[#1E2A4A]/20 px-5 py-2.5 text-sm font-semibold text-[#1E2A4A] transition hover:border-[#B8860B] hover:text-[#B8860B]">Book now</Link>
+      )}
     </div>
   );
 }

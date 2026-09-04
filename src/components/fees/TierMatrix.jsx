@@ -1,7 +1,7 @@
 // Three-tier feature comparison matrix with toggleable columns. "We/us" voice.
 const tiers = [
-  { key: 'full', name: 'Full Representation', sub: 'We act for you, end to end', featured: true },
-  { key: 'guided', name: 'DIY (with our guidance)', sub: 'You file. We prepare you.' },
+  { key: 'full', name: 'Full Representation', sub: 'We represent you, end to end', featured: true },
+  { key: 'guided', name: 'DIY (with our guidance)', sub: 'You file. We guide you.' },
   { key: 'review', name: 'Review Only', sub: 'We review your work' },
 ];
 
@@ -19,8 +19,8 @@ const features = [
   { label: 'Follow-up session', full: '✓', guided: 'One 30-min before you file', review: 'One 15-min' },
   { label: 'Email support while you prepare', full: '✓', guided: '✓', review: '—' },
   { label: 'Secure client portal', full: '✓', guided: '✓', review: 'Drop-off link' },
-  { label: 'We deal with IRCC after submission', full: '✓', guided: '—', review: '—' },
-  { label: 'Guidance if IRCC contacts you', full: '✓', guided: '✓ — 12 months', review: '—' },
+  { label: 'We liaise with the immigration authority after submission', full: '✓', guided: '—', review: '—' },
+  { label: 'Guidance if the immigration authority contacts you', full: '✓', guided: '✓ — 12 months', review: '—' },
   { label: 'Evening and weekend appointments', full: '✓', guided: '✓', review: '✓' },
 ];
 

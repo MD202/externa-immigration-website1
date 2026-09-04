@@ -9,22 +9,21 @@ import Reveal from '@/components/site/Reveal';
 import TierMatrix from '@/components/fees/TierMatrix';
 import { FeeRow } from '@/components/fees/ServiceCards';
 import AddOnsPopover from '@/components/fees/AddOnsPopover';
+import CompareModal from '@/components/fees/CompareModal';
 import { Image } from '@/components/ui/image';
 
 const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/bbfbbabed_generated_image.png';
 
-const BANNER = 'All fees are professional fees in Canadian dollars, plus HST. Government fees are separate, listed on their own, and never marked up. Every file begins with a consultation so we can tell you what yours will actually cost — and whether it\'s worth filing at all.';
-
 const howWeWork = [
   { h: 'How we work', b: 'Every file starts with a conversation. We assess the matter, pick the route, and tell you whether it\'s worth filing at all.' },
   { h: 'How we charge', b: 'Full Representation is staged as the work progresses. DIY and Review Only are fixed pieces, paid in full and delivered inside a set window.' },
-  { h: 'What\'s covered', b: 'Forms, supporting letters, strategy, written review, submission, and dealing with IRCC — depending on the tier you choose.' },
+  { h: 'What\'s covered', b: 'Forms, supporting letters, strategy, written review, submission, and liaising with the immigration authority on your behalf — depending on the tier you choose.' },
   { h: 'What\'s additional', b: 'Government fees are yours, never marked up. Courier, translation, interpretation, and affidavits are billed separately at cost.' },
 ];
 
 const tierCards = [
-  { key: 'full', name: 'Full Representation', desc: 'We act for you, end to end. We submit, and IRCC deals with us.' },
-  { key: 'guided', name: 'DIY (with our guidance)', desc: 'You file under your own name. We prepare you and review every page.' },
+  { key: 'full', name: 'Full Representation', desc: 'We represent you, end to end. We prepare and submit on your behalf.' },
+  { key: 'guided', name: 'DIY (with our guidance)', desc: 'You file under your own name. We guide you and review every page.' },
   { key: 'review', name: 'Review Only', desc: 'You\'ve prepared everything. We review your work before you send it.' },
 ];
 
@@ -190,10 +189,10 @@ function Eyebrow({ children }) {
   );
 }
 
-function CategoryGrid({ cat }) {
+function CategoryGrid({ cat, onCompare }) {
   return (
     <div className="border-t border-[#1E2A4A]/10">
-      {cat.rows.map((r, i) => <FeeRow key={i} cat={cat} row={r} />)}
+      {cat.rows.map((r, i) => <FeeRow key={i} cat={cat} row={r} onCompare={onCompare} />)}
     </div>
   );
 }
@@ -203,6 +202,7 @@ export default function Fees() {
   usePageMeta(t('fees.meta.title'), t('fees.meta.description'));
   const [tab, setTab] = useState('pr');
   const [show, setShow] = useState({ full: true, guided: true, review: true });
+  const [compareRow, setCompareRow] = useState(null);
   const active = categories.find((c) => c.id === tab);
   const toggleTier = (key) => {
     const next = { ...show, [key]: !show[key] };
@@ -225,13 +225,6 @@ export default function Fees() {
           </Reveal>
         </div>
       </section>
-
-      {/* Disclaimer banner */}
-      <div className="bg-[#FBF6E8] px-5 py-5 lg:px-[8vw]">
-        <div className="mx-auto max-w-[1240px]">
-          <p className="text-sm leading-relaxed text-[#3D2F06]">{BANNER}</p>
-        </div>
-      </div>
 
       {/* Tiers — cards on top, compare below */}
       <section className="px-5 py-16 lg:px-[8vw] lg:py-24">
@@ -328,7 +321,7 @@ export default function Fees() {
             </div>
           </Reveal>
           <Reveal className="mt-8">
-            <CategoryGrid cat={active} />
+            <CategoryGrid cat={active} onCompare={setCompareRow} />
             {active.note && <p className="mt-5 border-l-2 border-[#8C2F39] bg-[#FBF6F6] p-4 text-sm italic leading-relaxed text-[#1E2A4A]/70">{active.note}</p>}
             {active.hearing && (
               <div className="mt-5 border-l-2 border-[#8C2F39] bg-[#FBF6F6] p-5">
@@ -403,6 +396,8 @@ export default function Fees() {
           </Reveal>
         </div>
       </section>
+
+      <CompareModal row={compareRow} onClose={() => setCompareRow(null)} />
 
       <Footer />
     </main>
