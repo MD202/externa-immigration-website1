@@ -7,7 +7,8 @@ import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import Reveal from '@/components/site/Reveal';
 import TierMatrix from '@/components/fees/TierMatrix';
-import { ServiceCard, SimpleCard, IadCard } from '@/components/fees/ServiceCards';
+import { FeeRow } from '@/components/fees/ServiceCards';
+import AddOnsPopover from '@/components/fees/AddOnsPopover';
 import { Image } from '@/components/ui/image';
 
 const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/bbfbbabed_generated_image.png';
@@ -164,16 +165,6 @@ const addOnRows = [
   { service: 'Proof of citizenship for a child', full: '$400', guided: '$275', review: '$175' },
 ];
 
-const servicesAddOn = [
-  { name: 'ATIP / GCMS notes request', price: '$75', featured: true },
-  { name: 'ATIP request — standalone, not with a package', price: '$175' },
-  { name: 'Commissioner of oaths — per document', price: '$35' },
-  { name: 'Document translation coordination', price: 'At cost + $50' },
-  { name: 'Rush handling — submission within 5 business days', price: '+25%' },
-  { name: 'Additional 30-minute consultation', price: '$95' },
-  { name: 'Written eligibility opinion (standalone)', price: '$350' },
-];
-
 const paymentTerms = [
   { h: 'Full Representation — staged', items: ['Standard: 40% opening · 40% submission · 20% decision', 'H&C and complex: 30% · 30% · 30% · 10% decision', 'Appeals: 30% filing · 30% record · 30% submissions · 10% conclusion'] },
   { h: 'DIY — paid in full before work begins', items: ['Fixed scope, fixed deliverables, delivered within a stated window', 'Funds to trust, drawn as work is performed', 'The tier that converts to earned revenue fastest'] },
@@ -200,19 +191,9 @@ function Eyebrow({ children }) {
 }
 
 function CategoryGrid({ cat }) {
-  if (cat.kind === 'tier') return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {cat.rows.map((r, i) => <ServiceCard key={i} {...r} />)}
-    </div>
-  );
-  if (cat.kind === 'iad') return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {cat.rows.map((r, i) => <IadCard key={i} {...r} />)}
-    </div>
-  );
   return (
-    <div className="grid gap-3 sm:grid-cols-2">
-      {cat.rows.map((r, i) => <SimpleCard key={i} {...r} />)}
+    <div className="border-t border-[#1E2A4A]/10">
+      {cat.rows.map((r, i) => <FeeRow key={i} cat={cat} row={r} />)}
     </div>
   );
 }
@@ -375,25 +356,11 @@ export default function Fees() {
         </div>
       </section>
 
-      {/* What you can add */}
-      <section className="bg-white px-5 py-16 lg:px-[8vw] lg:py-24">
-        <div className="mx-auto max-w-[1240px]">
-          <Reveal><Eyebrow>WHAT YOU CAN ADD</Eyebrow></Reveal>
-          <Reveal className="mt-6 max-w-2xl">
-            <h2 className="section-title">Add-ons and companion applications.</h2>
-            <p className="mt-5 text-lg leading-relaxed text-[#1E2A4A]/65">Bundled with a package at the add-on rate, not the standalone rate.</p>
-          </Reveal>
-          <Reveal className="mt-10">
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {addOnRows.map((r, i) => <ServiceCard key={i} {...r} />)}
-            </div>
-          </Reveal>
-          <Reveal className="mt-10">
-            <h3 className="font-heading text-xl text-[#1E2A4A]">Services</h3>
-            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {servicesAddOn.map((s, i) => <SimpleCard key={i} {...s} />)}
-            </div>
-          </Reveal>
+      {/* Add-ons (hover popover) */}
+      <section className="bg-white px-5 py-12 lg:px-[8vw] lg:py-16">
+        <div className="mx-auto flex max-w-[1240px] flex-wrap items-center gap-x-4 gap-y-3">
+          <p className="text-sm text-[#1E2A4A]/65">Add-ons and companion applications are available with any package —</p>
+          <AddOnsPopover rows={addOnRows} />
         </div>
       </section>
 
