@@ -35,7 +35,6 @@ export default function Footer() {
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-white/45">{t('foot.col1.desc')}</p>
             <a href={CICC_URL} target="_blank" rel="noopener noreferrer" className="mt-4 flex items-center gap-2 text-sm text-white/55 transition hover:text-[#B8860B]"><BadgeCheck className="h-4 w-4 text-[#B8860B]" /> {t('foot.col1.licence')}</a>
             <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="mt-1 flex items-center gap-2 text-sm text-white/55 transition hover:text-[#B8860B]"><MapPin className="h-4 w-4 text-[#B8860B]" /> {t('foot.col1.location')}</a>
-            <p className="mt-1 text-sm text-white/55">{t('foot.col1.remote')}</p>
             <p className="mt-1 text-sm text-white/55">{t('foot.col1.langs')}</p>
             <a href={`tel:${PHONE}`} className="mt-2 flex items-center gap-2 text-sm text-white/55 transition hover:text-[#B8860B]"><Phone className="h-4 w-4 text-[#B8860B]" /> {PHONE}</a>
             <a href="mailto:info@externaimmigration.com" className="mt-1 flex items-center gap-2 text-sm text-white/55 transition hover:text-[#B8860B]"><Mail className="h-4 w-4 text-[#B8860B]" /> info@externaimmigration.com</a>

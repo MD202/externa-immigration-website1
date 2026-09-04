@@ -9,6 +9,7 @@ import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import CloseCta from '@/components/service/CloseCta';
 import Reveal from '@/components/site/Reveal';
+import HearRows from '@/components/site/HearRows';
 
 const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/e0c6dad26_generated_image.png';
 
@@ -16,7 +17,6 @@ export default function Entrepreneurs() {
   const { t } = useLanguage();
   usePageMeta(t('entrepreneurs.meta.title'), t('entrepreneurs.meta.description'));
   const [tab, setTab] = useState('canada');
-  const [openFaq, setOpenFaq] = useState(0);
   const canadaWide = [
     { title: t('entrepreneurs.programs.r1l'), body: t('entrepreneurs.programs.r1b'), body2: t('entrepreneurs.programs.r1b2'), key: t('entrepreneurs.programs.r1key') },
     { title: t('entrepreneurs.programs.r3l'), body: t('entrepreneurs.programs.r3b'), body2: t('entrepreneurs.programs.r3b2'), key: t('entrepreneurs.programs.r3key') },
@@ -65,24 +65,7 @@ export default function Entrepreneurs() {
         </div>
       </section>
       <NumberedProcess eyebrow={t('entrepreneurs.steps.eyebrow')} heading={t('entrepreneurs.steps.heading')} steps={steps} variant="dark" />
-      <section className="bg-white px-5 py-16 lg:px-[8vw] lg:py-24">
-        <div className="mx-auto max-w-[900px]">
-          <Reveal><p className="eyebrow">{t('entrepreneurs.hear.heading')}</p></Reveal>
-          <div className="mt-8 border-t border-[#1E2A4A]/10">
-            {hear.map((row, i) => (
-              <div key={i} className="border-b border-[#1E2A4A]/10">
-                <button onClick={() => setOpenFaq(openFaq === i ? -1 : i)} className="flex w-full items-center justify-between gap-4 py-5 text-left" aria-expanded={openFaq === i}>
-                  <span className="font-heading text-lg text-[#1E2A4A]">{row.lead}</span>
-                  <ChevronDown className={`h-5 w-5 shrink-0 text-[#B8860B] transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} />
-                </button>
-                <div className={`overflow-hidden transition-all duration-300 ease-out ${openFaq === i ? 'max-h-72 pb-6' : 'max-h-0'}`}>
-                  <p className="text-base leading-relaxed text-[#1E2A4A]/70">{row.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HearRows heading={t('entrepreneurs.hear.heading')} items={hear} />
       <ServiceList heading={t('entrepreneurs.do.heading')} items={dos} />
       <section className="bg-[#FBFAF8] px-5 py-16 lg:px-[8vw] lg:py-24">
         <div className="mx-auto grid max-w-[1240px] gap-10 md:grid-cols-2">

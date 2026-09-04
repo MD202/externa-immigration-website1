@@ -119,14 +119,15 @@
 }
 .marquee-track:hover { animation-play-state: paused; }
 
-/* Scroll reveal */
+/* Scroll reveal — hidden state only when JS is available (html.js-anim).
+   Without JS the class is never added, so content stays fully visible to
+   crawlers, print, and no-JS browsers. */
 .reveal {
-  opacity: 0;
-  transform: translateY(30px);
   transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
-.reveal-in { opacity: 1; transform: translateY(0); }
+.js-anim .reveal { opacity: 0; transform: translateY(30px); }
+.js-anim .reveal-in { opacity: 1; transform: translateY(0); }
 
 /* Hero Ken Burns zoom on the background image */
 @keyframes kenburns {
@@ -167,5 +168,5 @@
 @media (prefers-reduced-motion: reduce) {
   .kenburns, .hero-in, .float-glow, .scroll-dot, .drift { animation: none !important; }
   .hero-in { opacity: 1; }
-  .reveal { opacity: 1; transform: none; transition: none; }
+  .js-anim .reveal { opacity: 1; transform: none; transition: none; }
 }

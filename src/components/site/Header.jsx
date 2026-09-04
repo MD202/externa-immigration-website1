@@ -59,7 +59,7 @@ export default function Header() {
   );
 
   return (
-    <header ref={headerRef} className={`fixed inset-x-0 top-0 z-50 bg-white transition-all duration-300 ${compact ? 'py-3' : 'py-4'}`}>
+    <header ref={headerRef} className={`fixed inset-x-0 top-0 z-[100] bg-white shadow-sm transition-all duration-300 ${compact ? 'py-3' : 'py-4'}`}>
       <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 lg:px-[8vw]">
         <Link to="/" className="flex items-center gap-3">
           <Logo className="h-11 w-11" />

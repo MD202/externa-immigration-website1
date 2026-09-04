@@ -61,7 +61,7 @@ export default function Triage({ onClose }) {
   const r = result ? results[result] : null;
 
   return (
-    <div className="fixed inset-0 z-[60] overflow-y-auto bg-[#0E1A33]/95" role="dialog" aria-modal="true">
+    <div className="fixed inset-0 z-[200] overflow-y-auto bg-[#0E1A33]/95" role="dialog" aria-modal="true">
       <div className="mx-auto min-h-full max-w-3xl px-5 py-12 lg:px-8">
         <div className="flex items-center justify-between">
           <p className="text-xs uppercase tracking-[.24em] text-[#B8860B]">{t('wayn.eyebrow')}</p>

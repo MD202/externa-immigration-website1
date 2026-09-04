@@ -10,6 +10,7 @@ import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import CloseCta from '@/components/service/CloseCta';
 import Reveal from '@/components/site/Reveal';
+import HearRows from '@/components/site/HearRows';
 
 const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/51313beb1_generated_image.png';
 
@@ -17,7 +18,6 @@ export default function FamilySponsorship() {
   const { t } = useLanguage();
   usePageMeta(t('family.meta.title'), t('family.meta.description'));
   const [tab, setTab] = useState('outland');
-  const [openFaq, setOpenFaq] = useState(0);
   const outland = [
     { title: t('family.types.r1l'), body: t('family.types.r1b'), body2: t('family.types.r1b2'), key: t('family.types.r1key') },
     { title: t('family.types.r3l'), body: t('family.types.r3b'), body2: t('family.types.r3b2'), key: t('family.types.r3key') },
@@ -63,25 +63,7 @@ export default function FamilySponsorship() {
         </div>
       </section>
       <NumberedProcess eyebrow={t('family.steps.eyebrow')} heading={t('family.steps.heading')} steps={steps} variant="dark" />
-      <section className="bg-white px-5 py-16 lg:px-[8vw] lg:py-24">
-        <div className="mx-auto max-w-[900px]">
-          <Reveal><p className="eyebrow">{t('family.hear.heading')}</p></Reveal>
-          <div className="mt-8 border-t border-[#1E2A4A]/10">
-            {hear.map((row, i) => (
-              <div key={i} className="border-b border-[#1E2A4A]/10">
-                <button onClick={() => setOpenFaq(openFaq === i ? -1 : i)} className="flex w-full items-center justify-between gap-4 py-5 text-left" aria-expanded={openFaq === i}>
-                  <span className="font-heading text-lg text-[#1E2A4A]">{row.lead}</span>
-                  <ChevronDown className={`h-5 w-5 shrink-0 text-[#B8860B] transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} />
-                </button>
-                <div className={`overflow-hidden transition-all duration-300 ease-out ${openFaq === i ? 'max-h-60 pb-6' : 'max-h-0'}`}>
-                  <p className="text-base leading-relaxed text-[#1E2A4A]/70">{row.body}</p>
-                  {row.link && <Link to={row.link.to} className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#B8860B]">{row.link.label} →</Link>}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HearRows heading={t('family.hear.heading')} items={hear} />
       <ServiceList heading={t('family.handle.heading')} items={handle} />
       <section className="bg-[#FBFAF8] px-5 py-16 lg:px-[8vw] lg:py-24">
         <div className="mx-auto grid max-w-[1240px] gap-10 md:grid-cols-2">

@@ -9,16 +9,20 @@ import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import CloseCta from '@/components/service/CloseCta';
 import Reveal from '@/components/site/Reveal';
+import HearRows from '@/components/site/HearRows';
 
 const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/929ea20db_generated_image.png';
 
 export default function HumanitarianCompassionate() {
   const { t } = useLanguage();
   usePageMeta(t('hc.meta.title'), t('hc.meta.description'));
-  const [openFaq, setOpenFaq] = useState(0);
   const ify = [1, 2, 3, 4, 5].map((i) => ({ title: t(`hc.ify.r${i}l`), body: t(`hc.ify.r${i}b`) }));
   const build = [1, 2, 3, 4, 5, 6].map((i) => ({ n: `0${i}`, title: t(`hc.build.r${i}l`), body: t(`hc.build.r${i}b`) }));
-  const hear = [1, 2, 3, 4].map((i) => ({ lead: t(`hc.hear.r${i}l`), body: t(`hc.hear.r${i}b`) }));
+  const hear = [1, 2, 3, 4].map((i) => {
+    const row = { lead: t(`hc.hear.r${i}l`), body: t(`hc.hear.r${i}b`) };
+    if (i === 4) row.link = { label: t('nav.refused'), to: '/refused-applications' };
+    return row;
+  });
   const handle = [1, 2, 3, 4, 5, 6].map((i) => t(`hc.handle.i${i}`));
   return (
     <main className="bg-[#FBFAF8]">
@@ -48,24 +52,7 @@ export default function HumanitarianCompassionate() {
         </div>
       </section>
       <NumberedProcess heading={t('hc.build.heading')} intro={t('hc.build.intro')} steps={build} variant="dark" />
-      <section className="bg-white px-5 py-16 lg:px-[8vw] lg:py-24">
-        <div className="mx-auto max-w-[900px]">
-          <Reveal><p className="eyebrow">{t('hc.hear.heading')}</p></Reveal>
-          <div className="mt-8 border-t border-[#1E2A4A]/10">
-            {hear.map((row, i) => (
-              <div key={i} className="border-b border-[#1E2A4A]/10">
-                <button onClick={() => setOpenFaq(openFaq === i ? -1 : i)} className="flex w-full items-center justify-between gap-4 py-5 text-left" aria-expanded={openFaq === i}>
-                  <span className="font-heading text-lg text-[#1E2A4A]">{row.lead}</span>
-                  <ChevronDown className={`h-5 w-5 shrink-0 text-[#B8860B] transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} />
-                </button>
-                <div className={`overflow-hidden transition-all duration-300 ease-out ${openFaq === i ? 'max-h-60 pb-6' : 'max-h-0'}`}>
-                  <p className="text-base leading-relaxed text-[#1E2A4A]/70">{row.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HearRows heading={t('hc.hear.heading')} items={hear} />
       <ServiceList heading={t('hc.handle.heading')} items={handle} />
       <section className="bg-[#FBFAF8] px-5 py-16 lg:px-[8vw] lg:py-24">
         <div className="mx-auto grid max-w-[1240px] gap-10 md:grid-cols-2">

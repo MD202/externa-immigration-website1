@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ChevronDown, ArrowRight } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import { usePageMeta } from '@/lib/usePageMeta';
 import ServiceHero from '@/components/service/ServiceHero';
@@ -9,6 +10,7 @@ import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import CloseCta from '@/components/service/CloseCta';
 import Reveal from '@/components/site/Reveal';
+import HearRows from '@/components/site/HearRows';
 
 const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/043ff4100_generated_image.png';
 
@@ -16,8 +18,11 @@ export default function HealthcareProfessionals() {
   const { t } = useLanguage();
   usePageMeta(t('healthcare.meta.title'), t('healthcare.meta.description'));
   const [tab, setTab] = useState('outside');
-  const [openFaq, setOpenFaq] = useState(0);
-  const outside = [1, 2, 3, 4].map((i) => ({ title: t(`healthcare.programs.r${i}l`), body: t(`healthcare.programs.r${i}b`), body2: t(`healthcare.programs.r${i}b2`), key: t(`healthcare.programs.r${i}key`) }));
+  const outside = [1, 2, 3, 4].map((i) => {
+    const c = { title: t(`healthcare.programs.r${i}l`), body: t(`healthcare.programs.r${i}b`), body2: t(`healthcare.programs.r${i}b2`), key: t(`healthcare.programs.r${i}key`) };
+    if (i === 2) c.link = { label: t('nav.otherServices'), to: '/other-services' };
+    return c;
+  });
   const inCanada = [1, 2, 3, 4].map((i) => ({ title: t(`healthcare.programs.inc.r${i}l`), body: t(`healthcare.programs.inc.r${i}b`), body2: t(`healthcare.programs.inc.r${i}b2`), key: t(`healthcare.programs.inc.r${i}key`) }));
   const cards = tab === 'outside' ? outside : inCanada;
   const steps = [1, 2, 3, 4].map((i) => ({ n: `0${i}`, title: t(`healthcare.steps.s${i}t`), body: t(`healthcare.steps.s${i}b`) }));
@@ -45,6 +50,7 @@ export default function HealthcareProfessionals() {
                   <p className="mt-4 text-base leading-relaxed text-[#1E2A4A]/70">{c.body}</p>
                   <p className="mt-3 flex-1 text-base leading-relaxed text-[#1E2A4A]/60">{c.body2}</p>
                   <p className="mt-6 border-t border-[#1E2A4A]/10 pt-4 text-sm font-semibold uppercase tracking-[.08em] text-[#B8860B]">{c.key}</p>
+                  {c.link && <Link to={c.link.to} className="link-arrow mt-4 self-start">{c.link.label} <ArrowRight className="h-4 w-4" /></Link>}
                 </article>
               </Reveal>
             ))}
@@ -52,24 +58,7 @@ export default function HealthcareProfessionals() {
         </div>
       </section>
       <NumberedProcess eyebrow={t('healthcare.steps.eyebrow')} heading={t('healthcare.steps.heading')} steps={steps} variant="dark" />
-      <section className="bg-white px-5 py-16 lg:px-[8vw] lg:py-24">
-        <div className="mx-auto max-w-[900px]">
-          <Reveal><p className="eyebrow">{t('healthcare.hear.heading')}</p></Reveal>
-          <div className="mt-8 border-t border-[#1E2A4A]/10">
-            {hear.map((row, i) => (
-              <div key={i} className="border-b border-[#1E2A4A]/10">
-                <button onClick={() => setOpenFaq(openFaq === i ? -1 : i)} className="flex w-full items-center justify-between gap-4 py-5 text-left" aria-expanded={openFaq === i}>
-                  <span className="font-heading text-lg text-[#1E2A4A]">{row.lead}</span>
-                  <ChevronDown className={`h-5 w-5 shrink-0 text-[#B8860B] transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} />
-                </button>
-                <div className={`overflow-hidden transition-all duration-300 ease-out ${openFaq === i ? 'max-h-60 pb-6' : 'max-h-0'}`}>
-                  <p className="text-base leading-relaxed text-[#1E2A4A]/70">{row.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HearRows heading={t('healthcare.hear.heading')} items={hear} />
       <ServiceList heading={t('healthcare.handle.heading')} items={handle} />
       <section className="bg-[#FBFAF8] px-5 py-16 lg:px-[8vw] lg:py-24">
         <div className="mx-auto grid max-w-[1240px] gap-10 md:grid-cols-2">

@@ -17,7 +17,10 @@ export default function CloseSection() {
         <Reveal>
           <h2 className="font-heading text-4xl text-[#1E2A4A] sm:text-5xl">{t('home.close.heading')}</h2>
           <p className="mt-6 text-lg leading-relaxed text-[#1E2A4A]/65">{t('home.close.body')}</p>
-          <Link to="/strategy-session" className="btn btn-primary mt-10">{t('home.close.cta')} <ArrowRight className="h-4 w-4" /></Link>
+          <div className="mt-10 flex flex-col items-center gap-4">
+            <Link to="/strategy-session" className="btn btn-primary">{t('home.close.cta')} <ArrowRight className="h-4 w-4" /></Link>
+            <Link to="/fees" className="text-sm font-semibold text-[#B8860B] underline underline-offset-[6px] decoration-1 transition hover:decoration-2">{t('nav.seeFees')}</Link>
+          </div>
         </Reveal>
       </div>
     </section>

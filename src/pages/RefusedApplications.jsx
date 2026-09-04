@@ -9,13 +9,13 @@ import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import CloseCta from '@/components/service/CloseCta';
 import Reveal from '@/components/site/Reveal';
+import HearRows from '@/components/site/HearRows';
 
 const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/90dda2851_generated_image.png';
 
 export default function RefusedApplications() {
   const { t } = useLanguage();
   usePageMeta(t('refused.meta.title'), t('refused.meta.description'));
-  const [openFaq, setOpenFaq] = useState(0);
   const process = [1, 2, 3, 4, 5].map((i) => ({ n: `0${i}`, title: t(`refused.process.s${i}t`), body: t(`refused.process.s${i}b`) }));
   const cards = [
     { title: t('refused.appeals.c1l'), body: t('refused.appeals.c1b'), key: t('refused.appeals.c1key') },
@@ -54,24 +54,7 @@ export default function RefusedApplications() {
         </div>
       </section>
       <NumberedProcess eyebrow={t('refused.process.eyebrow')} steps={process} variant="dark" />
-      <section className="bg-white px-5 py-16 lg:px-[8vw] lg:py-24">
-        <div className="mx-auto max-w-[900px]">
-          <Reveal><p className="eyebrow">{t('refused.hear.heading')}</p></Reveal>
-          <div className="mt-8 border-t border-[#1E2A4A]/10">
-            {hear.map((row, i) => (
-              <div key={i} className="border-b border-[#1E2A4A]/10">
-                <button onClick={() => setOpenFaq(openFaq === i ? -1 : i)} className="flex w-full items-center justify-between gap-4 py-5 text-left" aria-expanded={openFaq === i}>
-                  <span className="font-heading text-lg text-[#1E2A4A]">{row.lead}</span>
-                  <ChevronDown className={`h-5 w-5 shrink-0 text-[#B8860B] transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} />
-                </button>
-                <div className={`overflow-hidden transition-all duration-300 ease-out ${openFaq === i ? 'max-h-60 pb-6' : 'max-h-0'}`}>
-                  <p className="text-base leading-relaxed text-[#1E2A4A]/70">{row.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <HearRows heading={t('refused.hear.heading')} items={hear} />
       <ServiceList heading={t('refused.handle.heading')} items={handle} />
       <section className="bg-[#FBFAF8] px-5 py-16 lg:px-[8vw] lg:py-24">
         <div className="mx-auto grid max-w-[1240px] gap-10 md:grid-cols-2">
