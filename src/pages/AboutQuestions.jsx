@@ -6,21 +6,16 @@ import { usePageMeta } from '@/lib/usePageMeta';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import Reveal from '@/components/site/Reveal';
-import { Image } from '@/components/ui/image';
 
 const CICC_URL = 'https://register.college-ic.ca/';
-const ABOUT_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/2d8179e35_generated_image.png';
 
 export default function AboutQuestions() {
   const { t } = useLanguage();
   const location = useLocation();
   const questionsRef = useRef(null);
   const [open, setOpen] = useState(null);
-  const isQuestions = location.pathname === '/questions';
-  usePageMeta(
-    isQuestions ? t('questions.meta.title') : t('about.meta.title'),
-    isQuestions ? t('questions.meta.description') : t('about.meta.description')
-  );
+  const isQuestions = location.hash === '#questions';
+  usePageMeta(t('about.meta.title'), t('about.meta.description'));
 
   useEffect(() => {
     if (isQuestions && questionsRef.current) {
@@ -62,20 +57,13 @@ export default function AboutQuestions() {
           <div className="absolute -right-24 -top-16 h-96 w-96 rounded-full bg-[#B8860B] blur-3xl" />
           <div className="absolute -bottom-24 -left-10 h-80 w-80 rounded-full bg-[#1D5240] blur-3xl" />
         </div>
-        <div className="relative mx-auto grid max-w-[1240px] items-center gap-12 lg:grid-cols-2">
-          <Reveal>
+        <div className="relative mx-auto max-w-[1240px]">
+          <Reveal className="max-w-2xl">
             <p className="eyebrow text-[#B8860B]">ABOUT</p>
             <h1 className="mt-4 font-heading text-[40px] leading-[1.08] text-white sm:text-5xl lg:text-[56px]">{t('about.s1.heading')}</h1>
             <p className="mt-6 max-w-lg text-lg leading-relaxed text-white/70">{t('about.s1.body')}</p>
-            <a href={CICC_URL} target="_blank" rel="noopener noreferrer" className="link-arrow mt-6 text-[#B8860B]">{t('about.s1.verify')} <ExternalLink className="h-4 w-4" /></a>
-          </Reveal>
-          <Reveal delay={120}>
-            <div className="relative">
-              <div className="absolute -bottom-4 -left-4 h-full w-full border border-[#B8860B]/40" aria-hidden="true" />
-              <div className="relative aspect-[4/3] overflow-hidden shadow-2xl shadow-black/30">
-                <Image src={ABOUT_IMG} alt="" fittingType="fill" className="h-full w-full" />
-              </div>
-            </div>
+            <p className="mt-6 text-sm font-semibold uppercase tracking-[.12em] text-white/85">{t('about.s1.licensee')}</p>
+            <a href={CICC_URL} target="_blank" rel="noopener noreferrer" className="link-arrow mt-3 text-[#B8860B]">{t('about.s1.verify')} <ExternalLink className="h-4 w-4" /></a>
           </Reveal>
         </div>
       </section>
@@ -123,7 +111,7 @@ export default function AboutQuestions() {
       </section>
 
       {/* Questions */}
-      <section ref={questionsRef} className="bg-[#FBFAF8] px-5 py-20 scroll-mt-20 lg:px-[8vw] lg:py-28">
+      <section ref={questionsRef} id="questions" className="bg-[#FBFAF8] px-5 py-16 scroll-mt-20 lg:px-[8vw] lg:py-20">
         <div className="mx-auto max-w-[1240px]">
           <Reveal>
             <p className="eyebrow">QUESTIONS</p>
@@ -135,7 +123,7 @@ export default function AboutQuestions() {
               {items.map((it) => <Accordion key={it.value} it={it} />)}
             </div>
           </Reveal>
-          <Reveal className="mt-16">
+          <Reveal className="mt-12">
             <p className="eyebrow">{t('questions.serviceEyebrow')}</p>
             <h3 className="mt-3 font-heading text-3xl text-[#1E2A4A] sm:text-4xl">{t('questions.serviceHeading')}</h3>
             <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[#1E2A4A]/65">{t('questions.serviceIntro')}</p>

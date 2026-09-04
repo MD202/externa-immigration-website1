@@ -54,7 +54,6 @@ const AuthenticatedApp = () => {
       <Route path="/services/:id" element={<ServiceDetail />} />
       <Route path="/refused-applications" element={<RefusedApplications />} />
       <Route path="/about" element={<AboutQuestions />} />
-      <Route path="/questions" element={<AboutQuestions />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/humanitarian-compassionate" element={<HumanitarianCompassionate />} />
       <Route path="/family-sponsorship" element={<FamilySponsorship />} />

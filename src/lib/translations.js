@@ -880,12 +880,12 @@ export const translations = {
   },
   about: {
     meta: {
-      title: { en: "About | Externa Immigration Solutions | RCIC-IRB Immigration Consultant" },
+      title: { en: "About Externa Immigration Solutions | RCIC-IRB, Licence R709272" },
       description: { en: "A licensed Canadian immigration practice based in Markham, Ontario. Direct, deliberately small, focused. RCIC-IRB, CAPIC member, insured. English, Tamil, Hindi." },
     },
     s1: {
       heading: { en: "About this practice" },
-      body: { en: "Externa Immigration Solutions Inc. is a licensed Canadian immigration practice based in Markham, Ontario, working with clients across Canada and internationally." },
+      body: { en: "Externa Immigration Solutions Inc. is a licensed Canadian immigration practice, working with clients across Canada and internationally." },
       licensee: { en: "Malathi Dhandapani, RCIC-IRB · Licence R709272" },
       verify: { en: "Verify on the public register" },
     },
@@ -946,10 +946,14 @@ export const translations = {
     heading: { en: "Tell us what's going on" },
     intro: { en: "Short is fine. You don't need to explain your whole history in a form." },
     hero: {
-      eyebrow: { en: "TELL US WHAT'S GOING ON" },
+      eyebrow: { en: "CONTACT" },
       headline: { en: "Tell us what's going on." },
       body: { en: "Short is fine. You don't need to explain your whole history in a form. Tell us where you are and what's happening — we'll take it from there." },
       cta: { en: "Send your message" },
+    },
+    call: {
+      label: { en: "Prefer to call?" },
+      hours: { en: "Evening and weekend appointments available. English, Tamil or Hindi." },
     },
     loc: {
       label: { en: "Where are you now?" },

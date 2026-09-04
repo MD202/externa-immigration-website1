@@ -36,7 +36,7 @@ export default function Header() {
   ];
   const aboutLinks = [
     { label: t('nav.aboutUs'), to: '/about' },
-    { label: t('nav.questions'), to: '/questions' },
+    { label: t('nav.questions'), to: '/about#questions' },
     { label: t('nav.fees'), to: '/fees' },
     { label: t('nav.contact'), to: '/contact' },
   ];

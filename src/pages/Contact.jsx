@@ -9,6 +9,7 @@ import Reveal from '@/components/site/Reveal';
 import { Image } from '@/components/ui/image';
 
 const TAG_KEY = 'externa-triage-tag';
+const PHONE = '+1-647-909-9603';
 const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/929ea20db_generated_image.png';
 
 export default function Contact() {
@@ -51,7 +52,7 @@ export default function Contact() {
           <Image src={HERO_IMG} fittingType="fill" className="h-full w-full opacity-30" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#13203F]/80 via-[#13203F]/60 to-[#13203F]" />
         </div>
-        <div className="relative mx-auto max-w-[1440px] px-5 pt-36 pb-20 lg:px-[8vw] lg:pt-44 lg:pb-24">
+        <div className="relative mx-auto max-w-[1440px] px-5 pt-36 pb-8 lg:px-[8vw] lg:pt-44 lg:pb-10">
           <Reveal className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[.24em] text-[#B8860B]">{t('contact.hero.eyebrow')}</p>
             <h1 className="mt-5 font-heading text-[40px] leading-[1.06] sm:text-5xl lg:text-[56px]">{t('contact.hero.headline')}</h1>
@@ -60,9 +61,16 @@ export default function Contact() {
         </div>
       </section>
 
-      <section className="px-5 py-16 lg:px-[8vw] lg:py-24">
+      <section className="px-5 pt-8 pb-16 lg:px-[8vw] lg:pt-10 lg:pb-24">
         <div className="mx-auto max-w-[680px]">
           <Reveal>
+            <div className="border-b border-[#1E2A4A]/12 pb-6">
+              <p className="text-base text-[#1E2A4A]/70">{t('contact.call.label')}</p>
+              <a href={`tel:${PHONE}`} className="mt-1 inline-block font-heading text-2xl text-[#1E2A4A] transition hover:text-[#B8860B]">{PHONE}</a>
+              <p className="mt-1 text-sm text-[#1E2A4A]/55">{t('contact.call.hours')}</p>
+            </div>
+          </Reveal>
+          <Reveal className="mt-8">
             <p className="intake-label mb-3">{t('contact.loc.label')}</p>
             <div className="grid grid-cols-2 gap-3">
               <button type="button" onClick={() => setLoc('inside')} className={`flex flex-col items-start gap-1 border p-5 text-left transition ${loc === 'inside' ? 'border-[#B8860B] bg-[#B8860B]/5' : 'border-[#1E2A4A]/20 hover:border-[#1E2A4A]/40'}`}>

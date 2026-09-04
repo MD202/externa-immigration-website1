@@ -57,7 +57,7 @@ export default function Footer() {
               <Link to="/strategy-session" className="transition hover:text-[#B8860B]">{t('foot.col4.book')}</Link>
               <span className="text-white/45">{t('foot.col4.evening')}</span>
               <Link to="/fees" className="transition hover:text-[#B8860B]">{t('foot.col4.fees')}</Link>
-              <Link to="/questions" className="transition hover:text-[#B8860B]">{t('foot.col4.questions')}</Link>
+              <Link to="/about#questions" className="transition hover:text-[#B8860B]">{t('foot.col4.questions')}</Link>
               <a href={CICC_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 transition hover:text-[#B8860B]"><BadgeCheck className="h-4 w-4 text-[#B8860B]" /> {t('foot.col4.verify')}</a>
             </div>
           </div>
