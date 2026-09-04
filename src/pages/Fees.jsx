@@ -93,7 +93,7 @@ export default function Fees() {
             <p className="eyebrow text-[#B8860B]">PUBLISHED PRICING</p>
             <h1 className="mt-4 font-heading text-[40px] leading-[1.05] sm:text-5xl lg:text-[64px]">Fees</h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/65">Three ways to work with us, and every price on the page. Canadian dollars, plus HST. Government fees are separate and never marked up.</p>
-            <Link to="/strategy-session" className="mt-8 inline-flex items-center gap-2 bg-[#B8860B] px-9 py-4 text-base font-semibold text-white transition-colors hover:bg-[#A8871A]">Book a consultation <ArrowRight className="h-4 w-4" /></Link>
+            <Link to="/strategy-session" className="mt-8 inline-flex items-center gap-2 border border-white/40 px-9 py-4 text-base font-semibold text-white transition-colors hover:border-white hover:bg-white/5">Book a consultation <ArrowRight className="h-4 w-4" /></Link>
           </Reveal>
         </div>
       </section>
