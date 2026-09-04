@@ -65,7 +65,7 @@ export default function FamilySponsorship() {
       <NumberedProcess eyebrow={t('family.steps.eyebrow')} heading={t('family.steps.heading')} steps={steps} variant="dark" />
       <HearRows heading={t('family.hear.heading')} items={hear} />
       <ServiceList heading={t('family.handle.heading')} items={handle} />
-      <section className="bg-[#FBFAF8] px-5 py-16 lg:px-[8vw] lg:py-24">
+      <section className="bg-[#FBFAF8] px-5 pt-16 pb-0 lg:px-[8vw] lg:pt-24">
         <div className="mx-auto grid max-w-[1240px] gap-10 md:grid-cols-2">
           <Reveal>
             <p className="eyebrow">{t('family.lang.heading')}</p>
