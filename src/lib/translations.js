@@ -25,9 +25,9 @@ export const translations = {
   hero: {
     title: { en: 'Your Canadian future,', ta: 'உங்கள் கனடிய எதிர்காலம்,', hi: 'आपका कनाडाई भविष्य,' },
     word1: { en: 'worth fighting for', ta: 'போராடத் தகுந்தது', hi: 'लड़ने लायक' },
-    word2: { en: 'reclaimed', ta: 'மீட்கப்பட்டது', hi: 'पुनः प्राप्त' },
-    word3: { en: 'clarified', ta: 'தெளிவான', hi: 'स्पष्ट' },
-    word4: { en: 'planned', ta: 'திட்டமிடப்பட்ட', hi: 'योजनाबद्ध' },
+    word2: { en: 'within reach', ta: 'எட்டும் தூரத்தில்', hi: 'पहुँच में' },
+    word3: { en: 'yours to claim', ta: 'உங்களுக்கானது', hi: 'आपका हक' },
+    word4: { en: 'starting now', ta: 'இப்போதே தொடங்கும்', hi: 'अभी से शुरू' },
     subtitle: { en: 'A licensed Canadian immigration practice for people facing high-stakes applications, refusals, and decisions that change everything.', ta: 'உயர் ஆபத்து விண்ணப்பங்கள், நிராகரிப்புகள், மற்றும் எல்லாவற்றையும் மாற்றும் முடிவுகளை எதிர்கொள்ளும் மக்களுக்கான உரிமம் பெற்ற கனடிய குடியேற்ற நடைமுறை.', hi: 'उच्च-दांव वाले आवेदनों, अस्वीकृतियों, और सब बदल देने वाले निर्णयों का सामना कर रहे लोगों के लिए एक लाइसेंस प्राप्त कनाडाई आव्रजन प्रैक्टिस।' },
     cta1: { en: 'Discuss your case', ta: 'உங்கள் வழக்கைப் பற்றி பேசுங்கள்', hi: 'अपना मामला चर्चा करें' },
     cta2: { en: 'Where are you now?', ta: 'நீங்கள் இப்போது எங்கே இருக்கிறீர்கள்?', hi: 'आप अभी कहाँ हैं?' },
