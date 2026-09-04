@@ -15,7 +15,6 @@ const features = [
   { label: 'Written review of every form and letter you prepare', full: '✓', guided: '✓', review: '✓' },
   { label: 'Strategy — route, evidence, what to avoid', full: '✓', guided: '✓', review: 'Limited to what you\'ve prepared' },
   { label: 'Representative\'s submission letter', full: '✓', guided: '—', review: '—' },
-  { label: 'Commissioning of forms and declarations', full: '✓', guided: '—', review: '—' },
   { label: 'Consultations', full: 'As required', guided: 'One 60-min session', review: 'One 45-min session' },
   { label: 'Follow-up session', full: '✓', guided: 'One 30-min before you file', review: 'One 15-min' },
   { label: 'Email support while you prepare', full: '✓', guided: '✓', review: '—' },
