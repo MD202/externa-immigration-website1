@@ -1115,9 +1115,9 @@ export const translations = {
     types: {
       heading: { en: "The routes, and how they actually work" },
       intro: { en: "Sponsorship isn't one process. The route you choose changes the timeline, where the application is decided, and what happens if something goes wrong." },
-      r1l: { en: "Spouses and partners — outland" },
+      r1l: { en: "Spouses and partners — outside Canada" },
       r1b: { en: "The sponsored person can be inside or outside Canada; the application is processed through the visa office serving their country. The sponsored person can usually travel. A refusal can be appealed to the Immigration Appeal Division." },
-      r2l: { en: "Spouses and partners — inland" },
+      r2l: { en: "Spouses and partners — inside Canada" },
       r2b: { en: "For couples already living together in Canada. The sponsored person can apply for an open work permit while it processes. There is no appeal to the IAD on a refusal — the route is Federal Court — so we prepare the file with that in mind from the start." },
       r3l: { en: "Dependent children" },
       r3b: { en: "Eligibility locks to the child's age and dependency at the date we receive the application, not the date it's decided. Where a child is near the age limit, the timing of filing is the whole strategy." },
