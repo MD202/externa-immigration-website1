@@ -15,7 +15,7 @@ import { tabs, services, ROW_GRID } from '@/components/fees/feesData';
 const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/bbfbbabed_generated_image.png';
 
 const consultations = [
-  { name: 'Full consultation', price: '$175', detail: '60 minutes. A full assessment and a written summary afterward. Credited in full toward any package if you retain us within 15 days.', featured: true },
+  { name: 'Full consultation', price: '$175', detail: '60 minutes. A full assessment and a written summary afterward. Credited in full toward any package if you retain us within 15 days.', featured: true, popular: true },
   { name: 'Quick sync', price: '$50', detail: '15 minutes. One specific question.' },
   { name: 'Refusal analysis', price: '$650', detail: 'If you\'ve already been refused, start here instead. We order your file notes, read what actually happened, and give you a written opinion on your options. Includes the ATIP request.', featured: true },
 ];
@@ -29,7 +29,6 @@ const paymentModes = [
 const payNotes = [
   { h: "What's included", b: 'Forms, supporting letters, strategy, written review, submission, and liaising with the immigration authority on your behalf — depending on the tier.' },
   { h: "What's separate", b: 'Government fees are yours and never marked up. Courier, translation, interpretation and affidavits are billed at cost.' },
-  { h: 'Before you pay anything', b: 'You review and sign a written agreement first. That order is required by our professional rules, and it protects you.' },
 ];
 
 const savings = [
@@ -110,7 +109,8 @@ export default function Fees() {
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {consultations.map((c, i) => (
               <Reveal key={i} delay={i * 60}>
-                <div className={`flex h-full flex-col p-7 ${c.featured ? 'border-2 border-[#B8860B] bg-white' : 'border border-[#1E2A4A]/12 bg-white'}`}>
+                <div className={`group flex h-full flex-col p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${c.featured ? 'border-2 border-[#B8860B] bg-white' : 'border border-[#1E2A4A]/12 bg-white'}`}>
+                  {c.popular && <span className="mb-3 inline-block self-start bg-[#B8860B] px-3 py-1 text-[10px] font-semibold uppercase tracking-[.14em] text-white">Most people start here</span>}
                   <h3 className="font-heading text-xl text-[#1E2A4A]">{c.name}</h3>
                   <p className="mt-3 font-heading text-4xl text-[#1E2A4A]">{c.price}</p>
                   <p className="mt-3 flex-1 text-sm leading-relaxed text-[#1E2A4A]/65">{c.detail}</p>
@@ -118,6 +118,9 @@ export default function Fees() {
               </Reveal>
             ))}
           </div>
+          <Reveal className="mt-5">
+            <p className="text-sm text-[#1E2A4A]/60">The consultation amount is credited in full toward any package if you retain us within 15 days.</p>
+          </Reveal>
           <Reveal className="mt-8">
             <Link to="/strategy-session" className="btn btn-primary">Book a consultation <ArrowRight className="h-4 w-4" /></Link>
           </Reveal>
@@ -210,7 +213,7 @@ export default function Fees() {
               </Reveal>
             ))}
           </div>
-          <div className="mt-6 grid gap-5 md:grid-cols-3">
+          <div className="mt-6 grid gap-5 md:grid-cols-2">
             {payNotes.map((n, i) => (
               <Reveal key={i} delay={i * 50}>
                 <div className="h-full p-6">
@@ -226,9 +229,11 @@ export default function Fees() {
       {/* Ways to save */}
       <section id="discounts" className="scroll-mt-32 px-5 py-16 lg:px-[8vw] lg:py-24">
         <div className="mx-auto max-w-[1240px]">
-          <Reveal><Eyebrow>WAYS TO SAVE</Eyebrow></Reveal>
-          <Reveal className="mt-6 max-w-2xl">
-            <h2 className="section-title">Published, because you shouldn't have to ask.</h2>
+          <Reveal>
+            <div className="flex flex-col gap-4 border-l-2 border-[#B8860B] pl-6">
+              <p className="eyebrow">WAYS TO SAVE</p>
+              <h2 className="font-heading text-4xl leading-tight text-[#1E2A4A] sm:text-5xl">Published, because you shouldn't have to ask.</h2>
+            </div>
           </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {savings.map((d, i) => (

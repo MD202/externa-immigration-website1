@@ -51,10 +51,11 @@ function PriceCells({ svc }) {
     );
   }
   return (
-    <span className="col-span-1 flex flex-col items-end gap-0.5 whitespace-nowrap lg:col-span-3">
-      <span className="tabular-nums text-xs text-[#1E2A4A] sm:text-sm"><span className="text-[#55605A]">Written </span>{svc.written}</span>
-      <span className="tabular-nums text-xs font-medium text-[#1E2A4A] sm:text-sm"><span className="text-[#55605A]">Hearing </span>{svc.full}</span>
-    </span>
+    <>
+      <span className="text-right tabular-nums font-medium text-[#1E2A4A]">{svc.full}</span>
+      <span className="hidden lg:block" />
+      <span className="hidden lg:block" />
+    </>
   );
 }
 

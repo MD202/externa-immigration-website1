@@ -13,6 +13,7 @@ export const tabs = [
 ];
 
 export const DEFAULT_MATRIX = [
+  { label: 'Strategy — route, evidence, what to avoid', full: true, diy: true, review: 'Limited' },
   { label: 'Who submits', full: 'We do', diy: 'You do', review: 'You do' },
   { label: 'Named as your authorized representative', full: true, diy: false, review: false },
   { label: 'Payment', full: 'Staged', diy: 'In full', review: 'In full' },
@@ -20,7 +21,6 @@ export const DEFAULT_MATRIX = [
   { label: 'All supporting letters drafted by us', full: true, diy: false, review: false },
   { label: "Representative's submission letter", full: true, diy: false, review: false },
   { label: 'We liaise with the immigration authority after submission', full: true, diy: false, review: false },
-  { label: 'Strategy — route, evidence, what to avoid', full: true, diy: true, review: 'Limited' },
   { label: 'Written review of every form and letter', full: true, diy: true, review: true },
   { label: 'Personalised document checklist', full: true, diy: true, review: true },
   { label: 'Consultations', full: 'As required', diy: '60 min', review: '45 min' },
