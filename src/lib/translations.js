@@ -223,7 +223,7 @@ export const translations = {
   },
   strategy: {
     asideQuote: { en: 'The clearest path begins with the right questions.', ta: 'மிகவும் தெளிவான பாதை சரியான கேள்விகளுடன் தொடங்குகிறது.', hi: 'सबसे स्पष्ट मार्ग सही प्रश्नों से शुरू होता है।' },
-    asideNote: { en: 'Your information is used only to understand and respond to your consultation request.', ta: 'உங்கள் தகவல் உங்கள் ஆலோசனை கோரிக்கையைப் புரிந்துகொண்டு பதிலளிக்க மட்டுமே பயன்படுத்தப்படுகிறது.', hi: 'आपकी जानकारी केवल आपके परामर्श अनुरोध को समझने और उत्तर देने के लिए उपयोग होती है।' },
+    asideNote: { en: 'Your information is used to understand and respond to your consultation request, and to send you our newsletter.', ta: 'உங்கள் தகவல் உங்கள் ஆலோசனை கோரிக்கையைப் புரிந்துகொண்டு பதிலளிக்க மட்டுமே பயன்படுத்தப்படுகிறது.', hi: 'आपकी जानकारी केवल आपके परामर्श अनुरोध को समझने और उत्तर देने के लिए उपयोग होती है।' },
     progress: { en: 'Your details', ta: 'உங்கள் விவரங்கள்', hi: 'आपका विवरण' },
     s1: { en: 'What brings you here today?', ta: 'இன்று உங்களை இங்கே எது கொண்டு வந்தது?', hi: 'आज आपको यहाँ क्या लाया?' },
     s2: { en: 'Is there a deadline we should know about?', ta: 'நாங்கள் அறிந்துகொள்ள வேண்டிய காலக்கெடு உள்ளதா?', hi: 'क्या कोई समय सीमा है जो हमें पता होनी चाहिए?' },

@@ -11,7 +11,7 @@ import { Image } from '@/components/ui/image';
 const TAG_KEY = 'externa-triage-tag';
 const PHONE = '+1-647-909-9603';
 const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/929ea20db_generated_image.png';
-const CONSENT_TEXT = "I agree to proceed with the initial consultation. I understand the consultation fee is not refundable once the agreement is signed, that its scope is limited to the consultation itself, and that you may use the details I've provided to contact me by email about my matter.";
+const CONSENT_TEXT = "I agree to proceed with the initial consultation. I understand its scope is limited to the consultation itself, and that you may use the details I've provided to contact me by email about my matter. I will give at least 24 hours' notice to reschedule, otherwise the appointment is considered complete. Emergency situations are accommodated, but prior notice always helps. I agree to receive the newsletter by email.";
 
 export default function Contact() {
   const { t } = useLanguage();

@@ -1,7 +1,7 @@
 import { CreditCard, Clock } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 
-const CONSENT_TEXT = "I agree to proceed with the initial consultation. I understand the consultation fee is not refundable once the agreement is signed, that its scope is limited to the consultation itself, and that you may use the details I've provided to contact me by email about my matter.";
+const CONSENT_TEXT = "I agree to proceed with the initial consultation. I understand its scope is limited to the consultation itself, and that you may use the details I've provided to contact me by email about my matter. I will give at least 24 hours' notice to reschedule, otherwise the appointment is considered complete. Emergency situations are accommodated, but prior notice always helps. I agree to receive the newsletter by email.";
 
 export default function DetailsAgreementStep({ data, setData, saving, onPayNow, onPayLater }) {
   const { t } = useLanguage();
@@ -72,7 +72,7 @@ export default function DetailsAgreementStep({ data, setData, saving, onPayNow, 
               <h4 className="font-heading text-lg text-[#1E2A4A]">{t('bookingFlow.payNow')}</h4>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-[#1E2A4A]/60">{t('bookingFlow.payNowDesc')}</p>
-            <button type="button" disabled={saving || !detailsValid} onClick={onPayNow} className="mt-6 w-full bg-[#B8860B] py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#A8871A] disabled:opacity-40">
+            <button type="button" disabled={saving || !detailsValid} onClick={onPayNow} className="mt-6 w-full border border-[#B8860B] py-4 font-semibold text-[#B8860B] transition hover:bg-[#B8860B] hover:text-white disabled:opacity-40">
               {saving ? t('bookingFlow.sending') : t('bookingFlow.payNow')}
             </button>
           </div>

@@ -113,7 +113,7 @@ export default function StrategySession() {
                 </button>
               ) : <span />}
               {step < 3 && (
-                <button type="button" disabled={!canProceed} onClick={() => setStep(step + 1)} className="flex items-center gap-3 bg-[#B8860B] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#A8871A] disabled:opacity-40">
+                <button type="button" disabled={!canProceed} onClick={() => setStep(step + 1)} className="flex items-center gap-3 border border-[#B8860B] px-6 py-4 font-semibold text-[#B8860B] transition hover:bg-[#B8860B] hover:text-white disabled:opacity-40">
                   {nextLabel} <ArrowRight className="h-4 w-4" />
                 </button>
               )}
