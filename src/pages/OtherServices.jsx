@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
@@ -25,26 +24,23 @@ const card = (t, id, titleKey, bodyKey, link) => ({
 export default function OtherServices() {
   const { t } = useLanguage();
   usePageMeta(t('other.meta.title'), t('other.meta.description'));
-  const [tab, setTab] = useState('outside');
-  const outside = [
+  const cards = [
     card(t, 'e1', 'other.e1t', 'other.e1b'),
     card(t, 'e2', 'other.e2t', 'other.e2b'),
     card(t, 'e3', 'other.e3t', 'other.e3b'),
     card(t, 'e4', 'other.e4t', 'other.e4b', { label: t('other.e4link'), to: '/refused-applications' }),
+    card(t, 'e5', 'other.e5t', 'other.e5b'),
     card(t, 'e6', 'other.e6t', 'other.e6b'),
     card(t, 'e7', 'other.e7t', 'other.e7b'),
-  ];
-  const inCanada = [
-    card(t, 'e5', 'other.e5t', 'other.e5b'),
     card(t, 'e8', 'other.e8t', 'other.e8b', { label: t('other.e8link'), to: '/humanitarian-compassionate' }),
     card(t, 'e9', 'other.e9t', 'other.e9b', { label: t('other.e9link'), to: '/refused-applications' }),
     card(t, 'e10', 'other.e10t', 'other.e10b'),
     card(t, 'e11', 'other.e11t', 'other.e11b'),
+    card(t, 'e12', 'other.e12t', 'other.e12b', { label: t('other.e12link'), to: '/refused-applications' }),
     card(t, 'b1', 'other.business.b1t', 'other.business.b1b'),
     card(t, 'b2', 'other.business.b2t', 'other.business.b2b'),
     card(t, 'b3', 'other.business.b3t', 'other.business.b3b'),
   ];
-  const cards = tab === 'outside' ? outside : inCanada;
   const steps = [1, 2, 3, 4].map((i) => ({ n: `0${i}`, title: t(`other.steps.s${i}t`), body: t(`other.steps.s${i}b`) }));
   const hear = [1, 2, 3].map((i) => {
     const row = { lead: t(`other.hear.r${i}l`), body: t(`other.hear.r${i}b`) };
@@ -63,10 +59,6 @@ export default function OtherServices() {
             <h2 className="section-title">{t('other.cardsHeading')}</h2>
             <p className="mt-6 text-lg leading-relaxed text-[#1E2A4A]/65">{t('other.cardsIntro')}</p>
           </Reveal>
-          <div className="mt-8 inline-flex rounded-full border border-[#1E2A4A]/15 bg-white p-1">
-            <button onClick={() => setTab('outside')} className={`rounded-full px-6 py-2.5 text-sm font-semibold transition ${tab === 'outside' ? 'bg-[#1E2A4A] text-white' : 'text-[#1E2A4A]/60 hover:text-[#1E2A4A]'}`}>{t('other.outsideCanada')}</button>
-            <button onClick={() => setTab('inCanada')} className={`rounded-full px-6 py-2.5 text-sm font-semibold transition ${tab === 'inCanada' ? 'bg-[#1E2A4A] text-white' : 'text-[#1E2A4A]/60 hover:text-[#1E2A4A]'}`}>{t('other.inCanada')}</button>
-          </div>
           <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {cards.map((e) => (
               <Reveal key={e.id}>
