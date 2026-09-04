@@ -71,6 +71,7 @@ export default function Header() {
             {dropdown(t('nav.about'), aboutLinks, 'about')}
           </nav>
           <a href={`tel:${PHONE}`} className="flex items-center gap-2 text-sm text-[#1E2A4A]/70 transition hover:text-[#B8860B]"><Phone className="h-4 w-4 text-[#B8860B]" /> {PHONE}</a>
+          <Link to="/strategy-session" className="bg-[#B8860B] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#A8871A]">Book a consultation</Link>
         </div>
         <div className="flex items-center gap-3 lg:hidden">
           <button onClick={() => setMobileOpen(!mobileOpen)} className="text-[#1E2A4A] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B] focus-visible:ring-offset-2" aria-label="Toggle navigation" aria-expanded={mobileOpen} aria-controls="mobile-nav">{mobileOpen ? <X /> : <Menu />}</button>
@@ -86,6 +87,7 @@ export default function Header() {
           {aboutLinks.map((link) => (
             <Link key={link.to} onClick={() => setMobileOpen(false)} to={link.to} className="block px-4 py-3 text-[#1E2A4A]/80">{link.label}</Link>
           ))}
+          <Link to="/strategy-session" onClick={() => setMobileOpen(false)} className="mx-4 mt-3 bg-[#B8860B] px-4 py-3 text-center text-sm font-semibold text-white">Book a consultation</Link>
         </nav>
       )}
     </header>
