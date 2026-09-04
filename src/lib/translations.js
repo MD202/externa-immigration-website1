@@ -888,7 +888,7 @@ export const translations = {
     s1: {
       heading: { en: "About this practice" },
       body: { en: "Externa Immigration Solutions Inc. is a licensed Canadian immigration practice, working with clients across Canada and internationally." },
-      licensee: { en: "Malathi Dhandapani, RCIC-IRB · Licence R709272" },
+      licensee: { en: "RCIC-IRB · Licence R709272" },
       verify: { en: "Verify on the public register" },
     },
     s2: {
