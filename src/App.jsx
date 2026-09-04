@@ -20,6 +20,7 @@ import HealthcareProfessionals from '@/pages/HealthcareProfessionals';
 import Entrepreneurs from '@/pages/Entrepreneurs';
 import OtherServices from '@/pages/OtherServices';
 import { LanguageProvider } from '@/lib/LanguageContext';
+import WhatsAppWidget from '@/components/site/WhatsAppWidget';
 // Add page imports here
 
 const AuthenticatedApp = () => {
@@ -47,6 +48,7 @@ const AuthenticatedApp = () => {
 
   // Render the main app
   return (
+    <>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/strategy-session" element={<StrategySession />} />
@@ -63,6 +65,8 @@ const AuthenticatedApp = () => {
       <Route path="/eligibility" element={<Eligibility />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
+      <WhatsAppWidget />
+    </>
   );
 };
 
