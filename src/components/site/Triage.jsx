@@ -78,8 +78,7 @@ export default function Triage({ onClose }) {
             <h2 className="mt-8 font-heading text-3xl text-white sm:text-4xl">{qConfig.prompt}</h2>
             <div className="mt-8 grid gap-3">
               {qConfig.options.map((opt) => (
-                <button key={opt.v} onClick={() => choose(opt.v)} className="group relative flex w-full items-center border border-white/15 px-6 py-5 text-left text-white transition hover:border-transparent hover:bg-white hover:text-[#1E2A4A] hover:shadow-[0_12px_28px_-12px_rgba(0,0,0,0.45)]">
-                  <span className="absolute left-0 top-0 h-full w-0.5 origin-top scale-y-0 bg-[#1E2A4A] transition-transform duration-200 group-hover:scale-y-100" />
+                <button key={opt.v} onClick={() => choose(opt.v)} className="flex w-full items-center border border-[#F4EEE2]/40 bg-[#1E2A4A] px-6 py-5 text-left text-[#F4EEE2] transition hover:border-[#F4EEE2] hover:shadow-[0_8px_20px_-10px_rgba(0,0,0,0.5)]">
                   <span className="font-heading text-lg">{opt.label}</span>
                 </button>
               ))}
