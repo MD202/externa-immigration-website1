@@ -10,12 +10,14 @@ import Footer from '@/components/site/Footer';
 import CloseCta from '@/components/service/CloseCta';
 import Reveal from '@/components/site/Reveal';
 import HearRows from '@/components/site/HearRows';
+import Triage from '@/components/site/Triage';
 
 const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/929ea20db_generated_image.png';
 
 export default function HumanitarianCompassionate() {
   const { t } = useLanguage();
   usePageMeta(t('hc.meta.title'), t('hc.meta.description'));
+  const [triageOpen, setTriageOpen] = useState(false);
   const ify = [1, 2, 3, 4, 5].map((i) => ({ title: t(`hc.ify.r${i}l`), body: t(`hc.ify.r${i}b`) }));
   const build = [1, 2, 3, 4, 5, 6].map((i) => ({ n: `0${i}`, title: t(`hc.build.r${i}l`), body: t(`hc.build.r${i}b`) }));
   const hear = [1, 2, 3, 4].map((i) => {
@@ -27,7 +29,7 @@ export default function HumanitarianCompassionate() {
   return (
     <main className="bg-[#FBFAF8]">
       <Header />
-      <ServiceHero eyebrow={t('hc.hero.eyebrow')} headline={t('hc.hero.headline')} body={t('hc.hero.body')} ctaLabel={t('hc.hero.cta')} ctaTo="/#where" image={HERO_IMG} />
+      <ServiceHero eyebrow={t('hc.hero.eyebrow')} headline={t('hc.hero.headline')} body={t('hc.hero.body')} ctaLabel={t('hc.hero.cta')} onCtaClick={() => setTriageOpen(true)} image={HERO_IMG} />
       <section className="bg-[#FBFAF8] px-5 py-16 lg:px-[8vw] lg:py-24">
         <div className="mx-auto max-w-[1240px]">
           <Reveal className="max-w-2xl">
@@ -68,6 +70,7 @@ export default function HumanitarianCompassionate() {
         </div>
       </section>
       <CloseCta label={t('hc.close.cta')} />
+      {triageOpen && <Triage onClose={() => setTriageOpen(false)} />}
       <Footer />
     </main>
   );

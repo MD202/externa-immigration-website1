@@ -45,8 +45,8 @@ export default function FamilySponsorship() {
             <p className="mt-6 text-lg leading-relaxed text-[#1E2A4A]/65">{t('family.types.intro')}</p>
           </Reveal>
           <div className="mt-8 inline-flex rounded-full border border-[#1E2A4A]/15 bg-white p-1">
-            <button onClick={() => setTab('outland')} className={`rounded-full px-6 py-2.5 text-sm font-semibold transition ${tab === 'outland' ? 'bg-[#1E2A4A] text-white' : 'text-[#1E2A4A]/60 hover:text-[#1E2A4A]'}`}>Outland</button>
-            <button onClick={() => setTab('inland')} className={`rounded-full px-6 py-2.5 text-sm font-semibold transition ${tab === 'inland' ? 'bg-[#1E2A4A] text-white' : 'text-[#1E2A4A]/60 hover:text-[#1E2A4A]'}`}>Inland</button>
+            <button onClick={() => setTab('outland')} className={`rounded-full px-6 py-2.5 text-sm font-semibold transition ${tab === 'outland' ? 'bg-[#1E2A4A] text-white' : 'text-[#1E2A4A]/60 hover:text-[#1E2A4A]'}`}>Outside Canada</button>
+            <button onClick={() => setTab('inland')} className={`rounded-full px-6 py-2.5 text-sm font-semibold transition ${tab === 'inland' ? 'bg-[#1E2A4A] text-white' : 'text-[#1E2A4A]/60 hover:text-[#1E2A4A]'}`}>Inside Canada</button>
           </div>
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {cards.map((c, i) => (

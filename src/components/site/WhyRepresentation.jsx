@@ -9,7 +9,7 @@ export default function WhyRepresentation() {
   const rows = [1, 2, 3, 4, 5, 6].map((i) => ({ lead: t(`home.whyrep.r${i}l`), body: t(`home.whyrep.r${i}b`) }));
   return (
     <section className="relative overflow-hidden bg-[#1E2A4A] px-5 py-20 text-white lg:px-[8vw] lg:py-40">
-      <div className="pointer-events-none absolute inset-0" aria-hidden="true" style={{ background: 'radial-gradient(60% 50% at 82% 0%, rgba(184,134,11,0.18), transparent 70%)' }} />
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true" style={{ background: 'radial-gradient(60% 50% at 82% 0%, rgba(244,238,226,0.12), transparent 70%)' }} />
       <div className="relative mx-auto max-w-[1240px]">
         <Reveal className="max-w-3xl">
           <p className="font-heading text-2xl italic leading-snug text-[#B8860B] sm:text-3xl">{t('home.whyrep.openquote')}</p>

@@ -26,7 +26,7 @@ export default function FocusAreas() {
                 <ArrowUpRight className="absolute right-8 top-8 h-5 w-5 text-[#1E2A4A]/25 transition duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#B8860B]" aria-hidden="true" />
                 <h3 className="max-w-[12rem] font-heading text-2xl text-[#1E2A4A]">{c.title}</h3>
                 <p className="mt-4 text-base leading-relaxed text-[#1E2A4A]/65">{c.body}</p>
-                <p className="mt-auto border-t border-[#1E2A4A]/10 pt-5 text-xs uppercase tracking-[.1em] text-[#1E2A4A]/45">{c.meta}</p>
+                <p className="mt-auto border-t border-[#1E2A4A]/10 pt-5 text-xs uppercase tracking-[.1em] text-[#B8860B]">{c.meta}</p>
               </Link>
             </Reveal>
           ))}
