@@ -798,6 +798,15 @@ export const translations = {
       c3b: { en: "We build the PRRA response from the reasoning in the notes, not from a template." },
       c4l: { en: "Federal Court judicial review" },
       c4b: { en: "We don't do this — it belongs to a lawyer. If yours genuinely needs it, we'll say so and point you to one." },
+      scheduling: { en: "Our availability for weekday hearings is currently limited. Tell us what you're facing and we'll say honestly whether we can act throughout, act on the written stages, or refer you to counsel who can." },
+    },
+    analysis: {
+      eyebrow: { en: "REFUSAL ANALYSIS" },
+      heading: { en: "Find out why you were refused — for $650." },
+      body: { en: "The cheapest yes on this site. Send us your refusal letter and a copy of what you submitted. We obtain the officer's notes, read the actual reasoning, and tell you in writing whether a remedy exists and which one. If you then retain us for the work, the $650 is credited to your service agreement." },
+      price: { en: "$650" },
+      note: { en: "Credited to your service agreement if you retain us within 15 days." },
+      cta: { en: "Book the refusal analysis" },
     },
     also: {
       heading: { en: "Also on this page" },
@@ -1183,11 +1192,12 @@ export const translations = {
       secondary: { en: "Video consultations, evenings and weekends, in English, Tamil or Hindi." },
     },
     clocks: {
+      eyebrow: { en: "THE TWO CLOCKS" },
       heading: { en: "Your visa and your licence are decided by different people" },
       p1: { en: "Your right to enter and work in Canada is decided by immigration authorities. Your right to practise is decided by a professional regulator in the province where you intend to work." },
-      p2: { en: "Different requirements. Different timelines. No obligation to coordinate." },
+      p2: { en: "Different requirements, different timelines, no obligation to coordinate." },
       p3: { en: "Almost every disappointment in this field comes from planning one and assuming the other follows. Nurses arrive with valid status and spend two years working below their training. Physicians discover the constraint was never the visa." },
-      p4: { en: "We can't register you with a regulator — that's a separate body with its own process. We can build your immigration strategy around how long it will realistically take, so you know what you're walking into before you spend anything." },
+      p4: { en: "We can't register you with a regulator — that's a separate body with its own process. We can build your immigration strategy around how long it will realistically take." },
     },
     programs: {
       heading: { en: "Routes we work with" },

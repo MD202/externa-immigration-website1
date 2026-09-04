@@ -32,6 +32,18 @@ export default function HealthcareProfessionals() {
     <main className="bg-[#FBFAF8]">
       <Header />
       <ServiceHero eyebrow={t('healthcare.hero.eyebrow')} headline={t('healthcare.hero.headline')} body={t('healthcare.hero.body')} ctaLabel={t('healthcare.hero.cta')} ctaTo="/strategy-session" image={HERO_IMG} />
+      <section className="bg-[#1E2A4A] px-5 py-16 text-white lg:px-[8vw] lg:py-24">
+        <div className="mx-auto max-w-[1240px]">
+          <Reveal className="max-w-3xl">
+            <p className="eyebrow">{t('healthcare.clocks.eyebrow')}</p>
+            <h2 className="section-title text-white">{t('healthcare.clocks.heading')}</h2>
+            <p className="mt-6 text-lg leading-relaxed text-white/70">{t('healthcare.clocks.p1')}</p>
+            <p className="mt-4 font-heading text-xl text-white">{t('healthcare.clocks.p2')}</p>
+            <p className="mt-6 text-lg leading-relaxed text-white/70">{t('healthcare.clocks.p3')}</p>
+            <p className="mt-6 text-lg leading-relaxed text-white/70">{t('healthcare.clocks.p4')}</p>
+          </Reveal>
+        </div>
+      </section>
       <section className="bg-[#FBFAF8] px-5 py-16 lg:px-[8vw] lg:py-24">
         <div className="mx-auto max-w-[1240px]">
           <Reveal className="max-w-2xl">

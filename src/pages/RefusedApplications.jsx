@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import { usePageMeta } from '@/lib/usePageMeta';
 import ServiceHero from '@/components/service/ServiceHero';
@@ -29,15 +29,35 @@ export default function RefusedApplications() {
     <main className="bg-[#FBFAF8]">
       <Header />
       <ServiceHero eyebrow={t('refused.hero.eyebrow')} headline={t('refused.hero.headline')} body={t('refused.hero.body')} ctaLabel={t('refused.hero.cta')} ctaTo="/strategy-session" image={HERO_IMG} />
-      <section className="bg-[#FBFAF8] px-5 py-16 lg:px-[8vw] lg:py-24">
+
+      <section className="bg-[#13203F] px-5 py-16 text-white lg:px-[8vw] lg:py-20">
+        <div className="mx-auto max-w-[1240px]">
+          <Reveal className="max-w-3xl border-l-4 border-[#DC2626] pl-6 lg:pl-8">
+            <p className="eyebrow">{t('refused.fairness.eyebrow')}</p>
+            <p className="mt-4 font-heading text-3xl leading-tight sm:text-4xl">{t('refused.fairness.p1')}</p>
+            <p className="mt-5 text-lg leading-relaxed text-white/70">{t('refused.fairness.p2')}</p>
+            <p className="mt-4 text-base leading-relaxed text-white/80">{t('refused.fairness.p3')}</p>
+            <Link to="/strategy-session" className="btn btn-primary mt-8">{t('refused.fairness.cta')} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-[#1E2A4A] px-5 py-16 text-white lg:px-[8vw] lg:py-24">
         <div className="mx-auto max-w-[1240px]">
           <Reveal className="max-w-3xl">
             <p className="eyebrow">{t('refused.mistake.heading')}</p>
-            <p className="mt-4 font-heading text-3xl leading-tight text-[#1E2A4A] sm:text-4xl">{t('refused.mistake.lead')}</p>
-            <p className="mt-5 text-lg leading-relaxed text-[#1E2A4A]/65">{t('refused.mistake.body')}</p>
+            <p className="mt-4 font-heading text-3xl leading-tight sm:text-4xl">{t('refused.mistake.lead')}</p>
+            <p className="mt-5 text-lg leading-relaxed text-white/70">{t('refused.mistake.body')}</p>
             <p className="mt-4 text-base font-semibold text-[#B8860B]">{t('refused.mistake.close')}</p>
           </Reveal>
-          <Reveal className="mt-14">
+        </div>
+      </section>
+
+      <NumberedProcess eyebrow={t('refused.process.eyebrow')} steps={process} variant="dark" />
+
+      <section className="bg-[#FBFAF8] px-5 py-16 lg:px-[8vw] lg:py-24">
+        <div className="mx-auto max-w-[1240px]">
+          <Reveal>
             <p className="eyebrow">{t('refused.appeals.heading')}</p>
           </Reveal>
           <div className="mt-6 grid gap-6 md:grid-cols-2">
@@ -51,11 +71,34 @@ export default function RefusedApplications() {
               </Reveal>
             ))}
           </div>
+          <Reveal className="mt-10 max-w-3xl border-l-2 border-[#B8860B] pl-5">
+            <p className="text-lg leading-relaxed text-[#1E2A4A]/75">{t('refused.appeals.scheduling')}</p>
+          </Reveal>
         </div>
       </section>
-      <NumberedProcess eyebrow={t('refused.process.eyebrow')} steps={process} variant="dark" />
+
       <HearRows heading={t('refused.hear.heading')} items={hear} />
+
+      <section className="bg-[#13203F] px-5 py-16 text-white lg:px-[8vw] lg:py-24">
+        <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-2 lg:items-center">
+          <Reveal>
+            <p className="eyebrow">{t('refused.analysis.eyebrow')}</p>
+            <h2 className="mt-4 font-heading text-3xl leading-tight sm:text-4xl">{t('refused.analysis.heading')}</h2>
+            <p className="mt-5 text-lg leading-relaxed text-white/70">{t('refused.analysis.body')}</p>
+            <p className="mt-4 text-sm text-white/55">{t('refused.analysis.note')}</p>
+          </Reveal>
+          <Reveal className="lg:justify-self-end">
+            <div className="w-full max-w-sm border border-white/15 p-8">
+              <p className="font-heading text-5xl">{t('refused.analysis.price')}</p>
+              <p className="mt-2 text-xs uppercase tracking-[.18em] text-white/50">{t('refused.analysis.eyebrow')}</p>
+              <Link to="/strategy-session" className="btn btn-primary mt-6 w-full">{t('refused.analysis.cta')} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <ServiceList heading={t('refused.handle.heading')} items={handle} />
+
       <section className="bg-[#FBFAF8] px-5 py-16 lg:px-[8vw] lg:py-24">
         <div className="mx-auto grid max-w-[1240px] gap-10 md:grid-cols-2">
           <Reveal>
@@ -69,6 +112,7 @@ export default function RefusedApplications() {
           </Reveal>
         </div>
       </section>
+
       <CloseCta label={t('refused.close.cta')} />
       <Footer />
     </main>
