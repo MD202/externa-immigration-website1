@@ -1,12 +1,11 @@
 import { CreditCard, Clock } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 
+const CONSENT_TEXT = "I agree to proceed with the initial consultation. I understand the consultation fee is not refundable once the agreement is signed, that its scope is limited to the consultation itself, and that you may use the details I've provided to contact me by email about my matter.";
+
 export default function DetailsAgreementStep({ data, setData, saving, onPayNow, onPayLater }) {
   const { t } = useLanguage();
   const field = (key) => (e) => setData((d) => ({ ...d, [key]: e.target.value }));
-  const today = new Date().toISOString().split('T')[0];
-  const signatureMatches = data.signature_name && data.signature_name.trim() === data.full_name.trim();
-  const detailsValid = !!(data.full_name && data.email && data.agreement_accepted && signatureMatches);
 
   const matters = [
     { value: 'Appeal or refusal', label: t('strategy.m1') },
@@ -25,6 +24,8 @@ export default function DetailsAgreementStep({ data, setData, saving, onPayNow, 
     { value: 'No immediate deadline', label: t('strategy.u3') },
     { value: 'Not sure', label: t('strategy.u4') },
   ];
+
+  const detailsValid = !!(data.full_name && data.email && data.agreement_accepted);
 
   return (
     <div>
@@ -57,37 +58,10 @@ export default function DetailsAgreementStep({ data, setData, saving, onPayNow, 
         </label>
       </div>
 
-      <div className="mt-8">
-        <h3 className="font-heading text-xl text-[#1E2A4A]">{t('bookingFlow.agreementTitle')}</h3>
-        <div className="mt-4 max-h-64 overflow-y-auto border border-[#1E2A4A]/10 bg-[#F1F5F9] p-6 text-sm leading-relaxed text-[#1E2A4A]/70">
-          <p className="font-semibold text-[#1E2A4A]">{t('bookingFlow.agreementWhoWeAre')}</p>
-          <p className="mt-1 whitespace-pre-line">{t('bookingFlow.agreementWhoWeAreBody')}</p>
-          <p className="mt-4 font-semibold text-[#1E2A4A]">{t('bookingFlow.agreementCost')}</p>
-          <p className="mt-1">{t('bookingFlow.agreementCostBody')}</p>
-          <p className="mt-4 font-semibold text-[#1E2A4A]">{t('bookingFlow.agreementRegulator')}</p>
-          <p className="mt-1">{t('bookingFlow.agreementRegulatorBody')}</p>
-          <p className="mt-4 font-semibold text-[#1E2A4A]">{t('bookingFlow.agreementScope')}</p>
-          <p className="mt-1">{t('bookingFlow.agreementScopeCovers')}</p>
-          <p className="mt-1">{t('bookingFlow.agreementScopeNotCover')}</p>
-        </div>
-
-        <div className="mt-5 grid gap-5 sm:grid-cols-2">
-          <label className="intake-label">{t('bookingFlow.signLabel')}
-            <input value={data.signature_name} onChange={field('signature_name')} className="intake-input" placeholder={data.full_name || ''} />
-            {data.signature_name && !signatureMatches && (
-              <span className="mt-1 text-xs text-[#DC2626]">Must match your full name above.</span>
-            )}
-          </label>
-          <label className="intake-label">{t('bookingFlow.dateLabel')}
-            <input type="date" value={today} readOnly className="intake-input" />
-          </label>
-        </div>
-
-        <label className="mt-5 flex items-start gap-3 cursor-pointer">
-          <input type="checkbox" checked={data.agreement_accepted} onChange={(e) => setData((d) => ({ ...d, agreement_accepted: e.target.checked }))} className="mt-1 h-5 w-5 accent-[#1E2A4A]" />
-          <span className="text-sm text-[#1E2A4A]/70">{t('bookingFlow.agreeCheckbox')}</span>
-        </label>
-      </div>
+      <label className="mt-8 flex items-start gap-3 cursor-pointer">
+        <input type="checkbox" checked={data.agreement_accepted} onChange={(e) => setData((d) => ({ ...d, agreement_accepted: e.target.checked }))} className="mt-1 h-5 w-5 accent-[#B8860B]" />
+        <span className="text-sm leading-relaxed text-[#1E2A4A]/70">{CONSENT_TEXT}</span>
+      </label>
 
       <div className="mt-8 border-t border-[#1E2A4A]/10 pt-8">
         <h3 className="font-heading text-xl text-[#1E2A4A]">{t('bookingFlow.paymentTitle')}</h3>
@@ -98,7 +72,7 @@ export default function DetailsAgreementStep({ data, setData, saving, onPayNow, 
               <h4 className="font-heading text-lg text-[#1E2A4A]">{t('bookingFlow.payNow')}</h4>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-[#1E2A4A]/60">{t('bookingFlow.payNowDesc')}</p>
-            <button type="button" disabled={saving || !detailsValid} onClick={onPayNow} className="mt-6 w-full bg-[#DC2626] py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#B91C1C] disabled:opacity-40">
+            <button type="button" disabled={saving || !detailsValid} onClick={onPayNow} className="mt-6 w-full bg-[#B8860B] py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#A8871A] disabled:opacity-40">
               {saving ? t('bookingFlow.sending') : t('bookingFlow.payNow')}
             </button>
           </div>

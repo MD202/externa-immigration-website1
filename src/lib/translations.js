@@ -438,7 +438,7 @@ export const translations = {
   },
   bookingFlow: {
     title: { en: 'Book a consultation' },
-    subtitle: { en: "You'll review and sign the consultation agreement before you pay. That order is required by our professional rules." },
+    subtitle: { en: "Once your appointment is booked, the initial consultation agreement will be sent to your email address." },
     step1: { en: 'Choose a service' },
     step2: { en: 'Choose a time' },
     step3: { en: 'Details, agreement & payment', ta: 'விவரங்கள், ஒப்பந்தம் & கட்டணம்', hi: 'विवरण, समझौता और भुगतान' },

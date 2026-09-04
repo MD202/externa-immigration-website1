@@ -82,7 +82,7 @@ export default function StrategySession() {
     <main className="min-h-screen bg-[#F8FAFC]">
       <Header />
       <div className="grid min-h-screen lg:grid-cols-[34%_66%]">
-        <aside className="hidden bg-[#1E2A4A] p-12 pt-24 text-white lg:flex lg:flex-col lg:justify-between">
+        <aside className="hidden bg-[#1E2A4A] p-12 pt-24 text-white lg:flex lg:flex-col lg:justify-between lg:sticky lg:top-0 lg:h-screen lg:self-start">
           <Link to="/" className="flex items-center gap-3">
             <Logo variant="light" className="h-10 w-10" />
             <span className="font-heading text-xl">Externa</span>
@@ -98,7 +98,7 @@ export default function StrategySession() {
             <h1 className="font-heading text-3xl text-[#1E2A4A] sm:text-4xl">{t('bookingFlow.title')}</h1>
             <p className="mt-3 text-sm leading-relaxed text-[#1E2A4A]/55">{t('bookingFlow.subtitle')}</p>
             <div className="mt-5 border-l-2 border-[#B8860B] bg-[#FBFAF8] px-4 py-3">
-              <p className="text-xs leading-relaxed text-[#1E2A4A]/70">Calls are held over Google Meet. You can join from your computer, or dial in by phone during the call. The service agreement will be shared with you before the meeting.</p>
+              <p className="text-xs leading-relaxed text-[#1E2A4A]/70">Calls are held over Google Meet — join from your computer or dial in by phone during the call.</p>
             </div>
             <BookingStepper step={step} />
 
@@ -113,7 +113,7 @@ export default function StrategySession() {
                 </button>
               ) : <span />}
               {step < 3 && (
-                <button type="button" disabled={!canProceed} onClick={() => setStep(step + 1)} className="flex items-center gap-3 bg-[#DC2626] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#B91C1C] disabled:opacity-40">
+                <button type="button" disabled={!canProceed} onClick={() => setStep(step + 1)} className="flex items-center gap-3 bg-[#B8860B] px-6 py-4 font-semibold text-[#FFFFFF] transition hover:bg-[#A8871A] disabled:opacity-40">
                   {nextLabel} <ArrowRight className="h-4 w-4" />
                 </button>
               )}

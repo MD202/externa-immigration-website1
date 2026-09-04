@@ -11,6 +11,7 @@ import { Image } from '@/components/ui/image';
 const TAG_KEY = 'externa-triage-tag';
 const PHONE = '+1-647-909-9603';
 const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/929ea20db_generated_image.png';
+const CONSENT_TEXT = "I agree to proceed with the initial consultation. I understand the consultation fee is not refundable once the agreement is signed, that its scope is limited to the consultation itself, and that you may use the details I've provided to contact me by email about my matter.";
 
 export default function Contact() {
   const { t } = useLanguage();
@@ -19,6 +20,7 @@ export default function Contact() {
   const [loc, setLoc] = useState('inside');
   const [submitting, setSubmitting] = useState(false);
   const [done, setDone] = useState(false);
+  const [consent, setConsent] = useState(false);
   const opts = [1, 2, 3, 4, 5, 6, 7, 8].map((i) => t(`contact.opt${i}`));
   const langs = [t('contact.lang.en'), t('contact.lang.ta'), t('contact.lang.hi')];
 
@@ -117,7 +119,11 @@ export default function Contact() {
                   {langs.map((l) => <option key={l} value={l}>{l}</option>)}
                 </select>
               </label>
-              <button type="submit" disabled={submitting} className="btn btn-primary mt-2 disabled:opacity-60">{t('contact.submit')} <ArrowRight className="h-4 w-4" /></button>
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input type="checkbox" checked={consent} onChange={(e) => setConsent(e.target.checked)} className="mt-1 h-5 w-5 accent-[#B8860B]" required />
+                <span className="text-sm leading-relaxed text-[#1E2A4A]/70">{CONSENT_TEXT}</span>
+              </label>
+              <button type="submit" disabled={submitting || !consent} className="btn btn-primary mt-2 disabled:opacity-60">{t('contact.submit')} <ArrowRight className="h-4 w-4" /></button>
             </form>
           )}
           <div className="mt-10 grid gap-2 text-sm text-[#1E2A4A]/60">
