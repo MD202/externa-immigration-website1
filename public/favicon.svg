@@ -1,8 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="649 497 202 308" preserveAspectRatio="xMidYMid meet">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="590 491 320 320" preserveAspectRatio="xMidYMid meet">
+  <rect x="590" y="491" width="320" height="320" fill="#1E2A4A" rx="48" />
   <defs>
     <clipPath id="ft"><path d="M 649.460938 497.394531 L 850.460938 497.394531 L 850.460938 656 L 649.460938 656 Z M 649.460938 497.394531" clipRule="nonzero" /></clipPath>
     <clipPath id="fb"><path d="M 649.460938 595 L 850.460938 595 L 850.460938 804 L 649.460938 804 Z M 649.460938 595" clipRule="nonzero" /></clipPath>
   </defs>
-  <g clipPath="url(#ft)"><path fill="#334155" d="M 850.398438 497.394531 L 850.398438 560.542969 L 649.597656 655.136719 L 649.597656 591.988281 Z M 850.398438 497.394531" fillRule="nonzero" /></g>
-  <g clipPath="url(#fb)"><path fill="#1E2A4A" d="M 850.398438 658.449219 L 712.789062 723.269531 L 749.671875 740.644531 L 850.398438 693.1875 L 850.398438 756.359375 L 749.671875 803.796875 L 649.597656 756.660156 L 649.597656 689.871094 L 850.398438 595.300781 Z M 850.398438 658.449219" fillRule="nonzero" /></g>
+  <g clipPath="url(#ft)"><path fill="#F8FAFC" d="M 850.398438 497.394531 L 850.398438 560.542969 L 649.597656 655.136719 L 649.597656 591.988281 Z M 850.398438 497.394531" fillRule="nonzero" /></g>
+  <g clipPath="url(#fb)"><path fill="#B8860B" d="M 850.398438 658.449219 L 712.789062 723.269531 L 749.671875 740.644531 L 850.398438 693.1875 L 850.398438 756.359375 L 749.671875 803.796875 L 649.597656 756.660156 L 649.597656 689.871094 L 850.398438 595.300781 Z M 850.398438 658.449219" fillRule="nonzero" /></g>
 </svg>
