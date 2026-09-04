@@ -21,7 +21,7 @@ export default function Hero() {
         <div>
           <p className="hero-in eyebrow" style={{ animationDelay: '0.05s' }}>{t('home.hero.eyebrow')}</p>
           <h1 className="hero-in mt-4 max-w-xl font-heading text-[40px] leading-[1.05] sm:text-5xl lg:text-[52px]" style={{ animationDelay: '0.1s' }}>
-            {t('hero.title')} <Typewriter phrases={[t('hero.word1')]} className="text-[#B8860B]" />
+            {t('hero.title')} <Typewriter phrases={[t('hero.word1'), t('hero.word2'), t('hero.word3'), t('hero.word4')]} className="text-[#B8860B]" />
           </h1>
           <p className="hero-in mt-7 max-w-md text-sm leading-relaxed text-white/55" style={{ animationDelay: '0.4s' }}>
             {t('home.hero.list')}
