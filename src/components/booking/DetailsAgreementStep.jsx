@@ -58,7 +58,7 @@ export default function DetailsAgreementStep({ data, setData, saving, onPayNow, 
 
       <label className="mt-8 flex items-start gap-3 cursor-pointer">
         <input type="checkbox" checked={data.agreement_accepted} onChange={(e) => setData((d) => ({ ...d, agreement_accepted: e.target.checked }))} className="mt-1 h-5 w-5 accent-[#B8860B]" />
-        <span className="text-sm leading-relaxed text-[#1E2A4A]/70">I agree to proceed with the initial consultation and consent to being contacted about my matter. I'll give at least 24 hours' notice to reschedule.</span>
+        <span className="text-sm leading-relaxed text-[#1E2A4A]/70">I agree to proceed with the initial consultation and consent to being contacted about my matter. I'll give at least 24 hours' notice to reschedule. I further understand the limited scope of this call and that I may be contacted by Externa for newsletters and future pathway updates.</span>
       </label>
 
       <div className="mt-8 border-t border-[#1E2A4A]/10 pt-8">
