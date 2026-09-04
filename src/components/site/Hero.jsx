@@ -4,6 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import WhereAreYouNow from '@/components/site/WhereAreYouNow';
 import Triage from '@/components/site/Triage';
+import Typewriter from '@/components/site/Typewriter';
 import { Image } from '@/components/ui/image';
 
 export default function Hero() {
@@ -20,7 +21,7 @@ export default function Hero() {
         <div>
           <p className="hero-in eyebrow" style={{ animationDelay: '0.05s' }}>{t('home.hero.eyebrow')}</p>
           <h1 className="hero-in mt-4 max-w-xl font-heading text-[40px] leading-[1.05] sm:text-5xl lg:text-[52px]" style={{ animationDelay: '0.1s' }}>
-            {t('home.hero.h1')}
+            {t('hero.title')} <Typewriter className="text-[#B8860B]" phrases={[t('hero.word1'), t('hero.word2'), t('hero.word3'), t('hero.word4')]} />
           </h1>
           <p className="hero-in mt-7 max-w-md text-sm leading-relaxed text-white/55" style={{ animationDelay: '0.4s' }}>
             {t('home.hero.list')}
