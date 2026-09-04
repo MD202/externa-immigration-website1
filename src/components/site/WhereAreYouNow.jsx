@@ -28,7 +28,7 @@ export default function WhereAreYouNow({ onOpenTriage }) {
         <p className="mt-2 text-sm text-white/50">{t('wayn.sub')}</p>
         <div className="mt-5">
           {rows.map((row) => (
-            <button key={row.tag} onClick={() => go(row)} className="group relative flex w-full items-center gap-4 border-b border-white/14 py-4 pl-4 text-left transition-colors last:border-b-0 hover:bg-white/[.04]">
+            <button key={row.tag} onClick={() => go(row)} className="group relative flex w-full items-center gap-4 border-b border-white/14 py-4 pl-4 text-left transition-colors last:border-b-0 hover:border-white/40">
               <span className="absolute left-0 top-0 h-full w-0.5 origin-top scale-y-0 bg-[#B8860B] transition-transform duration-200 group-hover:scale-y-100" />
               <span className="flex-1">
                 <span className="block font-heading text-base text-white">{row.title}</span>
