@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Check } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import { usePageMeta } from '@/lib/usePageMeta';
 import Header from '@/components/site/Header';
@@ -15,9 +15,9 @@ import { tabs, services, ROW_GRID } from '@/components/fees/feesData';
 const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/bbfbbabed_generated_image.png';
 
 const consultations = [
-  { name: 'Full consultation', price: '$175', detail: '60 minutes. A full assessment and a written summary afterward. Credited in full toward any package if you retain us within 15 days.', featured: true, popular: true },
-  { name: 'Quick sync', price: '$50', detail: '15 minutes. One specific question.' },
-  { name: 'Refusal analysis', price: '$650', detail: 'If you\'ve already been refused, start here instead. We order your file notes, read what actually happened, and give you a written opinion on your options. Includes the ATIP request.', featured: true },
+  { id: 'quick', name: 'Quick sync', price: '$50', detail: '15 minutes. One specific question.' },
+  { id: 'full', name: 'Full consultation', price: '$175', detail: '60 minutes. A full assessment and a written summary afterward. Credited in full toward any package if you retain us within 15 days.', popular: true },
+  { id: 'refusal', name: 'Refusal analysis', price: '$650', detail: 'If you\'ve already been refused, start here instead. We order your file notes, read what actually happened, and give you a written opinion on your options. Includes the ATIP request.' },
 ];
 
 const paymentModes = [
@@ -64,6 +64,7 @@ export default function Fees() {
   const location = useLocation();
   const [tab, setTab] = useState('family');
   const [openId, setOpenId] = useState(null);
+  const [selectedConsult, setSelectedConsult] = useState(null);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -116,22 +117,34 @@ export default function Fees() {
             <h2 className="section-title">Every file begins with a conversation.</h2>
           </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {consultations.map((c, i) => (
-              <Reveal key={i} delay={i * 60}>
-                <div className={`group flex h-full flex-col p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${c.featured ? 'border-2 border-[#B8860B] bg-white' : 'border border-[#1E2A4A]/12 bg-white'}`}>
-                  {c.popular && <span className="mb-3 inline-block self-start bg-[#B8860B] px-3 py-1 text-[10px] font-semibold uppercase tracking-[.14em] text-white">Most people start here</span>}
-                  <h3 className="font-heading text-xl text-[#1E2A4A]">{c.name}</h3>
-                  <p className="mt-3 font-heading text-4xl text-[#1E2A4A]">{c.price}</p>
-                  <p className="mt-3 flex-1 text-sm leading-relaxed text-[#1E2A4A]/65">{c.detail}</p>
-                </div>
-              </Reveal>
-            ))}
+            {consultations.map((c, i) => {
+              const isSelected = selectedConsult === c.id;
+              return (
+                <Reveal key={c.id} delay={i * 60}>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedConsult(c.id)}
+                    aria-pressed={isSelected}
+                    className={`flex h-full w-full flex-col p-7 text-left transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${isSelected ? 'border-2 border-[#B8860B] bg-[#FBFAF8]' : 'border border-[#1E2A4A]/20 bg-white hover:border-[#1E2A4A]/45'}`}
+                  >
+                    {c.popular && <span className="mb-3 inline-block self-start bg-[#B8860B] px-3 py-1 text-[10px] font-semibold uppercase tracking-[.14em] text-white">Most people start here</span>}
+                    <h3 className="font-heading text-xl text-[#1E2A4A]">{c.name}</h3>
+                    <p className="mt-3 font-heading text-4xl text-[#1E2A4A]">{c.price}</p>
+                    <p className="mt-3 flex-1 text-sm leading-relaxed text-[#1E2A4A]/65">{c.detail}</p>
+                    <span className={`mt-5 inline-flex items-center gap-2 text-sm font-semibold ${isSelected ? 'text-[#B8860B]' : 'text-[#1E2A4A]/40'}`}>
+                      {isSelected ? 'Selected' : 'Select this option'}
+                      <Check className={`h-4 w-4 transition-opacity ${isSelected ? 'opacity-100' : 'opacity-0'}`} />
+                    </span>
+                  </button>
+                </Reveal>
+              );
+            })}
           </div>
           <Reveal className="mt-5">
             <p className="text-sm text-[#1E2A4A]/60">The consultation amount is credited in full toward any package if you retain us within 15 days.</p>
           </Reveal>
           <Reveal className="mt-8">
-            <Link to="/strategy-session" className="btn btn-primary">Book a consultation <ArrowRight className="h-4 w-4" /></Link>
+            <Link to="/strategy-session" className={`btn btn-primary ${!selectedConsult ? 'pointer-events-none opacity-50' : ''}`}>Book now <ArrowRight className="h-4 w-4" /></Link>
           </Reveal>
         </div>
       </section>

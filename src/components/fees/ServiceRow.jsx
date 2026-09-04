@@ -50,6 +50,20 @@ function PriceCells({ svc }) {
       </>
     );
   }
+  if (svc.kind === 'hearing') {
+    return (
+      <>
+        <span className="text-right">
+          <span className="block text-[10px] font-semibold uppercase tracking-[.08em] text-[#55605A]">Written</span>
+          <span className="block tabular-nums font-medium text-[#1E2A4A]">{svc.written}</span>
+          <span className="mt-1.5 block text-[10px] font-semibold uppercase tracking-[.08em] text-[#55605A]">Hearing</span>
+          <span className="block tabular-nums font-medium text-[#1E2A4A]">{svc.full}</span>
+        </span>
+        <span className="hidden lg:block" />
+        <span className="hidden lg:block" />
+      </>
+    );
+  }
   return (
     <>
       <span className="text-right tabular-nums font-medium text-[#1E2A4A]">{svc.full}</span>
