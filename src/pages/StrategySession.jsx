@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 import { useLanguage } from '@/lib/LanguageContext';
 import Logo from '@/components/site/Logo';
+import Header from '@/components/site/Header';
 import BookingStepper from '@/components/booking/BookingStepper';
 import ServiceStep from '@/components/booking/ServiceStep';
 import TimeStep from '@/components/booking/TimeStep';
@@ -79,8 +80,9 @@ export default function StrategySession() {
 
   return (
     <main className="min-h-screen bg-[#F8FAFC]">
+      <Header />
       <div className="grid min-h-screen lg:grid-cols-[34%_66%]">
-        <aside className="hidden bg-[#1E2A4A] p-12 text-white lg:flex lg:flex-col lg:justify-between">
+        <aside className="hidden bg-[#1E2A4A] p-12 pt-24 text-white lg:flex lg:flex-col lg:justify-between">
           <Link to="/" className="flex items-center gap-3">
             <Logo variant="light" className="h-10 w-10" />
             <span className="font-heading text-xl">Externa</span>
@@ -88,13 +90,16 @@ export default function StrategySession() {
           <blockquote className="font-heading text-4xl leading-tight">{t('strategy.asideQuote')}</blockquote>
           <p className="text-sm leading-relaxed text-white/45">{t('strategy.asideNote')}</p>
         </aside>
-        <section className="flex items-center px-5 py-10 sm:px-12 lg:px-[8vw]">
+        <section className="flex items-center px-5 pt-24 pb-10 sm:px-12 lg:px-[8vw]">
           <div className="mx-auto w-full max-w-2xl">
             <Link to="/" className="mb-10 inline-flex items-center gap-2 text-sm text-[#1E2A4A]/60 lg:hidden">
               <ArrowLeft className="h-4 w-4" /> {t('strategy.back')}
             </Link>
             <h1 className="font-heading text-3xl text-[#1E2A4A] sm:text-4xl">{t('bookingFlow.title')}</h1>
             <p className="mt-3 text-sm leading-relaxed text-[#1E2A4A]/55">{t('bookingFlow.subtitle')}</p>
+            <div className="mt-5 border-l-2 border-[#B8860B] bg-[#FBFAF8] px-4 py-3">
+              <p className="text-xs leading-relaxed text-[#1E2A4A]/70">Calls are held over Google Meet. You can join from your computer, or dial in by phone during the call. The service agreement will be shared with you before the meeting.</p>
+            </div>
             <BookingStepper step={step} />
 
             {step === 1 && <ServiceStep data={data} setData={setData} />}
