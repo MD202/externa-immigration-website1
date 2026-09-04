@@ -631,16 +631,13 @@ export const translations = {
   },
   home: {
     hero: {
-      h1: { en: "Your Canadian future is" },
-      w1: { en: "within reach." },
-      w2: { en: "worth fighting for." },
-      w3: { en: "closer than you think." },
-      w4: { en: "in good hands." },
-      list: { en: "Regulated RCIC-IRB representation for appeals, sponsorship, and professional pathways — clear, candid, and built on a plan you can verify." },
+      eyebrow: { en: "WHY REPRESENTATION MATTERS" },
+      h1: { en: "The forms are free. The mistakes cost years." },
+      list: { en: "Regulated RCIC-IRB representation for refusals, appeals, sponsorship and humanitarian applications — clear, candid, and built on a plan you can verify." },
       book: { en: "Book a consultation" },
       where: { en: "Where do you stand?" },
       foot: { en: "Flexible appointments · Evenings & weekends" },
-      foot2: { en: "Multilingual · English · தமிழ் · हिंदी" },
+      foot2: { en: "English · தமிழ் · हिंदी" },
     },
     pain: {
       eyebrow: { en: "YOU'RE NOT THE FIRST PERSON TO ARRIVE HERE LIKE THIS" },

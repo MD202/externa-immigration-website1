@@ -1,5 +1,6 @@
 import Header from '@/components/site/Header';
 import Hero from '@/components/site/Hero';
+import Verification from '@/components/site/Verification';
 import PainSection from '@/components/site/PainSection';
 import WhyRepresentation from '@/components/site/WhyRepresentation';
 import FocusAreas from '@/components/site/FocusAreas';
@@ -18,6 +19,7 @@ export default function Home() {
       <NorthStarCursor />
       <Header />
       <Hero />
+      <Verification />
       <PainSection />
       <WhyRepresentation />
       <FocusAreas />

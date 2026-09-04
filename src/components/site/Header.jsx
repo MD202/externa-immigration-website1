@@ -71,10 +71,8 @@ export default function Header() {
             {dropdown(t('nav.about'), aboutLinks, 'about')}
           </nav>
           <a href={`tel:${PHONE}`} className="flex items-center gap-2 text-sm text-[#1E2A4A]/70 transition hover:text-[#B8860B]"><Phone className="h-4 w-4 text-[#B8860B]" /> {PHONE}</a>
-          <Link to="/strategy-session" className="bg-[#DC2626] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#B91C1C]">{t('nav.bookCta')}</Link>
         </div>
         <div className="flex items-center gap-3 lg:hidden">
-          <Link to="/strategy-session" className="bg-[#DC2626] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#B91C1C]">{t('nav.bookCta')}</Link>
           <button onClick={() => setMobileOpen(!mobileOpen)} className="text-[#1E2A4A] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#B8860B] focus-visible:ring-offset-2" aria-label="Toggle navigation" aria-expanded={mobileOpen} aria-controls="mobile-nav">{mobileOpen ? <X /> : <Menu />}</button>
         </div>
       </div>

@@ -6,8 +6,7 @@ import HoverRevealCards from '@/components/site/HoverRevealCards';
 
 export default function WhyRepresentation() {
   const { t } = useLanguage();
-  // rows 1 ("family member you didn't declare") and 6 ("person who wasn't licensed") removed per request
-  const rows = [2, 3, 4, 5].map((i) => ({ lead: t(`home.whyrep.r${i}l`), body: t(`home.whyrep.r${i}b`) }));
+  const rows = [1, 2, 3, 4, 5, 6].map((i) => ({ lead: t(`home.whyrep.r${i}l`), body: t(`home.whyrep.r${i}b`) }));
   return (
     <section className="relative overflow-hidden bg-[#1E2A4A] px-5 py-20 text-white lg:px-[8vw] lg:py-40">
       <div className="pointer-events-none absolute inset-0" aria-hidden="true" style={{ background: 'radial-gradient(60% 50% at 82% 0%, rgba(184,134,11,0.18), transparent 70%)' }} />

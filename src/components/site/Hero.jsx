@@ -4,7 +4,6 @@ import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import WhereAreYouNow from '@/components/site/WhereAreYouNow';
 import Triage from '@/components/site/Triage';
-import Typewriter from '@/components/site/Typewriter';
 import { Image } from '@/components/ui/image';
 
 export default function Hero() {
@@ -19,8 +18,9 @@ export default function Hero() {
       </div>
       <div className="relative mx-auto grid min-h-screen max-w-[1440px] items-center gap-12 px-5 pt-32 pb-16 lg:grid-cols-2 lg:px-[8vw]">
         <div>
-          <h1 className="hero-in max-w-xl font-heading text-[40px] leading-[1.05] sm:text-5xl lg:text-[52px]" style={{ animationDelay: '0.1s' }}>
-            {t('home.hero.h1')} <Typewriter phrases={[t('home.hero.w1'), t('home.hero.w2'), t('home.hero.w3'), t('home.hero.w4')]} className="text-[#B8860B]" />
+          <p className="hero-in eyebrow" style={{ animationDelay: '0.05s' }}>{t('home.hero.eyebrow')}</p>
+          <h1 className="hero-in mt-4 max-w-xl font-heading text-[40px] leading-[1.05] sm:text-5xl lg:text-[52px]" style={{ animationDelay: '0.1s' }}>
+            {t('home.hero.h1')}
           </h1>
           <p className="hero-in mt-7 max-w-md text-sm leading-relaxed text-white/55" style={{ animationDelay: '0.4s' }}>
             {t('home.hero.list')}
