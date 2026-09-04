@@ -6,8 +6,10 @@ import { usePageMeta } from '@/lib/usePageMeta';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import Reveal from '@/components/site/Reveal';
+import { Image } from '@/components/ui/image';
 
 const CICC_URL = 'https://register.college-ic.ca/';
+const ABOUT_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/2d8179e35_generated_image.png';
 
 export default function AboutQuestions() {
   const { t } = useLanguage();
@@ -26,7 +28,7 @@ export default function AboutQuestions() {
     }
   }, [isQuestions]);
 
-  const creds = [t('about.s3.r1'), t('about.s3.r2'), t('about.s3.r3'), t('about.s3.r4')];
+  const creds = [t('about.s3.r1'), t('about.s3.r2'), t('about.s3.r3')];
   const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((i) => ({ value: `q${i}`, q: t(`questions.q${i}`), a: t(`questions.a${i}`) }));
   const services = [1, 2, 3, 4, 5, 6, 7, 8, 9].map((s) => ({
     title: t(`services.t${s}`),
@@ -56,13 +58,17 @@ export default function AboutQuestions() {
 
       {/* About this practice */}
       <section className="px-5 pt-32 pb-16 lg:px-[8vw] lg:pt-40 lg:pb-20">
-        <div className="mx-auto max-w-[720px]">
+        <div className="mx-auto grid max-w-[1240px] items-center gap-10 lg:grid-cols-2">
           <Reveal>
             <p className="eyebrow">ABOUT</p>
             <h1 className="mt-4 font-heading text-[40px] leading-[1.08] text-[#1E2A4A] sm:text-5xl lg:text-[56px]">{t('about.s1.heading')}</h1>
             <p className="mt-6 text-lg leading-relaxed text-[#1E2A4A]/70">{t('about.s1.body')}</p>
-            <p className="mt-6 font-heading text-xl text-[#1E2A4A]">{t('about.s1.licensee')}</p>
-            <a href={CICC_URL} target="_blank" rel="noopener noreferrer" className="link-arrow mt-3">{t('about.s1.verify')} <ExternalLink className="h-4 w-4" /></a>
+            <a href={CICC_URL} target="_blank" rel="noopener noreferrer" className="link-arrow mt-6">{t('about.s1.verify')} <ExternalLink className="h-4 w-4" /></a>
+          </Reveal>
+          <Reveal delay={120}>
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <Image src={ABOUT_IMG} alt="" fittingType="fill" className="h-full w-full" />
+            </div>
           </Reveal>
         </div>
       </section>
@@ -121,9 +127,6 @@ export default function AboutQuestions() {
               </Reveal>
             ))}
           </div>
-          <Reveal className="mt-12">
-            <Link to="/strategy-session" className="btn btn-primary">Book a consultation</Link>
-          </Reveal>
         </div>
       </section>
 

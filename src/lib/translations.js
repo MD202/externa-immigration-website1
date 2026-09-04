@@ -884,14 +884,14 @@ export const translations = {
     },
     s2: {
       heading: { en: "How this practice works" },
-      body: { en: "Direct. You work with the person handling your file. Not a junior, not an outsourced team. Deliberately small. A limited number of files at a time, which is why complex matters get the hours they need. Focused. Family sponsorship, humanitarian and compassionate applications, and refused applications. Healthcare professionals and business owners applying from abroad. Published fees, staged payment. Fees are on this site. You review and sign an agreement before paying. English, Tamil and Hindi. Including evening and weekend appointments. Honest assessments, including when the answer is that you shouldn't apply." },
+      body: { en: "A boutique practice. You work directly with the licensed consultant who handles your file. Deliberately small — a limited number of files at a time, so complex matters get the hours they need. Focused on family sponsorship, humanitarian and compassionate applications, and refused applications; healthcare professionals and business owners applying from abroad. Published fees, staged payment — you review and sign an agreement before paying. English, Tamil and Hindi, including evening and weekend appointments. Honest assessments, including when the answer is that you shouldn't apply." },
     },
     s3: {
       heading: { en: "Credentials" },
       r1: { en: "Regulated Canadian Immigration Consultant — College of Immigration and Citizenship Consultants, licence R709272" },
       r2: { en: "RCIC-IRB — the licence class authorising representation before the Immigration and Refugee Board of Canada" },
       r3: { en: "Member, Canadian Association of Professional Immigration Consultants" },
-      r4: { en: "Errors and omissions insured as required by the College" },
+
     },
   },
   questions: {
