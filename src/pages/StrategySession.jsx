@@ -82,7 +82,7 @@ export default function StrategySession() {
     <main className="min-h-screen bg-[#F8FAFC]">
       <Header />
       <div className="grid min-h-screen lg:grid-cols-[34%_66%]">
-        <aside className="hidden bg-[#1E2A4A] p-12 pt-24 text-white lg:flex lg:flex-col lg:justify-between lg:sticky lg:top-0 lg:h-screen lg:self-start">
+        <aside className="hidden bg-[#1E2A4A] p-12 pt-24 text-white lg:flex lg:flex-col lg:gap-10 lg:sticky lg:top-0 lg:h-screen lg:self-start">
           <Link to="/" className="flex items-center gap-3">
             <Logo variant="light" className="h-10 w-10" />
             <span className="font-heading text-xl">Externa</span>
