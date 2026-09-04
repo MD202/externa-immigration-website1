@@ -32,15 +32,17 @@ export default function HealthcareProfessionals() {
     <main className="bg-[#FBFAF8]">
       <Header />
       <ServiceHero eyebrow={t('healthcare.hero.eyebrow')} headline={t('healthcare.hero.headline')} body={t('healthcare.hero.body')} ctaLabel={t('healthcare.hero.cta')} ctaTo="/strategy-session" image={HERO_IMG} />
-      <section className="bg-[#1E2A4A] px-5 py-16 text-white lg:px-[8vw] lg:py-24">
+      <section className="bg-[#13203F] px-5 py-20 text-white lg:px-[8vw] lg:py-32">
         <div className="mx-auto max-w-[1240px]">
-          <Reveal className="max-w-3xl">
+          <Reveal>
             <p className="eyebrow">{t('healthcare.clocks.eyebrow')}</p>
-            <h2 className="section-title text-white">{t('healthcare.clocks.heading')}</h2>
-            <p className="mt-6 text-lg leading-relaxed text-white/70">{t('healthcare.clocks.p1')}</p>
-            <p className="mt-4 font-heading text-xl text-white">{t('healthcare.clocks.p2')}</p>
-            <p className="mt-6 text-lg leading-relaxed text-white/70">{t('healthcare.clocks.p3')}</p>
-            <p className="mt-6 text-lg leading-relaxed text-white/70">{t('healthcare.clocks.p4')}</p>
+            <h2 className="mt-5 max-w-4xl font-heading text-4xl leading-[1.05] sm:text-5xl lg:text-[56px]">{t('healthcare.clocks.heading')}</h2>
+            <div className="mt-8 max-w-3xl space-y-5">
+              <p className="text-lg leading-relaxed text-white/75">{t('healthcare.clocks.p1')}</p>
+              <p className="font-heading text-2xl leading-snug text-white">{t('healthcare.clocks.p2')}</p>
+              <p className="text-lg leading-relaxed text-white/75">{t('healthcare.clocks.p3')}</p>
+              <p className="text-lg leading-relaxed text-white/75">{t('healthcare.clocks.p4')}</p>
+            </div>
           </Reveal>
         </div>
       </section>
