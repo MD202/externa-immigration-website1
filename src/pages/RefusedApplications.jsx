@@ -19,8 +19,8 @@ export default function RefusedApplications() {
   const process = [1, 2, 3, 4, 5].map((i) => ({ n: `0${i}`, title: t(`refused.process.s${i}t`), body: t(`refused.process.s${i}b`) }));
   const cards = [
     { title: t('refused.appeals.c1l'), body: t('refused.appeals.c1b'), key: t('refused.appeals.c1key') },
-    { title: t('refused.appeals.c2l'), body: t('refused.appeals.c2b') },
-    { title: t('refused.appeals.c3l'), body: t('refused.appeals.c3b') },
+    { title: t('refused.appeals.c2l'), body: t('refused.appeals.c2b'), key: t('refused.appeals.c2key') },
+    { title: t('refused.appeals.c3l'), body: t('refused.appeals.c3b'), key: t('refused.appeals.c3key') },
     { title: t('refused.appeals.c4l'), body: t('refused.appeals.c4b') },
   ];
   const hear = [1, 2, 3, 4].map((i) => ({ lead: t(`refused.hear.r${i}l`), body: t(`refused.hear.r${i}b`) }));
@@ -37,7 +37,7 @@ export default function RefusedApplications() {
             <p className="mt-4 font-heading text-3xl leading-tight sm:text-4xl">{t('refused.fairness.p1')}</p>
             <p className="mt-5 text-lg leading-relaxed text-white/70">{t('refused.fairness.p2')}</p>
             <p className="mt-4 text-base leading-relaxed text-white/80">{t('refused.fairness.p3')}</p>
-            <Link to="/strategy-session" className="btn btn-primary mt-8">{t('refused.fairness.cta')} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
+            <Link to="/contact" className="btn btn-primary mt-8">{t('refused.fairness.cta')} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
           </Reveal>
         </div>
       </section>
@@ -71,9 +71,6 @@ export default function RefusedApplications() {
               </Reveal>
             ))}
           </div>
-          <Reveal className="mt-10 max-w-3xl border-l-2 border-[#B8860B] pl-5">
-            <p className="text-lg leading-relaxed text-[#1E2A4A]/75">{t('refused.appeals.scheduling')}</p>
-          </Reveal>
         </div>
       </section>
 
