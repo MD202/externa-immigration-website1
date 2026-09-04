@@ -35,9 +35,9 @@ export default function Header() {
     { label: t('nav.otherServices'), to: '/other-services' },
   ];
   const aboutLinks = [
-    { label: t('nav.aboutUs'), href: '/about' },
-    { label: t('nav.questions'), href: '/questions' },
-    { label: t('nav.contact'), href: '/contact' },
+    { label: t('nav.aboutUs'), to: '/about' },
+    { label: t('nav.questions'), to: '/questions' },
+    { label: t('nav.contact'), to: '/contact' },
   ];
 
   const dropdown = (label, items, name) => (
@@ -85,7 +85,7 @@ export default function Header() {
           ))}
           <div className="my-2 border-t border-[#1E2A4A]/10" />
           {aboutLinks.map((link) => (
-            <Link key={link.href} onClick={() => setMobileOpen(false)} to={link.href} className="block px-4 py-3 text-[#1E2A4A]/80">{link.label}</Link>
+            <Link key={link.to} onClick={() => setMobileOpen(false)} to={link.to} className="block px-4 py-3 text-[#1E2A4A]/80">{link.label}</Link>
           ))}
           <div className="my-2 border-t border-[#1E2A4A]/10" />
           <Link onClick={() => setMobileOpen(false)} to="/fees" className="block px-4 py-3 text-[#1E2A4A]/80">{t('nav.fees')}</Link>
