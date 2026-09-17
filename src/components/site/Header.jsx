@@ -4,7 +4,7 @@ import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import Logo from '@/components/site/Logo';
 import { useLanguage } from '@/lib/LanguageContext';
 
-const PHONE = '+1-647-909-9603';
+const PHONE = '+1-437-605-8005';
 
 export default function Header() {
   const { t } = useLanguage();

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { X, Send } from 'lucide-react';
 
-const PHONE = '16479099603'; // +1 647 909 9603, country code + number, no plus
+const PHONE = '14376058005'; // +1 437 605 8005, country code + number, no plus
 const DEFAULT_MSG = "Hello, I'd like to ask about an immigration matter.";
 
 const WhatsAppIcon = ({ className }) => (

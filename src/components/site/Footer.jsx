@@ -4,7 +4,7 @@ import Logo from '@/components/site/Logo';
 import { useLanguage } from '@/lib/LanguageContext';
 
 const CICC_URL = 'https://register.college-ic.ca/';
-const PHONE = '+1-647-909-9603';
+const PHONE = '+1-437-605-8005';
 const MAPS_URL = 'https://www.google.com/maps/search/?api=1&query=Markham%2C%20Ontario%2C%20Canada';
 
 const TikTokIcon = ({ className }) => (
