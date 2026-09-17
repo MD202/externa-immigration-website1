@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
-import WhereAreYouNow from '@/components/site/WhereAreYouNow';
 import Triage from '@/components/site/Triage';
 import Typewriter from '@/components/site/Typewriter';
 import { Image } from '@/components/ui/image';
@@ -17,8 +16,8 @@ export default function Hero() {
         <Image src={HERO_IMG} fittingType="fill" className="h-full w-full opacity-40" />
         <div className="absolute inset-0 bg-gradient-to-b from-[#13203F]/70 via-[#13203F]/40 to-[#13203F]/85" />
       </div>
-      <div className="relative mx-auto grid min-h-screen max-w-[1440px] items-center gap-12 px-5 pt-32 pb-16 lg:grid-cols-2 lg:px-[8vw]">
-        <div>
+      <div className="relative mx-auto flex min-h-screen max-w-[1440px] items-center px-5 pt-32 pb-16 lg:px-[8vw]">
+        <div className="max-w-2xl">
           <p className="hero-in eyebrow" style={{ animationDelay: '0.05s' }}>{t('home.hero.eyebrow')}</p>
           <h1 className="hero-in mt-4 max-w-xl font-heading text-[40px] leading-[1.05] sm:text-5xl lg:text-[52px]" style={{ animationDelay: '0.1s' }}>
             {t('hero.title')} <Typewriter phrases={[t('hero.word1'), t('hero.word2'), t('hero.word3'), t('hero.word4'), t('hero.word5')]} className="text-[#B8860B] italic font-bold" />
@@ -38,7 +37,6 @@ export default function Hero() {
             {t('home.hero.foot2')}
           </p>
         </div>
-        <WhereAreYouNow onOpenTriage={() => setTriageOpen(true)} />
       </div>
       {triageOpen && <Triage onClose={() => setTriageOpen(false)} />}
     </section>
