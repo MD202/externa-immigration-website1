@@ -6,8 +6,10 @@ import { usePageMeta } from '@/lib/usePageMeta';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import Reveal from '@/components/site/Reveal';
+import { Image } from '@/components/ui/image';
 
 const CICC_URL = 'https://register.college-ic.ca/';
+const ABOUT_HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/993eb6830_generated_image.png';
 
 export default function AboutQuestions() {
   const { t } = useLanguage();
@@ -53,6 +55,10 @@ export default function AboutQuestions() {
 
       {/* About this practice */}
       <section className="relative overflow-hidden bg-[#13203F] px-5 pt-32 pb-20 text-white lg:px-[8vw] lg:pt-40 lg:pb-28">
+        <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+          <Image src={ABOUT_HERO_IMG} fittingType="fill" className="h-full w-full opacity-25" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#13203F]/80 via-[#13203F]/55 to-[#13203F]/90" />
+        </div>
         <div className="pointer-events-none absolute inset-0 opacity-[0.07]" aria-hidden="true">
           <div className="absolute -right-24 -top-16 h-96 w-96 rounded-full bg-[#B8860B] blur-3xl" />
           <div className="absolute -bottom-24 -left-10 h-80 w-80 rounded-full bg-[#1D5240] blur-3xl" />
