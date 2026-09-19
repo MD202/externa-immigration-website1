@@ -21,10 +21,17 @@ export default function Typewriter({ phrases, typeSpeed = 70, deleteSpeed = 35, 
     return () => clearTimeout(timeout);
   }, [text, deleting, index, phrases, typeSpeed, deleteSpeed, holdMs]);
 
+  const current = phrases[index % phrases.length];
+
   return (
-    <span className={className} aria-live="polite">
-      {text}
-      <span className="ml-0.5 inline-block w-[2px] animate-pulse bg-[#B8860B] align-middle" style={{ height: '1em' }} aria-hidden="true" />
+    <span className={`relative inline-block whitespace-nowrap ${className || ''}`} aria-live="polite">
+      {/* Invisible full-phrase sizer reserves a stable width so the surrounding
+          headline never reflows while characters are typed or erased. */}
+      <span aria-hidden="true" className="invisible">{current}</span>
+      <span className="absolute left-0 top-0">
+        {text}
+        <span className="ml-0.5 inline-block w-[2px] animate-pulse bg-[#B8860B] align-middle" style={{ height: '1em' }} aria-hidden="true" />
+      </span>
     </span>
   );
 }
