@@ -24,16 +24,20 @@ export default function DetailsAgreementStep({ data, setData, saving, onPayNow, 
   ];
 
   const detailsValid = !!(data.full_name && data.email && data.agreement_accepted);
+  const missing = [];
+  if (!data.full_name) missing.push(t('strategy.fullName'));
+  if (!data.email) missing.push(t('strategy.email'));
+  if (!data.agreement_accepted) missing.push(t('bookingFlow.agreementLabel'));
 
   return (
     <div>
       <h2 className="font-heading text-2xl text-[#1E2A4A]">{t('bookingFlow.detailsTitle')}</h2>
 
       <div className="mt-6 grid gap-5 sm:grid-cols-2">
-        <label className="intake-label">{t('strategy.fullName')}
+        <label className="intake-label">{t('strategy.fullName')} <span className="text-[#B8860B]">*</span>
           <input required value={data.full_name} onChange={field('full_name')} className="intake-input" />
         </label>
-        <label className="intake-label">{t('strategy.email')}
+        <label className="intake-label">{t('strategy.email')} <span className="text-[#B8860B]">*</span>
           <input required type="email" value={data.email} onChange={field('email')} className="intake-input" />
         </label>
         <label className="intake-label">{t('strategy.phoneOpt')}
@@ -58,11 +62,14 @@ export default function DetailsAgreementStep({ data, setData, saving, onPayNow, 
 
       <label className="mt-8 flex items-start gap-3 cursor-pointer">
         <input type="checkbox" checked={data.agreement_accepted} onChange={(e) => setData((d) => ({ ...d, agreement_accepted: e.target.checked }))} className="mt-1 h-5 w-5 accent-[#B8860B]" />
-        <span className="text-sm leading-relaxed text-[#1E2A4A]/70">I agree to proceed with the initial consultation and consent to being contacted about my matter. I'll give at least 24 hours' notice to reschedule. I further understand the limited scope of this call and that I may be contacted by Externa for newsletters and future pathway updates.</span>
+        <span className="text-sm leading-relaxed text-[#1E2A4A]/70"><span className="font-semibold text-[#1E2A4A]">I agree to proceed <span className="text-[#B8860B]">*</span></span> with the initial consultation and consent to being contacted about my matter. I'll give at least 24 hours' notice to reschedule. I further understand the limited scope of this call and that I may be contacted by Externa for newsletters and future pathway updates.</span>
       </label>
 
       <div className="mt-8 border-t border-[#1E2A4A]/10 pt-8">
         <h3 className="font-heading text-xl text-[#1E2A4A]">{t('bookingFlow.paymentTitle')}</h3>
+        {!detailsValid && (
+          <p className="mt-3 text-sm leading-relaxed text-[#B8860B]">{t('bookingFlow.requiredPrompt')} {missing.join(', ')}.</p>
+        )}
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
           <div className="border border-[#1E2A4A]/15 p-6">
             <div className="flex items-center gap-3">

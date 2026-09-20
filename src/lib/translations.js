@@ -454,6 +454,8 @@ export const translations = {
     loadingSlots: { en: 'Loading…', ta: 'ஏற்றுகிறது…', hi: 'लोड हो रहा है…' },
     pickDate: { en: 'Pick a date to see available times.', ta: 'கிடைக்கும் நேரங்களைக் காண தேதி தேர்ந்தெடுக்கவும்.', hi: 'उपलब्ध समय देखने के लिए तिथि चुनें।' },
     detailsTitle: { en: 'Your details and the consultation agreement' },
+    agreementLabel: { en: 'the agreement', ta: 'ஒப்பந்தம்', hi: 'समझौता' },
+    requiredPrompt: { en: 'Required to continue:', ta: 'தொடர தேவை:', hi: 'जारी रखने के लिए आवश्यक:' },
     matter: { en: 'What brings you here? (optional)' },
     urgency: { en: 'Is there a deadline? (optional)' },
     agreementTitle: { en: 'Consultation agreement' },
