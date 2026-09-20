@@ -76,24 +76,6 @@ export default function RefusedApplications() {
 
       <HearRows heading={t('refused.hear.heading')} items={hear} />
 
-      <section className="bg-[#13203F] px-5 py-16 text-white lg:px-[8vw] lg:py-24">
-        <div className="mx-auto grid max-w-[1240px] gap-10 lg:grid-cols-2 lg:items-center">
-          <Reveal>
-            <p className="eyebrow">{t('refused.analysis.eyebrow')}</p>
-            <h2 className="mt-4 font-heading text-3xl leading-tight sm:text-4xl">{t('refused.analysis.heading')}</h2>
-            <p className="mt-5 text-lg leading-relaxed text-white/70">{t('refused.analysis.body')}</p>
-            <p className="mt-4 text-sm text-white/55">{t('refused.analysis.note')}</p>
-          </Reveal>
-          <Reveal className="lg:justify-self-end">
-            <div className="w-full max-w-sm border border-white/15 p-8">
-              <p className="font-heading text-5xl">{t('refused.analysis.price')}</p>
-              <p className="mt-2 text-xs uppercase tracking-[.18em] text-white/50">{t('refused.analysis.eyebrow')}</p>
-              <Link to="/strategy-session" className="btn btn-gold mt-6 w-full">{t('refused.analysis.cta')} <ArrowUpRight className="h-4 w-4" aria-hidden="true" /></Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
       <ServiceList heading={t('refused.handle.heading')} items={handle} />
 
       <section className="bg-[#FBFAF8] px-5 py-16 lg:px-[8vw] lg:py-24">

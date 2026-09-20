@@ -6,7 +6,6 @@ export default function ServiceStep({ data, setData }) {
   const services = [
     { id: 'quick_question', label: 'Quick sync', duration: '15 minutes', price: '$50', desc: 'One specific question.' },
     { id: 'full_consultation', label: 'Full consultation', duration: '60 minutes', price: '$175', desc: 'A full assessment and a written summary afterward. Credited in full toward any package if you retain us within 15 days.', badge: 'Most people start here' },
-    { id: 'application_review', label: 'Refusal analysis', duration: '', price: '$650', desc: "If you've already been refused, start here instead. We order your file notes, read what actually happened, and give you a written opinion on your options. Includes the ATIP request." },
   ];
   return (
     <div>
