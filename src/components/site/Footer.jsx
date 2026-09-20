@@ -61,8 +61,10 @@ export default function Footer() {
               <a href={CICC_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 transition hover:text-[#B8860B]"><BadgeCheck className="h-4 w-4 text-[#B8860B]" /> {t('foot.col4.verify')}</a>
             </div>
           </div>
+          <div className="md:col-start-2 lg:col-span-2">
+            <p className="text-xs leading-relaxed text-white/40">{t('foot.legal.disclaimer')}</p>
+          </div>
         </div>
-        <p className="border-t border-white/10 pt-6 text-xs leading-relaxed text-white/40">{t('foot.legal.disclaimer')}</p>
         <div className="flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/35 md:flex-row md:justify-between">
           <p>{t('foot.legal.rights')}</p>
           <div className="flex gap-5">
