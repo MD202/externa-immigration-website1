@@ -10,7 +10,7 @@ const FULL_FEATURES = [
   'Secure client portal with full access',
   'Consultations as the matter requires',
   'Online, phone & email support throughout',
-  'Post-submission follow-up for 12 months',
+  'Post submission follow up for 12 months',
   'One free resubmission if the file is returned',
 ];
 
@@ -24,7 +24,7 @@ const DIY_FEATURES = [
   { text: 'Email support while you prepare', inc: true },
   { text: 'Guidance if the immigration authority contacts you (12 months)', inc: true },
   { text: 'We file on your behalf', inc: false },
-  { text: 'Post-submission handling by us', inc: false },
+  { text: 'Post submission handling by us', inc: false },
 ];
 
 function Card({ title, tag, price, diy }) {

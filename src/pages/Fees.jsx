@@ -44,9 +44,9 @@ const savings = [
   { title: 'Consultation credit', body: 'Your consultation fee is credited toward any package if you retain us within 15 days.' },
   { title: 'Returning clients, 50% off', body: 'Extensions, restorations, change of status, PR card renewals and citizenship applications are half price after a Full Representation file. Professional fees only.' },
   { title: 'Family bundle, 30% off', body: 'A second family member\'s application, filed at the same time, at 30% off the second package.' },
-  { title: 'Permit with PR, 60% off', body: 'Bridging open work permits and post-graduation work permits are 60% off when taken with any Full Representation permanent residence package.' },
+  { title: 'Permit with PR, 60% off', body: 'Bridging open work permits and post graduation work permits are 60% off when taken with any Full Representation permanent residence package.' },
   { title: 'Combined economic applications, $200 off', body: 'Federal Skilled Worker or Canadian Experience Class combined with an Express Entry profile package.' },
-  { title: 'Sponsorship bundle', body: 'Spouse open work permit or visitor visa added to a spousal sponsorship at the add-on rate, not the standalone rate.' },
+  { title: 'Sponsorship bundle', body: 'Spouse open work permit or visitor visa added to a spousal sponsorship at the add on rate, not the standalone rate.' },
 ];
 
 function Eyebrow({ children, dark }) {

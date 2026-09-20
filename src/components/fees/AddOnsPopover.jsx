@@ -11,11 +11,11 @@ export default function AddOnsPopover({ rows }) {
         onBlur={() => setOpen(false)}
         className="inline-flex items-center gap-1.5 rounded-full border border-[#B8860B] px-4 py-2 text-sm font-semibold text-[#B8860B] transition hover:bg-[#B8860B] hover:text-white"
       >
-        See add-ons
+        See add ons
       </button>
       {open && (
         <div className="absolute left-0 top-full z-30 mt-2 w-[min(92vw,440px)] border border-[#1E2A4A]/12 bg-white p-5 shadow-xl">
-          <p className="text-xs font-semibold uppercase tracking-[.12em] text-[#B8860B]">Add-ons &amp; companion</p>
+          <p className="text-xs font-semibold uppercase tracking-[.12em] text-[#B8860B]">Add ons &amp; companion</p>
           <p className="mt-1 text-xs text-[#1E2A4A]/55">Bundled with a package at the add-on rate, not the standalone rate.</p>
           <div className="mt-3 max-h-[340px] overflow-y-auto">
             {rows.map((r, i) => (
