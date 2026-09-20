@@ -16,7 +16,7 @@ export default function WhyRepresentation() {
         </Reveal>
         <Reveal className="mt-12 max-w-2xl">
           <p className="eyebrow">{t('home.whyrep.eyebrow')}</p>
-          <h2 className="section-title text-white">{t('home.whyrep.heading1')} {t('home.whyrep.heading2')}</h2>
+          <h2 className="section-title text-white">{t('home.whyrep.heading1')}</h2>
           <p className="mt-6 text-lg leading-relaxed text-white/60">{t('home.whyrep.intro')}</p>
         </Reveal>
         <HoverRevealCards rows={rows} variant="dark" />

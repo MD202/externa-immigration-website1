@@ -665,7 +665,6 @@ export const translations = {
       eyebrow: { en: "WHY REPRESENTATION MATTERS" },
       openquote: { en: "Difficult and hopeless are not the same thing, but you only find out which one you're facing after someone reads the file properly." },
       heading1: { en: "Filling in the form is the easy part." },
-      heading2: { en: "" },
       intro: { en: "Anyone can download an application. Where files actually fail is everything around it: what gets declared, what gets missed, what gets answered without thinking. Most of those failures stay invisible until they're expensive to fix." },
       r1l: { en: "The family member you didn't declare." },
       r1b: { en: "A child from an earlier relationship. A spouse you're separated from but never divorced. Leave them off, and you may be barred from ever sponsoring them. People find out a decade later." },
