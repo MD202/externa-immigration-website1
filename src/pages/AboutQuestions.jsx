@@ -86,11 +86,6 @@ export default function AboutQuestions() {
             <div className="grid gap-5 text-lg leading-relaxed text-[#1E2A4A]/70">
               <p>{t('about.s2.p1')}</p>
               <p>{t('about.s2.p2')}</p>
-              <div className="grid gap-3 border-l-2 border-[#B8860B] pl-5">
-                <p className="text-[#1E2A4A]">{t('about.s2.p3')}</p>
-                <p className="text-[#1E2A4A]">{t('about.s2.p4')}</p>
-                <p className="text-[#1E2A4A]">{t('about.s2.p5')}</p>
-              </div>
             </div>
           </Reveal>
         </div>
