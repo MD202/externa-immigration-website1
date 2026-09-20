@@ -1006,7 +1006,7 @@ export const translations = {
     },
     legal: {
       licensee: { en: "Malathi Dhandapani, RCIC-IRB · Licence R709272 · Regulated by the College of Immigration and Citizenship Consultants · Verify at register.college-ic.ca" },
-      disclaimer: { en: "Information on this website is general and is not immigration advice for your situation. No representative can guarantee the outcome of an immigration application. Contacting us does not create a client relationship — that begins only when a written agreement is signed by both parties." },
+      disclaimer: { en: "Information on this website is general and is not immigration advice for your situation. No representative can guarantee the outcome of an immigration application. Contacting us does not create a client relationship, that begins only when a written agreement is signed by both parties." },
       rights: { en: "© 2026 Externa Immigration Solutions Inc." },
       privacy: { en: "Privacy Policy" },
       refund: { en: "Refund Policy" },

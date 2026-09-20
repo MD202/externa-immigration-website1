@@ -26,7 +26,7 @@ export default function Footer() {
   return (
     <footer className="bg-[#13203F] px-5 py-16 text-white lg:px-[8vw] lg:py-20">
       <div className="mx-auto max-w-[1440px]">
-        <div className="grid gap-12 border-b border-white/10 pb-14 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-12 pb-8 md:grid-cols-2 lg:grid-cols-3">
           <div>
             <Link to="/" className="flex items-center gap-3">
               <Logo variant="light" className="h-9 w-9" />
@@ -62,12 +62,12 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <p className="border-b border-white/10 py-8 text-xs leading-relaxed text-white/40">{t('foot.legal.disclaimer')}</p>
-        <div className="flex flex-col gap-3 pt-2 text-xs text-white/35 md:flex-row md:justify-between">
+        <p className="border-t border-white/10 pt-6 text-xs leading-relaxed text-white/40">{t('foot.legal.disclaimer')}</p>
+        <div className="flex flex-col gap-3 border-t border-white/10 pt-6 text-xs text-white/35 md:flex-row md:justify-between">
           <p>{t('foot.legal.rights')}</p>
           <div className="flex gap-5">
-            <a href="#" className="transition hover:text-white/60">{t('foot.legal.privacy')}</a>
-            <a href="#" className="transition hover:text-white/60">{t('foot.legal.refund')}</a>
+            <Link to="/privacy-policy" className="transition hover:text-white/60">{t('foot.legal.privacy')}</Link>
+            <Link to="/refund-policy" className="transition hover:text-white/60">{t('foot.legal.refund')}</Link>
           </div>
         </div>
       </div>

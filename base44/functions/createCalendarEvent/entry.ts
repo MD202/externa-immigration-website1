@@ -13,6 +13,9 @@ const TIER_LABEL = {
   application_review: "Application Review",
 };
 
+// Consultations are written to the firm's dedicated booking calendar.
+const CALENDAR_ID = "info@externaimmigration.com";
+
 function parseHour(timeStr) {
   const m = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/i);
   if (!m) return 9;
@@ -32,17 +35,8 @@ export default async function(req) {
     const base44 = createClientFromRequest(req);
     const { accessToken } = await base44.asServiceRole.connectors.getConnection("googlecalendar");
 
-    // Resolve the consultant's own email so the invite goes to both sides.
-    let ownerEmail = "";
-    try {
-      const calRes = await fetch("https://www.googleapis.com/calendar/v3/calendars/primary", {
-        headers: { Authorization: `Bearer ${accessToken}` },
-      });
-      const calData = await calRes.json();
-      if (calRes.ok && calData.id) ownerEmail = calData.id;
-    } catch (e) {
-      console.error("Calendar primary fetch error:", e.message);
-    }
+    // The consultant's calendar is the firm booking address, so invites go to both sides.
+    const ownerEmail = CALENDAR_ID;
 
     const hour = parseHour(preferred_time);
     const start = etDateToUtc(preferred_date, hour);
@@ -68,7 +62,7 @@ export default async function(req) {
     });
 
     const postEvent = (atts) => fetch(
-      "https://www.googleapis.com/calendar/v3/calendars/primary/events?conferenceDataVersion=1&sendUpdates=all",
+      `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(CALENDAR_ID)}/events?conferenceDataVersion=1&sendUpdates=all`,
       {
         method: "POST",
         headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json" },

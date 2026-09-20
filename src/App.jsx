@@ -19,6 +19,8 @@ import FamilySponsorship from '@/pages/FamilySponsorship';
 import HealthcareProfessionals from '@/pages/HealthcareProfessionals';
 import Entrepreneurs from '@/pages/Entrepreneurs';
 import OtherServices from '@/pages/OtherServices';
+import PrivacyPolicy from '@/pages/PrivacyPolicy';
+import RefundPolicy from '@/pages/RefundPolicy';
 import { LanguageProvider } from '@/lib/LanguageContext';
 import WhatsAppWidget from '@/components/site/WhatsAppWidget';
 // Add page imports here
@@ -62,6 +64,8 @@ const AuthenticatedApp = () => {
       <Route path="/healthcare-professionals" element={<HealthcareProfessionals />} />
       <Route path="/entrepreneurs" element={<Entrepreneurs />} />
       <Route path="/other-services" element={<OtherServices />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+      <Route path="/refund-policy" element={<RefundPolicy />} />
       <Route path="/eligibility" element={<Eligibility />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>

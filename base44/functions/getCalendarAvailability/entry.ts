@@ -1,6 +1,9 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.44';
 import { etDateToUtc } from "../../shared/etTime.ts";
 
+// Consultations are written to the firm's dedicated booking calendar.
+const CALENDAR_ID = "info@externaimmigration.com";
+
 export default async function(req) {
   try {
     const body = await req.json();
@@ -16,14 +19,14 @@ export default async function(req) {
     const fbRes = await fetch("https://www.googleapis.com/calendar/v3/freeBusy", {
       method: "POST",
       headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ timeMin: start.toISOString(), timeMax: end.toISOString(), items: [{ id: "primary" }] }),
+      body: JSON.stringify({ timeMin: start.toISOString(), timeMax: end.toISOString(), items: [{ id: CALENDAR_ID }] }),
     });
     const fbData = await fbRes.json();
     if (!fbRes.ok) {
       console.error("FreeBusy error:", fbData.error?.message);
       return Response.json({ error: fbData.error?.message || "Calendar error" }, { status: 500 });
     }
-    const busy = fbData.calendars?.primary?.busy || [];
+    const busy = fbData.calendars?.[CALENDAR_ID]?.busy || [];
 
     const slots = [];
     for (let h = 9; h < 19; h++) {
