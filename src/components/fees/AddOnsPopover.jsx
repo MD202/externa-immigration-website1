@@ -23,8 +23,8 @@ export default function AddOnsPopover({ rows }) {
                 <p className="text-xs leading-snug text-[#1E2A4A]/80">{r.service}</p>
                 <div className="mt-1 flex flex-wrap gap-x-5 gap-y-1 text-xs">
                   <span><span className="text-[#1E2A4A]/40">Full </span><span className="font-semibold text-[#1E2A4A]">{r.full}</span></span>
-                  <span><span className="text-[#1E2A4A]/40">Guided </span><span className="text-[#1E2A4A]/70">{r.guided || '—'}</span></span>
-                  <span><span className="text-[#1E2A4A]/40">Review </span><span className="text-[#1E2A4A]/70">{r.review || '—'}</span></span>
+                  <span><span className="text-[#1E2A4A]/40">Guided </span><span className="text-[#1E2A4A]/70">{r.guided || ', '}</span></span>
+                  <span><span className="text-[#1E2A4A]/40">Review </span><span className="text-[#1E2A4A]/70">{r.review || ', '}</span></span>
                 </div>
               </div>
             ))}

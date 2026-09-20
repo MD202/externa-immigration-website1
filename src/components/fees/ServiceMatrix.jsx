@@ -2,7 +2,7 @@ import { Check } from 'lucide-react';
 
 function Cell({ v }) {
   if (v === true) return <Check className="mx-auto h-4 w-4 text-[#B8860B]" strokeWidth={2.5} />;
-  if (v === false) return <span className="text-white/30">—</span>;
+  if (v === false) return <span className="text-white/30">, </span>;
   return <span className="text-sm text-white/85">{v}</span>;
 }
 

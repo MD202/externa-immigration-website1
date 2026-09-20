@@ -99,7 +99,7 @@ export default function StrategySession() {
             <h1 className="font-heading text-3xl text-[#1E2A4A] sm:text-4xl">{t('bookingFlow.title')}</h1>
             <p className="mt-3 text-sm leading-relaxed text-[#1E2A4A]/55">{t('bookingFlow.subtitle')}</p>
             <div className="mt-5 border-l-2 border-[#B8860B] bg-[#FBFAF8] px-4 py-3">
-              <p className="text-xs leading-relaxed text-[#1E2A4A]/70">Calls are held over Google Meet — join from your computer or dial in by phone during the call.</p>
+              <p className="text-xs leading-relaxed text-[#1E2A4A]/70">Calls are held over Google Meet, join from your computer or dial in by phone during the call.</p>
             </div>
             <BookingStepper step={step} />
 

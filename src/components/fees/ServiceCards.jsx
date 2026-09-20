@@ -7,8 +7,8 @@ export function ServiceCard({ service, full, guided, review }) {
       <h4 className="font-heading text-base leading-snug text-[#1E2A4A]">{service}</h4>
       <div className="mt-4 grid grid-cols-3 gap-2">
         <div><p className="text-[10px] font-semibold uppercase tracking-[.1em] text-[#1E2A4A]/40">Full</p><p className="mt-1 font-semibold text-[#1E2A4A]">{full}</p></div>
-        <div><p className="text-[10px] font-semibold uppercase tracking-[.1em] text-[#1E2A4A]/40">Guided</p><p className="mt-1 text-[#1E2A4A]/70">{guided || '—'}</p></div>
-        <div><p className="text-[10px] font-semibold uppercase tracking-[.1em] text-[#1E2A4A]/40">Review</p><p className="mt-1 text-[#1E2A4A]/70">{review || '—'}</p></div>
+        <div><p className="text-[10px] font-semibold uppercase tracking-[.1em] text-[#1E2A4A]/40">Guided</p><p className="mt-1 text-[#1E2A4A]/70">{guided || ', '}</p></div>
+        <div><p className="text-[10px] font-semibold uppercase tracking-[.1em] text-[#1E2A4A]/40">Review</p><p className="mt-1 text-[#1E2A4A]/70">{review || ', '}</p></div>
       </div>
     </div>
   );
@@ -38,7 +38,7 @@ export function IadCard({ service, written, full }) {
 const Price = ({ label, value, strong }) => (
   <span className="flex items-baseline gap-1.5">
     <span className="text-[10px] font-semibold uppercase tracking-[.1em] text-[#1E2A4A]/40">{label}</span>
-    <span className={strong ? 'font-semibold text-[#1E2A4A]' : 'text-[#1E2A4A]/70'}>{value || '—'}</span>
+    <span className={strong ? 'font-semibold text-[#1E2A4A]' : 'text-[#1E2A4A]/70'}>{value || ', '}</span>
   </span>
 );
 

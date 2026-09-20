@@ -25,7 +25,7 @@ export default function TimeStep({ data, setData }) {
   return (
     <div>
       <h2 className="font-heading text-2xl text-[#1E2A4A]">{t('bookingFlow.selectTime')}</h2>
-      <p className="mt-2 text-sm text-[#1E2A4A]/50">{serviceName} — {serviceDuration}</p>
+      <p className="mt-2 text-sm text-[#1E2A4A]/50">{serviceName}, {serviceDuration}</p>
 
       <div className="mt-6 grid gap-5 sm:grid-cols-2">
         <label className="intake-label">{t('bookingFlow.selectDate')}

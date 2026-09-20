@@ -19,8 +19,8 @@ const DIY_FEATURES = [
   { text: 'Route and evidence guidance up front', inc: true },
   { text: 'One 60-minute working session', inc: true },
   { text: 'Written review of every form and letter before you file', inc: true },
-  { text: 'Personalised document checklist — limited for review only', inc: true },
-  { text: 'Secure client portal — limited access', inc: true },
+  { text: 'Personalised document checklist, limited for review only', inc: true },
+  { text: 'Secure client portal, limited access', inc: true },
   { text: 'Email support while you prepare', inc: true },
   { text: 'Guidance if the immigration authority contacts you (12 months)', inc: true },
   { text: 'We file on your behalf', inc: false },
@@ -32,7 +32,7 @@ function Card({ title, tag, price, diy }) {
     <div className={`flex flex-col p-6 ${diy ? 'border border-[#1E2A4A]/12 bg-[#FBFAF8]' : 'border-2 border-[#1E2A4A] bg-white'}`}>
       <p className="text-xs font-semibold uppercase tracking-[.12em] text-[#1E2A4A]/45">{title}</p>
       <p className="mt-1 font-heading text-lg text-[#1E2A4A]">{tag}</p>
-      <p className="mt-4 font-heading text-4xl text-[#1E2A4A]">{price || '—'}</p>
+      <p className="mt-4 font-heading text-4xl text-[#1E2A4A]">{price || ', '}</p>
       <p className="mt-1 text-[10px] uppercase tracking-[.1em] text-[#1E2A4A]/40">Professional fee · plus HST</p>
       <ul className="mt-5 grid gap-2.5">
         {diy
@@ -67,7 +67,7 @@ export default function CompareModal({ row, onClose }) {
           <Card title="Full Representation" tag="We represent you" price={row.full} />
           <Card title="DIY" tag="We guide you" price={row.guided} diy />
         </div>
-        <p className="mt-6 border-t border-[#1E2A4A]/10 pt-4 text-center text-xs leading-relaxed text-[#1E2A4A]/60">Adding a spouse, partner, or children — or a companion permit — is available at a reduced add-on rate with either package. We'll quote it at your consultation.</p>
+        <p className="mt-6 border-t border-[#1E2A4A]/10 pt-4 text-center text-xs leading-relaxed text-[#1E2A4A]/60">Adding a spouse, partner, or children, or a companion permit, is available at a reduced add-on rate with either package. We'll quote it at your consultation.</p>
       </div>
     </div>
   );

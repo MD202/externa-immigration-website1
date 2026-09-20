@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import Reveal from '@/components/site/Reveal';
 
-// "What we hear most" — rendered as stacked, always-open rows with hairline rules.
+// "What we hear most", rendered as stacked, always-open rows with hairline rules.
 // No collapse interaction: the copy is the most persuasive writing on the page
 // and should be read without a click. Optional per-row `link` adds a cross-link.
 export default function HearRows({ heading, items }) {

@@ -7,29 +7,29 @@ const tiers = [
 
 const features = [
   { label: 'Who submits', full: 'We do', guided: 'You do', review: 'You do' },
-  { label: 'Named as your authorized representative', full: '✓', guided: '—', review: '—' },
+  { label: 'Named as your authorized representative', full: '✓', guided: ', ', review: ', ' },
   { label: 'Payment', full: 'Staged', guided: 'In full, upfront', review: 'In full, upfront' },
   { label: 'Personalised document checklist', full: '✓', guided: '✓', review: '✓' },
-  { label: 'All forms completed by us', full: '✓', guided: '—', review: '—' },
-  { label: 'All supporting letters drafted by us', full: '✓', guided: '—', review: '—' },
+  { label: 'All forms completed by us', full: '✓', guided: ', ', review: ', ' },
+  { label: 'All supporting letters drafted by us', full: '✓', guided: ', ', review: ', ' },
   { label: 'Written review of every form and letter you prepare', full: '✓', guided: '✓', review: '✓' },
-  { label: 'Strategy — route, evidence, what to avoid', full: '✓', guided: '✓', review: 'Limited to what you\'ve prepared' },
-  { label: 'Representative\'s submission letter', full: '✓', guided: '—', review: '—' },
+  { label: 'Strategy, route, evidence, what to avoid', full: '✓', guided: '✓', review: 'Limited to what you\'ve prepared' },
+  { label: 'Representative\'s submission letter', full: '✓', guided: ', ', review: ', ' },
   { label: 'Consultations', full: 'As required', guided: 'One 60-min session', review: 'One 45-min session' },
   { label: 'Follow-up session', full: '✓', guided: 'One 30-min before you file', review: 'One 15-min' },
-  { label: 'Email support while you prepare', full: '✓', guided: '✓', review: '—' },
+  { label: 'Email support while you prepare', full: '✓', guided: '✓', review: ', ' },
   { label: 'Secure client portal', full: '✓', guided: '✓', review: 'Drop-off link' },
-  { label: 'We liaise with the immigration authority after submission', full: '✓', guided: '—', review: '—' },
-  { label: 'Guidance if the immigration authority contacts you', full: '✓', guided: '✓ — 12 months', review: '—' },
+  { label: 'We liaise with the immigration authority after submission', full: '✓', guided: ', ', review: ', ' },
+  { label: 'Guidance if the immigration authority contacts you', full: '✓', guided: '✓, 12 months', review: ', ' },
   { label: 'Evening and weekend appointments', full: '✓', guided: '✓', review: '✓' },
 ];
 
 const Cell = ({ v, strong }) => {
   const isCheck = v === '✓';
-  const isDash = v === '—';
+  const isDash = v === ', ';
   return (
     <span className={strong ? 'font-semibold text-[#1E2A4A]' : ''}>
-      {isCheck ? <span className="text-[#B8860B]">✓</span> : isDash ? <span className="text-[#1E2A4A]/25">—</span> : v}
+      {isCheck ? <span className="text-[#B8860B]">✓</span> : isDash ? <span className="text-[#1E2A4A]/25">, </span> : v}
     </span>
   );
 };

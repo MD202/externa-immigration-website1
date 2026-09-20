@@ -21,31 +21,31 @@ const consultations = [
 ];
 
 const paymentModes = [
-  { h: 'Full Representation — paid in stages', items: ['Standard: 40% opening · 40% submission · 20% decision', 'H&C and complex: 30% · 30% · 30% · 10% decision', 'Appeals: 30% filing · 30% record · 30% submissions · 10% conclusion'] },
-  { h: 'DIY and Review Only — paid in full before work begins', items: ['Fixed scope, fixed deliverable, delivered inside a stated window', 'Review Only within 5 business days'] },
-  { h: 'Consultations and fixed services — paid in full', items: ['Consultations, refusal analysis, ATIP requests, second opinions'] },
+  { h: 'Full Representation, paid in stages', items: ['Standard: 40% opening · 40% submission · 20% decision', 'H&C and complex: 30% · 30% · 30% · 10% decision', 'Appeals: 30% filing · 30% record · 30% submissions · 10% conclusion'] },
+  { h: 'DIY and Review Only, paid in full before work begins', items: ['Fixed scope, fixed deliverable, delivered inside a stated window', 'Review Only within 5 business days'] },
+  { h: 'Consultations and fixed services, paid in full', items: ['Consultations, refusal analysis, ATIP requests, second opinions'] },
 ];
 
 const payNotes = [
   { h: "What's included", items: [
-    'Strategy — route, evidence, what to avoid',
+    'Strategy, route, evidence, what to avoid',
     'Written review of every form and letter',
     'Forms and supporting letters drafted by us',
     'Submission to the immigration authority',
     'Liaising with the immigration authority on your behalf',
   ], note: 'Depending on the tier.' },
   { h: "What's separate", items: [
-    'Government fees — yours, never marked up',
-    'Courier, translation, interpretation and affidavits — billed at cost',
+    'Government fees, yours, never marked up',
+    'Courier, translation, interpretation and affidavits, billed at cost',
   ] },
 ];
 
 const savings = [
   { title: 'Consultation credit', body: 'Your consultation fee is credited toward any package if you retain us within 15 days.' },
-  { title: 'Returning clients — 50% off', body: 'Extensions, restorations, change of status, PR card renewals and citizenship applications are half price after a Full Representation file. Professional fees only.' },
-  { title: 'Family bundle — 30% off', body: 'A second family member\'s application, filed at the same time, at 30% off the second package.' },
-  { title: 'Permit with PR — 60% off', body: 'Bridging open work permits and post-graduation work permits are 60% off when taken with any Full Representation permanent residence package.' },
-  { title: 'Combined economic applications — $200 off', body: 'Federal Skilled Worker or Canadian Experience Class combined with an Express Entry profile package.' },
+  { title: 'Returning clients, 50% off', body: 'Extensions, restorations, change of status, PR card renewals and citizenship applications are half price after a Full Representation file. Professional fees only.' },
+  { title: 'Family bundle, 30% off', body: 'A second family member\'s application, filed at the same time, at 30% off the second package.' },
+  { title: 'Permit with PR, 60% off', body: 'Bridging open work permits and post-graduation work permits are 60% off when taken with any Full Representation permanent residence package.' },
+  { title: 'Combined economic applications, $200 off', body: 'Federal Skilled Worker or Canadian Experience Class combined with an Express Entry profile package.' },
   { title: 'Sponsorship bundle', body: 'Spouse open work permit or visitor visa added to a spousal sponsorship at the add-on rate, not the standalone rate.' },
 ];
 
@@ -109,7 +109,7 @@ export default function Fees() {
 
       <MiniNav />
 
-      {/* Start here — consultations */}
+      {/* Start here, consultations */}
       <section id="consultations" className="scroll-mt-32 px-5 py-16 lg:px-[8vw] lg:py-24">
         <div className="mx-auto max-w-[1240px]">
           <Reveal><Eyebrow>START HERE</Eyebrow></Reveal>

@@ -11,7 +11,7 @@ import { Image } from '@/components/ui/image';
 const TAG_KEY = 'externa-triage-tag';
 const PHONE = '+1-437-605-8005';
 const HERO_IMG = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/929ea20db_generated_image.png';
-const CONSENT_TEXT = "I consent to being contacted by Externa about my inquiry using the details I've provided, and I agree to receive the newsletter by email. This form is an inquiry — not a booking or paid consultation.";
+const CONSENT_TEXT = "I consent to being contacted by Externa about my inquiry using the details I've provided, and I agree to receive the newsletter by email. This form is an inquiry, not a booking or paid consultation.";
 
 export default function Contact() {
   const { t } = useLanguage();

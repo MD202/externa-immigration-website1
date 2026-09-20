@@ -109,10 +109,12 @@ export default function ServiceRow({ svc, open, onToggle }) {
                     <p className="mb-3 text-xs font-semibold uppercase tracking-[.16em] text-[#B8860B]">What each tier includes</p>
                     <ServiceMatrix matrix={svc.matrix || DEFAULT_MATRIX} />
                   </div>
+                  {svc.addons && (
                   <div className="mb-6 rounded bg-white/5 p-5">
                     <p className="mb-3 text-xs font-semibold uppercase tracking-[.16em] text-[#B8860B]">Add-ons</p>
-                    <AddonsTable rows={svc.addons || DEFAULT_ADDONS} />
+                    <AddonsTable rows={svc.addons} />
                   </div>
+                  )}
                   {svc.bundle && <p className="mb-6 text-sm text-[#B8860B]">{svc.bundle}</p>}
                 </>
               )}

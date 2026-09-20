@@ -41,7 +41,7 @@ export default function WhatsAppWidget() {
             <button onClick={() => setOpen(false)} aria-label="Close chat" className="text-white/60 transition hover:text-white"><X className="h-5 w-5" /></button>
           </div>
           <div className="p-4">
-            <p className="text-sm leading-relaxed text-[#1E2A4A]/70">Hi there 👋 Tell us briefly what you need, or pick a quick option below — we'll continue the conversation on WhatsApp.</p>
+            <p className="text-sm leading-relaxed text-[#1E2A4A]/70">Hi there 👋 Tell us briefly what you need, or pick a quick option below, we'll continue the conversation on WhatsApp.</p>
             <div className="mt-3 grid gap-2">
               {quickReplies.map((q) => (
                 <button key={q.label} onClick={() => openChat(q.text)} className="rounded-md border border-[#1E2A4A]/15 px-3 py-2 text-left text-sm text-[#1E2A4A] transition hover:border-[#B8860B] hover:bg-[#B8860B]/5">{q.label}</button>

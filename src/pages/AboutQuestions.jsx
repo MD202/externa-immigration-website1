@@ -100,7 +100,7 @@ export default function AboutQuestions() {
       <section className="bg-white px-5 py-20 lg:px-[8vw] lg:py-28">
         <div className="mx-auto max-w-[1240px]">
           <Reveal>
-            <p className="eyebrow">CREDENTIALS</p>
+            <p className="eyebrow">CREDENTIALS &amp; ASSOCIATIONS</p>
             <h2 className="mt-4 font-heading text-3xl leading-tight text-[#1E2A4A] sm:text-4xl">{t('about.s3.heading')}</h2>
           </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
