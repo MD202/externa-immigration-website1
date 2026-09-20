@@ -40,6 +40,15 @@ export default function Contact() {
         urgency: tag,
         status: 'new',
       });
+      try {
+        const [firstName, ...rest] = (form.full_name || '').split(' ');
+        await base44.functions.invoke('appendLeadToSheet', {
+          source: 'Contact Us',
+          firstName, lastName: rest.join(' '), email: form.email, phone: form.phone,
+          lookingFor: form.situation, urgency: tag,
+          notes: `Location: ${loc}, Where: ${form.where}, Language: ${form.language}, Briefly: ${form.briefly}`,
+        });
+      } catch (sheetErr) { console.error('Sheet log failed:', sheetErr); }
       setDone(true);
     } finally {
       setSubmitting(false);

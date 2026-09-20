@@ -1,8 +1,16 @@
 import { useState } from 'react';
 import { X, Send } from 'lucide-react';
+import { base44 } from '@/api/base44Client';
 
 const PHONE = '14376058005'; // +1 437 605 8005, country code + number, no plus
-const DEFAULT_MSG = "Hello, I'd like to ask about an immigration matter.";
+
+const TOPICS = [
+  'Book a consultation',
+  'Check my eligibility',
+  'My application was refused',
+  'Family sponsorship',
+  'Other',
+];
 
 const WhatsAppIcon = ({ className }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
@@ -10,20 +18,32 @@ const WhatsAppIcon = ({ className }) => (
   </svg>
 );
 
-const quickReplies = [
-  { label: 'Book a consultation', text: "I'd like to book a consultation." },
-  { label: 'Check my eligibility', text: 'Can you help assess my eligibility for Canadian immigration?' },
-  { label: 'My application was refused', text: 'My application was refused and I need help with next steps.' },
-  { label: 'Family sponsorship', text: 'I have a question about family sponsorship.' },
-];
+const inputClass = "w-full rounded-md border border-[#1E2A4A]/15 px-3 py-2 text-sm text-[#1E2A4A] outline-none transition focus:border-[#B8860B]";
 
 export default function WhatsAppWidget() {
   const [open, setOpen] = useState(false);
-  const [message, setMessage] = useState('');
+  const [sending, setSending] = useState(false);
+  const [form, setForm] = useState({ firstName: '', lastName: '', phone: '', email: '', topic: TOPICS[0] });
 
-  const openChat = (text) => {
-    const msg = (text || message || DEFAULT_MSG).trim();
+  const set = (k, v) => setForm({ ...form, [k]: v });
+  const valid = form.firstName.trim() && form.lastName.trim() && form.email.trim();
+
+  const submit = async (e) => {
+    e.preventDefault();
+    if (!valid || sending) return;
+    setSending(true);
+    try {
+      await base44.functions.invoke('appendLeadToSheet', {
+        source: 'WhatsApp',
+        firstName: form.firstName, lastName: form.lastName,
+        email: form.email, phone: form.phone, lookingFor: form.topic,
+      });
+    } catch (err) { console.error('Sheet log failed:', err); }
+    setSending(false);
+    const msg = `Hello, I'm ${form.firstName} ${form.lastName}. I'm looking for: ${form.topic}. My email: ${form.email}${form.phone ? ', phone: ' + form.phone : ''}.`;
     window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+    setOpen(false);
+    setForm({ firstName: '', lastName: '', phone: '', email: '', topic: TOPICS[0] });
   };
 
   return (
@@ -35,23 +55,26 @@ export default function WhatsAppWidget() {
               <WhatsAppIcon className="h-5 w-5 text-[#25D366]" />
               <div>
                 <p className="text-sm font-semibold text-white">Externa Immigration</p>
-                <p className="text-[11px] text-white/60">Typically replies within a day</p>
+                <p className="text-[11px] text-white/60">Tell us a bit about you</p>
               </div>
             </div>
             <button onClick={() => setOpen(false)} aria-label="Close chat" className="text-white/60 transition hover:text-white"><X className="h-5 w-5" /></button>
           </div>
-          <div className="p-4">
-            <p className="text-sm leading-relaxed text-[#1E2A4A]/70">Hi there 👋 Tell us briefly what you need, or pick a quick option below, we'll continue the conversation on WhatsApp.</p>
-            <div className="mt-3 grid gap-2">
-              {quickReplies.map((q) => (
-                <button key={q.label} onClick={() => openChat(q.text)} className="rounded-md border border-[#1E2A4A]/15 px-3 py-2 text-left text-sm text-[#1E2A4A] transition hover:border-[#B8860B] hover:bg-[#B8860B]/5">{q.label}</button>
-              ))}
+          <form onSubmit={submit} className="p-4">
+            <p className="text-sm leading-relaxed text-[#1E2A4A]/70">Share a few details and we'll continue the conversation on WhatsApp.</p>
+            <div className="mt-3 grid gap-2.5">
+              <input required value={form.firstName} onChange={(e) => set('firstName', e.target.value)} placeholder="First name *" className={inputClass} />
+              <input required value={form.lastName} onChange={(e) => set('lastName', e.target.value)} placeholder="Last name *" className={inputClass} />
+              <input required type="email" value={form.email} onChange={(e) => set('email', e.target.value)} placeholder="Email *" className={inputClass} />
+              <input value={form.phone} onChange={(e) => set('phone', e.target.value)} placeholder="Phone (optional)" className={inputClass} />
+              <select value={form.topic} onChange={(e) => set('topic', e.target.value)} className={inputClass}>
+                {TOPICS.map((tp) => <option key={tp} value={tp}>{tp}</option>)}
+              </select>
             </div>
-            <div className="mt-3 flex items-center gap-2">
-              <input value={message} onChange={(e) => setMessage(e.target.value)} onKeyDown={(e) => { if (e.key === 'Enter') openChat(); }} placeholder="Type a message…" className="flex-1 rounded-md border border-[#1E2A4A]/15 px-3 py-2 text-sm text-[#1E2A4A] outline-none transition focus:border-[#B8860B]" />
-              <button onClick={() => openChat()} aria-label="Send message" className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-[#25D366] text-white transition hover:bg-[#1ebe5d]"><Send className="h-4 w-4" /></button>
-            </div>
-          </div>
+            <button type="submit" disabled={!valid || sending} className="mt-4 flex w-full items-center justify-center gap-2 rounded-md bg-[#25D366] py-3 text-sm font-semibold text-white transition hover:bg-[#1ebe5d] disabled:opacity-50">
+              <Send className="h-4 w-4" /> {sending ? 'Sending…' : 'Continue to WhatsApp'}
+            </button>
+          </form>
         </div>
       )}
       <button onClick={() => setOpen(!open)} aria-label={open ? 'Close WhatsApp chat' : 'Open WhatsApp chat'} className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_12px_28px_-8px_rgba(37,211,102,0.6)] transition hover:bg-[#1ebe5d]">

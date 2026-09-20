@@ -16,14 +16,14 @@ const TIER_LABEL = {
 // Consultations are written to the firm's dedicated booking calendar.
 const CALENDAR_ID = "info@externaimmigration.com";
 
-function parseHour(timeStr) {
+function parseTime(timeStr) {
   const m = timeStr.match(/(\d+):(\d+)\s*(AM|PM)/i);
-  if (!m) return 9;
+  if (!m) return { hour: 9, minute: 0 };
   let h = parseInt(m[1], 10);
   const ap = m[3].toUpperCase();
   if (ap === "PM" && h !== 12) h += 12;
   if (ap === "AM" && h === 12) h = 0;
-  return h;
+  return { hour: h, minute: parseInt(m[2], 10) };
 }
 
 export default async function(req) {
@@ -38,8 +38,8 @@ export default async function(req) {
     // The consultant's calendar is the firm booking address, so invites go to both sides.
     const ownerEmail = CALENDAR_ID;
 
-    const hour = parseHour(preferred_time);
-    const start = etDateToUtc(preferred_date, hour);
+    const { hour, minute } = parseTime(preferred_time);
+    const start = etDateToUtc(preferred_date, hour, minute);
     const duration = TIER_DURATION_MIN[service_tier] || 60;
     const end = new Date(start.getTime() + duration * 60000);
 

@@ -32,6 +32,15 @@ export default function StrategySession() {
     try {
       await base44.entities.Consultation.create({ ...data, payment_preference: paymentPref, triage_tag: (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('externa-triage-tag')) || '' });
       try {
+        const [firstName, ...rest] = (data.full_name || '').split(' ');
+        await base44.functions.invoke('appendLeadToSheet', {
+          source: paymentPref === 'pay_now' ? 'Paid Consultation' : 'Unpaid Consultation',
+          firstName, lastName: rest.join(' '), email: data.email, phone: data.phone,
+          lookingFor: data.matter, urgency: data.urgency,
+          notes: `Service: ${data.service_tier}, Date: ${data.preferred_date} ${data.preferred_time}${data.summary ? ', Summary: ' + data.summary : ''}`,
+        });
+      } catch (sheetErr) { console.error('Sheet log failed:', sheetErr); }
+      try {
         await base44.functions.invoke('createCalendarEvent', {
           full_name: data.full_name, email: data.email,
           preferred_date: data.preferred_date, preferred_time: data.preferred_time,

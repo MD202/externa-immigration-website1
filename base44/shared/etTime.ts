@@ -7,8 +7,8 @@ export function etOffsetHours(dateStr) {
   return Math.abs(parseInt(val, 10) || 4);
 }
 
-export function etDateToUtc(dateStr, hour) {
+export function etDateToUtc(dateStr, hour, minute = 0) {
   const [y, m, d] = dateStr.split("-").map(Number);
   const off = etOffsetHours(dateStr);
-  return new Date(Date.UTC(y, m - 1, d, hour + off, 0, 0));
+  return new Date(Date.UTC(y, m - 1, d, hour + off, minute, 0));
 }
