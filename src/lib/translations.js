@@ -895,8 +895,8 @@ export const translations = {
     s2: {
       heading: { en: "How this practice works" },
       lead: { en: "Externa Immigration Solutions is a licensed Canadian immigration practice built for people who may never sit across a desk from us." },
-      p1: { en: "Some are in Canada. Others are eight time zones away, finishing a shift as a Toronto office closes. The practice is built for both — consultations by video, documents exchanged securely, files tracked online, and appointments in the evenings and at weekends. You shouldn't need to take a day off work, or live in the right city, to get proper advice." },
-      p2: { en: "The people we work with are usually trying to bring family here, sort out their status, or understand a refusal that explained nothing. Others are healthcare professionals and business owners planning a move to Canada. Few of them arrive with a straightforward file, and that suits us — it's the work we're set up for." },
+      p1: { en: "Some of our clients are in Canada. Others are eight time zones away, finishing a shift as a Toronto office closes. The practice runs the same way for both: consultations by video, documents exchanged securely, files tracked online, and appointments in the evening and on weekends. You shouldn't have to take a day off work, or live in the right city, to get proper advice." },
+      p2: { en: "Most people come to us trying to bring family here, sort out their status, or understand a refusal that explained nothing. Others are healthcare professionals and business owners planning a move. Very few arrive with a simple file. That's the work this practice is set up for." },
       p3: { en: "From the first conversation to the final decision, you work with one person who knows your file." },
       p4: { en: "Our fees are published here in full, and every engagement begins with a written agreement signed before any work starts." },
       p5: { en: "We work in English, Tamil and Hindi." },
