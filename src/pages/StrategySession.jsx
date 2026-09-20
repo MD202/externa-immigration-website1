@@ -9,8 +9,10 @@ import BookingStepper from '@/components/booking/BookingStepper';
 import ServiceStep from '@/components/booking/ServiceStep';
 import TimeStep from '@/components/booking/TimeStep';
 import DetailsAgreementStep from '@/components/booking/DetailsAgreementStep';
+import { usePageMeta } from '@/lib/usePageMeta';
 
 export default function StrategySession() {
+  usePageMeta('Book a Consultation | Externa Immigration Solutions', 'Book a consultation with Externa Immigration Solutions to discuss your Canadian immigration questions and next steps.');
   const { t } = useLanguage();
   const [step, setStep] = useState(1);
   const [saving, setSaving] = useState(false);

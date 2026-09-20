@@ -4,6 +4,7 @@ import { ArrowLeft, ArrowRight, ChevronDown } from 'lucide-react';
 import { useLanguage } from '@/lib/LanguageContext';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
+import { usePageMeta } from '@/lib/usePageMeta';
 
 const SERVICE_MAP = {
   1: { titleKey: 'services.t1', textKey: 'services.x1', blurbKey: 'services.b1', factorsKey: 'services.f1', pathwayKey: 'services.p1', matter: 'Refugee claim' },
@@ -22,19 +23,13 @@ export default function ServiceDetail() {
   const { t } = useLanguage();
   const svc = SERVICE_MAP[id];
   const [faqOpen, setFaqOpen] = useState(0);
+  usePageMeta(
+    svc ? `${t(svc.titleKey)} | Externa Immigration Solutions Inc` : 'Service Not Found | Externa Immigration Solutions',
+    svc ? `${t(svc.textKey)} ${t(svc.blurbKey)}` : 'The requested immigration service could not be found.'
+  );
 
   useEffect(() => {
     if (!svc) return;
-    document.title = `${t(svc.titleKey)} | Externa Immigration Solutions Inc`;
-    const desc = `${t(svc.textKey)} ${t(svc.blurbKey)}`;
-    let metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) metaDesc.setAttribute('content', desc);
-    else {
-      metaDesc = document.createElement('meta');
-      metaDesc.name = 'description';
-      metaDesc.content = desc;
-      document.head.appendChild(metaDesc);
-    }
     const faqItems = [
       { q: t(`faq.s${id}q1`), a: t(`faq.s${id}a1`) },
       { q: t(`faq.s${id}q2`), a: t(`faq.s${id}a2`) },

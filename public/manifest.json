@@ -1,0 +1,11 @@
+{
+  "name": "Externa Immigration Solutions",
+  "short_name": "Externa",
+  "start_url": "/",
+  "display": "browser",
+  "theme_color": "#0F2433",
+  "background_color": "#FFFFFF",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

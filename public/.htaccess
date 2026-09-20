@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# Preserve the path and query string when selecting the primary domain.
+RewriteCond %{HTTP_HOST} ^www\.externaimmigration\.com$ [NC]
+RewriteRule ^ https://externaimmigration.com%{REQUEST_URI} [R=301,L,NE]
+
+# Serve existing assets normally. Missing assets and unknown URLs remain 404s.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# React Router owns these public pages, including direct visits and refreshes.
+RewriteRule ^(strategy-session|fees|refused-applications|about|contact|humanitarian-compassionate|family-sponsorship|healthcare-professionals|entrepreneurs|other-services|eligibility)/?$ index.html [L]
+RewriteRule ^services/[1-9]/?$ index.html [L]
