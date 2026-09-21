@@ -6,18 +6,18 @@ import { ArrowRight } from 'lucide-react';
 const sessions = [
   {
     tag: 'Healthcare',
-    title: 'Healthcare Information Session',
-    desc: 'A focused session for healthcare professionals to understand Canadian permanent residence options, licensing considerations and next steps before you apply.',
+    title: 'Healthcare Immigration Information Session',
+    desc: 'A live group information session for healthcare professionals to understand Canadian permanent residence options, licensing considerations and next steps before applying.',
     price: '$59',
-    priceNote: '+ HST · Single session',
+    priceNote: '+ HST · Live group session',
     to: '/healthcare-pathway',
   },
   {
     tag: 'Entrepreneur',
-    title: 'Entrepreneur Information Session (C11 / Investment)',
-    desc: 'A focused session for business owners exploring owner-operator and investment-related pathways, with a clear picture of eligibility before committing.',
+    title: 'Entrepreneur Immigration Information Session',
+    desc: 'A live group information session for entrepreneurs and business owners to understand the Canadian business immigration landscape before investing time and money.',
     price: '$119',
-    priceNote: '+ HST · Single session',
+    priceNote: '+ HST · Live group session',
     to: '/entrepreneur-pathway',
   },
 ];

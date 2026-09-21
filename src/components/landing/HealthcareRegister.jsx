@@ -12,7 +12,7 @@ export default function HealthcareRegister({ pathway, returnPath, sourceLabel, s
         <div className="mx-auto max-w-xl text-center">
           <CheckCircle2 className="mx-auto h-12 w-12 text-[#1E8A70]" />
           <h2 className="mt-6 font-heading text-3xl text-[#123B35] sm:text-4xl">You are booked</h2>
-          <p className="mt-4 leading-relaxed text-[#202624]/60">Your payment is confirmed. We will be in touch by email with instructions on what to prepare before your session.</p>
+          <p className="mt-4 leading-relaxed text-[#202624]/60">Your payment is confirmed. We will email you the session details and your take-away guide ahead of the live group session.</p>
         </div>
       </section>
     );
