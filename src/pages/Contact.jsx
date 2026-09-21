@@ -32,13 +32,15 @@ export default function Contact() {
       let tag = '';
       try { tag = sessionStorage.getItem(TAG_KEY) || ''; } catch { /* ignore */ }
       const rec = await base44.entities.Lead.create({
-        full_name: form.full_name,
+        first_name: form.full_name,
+        last_name: '',
+        pathway: form.situation,
         email: form.email,
         phone: form.phone,
-        situation: `Location: ${loc === 'inside' ? 'Inside Canada' : 'Outside Canada'}\nWhere you are: ${form.where}\nSituation: ${form.situation}\nPreferred language: ${form.language}\n\n${form.briefly}`,
-        recommended_pathway: form.situation,
-        urgency: tag,
+        owner: 'Unassigned',
         status: 'new',
+        session_date: '',
+        notes: `Location: ${loc === 'inside' ? 'Inside Canada' : 'Outside Canada'}\nWhere you are: ${form.where}\nSituation: ${form.situation}\nPreferred language: ${form.language}${tag ? `\nTriage: ${tag}` : ''}\n\n${form.briefly}`,
       });
       try {
         await base44.functions.invoke('appendLeadToSheet', {

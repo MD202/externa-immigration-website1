@@ -63,13 +63,15 @@ export default function EligibilityCalculator() {
     e.preventDefault();
     setSaving(true);
     await base44.entities.Lead.create({
-      full_name: contact.full_name,
+      first_name: contact.full_name,
+      last_name: '',
+      pathway: svc ? t(svc.titleKey) : '',
       email: contact.email,
       phone: contact.phone,
-      situation: t(`eligibility.${answers.q1}`),
-      stage: `${score}/100`,
-      urgency: t(`eligibility.${band}`),
-      recommended_pathway: svc ? t(svc.titleKey) : '',
+      owner: 'Unassigned',
+      status: 'new',
+      session_date: '',
+      notes: `${t(`eligibility.${answers.q1}`)} · ${score}/100 · ${t(`eligibility.${band}`)}`,
     });
     setSaving(false);
     setSent(true);

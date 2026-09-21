@@ -38,8 +38,11 @@ export default function HealthcareRegister({ pathway, returnPath, sourceLabel, s
         </div>
         <div className="border border-[#1E8A70]/15 bg-white p-8 lg:p-10">
           <div className="grid gap-5">
-            <label className={labelCls}>Full name <span className="text-[#E9826B]">*</span>
-              <input required value={form.full_name} onChange={set('full_name')} className={inputCls} placeholder="Your name" />
+            <label className={labelCls}>First name <span className="text-[#E9826B]">*</span>
+              <input required value={form.first_name} onChange={set('first_name')} className={inputCls} placeholder="First name" />
+            </label>
+            <label className={labelCls}>Last name <span className="text-[#E9826B]">*</span>
+              <input required value={form.last_name} onChange={set('last_name')} className={inputCls} placeholder="Last name" />
             </label>
             <label className={labelCls}>Email <span className="text-[#E9826B]">*</span>
               <input required type="email" value={form.email} onChange={set('email')} className={inputCls} placeholder="you@email.com" />

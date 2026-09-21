@@ -23,9 +23,10 @@ export default function DetailsAgreementStep({ data, setData, saving, onPayNow, 
     { value: 'Not sure', label: t('strategy.u4') },
   ];
 
-  const detailsValid = !!(data.full_name && data.email && data.agreement_accepted);
+  const detailsValid = !!(data.first_name && data.last_name && data.email && data.agreement_accepted);
   const missing = [];
-  if (!data.full_name) missing.push(t('strategy.fullName'));
+  if (!data.first_name) missing.push(t('strategy.firstName'));
+  if (!data.last_name) missing.push(t('strategy.lastName'));
   if (!data.email) missing.push(t('strategy.email'));
   if (!data.agreement_accepted) missing.push(t('bookingFlow.agreementLabel'));
 
@@ -34,10 +35,13 @@ export default function DetailsAgreementStep({ data, setData, saving, onPayNow, 
       <h2 className="font-heading text-2xl text-[#1E2A4A]">{t('bookingFlow.detailsTitle')}</h2>
 
       <div className="mt-6 grid gap-5 sm:grid-cols-2">
-        <label className="intake-label">{t('strategy.fullName')} <span className="text-[#B8860B]">*</span>
-          <input required value={data.full_name} onChange={field('full_name')} className="intake-input" />
+        <label className="intake-label">{t('strategy.firstName')} <span className="text-[#B8860B]">*</span>
+          <input required value={data.first_name} onChange={field('first_name')} className="intake-input" />
         </label>
-        <label className="intake-label">{t('strategy.email')} <span className="text-[#B8860B]">*</span>
+        <label className="intake-label">{t('strategy.lastName')} <span className="text-[#B8860B]">*</span>
+          <input required value={data.last_name} onChange={field('last_name')} className="intake-input" />
+        </label>
+        <label className="intake-label sm:col-span-2">{t('strategy.email')} <span className="text-[#B8860B]">*</span>
           <input required type="email" value={data.email} onChange={field('email')} className="intake-input" />
         </label>
         <label className="intake-label">{t('strategy.phoneOpt')}

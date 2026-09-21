@@ -2,7 +2,13 @@
   "name": "Lead",
   "type": "object",
   "properties": {
-    "full_name": {
+    "first_name": {
+      "type": "string"
+    },
+    "last_name": {
+      "type": "string"
+    },
+    "pathway": {
       "type": "string"
     },
     "email": {
@@ -12,17 +18,9 @@
     "phone": {
       "type": "string"
     },
-    "situation": {
-      "type": "string"
-    },
-    "stage": {
-      "type": "string"
-    },
-    "urgency": {
-      "type": "string"
-    },
-    "recommended_pathway": {
-      "type": "string"
+    "owner": {
+      "type": "string",
+      "default": "Unassigned"
     },
     "status": {
       "type": "string",
@@ -32,10 +30,16 @@
         "converted"
       ],
       "default": "new"
+    },
+    "session_date": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
     }
   },
   "required": [
-    "full_name",
+    "first_name",
     "email"
   ]
 }

@@ -38,8 +38,11 @@ export default function EntrepreneurRegister({ pathway, returnPath, sourceLabel,
         </div>
         <div className="border border-[#1E2A4A]/10 bg-white p-8 lg:p-10">
           <div className="grid gap-5">
-            <label className={labelCls}>Full name <span className="text-[#00FF87]">*</span>
-              <input required value={form.full_name} onChange={set('full_name')} className={inputCls} placeholder="Your name" />
+            <label className={labelCls}>First name <span className="text-[#00FF87]">*</span>
+              <input required value={form.first_name} onChange={set('first_name')} className={inputCls} placeholder="First name" />
+            </label>
+            <label className={labelCls}>Last name <span className="text-[#00FF87]">*</span>
+              <input required value={form.last_name} onChange={set('last_name')} className={inputCls} placeholder="Last name" />
             </label>
             <label className={labelCls}>Email <span className="text-[#00FF87]">*</span>
               <input required type="email" value={form.email} onChange={set('email')} className={inputCls} placeholder="you@email.com" />

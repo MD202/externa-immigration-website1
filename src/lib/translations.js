@@ -230,6 +230,8 @@ export const translations = {
     s3: { en: 'How can we reach you?', ta: 'நாங்கள் உங்களை எப்படி தொடர்புகொள்ள முடியும்?', hi: 'हम आपसे कैसे संपर्क कर सकते हैं?' },
     s3sub: { en: 'Share enough for a confidential initial review. We will contact you about next steps.', ta: 'ரகசிய ஆரம்ப மதிப்பாய்வுக்கு போதுமானதைப் பகிருங்கள். அடுத்த அடிகளைப் பற்றி நாங்கள் உங்களைத் தொடர்புகொள்வோம்.', hi: 'गोपनीय प्रारंभिक समीक्षा के लिए पर्याप्त साझा करें। हम अगले कदमों के बारे में आपसे संपर्क करेंगे।' },
     fullName: { en: 'Full name', ta: 'முழு பெயர்', hi: 'पूरा नाम' },
+    firstName: { en: 'First name', ta: 'முதல் பெயர்', hi: 'पहला नाम' },
+    lastName: { en: 'Last name', ta: 'கடைசி பெயர்', hi: 'उपनाम' },
     email: { en: 'Email', ta: 'மின்னஞ்சல்', hi: 'ईमेल' },
     phoneOpt: { en: 'Phone (optional)', ta: 'தொலைபேசி (விரும்பினால்)', hi: 'फ़ोन (वैकल्पिक)' },
     summaryOpt: { en: 'Brief summary (optional)', ta: 'சுருக்க விளக்கம் (விரும்பினால்)', hi: 'संक्षिप्त सारांश (वैकल्पिक)' },

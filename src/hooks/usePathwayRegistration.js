@@ -2,10 +2,13 @@ import { useState, useEffect } from 'react';
 import { base44 } from '@/api/base44Client';
 
 // Shared registration + paid checkout logic used by both the healthcare and
-// entrepreneur register forms. Captures a Lead, logs it to the shared sheet,
-// then redirects to a Stripe checkout session for the pathway fee.
+// entrepreneur register forms. Captures a Lead (First/Last name, Pathway,
+// Owner, Status, Session Date, Notes), logs it to the shared sheet, then
+// redirects to a Stripe checkout session for the pathway fee.
+const SESSION_DATE = '2026-10-03 19:00 ET';
+
 export function usePathwayRegistration({ pathway, returnPath, sourceLabel, situation, title }) {
-  const [form, setForm] = useState({ full_name: '', email: '', phone: '' });
+  const [form, setForm] = useState({ first_name: '', last_name: '', email: '', phone: '' });
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
   const [done, setDone] = useState(false);
@@ -20,25 +23,28 @@ export function usePathwayRegistration({ pathway, returnPath, sourceLabel, situa
 
   const submit = async () => {
     setError('');
-    if (!form.full_name.trim()) return setError('Please enter your name.');
+    if (!form.first_name.trim()) return setError('Please enter your first name.');
+    if (!form.last_name.trim()) return setError('Please enter your last name.');
     if (!form.email.trim()) return setError('Please enter your email.');
     if (!emailValid) return setError('Please enter a valid email address.');
     setSaving(true);
     try {
+      const fullName = `${form.first_name} ${form.last_name}`.trim();
       const rec = await base44.entities.Lead.create({
-        full_name: form.full_name.trim(),
+        first_name: form.first_name.trim(),
+        last_name: form.last_name.trim(),
+        pathway: sourceLabel,
         email: form.email.trim(),
         phone: form.phone.trim(),
-        situation,
-        recommended_pathway: pathway,
-        stage: 'registered',
-        urgency: '',
+        owner: 'Unassigned',
         status: 'new',
+        session_date: SESSION_DATE,
+        notes: title,
       });
       try {
         await base44.functions.invoke('appendLeadToSheet', {
-          dateScheduled: '',
-          name: form.full_name.trim(),
+          dateScheduled: SESSION_DATE,
+          name: fullName,
           phone: form.phone.trim(),
           email: form.email.trim(),
           source: sourceLabel,
@@ -59,7 +65,7 @@ export function usePathwayRegistration({ pathway, returnPath, sourceLabel, situa
       }
       const res = await base44.functions.invoke('createCheckoutSession', {
         service_tier: pathway,
-        full_name: form.full_name.trim(),
+        full_name: fullName,
         email: form.email.trim(),
         return_path: returnPath,
       });

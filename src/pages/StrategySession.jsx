@@ -23,20 +23,34 @@ export default function StrategySession() {
   }, []);
   const [data, setData] = useState({
     service_tier: '', preferred_date: '', preferred_time: '',
-    full_name: '', email: '', phone: '', matter: '', urgency: '', summary: '',
+    first_name: '', last_name: '', email: '', phone: '', matter: '', urgency: '', summary: '',
     agreement_accepted: false, signature_name: '',
   });
 
   const submit = async (paymentPref) => {
     setSaving(true);
     try {
-      const rec = await base44.entities.Consultation.create({ ...data, payment_preference: paymentPref, triage_tag: (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('externa-triage-tag')) || '' });
+      const fullName = `${data.first_name} ${data.last_name}`.trim();
+      const triageTag = (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('externa-triage-tag')) || '';
+      const tierLabel = { quick_question: 'Quick Question', full_consultation: 'Full Consultation', application_review: 'Application Review' }[data.service_tier] || data.service_tier || '';
+      const dateScheduled = data.preferred_date ? `${data.preferred_date}${data.preferred_time ? ' ' + data.preferred_time : ''}` : '';
+      const rec = await base44.entities.Consultation.create({
+        service_tier: data.service_tier, preferred_date: data.preferred_date, preferred_time: data.preferred_time,
+        full_name: fullName, email: data.email, phone: data.phone, matter: data.matter,
+        urgency: data.urgency, summary: data.summary, agreement_accepted: data.agreement_accepted,
+        signature_name: data.signature_name, payment_preference: paymentPref, triage_tag: triageTag,
+      });
       try {
-        const tierLabel = { quick_question: 'Quick Question', full_consultation: 'Full Consultation', application_review: 'Application Review' }[data.service_tier] || data.service_tier || '';
-        const dateScheduled = data.preferred_date ? `${data.preferred_date}${data.preferred_time ? ' ' + data.preferred_time : ''}` : '';
+        await base44.entities.Lead.create({
+          first_name: data.first_name, last_name: data.last_name, pathway: data.matter,
+          email: data.email, phone: data.phone, owner: 'Unassigned', status: 'new',
+          session_date: dateScheduled, notes: [tierLabel, data.summary].filter(Boolean).join(' · '),
+        });
+      } catch (leadErr) { console.error('Lead create failed:', leadErr); }
+      try {
         await base44.functions.invoke('appendLeadToSheet', {
           dateScheduled,
-          name: data.full_name,
+          name: fullName,
           phone: data.phone,
           email: data.email,
           source: paymentPref === 'pay_now' ? 'Paid Consultation' : 'Unpaid Consultation',
@@ -50,7 +64,7 @@ export default function StrategySession() {
       } catch (sheetErr) { console.error('Sheet log failed:', sheetErr); }
       try {
         await base44.functions.invoke('createCalendarEvent', {
-          full_name: data.full_name, email: data.email,
+          full_name: fullName, email: data.email,
           preferred_date: data.preferred_date, preferred_time: data.preferred_time,
           service_tier: data.service_tier,
         });
@@ -64,7 +78,7 @@ export default function StrategySession() {
           return;
         }
         const res = await base44.functions.invoke('createCheckoutSession', {
-          service_tier: data.service_tier, full_name: data.full_name, email: data.email,
+          service_tier: data.service_tier, full_name: fullName, email: data.email,
           preferred_date: data.preferred_date, preferred_time: data.preferred_time,
         });
         window.location.href = res.data.url;

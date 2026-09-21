@@ -38,8 +38,11 @@ export default function PathwayRegister({ pathway, price, priceNote, title, retu
         </div>
         <div className="border border-[#1E2A4A]/10 bg-[#F8FAFC] p-8 lg:p-10">
           <div className="grid gap-5">
-            <label className="intake-label">Full name <span className="text-[#B8860B]">*</span>
-              <input required value={form.full_name} onChange={set('full_name')} className="intake-input" placeholder="Your name" />
+            <label className="intake-label">First name <span className="text-[#B8860B]">*</span>
+              <input required value={form.first_name} onChange={set('first_name')} className="intake-input" placeholder="First name" />
+            </label>
+            <label className="intake-label">Last name <span className="text-[#B8860B]">*</span>
+              <input required value={form.last_name} onChange={set('last_name')} className="intake-input" placeholder="Last name" />
             </label>
             <label className="intake-label">Email <span className="text-[#B8860B]">*</span>
               <input required type="email" value={form.email} onChange={set('email')} className="intake-input" placeholder="you@email.com" />
