@@ -8,6 +8,7 @@ import EntrepreneurRegister from '@/components/landing/EntrepreneurRegister';
 import EntrepreneurDisclaimer from '@/components/landing/EntrepreneurDisclaimer';
 import EntrepreneurWhyAttend from '@/components/landing/EntrepreneurWhyAttend';
 import EntrepreneurFinalCta from '@/components/landing/EntrepreneurFinalCta';
+import KeywordMarquee from '@/components/landing/KeywordMarquee';
 import { usePageMeta } from '@/lib/usePageMeta';
 
 const hero = {
@@ -106,12 +107,15 @@ const finalCta = {
   disclaimer: 'Externa Immigration Solutions Inc. is represented by a Regulated Canadian Immigration Consultant (RCIC-IRB). This is an educational group session and does not constitute an individual eligibility assessment or guarantee of eligibility, nomination, invitation, approval, processing time or permanent residence. Immigration programs and requirements may change.',
 };
 
+const entrepreneurKeywords = ['C11', 'Start-up Visa', 'PNP Entrepreneur', 'Investment', 'Business Plan', 'Work Permit', 'Permanent Residence', 'Self-Employed', 'Owner-Operator', 'Expansion'];
+
 export default function EntrepreneurPathway() {
   usePageMeta('Entrepreneur Immigration Information Session | Externa Immigration', 'A live online group information session for entrepreneurs and business owners to understand the Canadian business immigration landscape before investing. $119 + HST.');
   return (
     <main className="bg-white">
       <Header />
       <EntrepreneurHero {...hero} />
+      <KeywordMarquee words={entrepreneurKeywords} bg="bg-[#1E2A4A]" accent="#00FF87" />
       <EntrepreneurLearn {...learn} />
       <EntrepreneurAudience {...audience} />
       <EntrepreneurIncluded {...included} />

@@ -10,7 +10,12 @@ import LandingWhyUs from '@/components/landing/LandingWhyUs';
 import HealthcareRegister from '@/components/landing/HealthcareRegister';
 import HealthcareFAQ from '@/components/landing/HealthcareFAQ';
 import LandingFinalCta from '@/components/landing/LandingFinalCta';
+import KeywordMarquee from '@/components/landing/KeywordMarquee';
+import LandingImageBand from '@/components/landing/LandingImageBand';
 import { usePageMeta } from '@/lib/usePageMeta';
+
+const HEALTHCARE_IMAGE = 'https://media.base44.com/images/public/6a95f2205a5c2cd9741e0f39/f7f2e83c1_generated_c619d978.png';
+const healthcareKeywords = ['Express Entry', 'Provincial Nominee', 'Healthcare Category', 'Licensing', 'Credential Assessment', 'NOC', 'Permanent Residence', 'Work Permit', 'Canadian Experience', 'Job Offer'];
 
 const hero = {
   eyebrow: 'Healthcare Immigration',
@@ -166,6 +171,8 @@ export default function HealthcarePathway() {
     <main className="bg-[#F7F3EA]">
       <Header />
       <HealthcareHero {...hero} />
+      <KeywordMarquee words={healthcareKeywords} bg="bg-[#123B35]" accent="#1E8A70" />
+      <LandingImageBand src={HEALTHCARE_IMAGE} alt="Healthcare professionals collaborating at a hospital nursing station" caption="Healthcare professionals are among the most in-demand workers across Canada's federal and provincial immigration programs." />
       <LandingNumbered {...stopGuessing} />
       <LandingAudience {...audience} />
       <LandingOccupations {...occupations} />
