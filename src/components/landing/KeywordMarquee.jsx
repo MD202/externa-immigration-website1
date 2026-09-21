@@ -1,35 +1,24 @@
-// Bold modern ticker: two rows scrolling in opposite directions, italic display
-// type, neon separators, and FOMO pills interspersed for energy.
-export default function KeywordMarquee({ words, bg = 'bg-[#1E2A4A]', accent = '#00FF87', fomo = ['Limited seats', 'Oct 3', 'Live Q&A'] }) {
-  const seq = [];
-  words.forEach((w, i) => {
-    seq.push({ text: w, kind: 'word' });
-    if (fomo.length) seq.push({ text: fomo[i % fomo.length], kind: 'fomo' });
-  });
-  const track = [...seq, ...seq, ...seq];
-
-  const Row = ({ reverse }) => (
-    <div className="overflow-hidden">
-      <div className="marquee-track gap-8 whitespace-nowrap" style={reverse ? { animationDirection: 'reverse' } : undefined}>
+// Clean, premium single-row ticker. Refined uppercase display type, one
+// outlined live badge, accent slash separators — modern without the noise.
+export default function KeywordMarquee({ words, bg = 'bg-[#1E2A4A]', accent = '#00FF87', fomo = 'Live · Oct 3' }) {
+  const items = [{ text: fomo, kind: 'badge' }, ...words.map((w) => ({ text: w, kind: 'word' }))];
+  const track = [...items, ...items, ...items];
+  return (
+    <div className={`relative overflow-hidden border-y border-white/10 ${bg} py-5`} aria-hidden="true">
+      <div className="marquee-track gap-10 whitespace-nowrap sm:gap-14">
         {track.map((item, i) => (
-          <span key={i} className="flex items-center gap-8">
-            {item.kind === 'fomo' ? (
-              <span className="rounded-full px-4 py-1 text-sm font-bold uppercase tracking-[.16em]" style={{ backgroundColor: accent, color: '#0E1B33' }}>{item.text}</span>
+          <span key={i} className="flex items-center gap-10 sm:gap-14">
+            {item.kind === 'badge' ? (
+              <span className="inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-semibold uppercase tracking-[.18em]" style={{ borderColor: accent, color: accent }}>
+                <span className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: accent }} />{item.text}
+              </span>
             ) : (
-              <span className="font-heading text-3xl font-semibold uppercase italic tracking-tight text-white sm:text-4xl lg:text-5xl">{item.text}</span>
+              <span className="font-heading text-xl font-medium uppercase tracking-[.2em] text-white/85 sm:text-2xl">{item.text}</span>
             )}
-            <span className="text-2xl lg:text-3xl" style={{ color: accent }}>✦</span>
+            <span className="text-sm" style={{ color: accent }}>/</span>
           </span>
         ))}
       </div>
-    </div>
-  );
-
-  return (
-    <div className={`relative overflow-hidden border-y border-white/10 ${bg} py-5`} aria-hidden="true">
-      <Row reverse={false} />
-      <div className="h-3" />
-      <Row reverse={true} />
     </div>
   );
 }
