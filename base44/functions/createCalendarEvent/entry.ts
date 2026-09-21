@@ -40,10 +40,12 @@ export default async function(req) {
     const duration = TIER_DURATION_MIN[service_tier] || 60;
     const end = new Date(start.getTime() + duration * 60000);
 
-    // Only the client is invited. The consultant owns the booking calendar and sees the
-    // event directly, so adding the calendar's own address as an attendee is unnecessary
-    // and Google rejects it ("Invalid attendee email").
-    const attendees = email ? [{ email }] : [];
+    // Only a valid client email is invited as an attendee. The consultant owns the booking
+    // calendar and sees the event directly, so the calendar's own address is never added
+    // (Google rejects it). If the client email is missing or malformed, the event is still
+    // created so the consultant has it on their calendar; the client simply gets no invite.
+    const emailIsValid = email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).trim());
+    const attendees = emailIsValid ? [{ email: String(email).trim() }] : [];
 
     const event = {
       summary: `${TIER_LABEL[service_tier] || "Consultation"} — ${full_name}`,
