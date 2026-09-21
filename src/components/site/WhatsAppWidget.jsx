@@ -33,12 +33,31 @@ export default function WhatsAppWidget() {
     if (!valid || sending) return;
     setSending(true);
     try {
-      await base44.functions.invoke('appendLeadToSheet', {
-        source: 'WhatsApp',
-        firstName: form.firstName, lastName: form.lastName,
-        email: form.email, phone: form.phone, lookingFor: form.topic,
+      const fullName = `${form.firstName} ${form.lastName}`.trim();
+      const rec = await base44.entities.Lead.create({
+        full_name: fullName,
+        email: form.email,
+        phone: form.phone,
+        situation: form.topic,
+        recommended_pathway: form.topic,
+        status: 'new',
       });
-    } catch (err) { console.error('Sheet log failed:', err); }
+      try {
+        await base44.functions.invoke('appendLeadToSheet', {
+          leadId: rec.id,
+          dateScheduled: '',
+          name: fullName,
+          phone: form.phone,
+          email: form.email,
+          source: 'WhatsApp',
+          serviceNeeded: form.topic,
+          appointment: '',
+          paid: 'No',
+          createdDate: rec.created_date,
+          comments: '',
+        });
+      } catch (err) { console.error('Sheet log failed:', err); }
+    } catch (err) { console.error('Lead create failed:', err); }
     setSending(false);
     const msg = `Hello, I'm ${form.firstName} ${form.lastName}. I'm looking for: ${form.topic}. My email: ${form.email}${form.phone ? ', phone: ' + form.phone : ''}.`;
     window.open(`https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');

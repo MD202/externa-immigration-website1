@@ -30,14 +30,22 @@ export default function StrategySession() {
   const submit = async (paymentPref) => {
     setSaving(true);
     try {
-      await base44.entities.Consultation.create({ ...data, payment_preference: paymentPref, triage_tag: (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('externa-triage-tag')) || '' });
+      const rec = await base44.entities.Consultation.create({ ...data, payment_preference: paymentPref, triage_tag: (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('externa-triage-tag')) || '' });
       try {
-        const [firstName, ...rest] = (data.full_name || '').split(' ');
+        const tierLabel = { quick_question: 'Quick Question', full_consultation: 'Full Consultation', application_review: 'Application Review' }[data.service_tier] || data.service_tier || '';
+        const dateScheduled = data.preferred_date ? `${data.preferred_date}${data.preferred_time ? ' ' + data.preferred_time : ''}` : '';
         await base44.functions.invoke('appendLeadToSheet', {
+          leadId: rec.id,
+          dateScheduled,
+          name: data.full_name,
+          phone: data.phone,
+          email: data.email,
           source: paymentPref === 'pay_now' ? 'Paid Consultation' : 'Unpaid Consultation',
-          firstName, lastName: rest.join(' '), email: data.email, phone: data.phone,
-          lookingFor: data.matter, urgency: data.urgency,
-          notes: `Service: ${data.service_tier}, Date: ${data.preferred_date} ${data.preferred_time}${data.summary ? ', Summary: ' + data.summary : ''}`,
+          serviceNeeded: data.matter,
+          appointment: tierLabel,
+          paid: paymentPref === 'pay_now' ? 'Yes' : 'No',
+          createdDate: rec.created_date,
+          comments: data.summary,
         });
       } catch (sheetErr) { console.error('Sheet log failed:', sheetErr); }
       try {

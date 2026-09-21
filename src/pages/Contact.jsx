@@ -31,7 +31,7 @@ export default function Contact() {
     try {
       let tag = '';
       try { tag = sessionStorage.getItem(TAG_KEY) || ''; } catch { /* ignore */ }
-      await base44.entities.Lead.create({
+      const rec = await base44.entities.Lead.create({
         full_name: form.full_name,
         email: form.email,
         phone: form.phone,
@@ -41,12 +41,18 @@ export default function Contact() {
         status: 'new',
       });
       try {
-        const [firstName, ...rest] = (form.full_name || '').split(' ');
         await base44.functions.invoke('appendLeadToSheet', {
+          leadId: rec.id,
+          dateScheduled: '',
+          name: form.full_name,
+          phone: form.phone,
+          email: form.email,
           source: 'Contact Us',
-          firstName, lastName: rest.join(' '), email: form.email, phone: form.phone,
-          lookingFor: form.situation, urgency: tag,
-          notes: `Location: ${loc}, Where: ${form.where}, Language: ${form.language}, Briefly: ${form.briefly}`,
+          serviceNeeded: form.situation,
+          appointment: '',
+          paid: 'No',
+          createdDate: rec.created_date,
+          comments: form.briefly,
         });
       } catch (sheetErr) { console.error('Sheet log failed:', sheetErr); }
       setDone(true);
