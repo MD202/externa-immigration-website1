@@ -1,27 +1,29 @@
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
-import PathwayHero from '@/components/landing/PathwayHero';
+import HealthcareHero from '@/components/landing/HealthcareHero';
 import LandingNumbered from '@/components/landing/LandingNumbered';
 import LandingAudience from '@/components/landing/LandingAudience';
 import LandingOccupations from '@/components/landing/LandingOccupations';
 import LandingWhatYouGet from '@/components/landing/LandingWhatYouGet';
 import LandingDisclaimer from '@/components/landing/LandingDisclaimer';
 import LandingWhyUs from '@/components/landing/LandingWhyUs';
-import PathwayRegister from '@/components/landing/PathwayRegister';
-import PathwayFAQ from '@/components/landing/PathwayFAQ';
+import HealthcareRegister from '@/components/landing/HealthcareRegister';
+import HealthcareFAQ from '@/components/landing/HealthcareFAQ';
 import LandingFinalCta from '@/components/landing/LandingFinalCta';
 import { usePageMeta } from '@/lib/usePageMeta';
 
-const LAUNCH_DATE = '2026-10-05T23:59:59-04:00';
-
 const hero = {
-  eyebrow: 'Healthcare Immigration Information Session',
-  title: 'Your healthcare career may open more than one immigration option.',
-  subtitle: 'Not sure whether your healthcare education, licence, work experience or Canadian job can support a pathway to permanent residence? Get a clear, practical overview of the immigration options that may apply to your situation, before you commit to an application or full representation.',
-  priceLine: '$59 + HST · Information session',
-  rcicLine: 'Provided by an RCIC-IRB regulated Canadian immigration consultant.',
-  ctaLabel: 'Book my $59 session',
-  launchDate: LAUNCH_DATE,
+  eyebrow: 'Healthcare Immigration',
+  title: 'Understand your options before you apply.',
+  subtitle: 'A focused information session for healthcare professionals exploring Canadian permanent residence.',
+  price: '$59',
+  priceNote: '+ HST · Single session',
+  ctaLabel: 'Book my information session',
+  cards: [
+    { label: 'Your profile', title: 'Occupation · experience · education' },
+    { label: 'Your options', title: 'Federal · provincial · regional' },
+    { label: 'Your next step', title: 'A practical direction forward' },
+  ],
 };
 
 const stopGuessing = {
@@ -151,7 +153,7 @@ const finalCta = {
   line2: 'Start with information.',
   body: 'Healthcare immigration can involve immigration rules, occupational requirements, licensing and provincial considerations. Understanding the pieces first can help you decide what to do next.',
   price: '$59 + HST',
-  ctaLabel: 'Book my $59 information session',
+  ctaLabel: 'Book my information session',
   disclaimer: 'Externa Immigration Solutions Inc. is represented by a Regulated Canadian Immigration Consultant (RCIC-IRB). Information provided during an information session is based on the information available at the time of the session and does not guarantee eligibility, nomination, invitation, approval, processing time or permanent residence.',
   closing: 'Professional fees and services are subject to a written agreement where applicable.',
 };
@@ -159,17 +161,17 @@ const finalCta = {
 export default function HealthcarePathway() {
   usePageMeta('Healthcare Immigration Information Session | Externa Immigration', 'A $59 information session with an RCIC-IRB regulated consultant to understand your healthcare immigration options before you commit to an application.');
   return (
-    <main className="bg-white">
+    <main className="bg-[#F7F3EA]">
       <Header />
-      <PathwayHero {...hero} />
+      <HealthcareHero {...hero} />
       <LandingNumbered {...stopGuessing} />
       <LandingAudience {...audience} />
       <LandingOccupations {...occupations} />
       <LandingWhatYouGet {...whatYouGet} />
       <LandingDisclaimer {...disclaimer} />
       <LandingWhyUs {...whyUs} />
-      <PathwayRegister {...register} />
-      <PathwayFAQ faqs={faqs} eyebrow={null} title="Questions?" />
+      <HealthcareRegister {...register} />
+      <HealthcareFAQ faqs={faqs} title="Questions?" />
       <LandingFinalCta {...finalCta} />
       <Footer />
     </main>
