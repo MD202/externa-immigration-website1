@@ -3,9 +3,9 @@ import { ArrowRight, CheckCircle2, Loader2 } from 'lucide-react';
 import { base44 } from '@/api/base44Client';
 
 // Registration + paid checkout. Captures a Lead, logs it to the shared sheet,
-// then redirects to a Stripe checkout session for the pathway fee. Shows a
-// success state when Stripe returns ?payment=success.
-export default function PathwayRegister({ pathway, price, priceNote, title, returnPath, sourceLabel, situation }) {
+// then redirects to a Stripe checkout session for the pathway fee. Optional
+// copy props let each page tailor the section without touching the logic.
+export default function PathwayRegister({ pathway, price, priceNote, title, returnPath, sourceLabel, situation, eyebrow = 'Register', subtitle, priceSubline, paymentType, priceTag, ctaLabel, postBookingNote, consentNote }) {
   const [form, setForm] = useState({ full_name: '', email: '', phone: '' });
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
@@ -84,17 +84,22 @@ export default function PathwayRegister({ pathway, price, priceNote, title, retu
     );
   }
 
+  const buttonLabel = ctaLabel || `Register and pay ${price}`;
+
   return (
     <section id="register" className="bg-white px-5 py-20 lg:px-[8vw] lg:py-28">
       <div className="mx-auto grid max-w-5xl gap-10 lg:grid-cols-2 lg:gap-16">
         <div>
-          <p className="eyebrow">Register</p>
+          <p className="eyebrow">{eyebrow}</p>
           <h2 className="section-title">{title}</h2>
-          <p className="mt-5 leading-relaxed text-[#1E2A4A]/60">{priceNote}</p>
+          {subtitle && <p className="mt-5 font-heading text-xl leading-snug text-[#1E2A4A]/80">{subtitle}</p>}
+          {priceNote && <p className="mt-5 leading-relaxed text-[#1E2A4A]/60">{priceNote}</p>}
           <div className="mt-8 flex items-end gap-2">
             <span className="font-heading text-5xl text-[#1E2A4A]">{price}</span>
-            <span className="mb-1 text-sm text-[#1E2A4A]/50">+HST · single payment</span>
+            <span className="mb-1 text-sm text-[#1E2A4A]/50">{priceSubline || '+HST · single payment'}</span>
           </div>
+          {paymentType && <p className="mt-2 text-sm text-[#1E2A4A]/55">{paymentType}</p>}
+          {priceTag && <p className="mt-3 text-sm font-semibold uppercase tracking-[.08em] text-[#B8860B]">{priceTag}</p>}
           <p className="mt-3 text-sm text-[#1E2A4A]/50">Secure payment via Stripe. Intake is limited.</p>
         </div>
         <div className="border border-[#1E2A4A]/10 bg-[#F8FAFC] p-8 lg:p-10">
@@ -111,9 +116,10 @@ export default function PathwayRegister({ pathway, price, priceNote, title, retu
           </div>
           {error && <p className="mt-4 text-sm text-[#8C2F39]">{error}</p>}
           <button onClick={submit} disabled={saving} className="btn btn-primary mt-7 w-full">
-            {saving ? <><Loader2 className="h-4 w-4 animate-spin" /> Processing</> : <>Register and pay {price} <ArrowRight className="h-4 w-4" /></>}
+            {saving ? <><Loader2 className="h-4 w-4 animate-spin" /> Processing</> : <>{buttonLabel} <ArrowRight className="h-4 w-4" /></>}
           </button>
-          <p className="mt-4 text-center text-xs text-[#1E2A4A]/40">By registering you consent to be contacted about your pathway. No obligation beyond the registration fee.</p>
+          {postBookingNote && <p className="mt-4 text-center text-xs text-[#1E2A4A]/50">{postBookingNote}</p>}
+          <p className="mt-4 text-center text-xs text-[#1E2A4A]/40">{consentNote || 'By registering you consent to be contacted about your pathway. No obligation beyond the registration fee.'}</p>
         </div>
       </div>
     </section>
