@@ -23,6 +23,8 @@ import PrivacyPolicy from '@/pages/PrivacyPolicy';
 import RefundPolicy from '@/pages/RefundPolicy';
 import { LanguageProvider } from '@/lib/LanguageContext';
 import WhatsAppWidget from '@/components/site/WhatsAppWidget';
+import HealthcarePathway from '@/pages/HealthcarePathway';
+import EntrepreneurPathway from '@/pages/EntrepreneurPathway';
 // Add page imports here
 
 const AuthenticatedApp = () => {
@@ -67,6 +69,8 @@ const AuthenticatedApp = () => {
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/refund-policy" element={<RefundPolicy />} />
       <Route path="/eligibility" element={<Eligibility />} />
+      <Route path="/healthcare-pathway" element={<HealthcarePathway />} />
+      <Route path="/entrepreneur-pathway" element={<EntrepreneurPathway />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
       <WhatsAppWidget />

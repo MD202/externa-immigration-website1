@@ -4,6 +4,8 @@ const PRICE_MAP = {
   quick_question: "price_1UAzCaEYsNYi8rFrXUc9nG09",
   full_consultation: "price_1UAzCaEYsNYi8rFrNSSjZ3DP",
   application_review: "price_1UAzCbEYsNYi8rFrsusgPdum",
+  healthcare_pathway: "price_1UHwjDEYsNYi8rFrA74hJrge",
+  entrepreneur_pathway: "price_1UHwjDEYsNYi8rFrvNJ9HJ5M",
 };
 
 const APP_ORIGIN = "https://north-star-counsel.base44.app";
@@ -11,9 +13,10 @@ const APP_ORIGIN = "https://north-star-counsel.base44.app";
 export default async function(req) {
   try {
     const body = await req.json();
-    const { service_tier, full_name, email, preferred_date, preferred_time } = body;
+    const { service_tier, full_name, email, preferred_date, preferred_time, return_path } = body;
     const priceId = PRICE_MAP[service_tier];
     if (!priceId) return Response.json({ error: "Invalid service tier" }, { status: 400 });
+    const returnPath = return_path || "/strategy-session";
 
     const stripeKey = secrets.get("STRIPE_SECRET_KEY");
     const appId = secrets.get("BASE44_APP_ID");
@@ -23,8 +26,8 @@ export default async function(req) {
     params.append("line_items[0][price]", priceId);
     params.append("line_items[0][quantity]", "1");
     params.append("customer_email", email || "");
-    params.append("success_url", `${APP_ORIGIN}/strategy-session?payment=success&session_id={CHECKOUT_SESSION_ID}`);
-    params.append("cancel_url", `${APP_ORIGIN}/strategy-session?payment=cancel`);
+    params.append("success_url", `${APP_ORIGIN}${returnPath}?payment=success&session_id={CHECKOUT_SESSION_ID}`);
+    params.append("cancel_url", `${APP_ORIGIN}${returnPath}?payment=cancel`);
     params.append("metadata[base44_app_id]", appId || "");
     params.append("metadata[full_name]", full_name || "");
     params.append("metadata[service_tier]", service_tier || "");
