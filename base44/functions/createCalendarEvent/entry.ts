@@ -35,49 +35,39 @@ export default async function(req) {
     const base44 = createClientFromRequest(req);
     const { accessToken } = await base44.asServiceRole.connectors.getConnection("googlecalendar");
 
-    // The consultant's calendar is the firm booking address, so invites go to both sides.
-    const ownerEmail = CALENDAR_ID;
-
     const { hour, minute } = parseTime(preferred_time);
     const start = etDateToUtc(preferred_date, hour, minute);
     const duration = TIER_DURATION_MIN[service_tier] || 60;
     const end = new Date(start.getTime() + duration * 60000);
 
-    const attendees = [];
-    if (email) attendees.push({ email });
-    if (ownerEmail && ownerEmail !== email) attendees.push({ email: ownerEmail });
+    // Only the client is invited. The consultant owns the booking calendar and sees the
+    // event directly, so adding the calendar's own address as an attendee is unnecessary
+    // and Google rejects it ("Invalid attendee email").
+    const attendees = email ? [{ email }] : [];
 
-    const buildEvent = (atts) => ({
+    const event = {
       summary: `${TIER_LABEL[service_tier] || "Consultation"} — ${full_name}`,
       description: `Client: ${full_name}\nEmail: ${email}\nService: ${TIER_LABEL[service_tier] || service_tier}`,
       start: { dateTime: start.toISOString(), timeZone: "America/New_York" },
       end: { dateTime: end.toISOString(), timeZone: "America/New_York" },
-      attendees: atts,
+      attendees,
       conferenceData: {
         createRequest: {
           requestId: crypto.randomUUID(),
           conferenceSolutionKey: { type: "hangoutsMeet" },
         },
       },
-    });
+    };
 
-    const postEvent = (atts) => fetch(
+    const res = await fetch(
       `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(CALENDAR_ID)}/events?conferenceDataVersion=1&sendUpdates=all`,
       {
         method: "POST",
         headers: { Authorization: `Bearer ${accessToken}`, "Content-Type": "application/json" },
-        body: JSON.stringify(buildEvent(atts)),
+        body: JSON.stringify(event),
       }
     );
-
-    let res = await postEvent(attendees);
-    let data = await res.json();
-    // If listing the owner as an attendee caused a failure, retry with the client only.
-    if (!res.ok && ownerEmail && ownerEmail !== email) {
-      console.error("Calendar event with owner attendee failed, retrying client-only:", data.error?.message);
-      res = await postEvent(email ? [{ email }] : []);
-      data = await res.json();
-    }
+    const data = await res.json();
     if (!res.ok) {
       console.error("Calendar event error:", data.error?.message);
       return Response.json({ error: data.error?.message || "Calendar error" }, { status: 500 });

@@ -44,7 +44,6 @@ export default function WhatsAppWidget() {
       });
       try {
         await base44.functions.invoke('appendLeadToSheet', {
-          leadId: rec.id,
           dateScheduled: '',
           name: fullName,
           phone: form.phone,
@@ -55,6 +54,7 @@ export default function WhatsAppWidget() {
           paid: 'No',
           createdDate: rec.created_date,
           comments: '',
+          deadline: '',
         });
       } catch (err) { console.error('Sheet log failed:', err); }
     } catch (err) { console.error('Lead create failed:', err); }

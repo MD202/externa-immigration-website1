@@ -42,7 +42,6 @@ export default function Contact() {
       });
       try {
         await base44.functions.invoke('appendLeadToSheet', {
-          leadId: rec.id,
           dateScheduled: '',
           name: form.full_name,
           phone: form.phone,
@@ -53,6 +52,7 @@ export default function Contact() {
           paid: 'No',
           createdDate: rec.created_date,
           comments: form.briefly,
+          deadline: '',
         });
       } catch (sheetErr) { console.error('Sheet log failed:', sheetErr); }
       setDone(true);

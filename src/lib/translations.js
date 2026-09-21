@@ -449,6 +449,7 @@ export const translations = {
     calendarNote: { en: 'The Cal.com booking embed will load in this space.' },
     selectDate: { en: 'Select a date' },
     selectTimeLabel: { en: 'Select a time' },
+    selectPlaceholder: { en: 'Select an option', ta: 'ஒரு விருப்பத்தைத் தேர்ந்தெடுக்கவும்', hi: 'एक विकल्प चुनें' },
     timeZone: { en: 'Times shown in America/New_York.' },
     noSlots: { en: 'No available slots on this day. Try another date.', ta: 'இந்த நாளில் இடங்கள் இல்லை. வேறு தேதியை முயற்சிக்கவும்.', hi: 'इस दिन कोई स्लॉट उपलब्ध नहीं। दूसरी तिथि आज़माएँ।' },
     loadingSlots: { en: 'Loading…', ta: 'ஏற்றுகிறது…', hi: 'लोड हो रहा है…' },

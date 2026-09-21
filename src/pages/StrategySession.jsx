@@ -35,7 +35,6 @@ export default function StrategySession() {
         const tierLabel = { quick_question: 'Quick Question', full_consultation: 'Full Consultation', application_review: 'Application Review' }[data.service_tier] || data.service_tier || '';
         const dateScheduled = data.preferred_date ? `${data.preferred_date}${data.preferred_time ? ' ' + data.preferred_time : ''}` : '';
         await base44.functions.invoke('appendLeadToSheet', {
-          leadId: rec.id,
           dateScheduled,
           name: data.full_name,
           phone: data.phone,
@@ -46,6 +45,7 @@ export default function StrategySession() {
           paid: paymentPref === 'pay_now' ? 'Yes' : 'No',
           createdDate: rec.created_date,
           comments: data.summary,
+          deadline: data.urgency,
         });
       } catch (sheetErr) { console.error('Sheet log failed:', sheetErr); }
       try {

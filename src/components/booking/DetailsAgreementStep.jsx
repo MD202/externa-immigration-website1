@@ -45,13 +45,13 @@ export default function DetailsAgreementStep({ data, setData, saving, onPayNow, 
         </label>
         <label className="intake-label">{t('bookingFlow.matter')}
           <select value={data.matter} onChange={field('matter')} className="intake-input">
-            <option value="">, </option>
+            <option value="">{t('bookingFlow.selectPlaceholder')}</option>
             {matters.map((m) => <option key={m.value} value={m.value}>{m.label}</option>)}
           </select>
         </label>
         <label className="intake-label sm:col-span-2">{t('bookingFlow.urgency')}
           <select value={data.urgency} onChange={field('urgency')} className="intake-input">
-            <option value="">, </option>
+            <option value="">{t('bookingFlow.selectPlaceholder')}</option>
             {urgency.map((u) => <option key={u.value} value={u.value}>{u.label}</option>)}
           </select>
         </label>
